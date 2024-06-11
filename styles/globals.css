@@ -4,11 +4,16 @@
 @font-face {
   font-family: "Futura";
   src: url("https://db.onlinewebfonts.com/t/02a0efa4275f78836dfc89db9e21feea.eot");
-  src: url("https://db.onlinewebfonts.com/t/02a0efa4275f78836dfc89db9e21feea.eot?#iefix")format("embedded-opentype"),
-  url("https://db.onlinewebfonts.com/t/02a0efa4275f78836dfc89db9e21feea.woff2")format("woff2"),
-  url("https://db.onlinewebfonts.com/t/02a0efa4275f78836dfc89db9e21feea.woff")format("woff"),
-  url("https://db.onlinewebfonts.com/t/02a0efa4275f78836dfc89db9e21feea.ttf")format("truetype"),
-  url("https://db.onlinewebfonts.com/t/02a0efa4275f78836dfc89db9e21feea.svg#Futura-Book")format("svg");
+  src: url("https://db.onlinewebfonts.com/t/02a0efa4275f78836dfc89db9e21feea.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/02a0efa4275f78836dfc89db9e21feea.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/02a0efa4275f78836dfc89db9e21feea.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/02a0efa4275f78836dfc89db9e21feea.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/02a0efa4275f78836dfc89db9e21feea.svg#Futura-Book")
+      format("svg");
 }
 
 /* @font-face {
@@ -47,9 +52,8 @@
   padding: 0;
   margin: 0;
   /* font-weight: bold; */
-  font-family: 'Futura';
+  font-family: "Futura";
 }
-
 
 * ::-webkit-scrollbar {
   width: 5px;
@@ -67,129 +71,125 @@
   border: 5px solid #f38102;
 }
 
-
 ::-webkit-scrollbar-thumb:hover {
   background-color: #f38102;
 }
 @media (min-width: 320px) and (max-width: 425px) {
   .setmaindiv {
-      width: 100%;
-      padding:10px 10px;
+    width: 100%;
+    padding: 10px 10px;
   }
-  .setmaindiv2{
+  .setmaindiv2 {
     width: 100%;
   }
-  .setmaindiv3{
+  .setmaindiv3 {
     width: 90%;
     left: auto;
-
   }
-  .custom-caption{
-    display: none!important;
+  .custom-caption {
+    display: none !important;
   }
-  .aboutuspadding{
+  .aboutuspadding {
     padding: 0px 36px;
   }
   .section_mod-d {
     padding-bottom: 70px;
-    background: none no-repeat 100% 100%!important;
+    background: none no-repeat 100% 100% !important;
   }
-  .bg-white-light{
+  .bg-white-light {
     background: #fff;
   }
-  .ribbon-pop{
+  .ribbon-pop {
     font-size: 18px;
   }
-  .ribbon-pop:after{
-    border-right: 20px solid #fff!important;
+  .ribbon-pop:after {
+    border-right: 20px solid #fff !important;
   }
   .w-48 {
-      width: 14.5rem;
+    width: 14.5rem;
   }
-  .changeallcartext{
+  .changeallcartext {
     font-size: 13px;
   }
-  .text-xxs{
+  .text-xxs {
     font-size: 5px;
   }
 }
 @media (min-width: 426px) and (max-width: 768px) {
   .setmaindiv {
-      width: 100%;
-      padding:10px 10px;
+    width: 100%;
+    padding: 10px 10px;
   }
-  .setmaindiv2{
+  .setmaindiv2 {
     width: 70%;
   }
-  .setmaindiv3{
+  .setmaindiv3 {
     width: 70%;
     left: 0;
-
   }
-  .custom-caption{
-    display: none!important;
+  .custom-caption {
+    display: none !important;
   }
-  .aboutuspadding{
+  .aboutuspadding {
     padding: 0px 116px;
   }
-  .bg-white-light{
+  .bg-white-light {
     background: #fff;
   }
-  .ribbon-pop{
+  .ribbon-pop {
     font-size: 18px;
   }
   .w-48 {
-      width: 14.5rem;
+    width: 14.5rem;
   }
 }
 @media (min-width: 769px) and (max-width: 1024px) {
   .setmaindiv {
-      width: 100%;
-      padding:30px 90px;
+    width: 100%;
+    padding: 30px 90px;
   }
-  .setmaindiv2{
+  .setmaindiv2 {
     width: 50%;
   }
-  .setmaindiv3{
+  .setmaindiv3 {
     width: 50%;
     left: auto;
   }
-  .aboutuspadding{
+  .aboutuspadding {
     padding: 0px 116px;
   }
-  .bg-white-light{
+  .bg-white-light {
     background: #ffffff8c;
   }
-  .w-48{
-    width:48%;
+  .w-48 {
+    width: 48%;
   }
-  .mars-3{
+  .mars-3 {
     margin-left: 15px;
   }
-  
 }
 @media (min-width: 1025px) and (max-width: 2560px) {
   .setmaindiv {
-      width: 100%;
-      padding:30px 90px;
+    width: 100%;
+    padding: 30px 90px;
   }
-  .setmaindiv2{
+  .setmaindiv2 {
     width: 50%;
   }
-  .setmaindiv3{
+  .setmaindiv3 {
     width: 34%;
     left: auto;
   }
-  .aboutuspadding{
+  .aboutuspadding {
     padding: 0px 116px;
   }
-  .bg-white-light{
+  .bg-white-light {
     background: #ffffff8c;
   }
-  .w-48{
-    width:48%;
+  .w-48 {
+    width: 48%;
   }
-  .mars-3{
+  .mars-3 {
     margin-left: 15px;
   }
 }
@@ -201,13 +201,13 @@
   object-fit: cover;
 }
 .main-slider:after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
-  background: rgba(0,0,0,.4);
+  background: rgba(0, 0, 0, 0.4);
 }
 
 /* .main-slider:before {
@@ -238,14 +238,13 @@
   content: '';
 } */
 
-
-.shadow2{
+.shadow2 {
   border: 1px solid #c58e4e;
 }
 /* .bg-white{
   background-color: white;
 } */
-.prvtag{
+.prvtag {
   font-size: 11px;
 }
 .whychooseus {
@@ -253,25 +252,24 @@
   border-radius: 35px;
   /* filter: brightness(0.5); */
   /* height: 370px; */
-
 }
-.align-item-center{
-  align-items: center!important;
+.align-item-center {
+  align-items: center !important;
 }
-.cardhow{
+.cardhow {
   /* background: #fff; */
   border-radius: 12px;
   box-shadow: 0px 1px 7px 2px #e2e2e2;
 }
-.position-fixed{
-  position:fixed;
+.position-fixed {
+  position: fixed;
 }
 
-@media only screen and (min-width : 320px) and (max-width: 425px){
-  .navmargin{
+@media only screen and (min-width: 320px) and (max-width: 425px) {
+  .navmargin {
     margin: 0px 10px;
   }
-  .banheadfontmb{
+  .banheadfontmb {
     font-weight: bolder;
     font-size: 64px;
     line-height: normal;
@@ -279,11 +277,11 @@
     /* font-family: sans-serif; */
   }
 }
-@media only screen and (min-width : 425px) and (max-width: 768px){
-  .navmargin{
+@media only screen and (min-width: 425px) and (max-width: 768px) {
+  .navmargin {
     margin: 0px 10px;
   }
-  .banheadfontmb{
+  .banheadfontmb {
     font-weight: bolder;
     font-size: 48px;
     line-height: 36px;
@@ -291,17 +289,16 @@
     /* font-family: sans-serif; */
   }
 }
-@media only screen and (min-width : 768px) and (max-width: 1024px){
-  .navmargin{
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .navmargin {
     margin: 0px 10px;
   }
-
 }
-@media only screen and (min-width : 1024px) and (max-width: 1440px){
-  .navmargin{
+@media only screen and (min-width: 1024px) and (max-width: 1440px) {
+  .navmargin {
     margin: 0px 100px;
   }
-  .banheadfont{
+  .banheadfont {
     font-weight: bolder;
     font-size: 48px;
     line-height: normal;
@@ -310,11 +307,11 @@
     /* padding: 34px; */
   }
 }
-@media only screen and (min-width : 1440px) and (max-width: 2560px){
-  .navmargin{
+@media only screen and (min-width: 1440px) and (max-width: 2560px) {
+  .navmargin {
     margin: 0px 100px;
   }
-  .banheadfont{
+  .banheadfont {
     font-weight: bolder;
     font-size: 64px;
     line-height: normal;
@@ -324,31 +321,30 @@
   }
 }
 
-.banparafont{
+.banparafont {
   text-align: left;
 }
-.banbtn{
+.banbtn {
   float: inline-start;
   font-family: sans-serif;
   font-weight: 700;
-
 }
 
 @keyframes slide-bottom {
   from {
-      transform: translateY(100%);
+    transform: translateY(100%);
   }
   to {
-      transform: translateY(0);
+    transform: translateY(0);
   }
 }
 
 @keyframes slide-top {
   from {
-      transform: translateY(-100%);
+    transform: translateY(-100%);
   }
   to {
-      transform: translateY(0);
+    transform: translateY(0);
   }
 }
 
@@ -359,32 +355,32 @@
 .animate-slide-top {
   animation: slide-top 1s ease forwards;
 }
-.buyh4{
+.buyh4 {
   /* font-family: sans-serif; */
   font-weight: 700;
   letter-spacing: normal;
 }
-.hiwpara{
+.hiwpara {
   font-size: 18px;
   line-height: 25px;
   font-weight: 200;
-  font-family: 'Inter';
+  font-family: "Inter";
   color: black;
 }
 
-.browsbtn{
-  background: linear-gradient(269deg, #E07A02, #FFB648);
+.browsbtn {
+  background: linear-gradient(269deg, #e07a02, #ffb648);
 }
-.imgasusefix{
+.imgasusefix {
   width: 64%;
   margin: auto;
 }
-.carh1fontfamily{
+.carh1fontfamily {
   font-family: sans-serif;
   font-weight: 800;
   font-size: 40px;
 }
-.san-serif{
+.san-serif {
   font-family: sans-serif;
 }
 
@@ -398,53 +394,52 @@
   /* font-size: 20px; */
   font-weight: 100;
 }
-.carreg{
+.carreg {
   font-size: 20px;
 }
-.buyh1fontfamily{
+.buyh1fontfamily {
   font-family: sans-serif;
   font-weight: 800;
   font-size: 24px;
 }
-.rounded-12{
-  border-radius: 12px 12px 12px 12px!important;
+.rounded-12 {
+  border-radius: 12px 12px 12px 12px !important;
 }
-.changecartext{
+.changecartext {
   padding: 10px;
   background: linear-gradient(to right, #2c80f1, #1f5baa);
   border-radius: 0px 0px 12px 12px;
   color: white;
   height: 230px;
 }
-.changeallcartext{
+.changeallcartext {
   padding: 10px;
   background: #f3f3fa30;
   border-radius: 0px 0px 20px 20px;
   color: black;
-  height: 255px;
+  min-height: 255px;
   /* border:1px solid #8080805c; */
 }
-.sellheadfont{
+.sellheadfont {
   font-weight: bolder;
   font-size: 48px;
   line-height: normal;
   /* font-family: sans-serif; */
 }
-.font-sansserif{
+.font-sansserif {
   font-family: sans-serif;
 }
-.font-inter{
-  font-family: 'Inter';
+.font-inter {
+  font-family: "Inter";
 }
 span.MuiSlider-track.css-1n40zqk-MuiSlider-track {
-  color: black!important;
+  color: black !important;
 }
 .css-hishah-MuiSlider-thumb::after {
-  width: 15px!important;
-  height: 15px!important;
+  width: 15px !important;
+  height: 15px !important;
   background: #5fa846;
 }
-
 
 /* Custom scrollbar for Webkit browsers */
 .overflow-y-scroll::-webkit-scrollbar {
@@ -468,7 +463,7 @@ span.MuiSlider-track.css-1n40zqk-MuiSlider-track {
   scrollbar-width: thin; /* Width of the scrollbar */
   scrollbar-color: #888 #f1f1f1; /* Thumb color and track color */
 }
-.challan-headbg{
+.challan-headbg {
   position: relative;
   height: 190px;
   border-radius: 20px;
@@ -479,30 +474,30 @@ button.control-arrow.control-next {
 button.control-arrow.control-prev {
   display: none;
 }
-.bg-blue-custom{
+.bg-blue-custom {
   background-color: #fcfdff;
 }
-.css-1elwnq4-MuiPaper-root-MuiAccordion-root{
-  position: static!important;
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root {
+  position: static !important;
 }
 .css-ahj2mt-MuiTypography-root {
   margin: 0;
-  font-family: '';
-  font-weight: bolder!important;
+  font-family: "";
+  font-weight: bolder !important;
   font-size: 1rem;
   line-height: 1.5;
   letter-spacing: 0.00938em;
 }
-.changehomwq{
+.changehomwq {
   margin: 0;
-  font-family: 'Inter';
-  font-weight: 400!important;
+  font-family: "Inter";
+  font-weight: 400 !important;
   font-size: 1rem;
   line-height: 1.5;
   letter-spacing: 0.00938em;
 }
 .MuiTabs-root.css-1ujnqem-MuiTabs-root {
-  overflow-x: auto!important;
+  overflow-x: auto !important;
 }
 div#carList {
   background: #f3f3fa30;
@@ -510,34 +505,34 @@ div#carList {
 img.iiz__img {
   border-radius: 15px;
 }
-li.thumb{
+li.thumb {
   border-radius: 15px;
 }
 
-.changefeaturedcartext{
+.changefeaturedcartext {
   padding: 10px;
-  background-image: linear-gradient(to right,#2F88FF, #1C5299);
+  background-image: linear-gradient(to right, #2f88ff, #1c5299);
   border-radius: 0px 0px 20px 20px;
   color: black;
-  height: 255px;
+  min-height: 255px;
   /* border:1px solid #8080805c; */
 }
-.featuremain{
-  background-image: linear-gradient(to right,#2F88FF, #1C5299);
+.featuremain {
+  background-image: linear-gradient(to right, #2f88ff, #1c5299);
   border-radius: 20px;
 }
-.css-gc2zkf-MuiSlider-root{
-  color: rgb(0 0 0 / 72%)!important;
+.css-gc2zkf-MuiSlider-root {
+  color: rgb(0 0 0 / 72%) !important;
 }
 .carousel .control-dots {
   display: none;
 }
-.css-1086bdv-MuiPaper-root-MuiAccordion-root::before{
-  background-color:rgba(255, 255, 255, 0)!important;
+.css-1086bdv-MuiPaper-root-MuiAccordion-root::before {
+  background-color: rgba(255, 255, 255, 0) !important;
 }
 
 .sticky-element {
   position: -webkit-sticky; /* For Safari */
-  
+
   top: 30px; /* Adjust as needed */
 }

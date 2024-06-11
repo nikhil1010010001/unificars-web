@@ -9,6 +9,7 @@ import { RiStarSFill, RiStarSLine } from "react-icons/ri";
 // import Carousel from "react-multi-carousel";
 
 import dynamic from "next/dynamic";
+import Reviews from "@/components/Home/Reviews";
 // const BannerCarousel = dynamic(() => import("@/components/Home/BannerCarousel"),{ssr: false});
 const HomeQuestions = dynamic(() => import("@/components/Home/HomeQuestions"), {
   ssr: false,
@@ -43,6 +44,25 @@ const responsive = {
 };
 
 function index() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // Initial check
+    handleResize();
+
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <>
       <Head>
@@ -61,13 +81,15 @@ function index() {
           <div className="hidden md:flex relative w-full h-[35rem]">
             {/* Text section */}
             <div
-              className={`absolute left-0 top-0 w-1/2 h-full bg-opacity-80 px-20 z-10 flex flex-col justify-center backdrop-blur-sm bg-gradient-to-r from-white`}>
+              className={`absolute left-0 top-0 w-1/2 h-full bg-opacity-80 px-20 z-10 flex flex-col justify-center backdrop-blur-sm bg-gradient-to-r from-white`}
+            >
               <Carousel
                 className=""
                 showStatus={false}
                 showThumbs={false}
                 infiniteLoop
-                autoPlay>
+                autoPlay
+              >
                 <div>
                   <h1 className="text-5xl font-black mb-4 banheadfont">
                     Choose Reliability, Choose Your New Car.
@@ -80,7 +102,8 @@ function index() {
                   <Link href="/buy-used-cars" passHref>
                     <button
                       className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 font-inter"
-                      style={{ width: "fit-content", float: "left" }}>
+                      style={{ width: "fit-content", float: "left" }}
+                    >
                       Buy Car
                     </button>
                   </Link>
@@ -97,7 +120,8 @@ function index() {
                   <Link href="/sell-used-cars" passHref>
                     <button
                       className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 font-inter"
-                      style={{ width: "fit-content", float: "left" }}>
+                      style={{ width: "fit-content", float: "left" }}
+                    >
                       Sell Car
                     </button>
                   </Link>
@@ -119,7 +143,8 @@ function index() {
           <div className={`md:hidden `}>
             <div
               className="relative flex items-center justify-center"
-              style={{ backgroundColor: "#FDF4E3", height: "400px" }}>
+              style={{ backgroundColor: "#FDF4E3", height: "400px" }}
+            >
               <img
                 src="/homecar.png"
                 className="absolute transform -translate-y-1/2 object-contain mt-12"
@@ -131,7 +156,8 @@ function index() {
                 showThumbs={false}
                 infiniteLoop
                 autoPlay
-                className="absolute bottom-10 text-center w-full">
+                className="absolute bottom-10 text-center w-full"
+              >
                 <div className="flex flex-col mx-4 items-start justify-start">
                   <h1 className="text-2xl mb-2 font-bold text-start">
                     Choose Reliability, Choose Your New Car.
@@ -342,7 +368,8 @@ function index() {
         </div>
       </div>
 
-      {/* <Reviews/> */}
+      {/* <Reviews /> */}
+
       <div className="bg-gray-50 py-12">
         <div className="text-center items-center flex flex-col mb-6">
           <h2 className="text-4xl text-[#000] my-2 font-black">Testimonials</h2>
@@ -353,10 +380,10 @@ function index() {
         </div>
 
         <div className="px-4 mx-auto">
-          <Carousel showThumbs={false} autoPlay infiniteLoop>
+          <Carousel showThumbs={false} autoPlay infiniteLoop showStatus={false}>
             {/* Slide 1 */}
-            <div className=" border border-red-500">
-              <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-2 min-h-[342px] w-full">
+            <div className="flex items-center w-full">
+              <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-2 h-[342px] w-full">
                 <div>
                   <img
                     src="/testimonials/testi1.jpeg"
@@ -377,7 +404,7 @@ function index() {
                 <h5 className="my-4 text-lg text-blue-950">SI MOTORS</h5>
               </div>
 
-              <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-2 min-h-[342px] w-full">
+              <div className="hidden md:flex flex-col items-center bg-white shadow rounded p-6 mx-2 h-[342px] w-full">
                 <div>
                   <img
                     src="/testimonials/testi2.jpeg"
@@ -398,7 +425,7 @@ function index() {
                 <h5 className="my-4 text-lg text-blue-950">AS TRADING</h5>
               </div>
 
-              <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-2 min-h-[342px] w-full">
+              <div className="hidden md:flex flex-col items-center bg-white shadow rounded p-6 mx-2 h-[342px] w-full">
                 <div>
                   <img
                     src="/testimonials/testi3.jpeg"
@@ -422,7 +449,7 @@ function index() {
 
             {/* Slide 2 */}
             <div className="flex justify-around">
-              <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-2 min-h-[342px] w-full">
+              <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-2 h-[342px] w-full">
                 <div>
                   <img
                     src="/testimonials/testi4.jpeg"
@@ -442,7 +469,8 @@ function index() {
                 </p>
                 <h5 className="my-4 text-lg text-blue-950">GM MOTORS</h5>
               </div>
-              <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-2 min-h-[342px] w-full">
+
+              <div className="hidden md:flex flex-col items-center bg-white shadow rounded p-6 mx-2 h-[342px] w-full">
                 <div>
                   <img
                     src="/testimonials/testi5.jpeg"
@@ -464,7 +492,8 @@ function index() {
                   EXPART AUTOMOBILE
                 </h5>
               </div>
-              <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-2 min-h-[342px] w-full">
+
+              <div className="hidden md:flex flex-col items-center bg-white shadow rounded p-6 mx-2 h-[342px] w-full">
                 <div>
                   <img
                     src="/testimonials/testi6.jpeg"

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
-import ExploreCars from "./ExploreCars";
+import FeaturedCars from "../cars-listing/FeaturedCars";
 
 const Buycar = () => {
   return (
@@ -14,80 +14,86 @@ const Buycar = () => {
           </h1>
         </div>
         <div className="flex gap-6 md:flex-row flex-col">
-          <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg shadow-md">
-            <img
-              src="carousel/usedcars1.png"
-              className="img-fluid w-full h-80 object-cover rounded-lg"
-              alt="howitworks"
-              width="280"
-            />
-            <div className="text-left">
-              <h4 className="text-lg text-black font-black tracking-widest mt-4 flex-none buyh4">
-                210 Point Inspection Report
-              </h4>
-              <p className="text-sm">
-                Unifi provide 210 check points vehicle inspection report.
-              </p>
+          <Link href="/buy-used-cars" passHref>
+            <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg shadow-md">
+              <img
+                src="carousel/usedcars1.png"
+                className="img-fluid w-full h-80 object-cover rounded-lg"
+                alt="howitworks"
+                width="280"
+              />
+              <div className="text-left">
+                <h4 className="text-lg text-black font-black tracking-widest mt-4 flex-none buyh4">
+                  210 Point Inspection Report
+                </h4>
+                <p className="text-sm">
+                  Unifi provide 210 check points vehicle inspection report.
+                </p>
+              </div>
             </div>
-          </div>
+          </Link>
 
-          <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg shadow-md">
-            <img
-              src="carousel/usedcars2.png"
-              className="img-fluid w-full h-80 object-cover rounded-lg"
-              alt="howitworks"
-              width="280"
-            />
-            <div className="text-left">
-              <h4 className="text-lg text-black font-bold tracking-widest mt-4 flex-none buyh4">
-                10,000 km engine warranty
-              </h4>
-              <p className="text-sm">
-                Every car is carefully hand picked after a thorough quality
-                inspection.
-              </p>
+          <Link href="/buy-used-cars" passHref>
+            <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg shadow-md">
+              <img
+                src="carousel/usedcars2.png"
+                className="img-fluid w-full h-80 object-cover rounded-lg"
+                alt="howitworks"
+                width="280"
+              />
+              <div className="text-left">
+                <h4 className="text-lg text-black font-bold tracking-widest mt-4 flex-none buyh4">
+                  10,000 km engine warranty
+                </h4>
+                <p className="text-sm">
+                  Every car is carefully hand picked after a thorough quality
+                  inspection.
+                </p>
+              </div>
             </div>
-          </div>
+          </Link>
 
-          <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg shadow-md">
-            <img
-              src="carousel/usedcars3.png"
-              className="img-fluid w-full h-80 object-cover rounded-lg"
-              alt="howitworks"
-              width="280"
-            />
-            <div className="text-left">
-              <h4 className="text-lg text-black font-bold tracking-widest mt-4 flex-none buyh4">
-                Free accessories worth 10k
-              </h4>
-              <p className="text-sm">
-                {" "}
-                Every car is carefully hand picked after a thorough quality
-                inspection.
-              </p>
+          <Link href="/buy-used-cars" passHref>
+            <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg shadow-md">
+              <img
+                src="carousel/usedcars3.png"
+                className="img-fluid w-full h-80 object-cover rounded-lg"
+                alt="howitworks"
+                width="280"
+              />
+              <div className="text-left">
+                <h4 className="text-lg text-black font-bold tracking-widest mt-4 flex-none buyh4">
+                  Free accessories worth 10k
+                </h4>
+                <p className="text-sm">
+                  {" "}
+                  Every car is carefully hand picked after a thorough quality
+                  inspection.
+                </p>
+              </div>
             </div>
-          </div>
+          </Link>
 
-          <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg shadow-md">
-            <img
-              src="carousel/usedcars4.png"
-              className="img-fluid w-full h-80 object-cover rounded-lg"
-              alt="howitworks"
-              width="280"
-            />
-            <div className="text-left">
-              <h4 className="text-lg text-black font-bold tracking-widest mt-4 flex-none buyh4">
-                First Service free
-              </h4>
-              <p className="text-sm">
-                Every car is carefully hand picked after a thorough quality
-                inspection.
-              </p>
+          <Link href="/buy-used-cars" passHref>
+            <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg shadow-md">
+              <img
+                src="carousel/usedcars4.png"
+                className="img-fluid w-full h-80 object-cover rounded-lg"
+                alt="howitworks"
+                width="280"
+              />
+              <div className="text-left">
+                <h4 className="text-lg text-black font-bold tracking-widest mt-4 flex-none buyh4">
+                  First Service free
+                </h4>
+                <p className="text-sm">
+                  Every car is carefully hand picked after a thorough quality
+                  inspection.
+                </p>
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
-
-        {/* <ExploreCars /> */}
 
         <Link href="/buy-used-cars" passHref>
           <button className="bg-orange-500 text-white mt-10 px-4 py-1 text-2xl rounded-lg hover:bg-orange-600 browsbtn">

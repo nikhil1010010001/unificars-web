@@ -97,11 +97,13 @@ const BrandFilter = ({ fields, setFields }) => {
       <Accordion
         className="my-2 shadow overflow-hidden"
         defaultExpanded={false}
-        style={{ boxShadow: "0px 0px 1px rgb(0 0 0 / 4%)" }}>
+        style={{ boxShadow: "0px 0px 1px rgb(0 0 0 / 4%)" }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
-          id="panel2a-header">
+          id="panel2a-header"
+        >
           <h6 className="font-semibold font-inter">Popular Brands</h6>
         </AccordionSummary>
         {/* <form className='flex gap-1' onSubmit={(e) => HandleSearch(e)}> */}
@@ -136,7 +138,8 @@ const BrandFilter = ({ fields, setFields }) => {
                     <Accordion
                       className="shadow"
                       key={index}
-                      expanded={expandAll ? true : brandExpanded == index}>
+                      expanded={expandAll ? true : brandExpanded == index}
+                    >
                       <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
                         aria-controls="panel2a-content"
@@ -151,7 +154,8 @@ const BrandFilter = ({ fields, setFields }) => {
                             }
                           });
                           setExpandAll(false);
-                        }}>
+                        }}
+                      >
                         <p className="text-sm font-medium whitespace-nowrap -ml-2">
                           {brand.brand_name}
                         </p>
@@ -181,7 +185,8 @@ const BrandFilter = ({ fields, setFields }) => {
                             display: "flex",
                             flexDirection: "column",
                             ml: 1,
-                          }}>
+                          }}
+                        >
                           {brand && brand.model ? (
                             brand.model.map((model, idx) => {
                               if (
@@ -192,7 +197,8 @@ const BrandFilter = ({ fields, setFields }) => {
                                 return (
                                   <div
                                     key={idx}
-                                    className="flex items-center h-8">
+                                    className="flex items-center h-8"
+                                  >
                                     <FormControlLabel
                                       onChange={(e) => {
                                         HandleModel(index, idx);
