@@ -58,7 +58,7 @@ const SellByPopularBrands = ({ setCarInfo, carInfo, screen, setScreen }) => {
                         },
                       }));
                     }}
-                    className="shadow-md border w-full p-2 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-200 flex items-center rounded-2xl justify-center"
+                    className="shadow-md border p-2 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-200 flex items-center rounded-2xl justify-center"
                     key={index}>
                     <Image
                       priority

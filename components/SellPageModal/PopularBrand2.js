@@ -39,8 +39,9 @@ const SellByPopularBrands = ({ setCarInfo, carInfo, screen, setScreen }) => {
       <div></div>
       {!Loading ? (
         screen == 1 ? (
-            // For Screen 1
-          <div className={`grid grid-cols-3 md:grid-cols-8 lg:grid-cols-8 gap-6`}>
+          // For Screen 1
+          <div
+            className={`grid grid-cols-3 md:grid-cols-8 lg:grid-cols-8 gap-6`}>
             {BrandsLogo.length > 0 ? (
               (showAll ? BrandsLogo : BrandsLogo).map((e, index) => (
                 <div
@@ -57,8 +58,7 @@ const SellByPopularBrands = ({ setCarInfo, carInfo, screen, setScreen }) => {
                     }));
                   }}
                   className="shadow-md border w-full p-4 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-200 hover:bg-gray-50 flex items-center rounded-2xl justify-center"
-                  key={index}
-                >
+                  key={index}>
                   <Image
                     priority
                     width={100}
@@ -81,8 +81,9 @@ const SellByPopularBrands = ({ setCarInfo, carInfo, screen, setScreen }) => {
             )} */}
           </div>
         ) : (
-            // For Screen 2
-          <div className={`grid grid-cols-3 md:grid-cols-8 lg:grid-cols-8 gap-6`}>
+          // For Screen 2
+          <div
+            className={`grid grid-cols-3 md:grid-cols-8 lg:grid-cols-8 gap-6`}>
             {BrandsLogo.length > 0 ? (
               (showAll ? BrandsLogo : BrandsLogo).map((e, index) => (
                 <div
@@ -99,8 +100,7 @@ const SellByPopularBrands = ({ setCarInfo, carInfo, screen, setScreen }) => {
                     }));
                   }}
                   className="shadow-md border w-full p-4 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-200 hover:bg-gray-50 flex items-center justify-center"
-                  key={index}
-                >
+                  key={index}>
                   <Image
                     priority
                     width={50}
@@ -121,7 +121,6 @@ const SellByPopularBrands = ({ setCarInfo, carInfo, screen, setScreen }) => {
                 {showAll ? 'Less' : 'More'}
               </button>
             )} */}
-            
           </div>
         )
       ) : (
