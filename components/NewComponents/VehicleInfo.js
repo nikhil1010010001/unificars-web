@@ -501,7 +501,7 @@ const VehicleInfo = () => {
     <>
       <div className="lg:col-span-2 gap-4 flex flex-col md:w-[100%] z-10">
         {screen === 1 && (
-          <div className="p-4 flex flex-col justify-center items-start gap-2">
+          <div className="md:p-2 flex flex-col justify-center items-start gap-2">
             {/* <h1 className='text-xl text-black my-2 flex items-center'>
                   Enter your car registration number &nbsp;<img src="4xfaster.png" style={{width:'20%'}}/>
               </h1> */}
@@ -542,7 +542,7 @@ const VehicleInfo = () => {
               <div className="loader text-sm">Loading...</div>
             ) : (
               <button
-                className="bg-blue-500 text-white px-7 py-1 rounded-lg hover:bg-blue-600 text-base font-inter"
+                className="bg-blue-500 text-white px-7 py-3 rounded-lg hover:bg-blue-600 text-base font-inter"
                 onClick={submitCarNumber}>
                 Get Price
               </button>
@@ -588,7 +588,7 @@ const VehicleInfo = () => {
                   alt="brand_logo"
                   src={carInfo.brand.image}
                   className="bg-[#E1F0DA]"
-                  sx={{ width: 56, height: 56 }}
+                  sx={{ width: 100, height: 100 }}
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -610,7 +610,7 @@ const VehicleInfo = () => {
               </div>
             </div>
 
-            <div className="flex justify-end text-[#EF4040] text-xs">
+            <div className="flex justify-end text-orange-500 text-sm border-orange-500 border-solid border rounded-md p-1 px-4 hover:bg-[#f38102] hover:text-white">
               <button
                 className=""
                 onClick={() => {
@@ -664,7 +664,7 @@ const VehicleInfo = () => {
                 })}
               </TabList>
 
-              {/* <Divider className="w-full mt-2" /> */}
+              <Divider className="w-full p-2" />
             </Box>
             <div className="overflow-y-auto" style={{ height: "300px" }}>
               <TabPanel value="1">

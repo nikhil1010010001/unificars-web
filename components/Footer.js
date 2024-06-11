@@ -79,7 +79,7 @@ const Footer = () => {
                     <Link href={"#"}>Services</Link>
                   </li>
                   <li className="transition-all duration-150 ">
-                    <Link href={"/pdi"}>Pricing</Link>
+                    <Link href={"/pre-delivery-inspection"}>Pricing</Link>
                   </li>
 
                   <li className="transition-all duration-150">

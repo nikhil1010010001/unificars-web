@@ -144,11 +144,12 @@ function index() {
                     Buy Car
                   </button>
                 </div>
-                <div>
+
+                <div className="flex flex-col mx-4 items-start justify-start">
                   <h1 className="text-2xl mb-2 font-bold text-start">
                     Fast. Fair. Done. Sell Your Car with Unifi.
                   </h1>
-                  <p className="text-sm mb-4">
+                  <p className="text-sm mb-4 text-start">
                     Trusted by over 1 Lakh customers. Choose from 5000+ Unifi
                     Assured Cars
                   </p>
@@ -249,8 +250,8 @@ function index() {
         <div className="flex gap-6 md:flex-row flex-col">
           <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg shadow-md">
             <img
-              src="carousel/usedcars1.png"
-              className="img-fluid w-full object-cover md:h-80 rounded-xl"
+              src="carousel/carousel-new-1.png"
+              className="img-fluid w-full object-cover h-80 rounded-xl"
               alt="howitworks"
               width="280"
             />
@@ -267,8 +268,8 @@ function index() {
 
           <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg shadow-md">
             <img
-              src="carousel/usedcars2.png"
-              className="img-fluid w-full object-cover md:h-80 rounded-xl"
+              src="carousel/carousel-new-2.png"
+              className="img-fluid w-full object-cover h-80 rounded-xl"
               alt="howitworks"
               width="280"
             />
@@ -286,7 +287,7 @@ function index() {
           <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg shadow-md">
             <img
               src="carousel/usedcars3.png"
-              className="img-fluid w-full object-cover md:h-80 rounded-xl"
+              className="img-fluid w-full object-cover h-80 rounded-xl"
               alt="howitworks"
               width="280"
             />
@@ -350,6 +351,7 @@ function index() {
           </p> */}
           {/* <img src='/home/title_line.png' /> */}
         </div>
+
         <div className="w-11/12 mx-auto">
           <Carousel showThumbs={false} autoPlay infiniteLoop>
             {/* Slide 1 */}

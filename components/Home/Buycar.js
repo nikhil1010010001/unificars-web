@@ -13,8 +13,8 @@ const Buycar = () => {
             Buy Car
           </h1>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 ">
-          <div className="text-center justify-center px-6 my-4">
+        <div className="flex gap-6 md:flex-row flex-col">
+          <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg shadow-md">
             <img
               src="carousel/usedcars1.png"
               className="img-fluid w-full h-80 object-cover rounded-lg"
@@ -30,7 +30,8 @@ const Buycar = () => {
               </p>
             </div>
           </div>
-          <div className="text-center justify-center px-6 my-4">
+
+          <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg shadow-md">
             <img
               src="carousel/usedcars2.png"
               className="img-fluid w-full h-80 object-cover rounded-lg"
@@ -47,7 +48,8 @@ const Buycar = () => {
               </p>
             </div>
           </div>
-          <div className="text-center justify-center px-6 my-4">
+
+          <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg shadow-md">
             <img
               src="carousel/usedcars3.png"
               className="img-fluid w-full h-80 object-cover rounded-lg"
@@ -66,7 +68,7 @@ const Buycar = () => {
             </div>
           </div>
 
-          <div className="text-center justify-center px-6 my-4">
+          <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg shadow-md">
             <img
               src="carousel/usedcars4.png"
               className="img-fluid w-full h-80 object-cover rounded-lg"

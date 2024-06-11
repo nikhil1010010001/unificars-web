@@ -58,12 +58,12 @@ const SellByPopularBrands = ({ setCarInfo, carInfo, screen, setScreen }) => {
                         },
                       }));
                     }}
-                    className="shadow-md border p-2 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-200 flex items-center rounded-2xl justify-center"
+                    className="shadow-md border p-2 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-200 rounded-2xl"
                     key={index}>
                     <Image
                       priority
-                      width={500}
-                      height={500}
+                      width={800}
+                      height={800}
                       src={e.image}
                       alt={e.brand_name}
                     />
@@ -101,12 +101,12 @@ const SellByPopularBrands = ({ setCarInfo, carInfo, screen, setScreen }) => {
                         },
                       }));
                     }}
-                    className="shadow-md w-full p-4 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-200 flex items-center justify-center rounded-2xl"
+                    className="shadow-md w-full p-2 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-200 flex items-center justify-center rounded-2xl"
                     key={index}>
                     <Image
                       priority
-                      width={500}
-                      height={500}
+                      width={800}
+                      height={800}
                       src={e.image}
                       alt={e.brand_name}
                     />
