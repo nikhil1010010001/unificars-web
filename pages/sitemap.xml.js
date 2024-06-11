@@ -1,0 +1,155 @@
+import React from 'react';
+
+const SitemapXml = () => null;
+
+export async function getServerSideProps({ res }) {
+  const xmlContent = `
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+    <loc>https://unificars.com/</loc>
+    <lastmod>2024-03-11T10:33:14+00:00</lastmod>
+    <priority>1.00</priority>
+    </url>
+    <url>
+    <loc>https://unificars.com/sell-used-cars</loc>
+    <lastmod>2024-03-11T10:33:14+00:00</lastmod>
+    <priority>0.80</priority>
+    </url>
+    <url>
+    <loc>https://unificars.com/buy-used-cars</loc>
+    <lastmod>2024-03-11T10:33:14+00:00</lastmod>
+    <priority>0.80</priority>
+    </url>
+    <url>
+    <loc>https://unificars.com/about</loc>
+    <lastmod>2024-03-11T10:33:14+00:00</lastmod>
+    <priority>0.80</priority>
+    </url>
+    <url>
+    <loc>https://unificars.com/contact</loc>
+    <lastmod>2024-03-11T10:33:14+00:00</lastmod>
+    <priority>0.80</priority>
+    </url>
+    <url>
+    <loc>https://unificars.com/assured-cars</loc>
+    <lastmod>2024-03-11T10:33:14+00:00</lastmod>
+    <priority>0.80</priority>
+    </url>
+    <url>
+    <loc>https://unificars.com/privacy-policy</loc>
+    <lastmod>2024-03-11T10:33:14+00:00</lastmod>
+    <priority>0.80</priority>
+    </url>
+    <url>
+    <loc>https://unificars.com/blogs</loc>
+    <lastmod>2024-03-11T10:33:14+00:00</lastmod>
+    <priority>0.80</priority>
+    </url>
+    <url>
+    <loc>https://unificars.com/term-conditions</loc>
+    <lastmod>2024-03-11T10:33:14+00:00</lastmod>
+    <priority>0.80</priority>
+    </url>
+    <url>
+    <loc>https://unificars.com/blog/Complete-Guide-to-Buying-a-Used-Car</loc>
+    <lastmod>2024-03-11T10:33:14+00:00</lastmod>
+    <priority>0.64</priority>
+    </url>
+    <url>
+    <loc>https://unificars.com/blog/Top-10-Selling-used-Cars-in-India-with-Car-Price</loc>
+    <lastmod>2024-03-11T10:33:14+00:00</lastmod>
+    <priority>0.64</priority>
+    </url>
+    <url>
+    <loc>https://unificars.com/blog/How-to-Sell-Used-Cars-Online-at-Best-Prices-with-Us?</loc>
+    <lastmod>2024-03-11T10:33:14+00:00</lastmod>
+    <priority>0.64</priority>
+    </url>
+    <url>
+    <loc>https://unificars.com/blog/Why-should-you-buy-a-used-car?</loc>
+    <lastmod>2024-03-11T10:33:14+00:00</lastmod>
+    <priority>0.64</priority>
+    </url>
+    <url>
+    <loc>https://unificars.com/blog/Top-10-family-cars-in-India</loc>
+    <lastmod>2024-03-11T10:33:14+00:00</lastmod>
+    <priority>0.64</priority>
+    </url>
+    <url>
+    <loc>https://unificars.com/blog/Car-Segments-Of-India</loc>
+    <lastmod>2024-03-11T10:33:14+00:00</lastmod>
+    <priority>0.64</priority>
+    </url>
+    <url>
+    <loc>https://unificars.com/blog/Maruti-Suzuki-Baleno---A-Mid-Budget-Family-Car</loc>
+    <lastmod>2024-03-11T10:33:14+00:00</lastmod>
+    <priority>0.64</priority>
+    </url>
+    <url>
+    <loc>https://unificars.com/blog/BEST-HATCHBACKS-IN-INDIA</loc>
+    <lastmod>2024-03-11T10:33:14+00:00</lastmod>
+    <priority>0.64</priority>
+    </url>
+    <url>
+    <loc>https://unificars.com/blog/Fuel-efficient-cars-in-India-2023</loc>
+    <lastmod>2024-03-11T10:33:14+00:00</lastmod>
+    <priority>0.64</priority>
+    </url>
+    <url>
+    <loc>https://unificars.com/blog/Top-10-cars-for-beginners</loc>
+    <lastmod>2024-03-11T10:33:14+00:00</lastmod>
+    <priority>0.64</priority>
+    </url>
+    <url>
+    <loc>https://unificars.com/blog/Honda-amaze-vs-Maruti-Suzuki-Dzire</loc>
+    <lastmod>2024-03-11T10:33:14+00:00</lastmod>
+    <priority>0.64</priority>
+    </url>
+    <url>
+    <loc>https://unificars.com/blog/Pick-Pay-Drive-Simplified-steps-for-buying-car</loc>
+    <lastmod>2024-03-11T10:33:14+00:00</lastmod>
+    <priority>0.64</priority>
+    </url>
+    <url>
+    <loc>https://unificars.com/blog/Driving-Smart-Unlocking-the-Secrets-of-High-Resale-Value-in-Used-Cars</loc>
+    <lastmod>2024-03-11T10:33:14+00:00</lastmod>
+    <priority>0.64</priority>
+    </url>
+    <url>
+    <loc>https://unificars.com/blog/How-to-maintenance-your-preowned-car</loc>
+    <lastmod>2024-03-11T10:33:14+00:00</lastmod>
+    <priority>0.64</priority>
+    </url>
+    <url>
+    <loc>https://unificars.com/blog/Ideal-time-to-purchase-car-in-India</loc>
+    <lastmod>2024-03-11T10:33:14+00:00</lastmod>
+    <priority>0.64</priority>
+    </url>
+    <url>
+    <loc>https://unificars.com/blog/Demo-Cars</loc>
+    <lastmod>2024-03-11T10:33:14+00:00</lastmod>
+    <priority>0.64</priority>
+    </url>
+    <url>
+    <loc>https://unificars.com/blog/Best-10-cars-in-India-(2023)</loc>
+    <lastmod>2024-03-11T10:33:14+00:00</lastmod>
+    <priority>0.64</priority>
+    </url>
+    <url>
+    <loc>https://unificars.com/blog/Decoding-car-Chassis</loc>
+    <lastmod>2024-03-11T10:33:14+00:00</lastmod>
+    <priority>0.64</priority>
+    </url>
+    </urlset>
+  `;
+
+  res.setHeader('Content-Type', 'text/xml');
+  res.write(xmlContent);
+  res.end();
+
+  return {
+    props: {},
+  };
+}
+
+export default SitemapXml;

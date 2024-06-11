@@ -1,0 +1,446 @@
+import React, { useState } from "react";
+import Head from 'next/head';
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import { RiStarSFill, RiStarSLine } from 'react-icons/ri';
+import dynamic from "next/dynamic";
+
+const HomeQuestions = dynamic(() => import("@/components/Home/HomeQuestions"),{ssr: false});
+
+
+const Challan = () => {
+  const responsive = {
+    superLargeDesktop: {
+        breakpoint: { max: 4000, min: 1280 },
+        items: 3
+    },
+    desktop: {
+        breakpoint: { max: 1280, min: 720 },
+        items: 3
+    },
+    tablet: {
+        breakpoint: { max: 720, min: 464 },
+        items: 2
+    },
+    mobile: {
+        breakpoint: { max: 464, min: 0 },
+        items: 1.25
+    }
+};
+  const [carNumber, setCarNumber] = useState("");
+  const [validNumber, setValidNumber] = useState(false);
+  const [challanData, setChallanData] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const handleInputChange = (e) => {
+    let input = e.target.value.replace(/[^a-zA-Z0-9]/g, ""); // Remove non-alphanumeric characters
+    input = input.replace(/(.{2})(?=.)/g, "$1 ");
+    if (input.length > 10) {
+      input = input.slice(0, 11) + input.slice(11, 15).trim();
+    }
+    if (input.length < 16) {
+      setCarNumber(input.toUpperCase());
+    }
+  };
+
+  const submitCarNumber = async (e) => {
+    try {
+      e.preventDefault();
+      setLoading(true);
+      if (carNumber.length === 13 || carNumber.length === 12) {
+        let number = carNumber.split(" ").join("");
+        const response = await fetch(
+          "https://api.emptra.com/vehicleRegistrations",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              secretKey: "rt50rd1OViWQyA6pv40WbWJJmHCwIvGUBEAM6OLmaqTyhE61RiJ8whOOQDHdslXVT",
+              clientId: "932bee8472f77a75f9a328430973d1ab:87937c1398e424117fe02fcf3f070290",
+            },
+            body: JSON.stringify({
+              vehicleNumber: number,
+              blacklistCheck: true,
+            }),
+          }
+        );
+
+        const data = await response.json();
+        if (data.code === 100) {
+          let challanInfo = await fetch(
+            "https://api.invincibleocean.com/invincible/vehicleChallanData",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                secretKey: "rt50rd1OViWQyA6pv40WbWJJmHCwIvGUBEAM6OLmaqTyhE61RiJ8whOOQDHdslXVT",
+                clientId: "932bee8472f77a75f9a328430973d1ab:87937c1398e424117fe02fcf3f070290",
+              },
+              body: JSON.stringify({
+                vehicleNumber: number,
+                chassisNumber: data.result.chassis.slice(-5),
+                advanceSearch: true,
+              }),
+            }
+          );
+
+          challanInfo = await challanInfo.json();
+          if (challanInfo.code === 200) {
+            setChallanData(challanInfo.result);
+            setValidNumber(false);
+            handleOpen();
+          } else {
+            setValidNumber(true);
+            console.error("Response from Vehicle Challan API is not valid");
+          }
+        } else {
+          setValidNumber(true);
+          console.error("Response from Vehicle Info API is not valid");
+        }
+      }
+    } catch (error) {
+      setValidNumber(true);
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '80%', 
+    maxHeight: '80vh', 
+    overflowY: 'auto', 
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+    
+  };
+  
+
+  return (
+    <div className=''>
+      <Head>
+        <title>About Us | Experience Delightful Car Ownership | Unificars</title>
+        <meta name="description" content="Unificars is your top destination for buy and sell used cars, offering competitive pricing and valuable car-related information." />
+        <link rel="canonical" href="https://unificars.com/challan-check" />
+      </Head>
+
+      <div className='bg-[url("/background/abtbg.jpg")]' style={{ paddingTop: '50px' }}>
+          <div className="container mx-auto my-4 m-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-16 m-9">
+              <div>
+                <div className="relative w-full mx-auto">
+                  <img src="/challan.png" alt="Pay Challan with unifi cars" className="w-full h-auto rounded-lg mt-6" />
+                  <div className="absolute inset-0 rounded-lg flex items-end p-4">
+                    <h2 className="text-white text-5xl font-bold text-left">Pay Challan with unifi cars</h2>
+                  </div>
+                </div>
+                {/* <img src={"/challan.png"} className='rounded-xl' alt="E-challan" /> */}
+                <div>
+                  <h1 className='text-2xl text-black mt-4 font-sansserif font-extrabold'>E-challan</h1>
+                  <p className='text-md font-normal'>
+                    An e-challan is a digital fine issued by the traffic police for a traffic violation.
+                    An e-challan can be checked online, which gives the details of the fine, the current challan
+                    status, the challan amount, and an option to pay e-challan online. An issued e-challan
+                    can be checked through the Parivahan portal or by using the Spinny tool. The step-by-step guide
+                    for paying e-challan online is easy to follow and lets you conveniently clear the challan without
+                    visiting the court.
+                  </p>
+                  <h1 className='text-2xl text-black mt-4 font-sansserif font-extrabold'>How to check e-challan</h1>
+                  <p className='text-md font-normal'>
+                    Enter the registration number of your car and click submit to check any issued e-challan to know
+                    the challan status for your car. All pending and unpaid e-challans for your car will be shown,
+                    with the option to pay the fines to clear the challan. Checking e-challan online is a convenient
+                    way to stay updated with challan status of your car while also paying the e-challan online for minimal
+                    inconvenience to you.
+                  </p>
+                  <h1 className='text-2xl text-black mt-4 font-sansserif font-extrabold'>Benefits of paying challan online with Unifi cars</h1>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div className="hover:bg-blue-500 hover:text-white bg-white text-black p-6 rounded-lg shadow-md h-56 place-content-center">
+                        <h4 className="text-base font-semibold mb-2 buyh4 text-center">Avoid Late Penalties</h4>
+                        <p className="mb-4">Get an accurate and fair quote for scrapping your car and helping the environment.</p>
+                    </div>
+                    <div className="hover:bg-blue-500 hover:text-white bg-white text-black p-6 rounded-lg shadow-md h-56 place-content-center">
+                        <h4 className="text-base font-semibold mb-2 buyh4 text-center">Pay From Anywhere</h4>
+                        <p className="mb-4">Get benefits on buying a new car with a Certificate of deposit.</p>
+                    </div>
+                    <div className="hover:bg-blue-500 hover:text-white bg-white text-black p-6 rounded-lg shadow-md h-56 place-content-center">
+                        <h4 className="text-base font-semibold mb-2 buyh4 text-center">No Hassle Of Court Visits</h4>
+                        <p className="mb-4">Unifi Cars partners only with Government-registered vendors.</p>
+                    </div>
+                  </div>
+                  <h1 className='text-2xl text-black mt-4 font-sansserif font-extrabold'>Steps to pay e-challan</h1>
+                  <div className="mt-3">
+                      <p className="mb-4"><b>Steps:1</b> Navigate to check and pay e-challan Section.</p>
+                      <p className="mb-4"><b>Steps:2</b> Enter Challan Details such as e-challan number, vehicle number, or license plate number.</p>
+                      <p className="mb-4"><b>Steps:3</b> Select Payment Method like credit/debit cards, net banking, or digital wallets and make the payment.</p>
+                      <p className="mb-4"><b>Steps:4</b> Save Confirmation Receipt for your records.</p>
+                  </div>
+
+                  <h1 className='text-2xl text-black mt-4 font-sansserif font-extrabold'>What are the common type of traffic challan?</h1>
+                  <main className="flex items-center justify-center h-screen bg-gray-100 mt-3">
+                    <div className="bg-white shadow-md rounded-lg overflow-hidden w-4/4">
+                      <table className="min-w-full leading-normal">
+                        <thead>
+                          <tr>
+                            <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-50 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                              Challan
+                            </th>
+                            <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-50 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                              Challan Penalty
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              Driving Under Intoxication
+                            </td>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              First Offense: Rs. 10000 and/or 6 months in prison. Second Offense: Rs. 15000 and/or 2 years in prison
+                            </td>
+                          </tr>
+                          <tr>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-gray-50 text-sm">
+                              Overloading Pillion Riders
+                            </td>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-gray-50 text-sm">
+                              Rs. 2000 fine + disqualification of license and/or community service for 3 months
+                            </td>
+                          </tr>
+                          <tr>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              Over Speeding Vehicle
+                            </td>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              Rs. 1000 for LMV, Rs. 2000 for MMV
+                            </td>
+                          </tr>
+                          <tr>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-gray-50 text-sm">
+                              Driving Dangerously
+                            </td>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-gray-50 text-sm">
+                              Rs. 1000 – Rs. 5000, seizure of license, and/or 6 months - 1 year in prison
+                            </td>
+                          </tr>
+                          <tr>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              Driving Without License
+                            </td>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              Rs. 5000 and/or community service
+                            </td>
+                          </tr>
+                          <tr>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-gray-50 text-sm">
+                              Driving Without Valid Insurance
+                            </td>
+                            <td className="px-5 py-5 border-b border-gray-200 bg-gray-50 text-sm">
+                              First Offense: Rs. 2000 and/or 3 months in prison, community service. Second Offense: Rs. 4000
+                            </td>
+                          </tr>
+                          <tr>
+                            <td className="px-5 py-5 bg-white text-sm">
+                              Signal Jumping
+                            </td>
+                            <td className="px-5 py-5 bg-white text-sm">
+                              Rs. 1000 – Rs. 5000, license seizure, and/or fine for dangerous driving
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </main>
+                </div>
+              </div>
+              
+              <div className="sticky-element md:sticky md:top-28  bottom-28 bg-orange-500 p-4 self-baseline challan-headbg" style={{marginBottom:"120px"}}>
+                <div className='bg-white p-6 rounded-2xl shadow'>
+                  <div className='p-3 rounded-md'>
+                    <h1 className='text-3xl text-black my-2 font-sansserif font-extrabold text-center'>Check & Pay e-challan</h1>
+                    <div className="font-bold text-[#465166] w-full text-field mb-2">
+                      <p className="text-md text-[#465166] my-2">Enter your car Number</p>
+                      <input
+                        type="text"
+                        className="border border-gray-300 rounded-md p-2 w-full"
+                        placeholder="AA 11 AA 1111"
+                        value={carNumber}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                    {loading ? (
+                      <div className="loader">Loading...</div>
+                    ) : (
+                      <button
+                        className={`bg-[#f38102] p-2 my-4 rounded-sm w-full font-bold text-white`}
+                        onClick={submitCarNumber}
+                      >
+                        View Challan
+                      </button>
+                    )}
+                  </div>
+                </div>
+
+                
+                <Modal
+                  open={open}
+                  onClose={handleClose}
+                  aria-labelledby="modal-modal-title"
+                  aria-describedby="modal-modal-description"
+                >
+                  <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                    <div style={{ flex: '1', overflowY: 'auto', padding: '8px' }}>
+                      <Box sx={style}>
+                        <div style={{ flex: 'none', textAlign: 'right', paddingRight: '8px', paddingTop: '8px' }}>
+                          <Button onClick={handleClose}>Close</Button>
+                        </div>
+                        <Typography id="modal-modal-title" variant="h6" component="h2">
+                          Challan Details
+                        </Typography>
+                        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                          {challanData.map((challan) => (
+                            <div key={challan.challanNumber} className='mb-4'>
+                              <p><strong>Challan Number:</strong> {challan.challanNumber}</p>
+                              <p><strong>Offense Details:</strong> {challan.offenseDetails}</p>
+                              <p><strong>Challan Date:</strong> {challan.challanDate}</p>
+                              <p><strong>Amount:</strong> {challan.amount}</p>
+                              <p><strong>Status:</strong> {challan.challanStatus}</p>
+                              <a href={challan.payment_url} className='text-blue-500' target='_blank' rel='noopener noreferrer'>Pay Now</a>
+                            </div>
+                          ))}
+                        </Typography>
+                      </Box>
+                    </div>
+                  </div>
+                </Modal>
+              </div>
+
+
+            </div>
+              
+          </div>
+          {/* <Reviews/> */}
+          <div className='bg-gray-50 py-12'>
+              <div className='text-center items-center flex flex-col mb-6'>
+                  <h2 className='text-4xl text-[#000] my-2'>Testimonials</h2>
+                  <p className='customgryfnt text-lg font-normal'>Their good reviews motivate us to do more</p>
+                  {/* <img src='/home/title_line.png' /> */}
+              </div>
+              <div className=' w-11/12 mx-auto'>
+                  <Carousel responsive={responsive}>
+                      <div className='flex flex-col items-center bg-white shadow rounded p-6 mx-4 h-[342px]'>
+                          <div>
+                              <img src='/testimonials/testi1.jpeg' className='w-24 rounded-full object-cover h-[94px]' />
+                          </div>
+                          <div className='flex text-orange-500 mt-3'>
+                              <RiStarSFill />
+                              <RiStarSFill />
+                              <RiStarSFill />
+                              <RiStarSFill />
+                              <RiStarSFill />
+                          </div>
+                          <p className='font-medium my-2 text-center '>I recently purchased a car from Quick Buy. The vehicle is in excellent condition and truly value for money.</p>
+                          <h5 className='my-4 text-lg text-blue-950'>SI MOTORS</h5>
+                      </div>
+
+                      <div className='flex flex-col items-center bg-white shadow rounded p-6 mx-4 h-[342px]'>
+                          <div>
+                              <img src='/testimonials/testi2.jpeg' className='w-24 rounded-full object-cover h-[94px]' />
+                          </div>
+                          <div className='flex text-orange-500 mt-3'>
+                              <RiStarSFill />
+                              <RiStarSFill />
+                              <RiStarSFill />
+                              <RiStarSFill />
+                              <RiStarSLine />
+                          </div>
+                          <p className='font-medium my-2 text-center '>Our dealership's inventory has improved since we started sourcing cars from Unificars.</p>
+                          <h5 className='my-4 text-lg text-blue-950'>AS TRADING</h5>
+                      </div>
+
+                      <div className='flex flex-col items-center bg-white shadow rounded p-6 mx-4 h-[342px]'>
+                          <div>
+                              <img src='/testimonials/testi3.jpeg' className='w-24 rounded-full object-cover h-[94px]' />
+                          </div>
+                          <div className='flex text-orange-500 mt-3'>
+                              <RiStarSFill />
+                              <RiStarSFill />
+                              <RiStarSFill />
+                              <RiStarSFill />
+                              <RiStarSFill />
+                          </div>
+                          <p className='font-medium my-2 text-center '>As a dealer, finding reliable sources for quality cars is very crucial, and Unificars has never disappointed us.</p>
+                          <h5 className='my-4  text-lg text-blue-950'>GIANI MOTORS</h5>
+                      </div>
+
+                      <div className='flex flex-col items-center bg-white shadow rounded p-6 mx-4 h-[342px]'>
+                          <div>
+                              <img src='/testimonials/testi4.jpeg' className='w-24 rounded-full object-cover h-[94px]' />
+                          </div>
+                          <div className='flex text-orange-500 mt-3'>
+                              <RiStarSFill />
+                              <RiStarSFill />
+                              <RiStarSFill />
+                              <RiStarSFill />
+                              <RiStarSFill />
+                          </div>
+                          <p className='font-medium my-2 text-center '>The bidding system at unificars is the best system. We have won numerous cars that are well maintained.</p>
+                          <h5 className='my-4 text-lg text-blue-950'>GM MOTORS</h5>
+                      </div>
+
+                      <div className='flex flex-col items-center bg-white shadow rounded p-6 mx-4 h-[342px]'>
+                          <div>
+                              <img src='/testimonials/testi5.jpeg' className='w-24 rounded-full object-cover h-[94px]' />
+                          </div>
+                          <div className='flex text-orange-500 mt-3'>
+                              <RiStarSFill />
+                              <RiStarSFill />
+                              <RiStarSFill />
+                              <RiStarSFill />
+                              <RiStarSFill />
+                          </div>
+                          <p className='font-medium my-2 text-center '>Customer service at Unificars is Best. From the moment we inquired till the settlement the process was smooth.</p>
+                          <h5 className='my-4 text-lg text-blue-950'>EXPART AUTOMOBILE</h5>
+                      </div>
+
+                      <div className='flex flex-col items-center bg-white shadow rounded p-6 mx-4 h-[342px]'>
+                          <div>
+                              <img src='/testimonials/testi6.jpeg' className='w-24 rounded-full object-cover h-[94px]' />
+                          </div>
+                          <div className='flex text-orange-500 mt-3'>
+                              <RiStarSFill />
+                              <RiStarSFill />
+                              <RiStarSFill />
+                              <RiStarSFill />
+                              <RiStarSFill />
+                          </div>
+                          <p className='font-medium my-2 text-center '>Finding a well-maintained car at a great price was easy with Quick Buy, and the staff were incredibly helpful as well.</p>
+                          <h5 className='my-4  text-lg text-blue-950'>NAWAJISH MOTORS</h5>
+                      </div>
+                  </Carousel>
+              </div>
+          </div>
+
+          <HomeQuestions/>
+        </div>
+    </div>
+  );
+}
+
+export default Challan;
+

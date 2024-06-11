@@ -1,0 +1,13 @@
+User-agent: *
+
+Disallow: /career
+
+Disallow: /privacy-policy
+
+Disallow: /term-condition
+
+Disallow: /brand
+
+Disallow: /login
+
+Disallow: /loan-calculator
