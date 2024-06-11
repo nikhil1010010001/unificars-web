@@ -143,6 +143,19 @@ const Navbar = () => {
               </div>
               {/* <Link href='#' className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102] ${router.pathname=="/sell-used-cars"?"text-orange-600 underline underline-offset-8":""}`} passHref>More Services</Link> */}
               {/* <Link href='#' className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102] ${router.pathname=="/sell-used-cars"?"text-orange-600 underline underline-offset-8":""}`} passHref>About Us</Link> */}
+              {/* <Link
+                href="/dealer-onboarding"
+                className={`hover:text-[#f38102] active:text-orange-600 ${
+                  router.pathname == "/sell-used-cars" ? "text-orange-600 " : ""
+                }`}
+                passHref> */}
+              <div
+                className="bg-blue-500 cursor-pointer flex rounded-xl font-bold text-white p-2 px-4 whitespace-nowrap"
+                style={{ width: "max-content" }}>
+                Login
+              </div>
+              {/* </Link> */}
+
               <Link
                 href="/dealer-onboarding"
                 className={`hover:text-[#f38102] active:text-orange-600 ${

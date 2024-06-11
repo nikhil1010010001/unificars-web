@@ -286,7 +286,7 @@ function index() {
 
           <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg shadow-md">
             <img
-              src="carousel/usedcars3.png"
+              src="carousel/carousel-new-3.png"
               className="img-fluid w-full object-cover h-80 rounded-xl"
               alt="howitworks"
               width="280"
@@ -352,11 +352,11 @@ function index() {
           {/* <img src='/home/title_line.png' /> */}
         </div>
 
-        <div className="w-11/12 mx-auto">
+        <div className="px-4 mx-auto">
           <Carousel showThumbs={false} autoPlay infiniteLoop>
             {/* Slide 1 */}
-            <div className="flex justify-around">
-              <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-2 h-[342px] w-1/3">
+            <div className=" border border-red-500">
+              <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-2 min-h-[342px] w-full">
                 <div>
                   <img
                     src="/testimonials/testi1.jpeg"
@@ -376,7 +376,8 @@ function index() {
                 </p>
                 <h5 className="my-4 text-lg text-blue-950">SI MOTORS</h5>
               </div>
-              <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-2 h-[342px] w-1/3">
+
+              <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-2 min-h-[342px] w-full">
                 <div>
                   <img
                     src="/testimonials/testi2.jpeg"
@@ -396,7 +397,8 @@ function index() {
                 </p>
                 <h5 className="my-4 text-lg text-blue-950">AS TRADING</h5>
               </div>
-              <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-2 h-[342px] w-1/3">
+
+              <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-2 min-h-[342px] w-full">
                 <div>
                   <img
                     src="/testimonials/testi3.jpeg"
@@ -420,7 +422,7 @@ function index() {
 
             {/* Slide 2 */}
             <div className="flex justify-around">
-              <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-2 h-[342px] w-1/3">
+              <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-2 min-h-[342px] w-full">
                 <div>
                   <img
                     src="/testimonials/testi4.jpeg"
@@ -440,7 +442,7 @@ function index() {
                 </p>
                 <h5 className="my-4 text-lg text-blue-950">GM MOTORS</h5>
               </div>
-              <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-2 h-[342px] w-1/3">
+              <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-2 min-h-[342px] w-full">
                 <div>
                   <img
                     src="/testimonials/testi5.jpeg"
@@ -462,7 +464,7 @@ function index() {
                   EXPART AUTOMOBILE
                 </h5>
               </div>
-              <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-2 h-[342px] w-1/3">
+              <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-2 min-h-[342px] w-full">
                 <div>
                   <img
                     src="/testimonials/testi6.jpeg"
