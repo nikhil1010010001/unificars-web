@@ -111,9 +111,10 @@ const VehicleInfo = () => {
                 backgroundColor: "#f38102",
                 color: "white",
                 fontWeight: "bold",
+                borderRadius: "10px",
               }
             : {
-                backgroundColor: "#E1F0DA",
+                // backgroundColor: "#E1F0DA",
                 color: "black",
               }
         }
@@ -656,14 +657,14 @@ const VehicleInfo = () => {
                 onChange={handleChange}
                 aria-label="lab API tabs example"
                 scrollButtons="auto"
-                // variant="scrollable"
+                variant="scrollable"
                 indicatorColor="warning">
                 {tabs.map((tab) => {
                   return customTab(tab.label, tab.value);
                 })}
               </TabList>
 
-              <Divider className="w-full mt-2" />
+              {/* <Divider className="w-full mt-2" /> */}
             </Box>
             <div className="overflow-y-auto" style={{ height: "300px" }}>
               <TabPanel value="1">
