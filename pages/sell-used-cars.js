@@ -73,8 +73,9 @@ const sellCars = () => {
         </Head>
 
         <div
-          className="text-center items-center flex flex-col"
-          style={{ paddingTop: "120px" }}>
+          className="text-center items-center flex flex-col mx-4"
+          style={{ paddingTop: "120px" }}
+        >
           {/* <p className='tracking-widest text-gray-600 text-lg'>SELL YOUR CAR WITH NO FUSS</p> */}
           <h1 className="text-4xl text-black my-2">
             Sell Your Car At Best Price Instantly From Home
@@ -95,7 +96,7 @@ const sellCars = () => {
                     {BookSlot ? <><UserBookSlot last_id={last_id} /> </> : <></>}
                 </div> */}
 
-        <div className="container mx-auto w-[70%] mb-6">
+        <div className="container mx-auto md:w-[70%] mb-6">
           <VehicleInfo />
         </div>
 

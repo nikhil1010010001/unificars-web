@@ -140,7 +140,8 @@ const VehicleInfo = () => {
                 onClick={() => {
                   setValue(tabValue);
                 }}
-                className="mx-2">
+                className="mx-2"
+              >
                 <CloseIcon className="text-sm" />
               </button>
             </div>
@@ -404,9 +405,11 @@ const VehicleInfo = () => {
   // RETURN STARTS
   return (
     <>
-      <div className="lg:col-span-2 gap-4 flex flex-col md:w-[100%] z-10 rounded-md">
+      <div className="gap-4 flex flex-col z-10 rounded-md">
         {screen === 1 && (
-          <div className={`p-4 flex flex-col justify-center items-start gap-4`}>
+          <div
+            className={`p-4 flex flex-col justify-center items-start gap-4 w-full`}
+          >
             <div className="inline-flex items-center space-x-2 w-full max-w-full overflow-hidden">
               <span className="text-xl font-semibold">
                 Enter your car registration number
@@ -446,7 +449,8 @@ const VehicleInfo = () => {
               ) : (
                 <button
                   className="w-48 h-14 bg-blue-500 text-white px-7 py-4 rounded-lg hover:bg-blue-600 text-base font-inter"
-                  onClick={submitCarNumber}>
+                  onClick={submitCarNumber}
+                >
                   Get Price
                 </button>
               )}
@@ -545,7 +549,8 @@ const VehicleInfo = () => {
                   setOtpSend(false);
                   setBookedStatus(true);
                   setIsDisabled(false);
-                }}>
+                }}
+              >
                 Edit
               </button>
             </div>
@@ -567,7 +572,8 @@ const VehicleInfo = () => {
                   margin: "auto",
                 }}
                 variant="scrollable"
-                indicatorColor="warning">
+                indicatorColor="warning"
+              >
                 {tabs.map((tab) => {
                   return customTab(tab.label, tab.value);
                 })}
@@ -703,12 +709,14 @@ const VehicleInfo = () => {
                       <div className="flex justify-between gap-2 my-2">
                         <button
                           onClick={HandleVerifyOTP}
-                          className="w-full p-2 text-base text-center bg-[#f38102] text-white rounded shadow hover:bg-black hover:text-white transition-all duration-200 ease-in-out ">
+                          className="w-full p-2 text-base text-center bg-[#f38102] text-white rounded shadow hover:bg-black hover:text-white transition-all duration-200 ease-in-out "
+                        >
                           Verify OTP
                         </button>
                         <button
                           onClick={HandleEditNumber}
-                          className="w-full p-2 text-base text-center bg-[#f38102] text-white rounded shadow hover:bg-black hover:text-white transition-all duration-200 ease-in-out ">
+                          className="w-full p-2 text-base text-center bg-[#f38102] text-white rounded shadow hover:bg-black hover:text-white transition-all duration-200 ease-in-out "
+                        >
                           Edit Number
                         </button>
                       </div>
@@ -717,7 +725,8 @@ const VehicleInfo = () => {
                     <div className="w-full">
                       <button
                         onClick={HandleGetOtp}
-                        className="w-full p-2 text-base text-center bg-[#f38102] text-white rounded shadow hover:bg-black hover:text-white transition-all duration-200 ease-in-out ">
+                        className="w-full p-2 text-base text-center bg-[#f38102] text-white rounded shadow hover:bg-black hover:text-white transition-all duration-200 ease-in-out "
+                      >
                         GET OTP
                       </button>
                     </div>

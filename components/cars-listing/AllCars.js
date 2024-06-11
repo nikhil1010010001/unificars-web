@@ -214,36 +214,36 @@ const AllCars = ({
                       }}
                       className="md:px-1"
                     >
-                      <div className="grid grid-cols-3 gap-0 text-sm text-white">
-                        <div className="flex items-center space-x-2">
+                      <div className="flex flex-wrap gap-2 text-sm text-white pt-4">
+                        <div className="flex items-center space-x-2 border px-2 rounded-full">
                           <FaGasPump />
                           <span>{car.lead.engine_type}</span>
                         </div>
-                        <div className="flex items-center space-x-2">
+                        <div className="flex items-center space-x-2 border px-2 rounded-full">
                           <FaRoad />
                           <span>{car.lead.km_driven.split(" ")[0]}</span>
                         </div>
-                        <div className="flex items-center space-x-2">
+                        <div className="flex items-center space-x-2 border px-2 rounded-full">
                           <FaMapMarkerAlt />
                           <span>{car.lead.registration_in.slice(0, 2)}</span>
                         </div>
-                        <div className="flex items-center space-x-2">
+                        <div className="flex items-center space-x-2 border px-2 rounded-full">
                           <FaClipboardCheck />
                           <span>Rc-Original</span>
                         </div>
-                        <div className="flex items-center space-x-2">
+                        <div className="flex items-center space-x-2 border px-2 rounded-full">
                           <FaCar />
                           <span>{car.lead.registration_in}****</span>
                         </div>
-                        <div className="flex items-center space-x-2">
+                        <div className="flex items-center space-x-2 border px-2 rounded-full">
                           <FaCalendarAlt />
                           <span>{car.lead.manufacturing_date}</span>
                         </div>
-                        <div className="flex items-center space-x-2">
+                        <div className="flex items-center space-x-2 border px-2 rounded-full">
                           <FaCogs />
                           <span>{car.lead.transmission}</span>
                         </div>
-                        <div className="flex items-center space-x-2">
+                        <div className="flex items-center space-x-2 border px-2 rounded-full">
                           <FaUser />
                           <span>{car.lead.ownership}</span>
                         </div>

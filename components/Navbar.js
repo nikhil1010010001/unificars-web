@@ -48,7 +48,7 @@ const Navbar = () => {
           </div>
           <div>
             <div className="" onClick={() => setSlider(!slider)}>
-              <RxHamburgerMenu className="block text-xl font-semibold xl:hidden" />
+              <RxHamburgerMenu className="block text-xl font-semibold xl:hidden me-2" />
             </div>
             <ul
               className={`font-medium hidden text-base items-start xl:flex space-x-6`}
@@ -187,7 +187,7 @@ const Navbar = () => {
 
             {/* navbar for small devices */}
             <ul
-              className={`text-base fixed w-0 opacity-0 z-50 h-full bg-black/60 overflow-hidden right-0 bottom-0 transition-all duration-700 xl:hidden text-white ${
+              className={`text-base fixed w-0 opacity-0 z-50 h-full bg-black/60 overflow-hidden right-0 bottom-0 transition-all xl:hidden text-white ${
                 slider ? "w-full opacity-100" : ""
               }`}
             >
