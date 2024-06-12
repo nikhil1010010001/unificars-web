@@ -11,6 +11,7 @@ const BuyCarSearchFilter = dynamic(() =>
 );
 
 const BuyUsedCars = ({ initialCars, initialTotalItems, featuredCars }) => {
+  console.log("this is featured", featuredCars);
   const [carListing, setCarListing] = useState(initialCars || []);
   // const featuredlist = useState(featuredCars() || []);
   const [loading, setLoading] = useState(false);
@@ -47,12 +48,10 @@ const BuyUsedCars = ({ initialCars, initialTotalItems, featuredCars }) => {
       </Head>
       <div
         className="lg:grid grid-cols-11 pt-4 bg-gray-100/10"
-        style={{ paddingTop: "90px" }}
-      >
+        style={{ paddingTop: "90px" }}>
         <div
           className="overflow-y-scroll h-[100vh] sticky top-0 hidden lg:block col-span-2"
-          id="filter"
-        >
+          id="filter">
           <BuyCarSearchFilter
             setCarListing={setCarListing}
             setLoading={setLoading}

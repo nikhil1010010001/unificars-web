@@ -75,7 +75,9 @@ const SellByPopularBrands = ({ setCarInfo, carInfo, screen, setScreen }) => {
             )}
             {BrandsLogo.length > 8 && (
               <button
-                onClick={() => setShowAll(!showAll)}
+                onClick={() => {
+                  setShowAll(!showAll);
+                }}
                 className="shadow-md border w-full p-4 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-200 hover:bg-gray-50 flex items-center justify-center rounded-2xl font-inter text-[#da251c] text-lg">
                 {showAll ? "Less" : "More"}
               </button>

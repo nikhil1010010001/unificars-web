@@ -101,17 +101,17 @@ function index() {
           <div className="hidden md:flex relative w-full h-[35rem]">
             {/* Text section */}
             <div
-              className={`absolute left-0 top-0 w-1/2 h-full bg-opacity-80 px-20 z-10 flex flex-col justify-center backdrop-blur-sm bg-gradient-to-r from-white`}>
+              className={`absolute left-0 top-0 w-1/2 h-full bg-opacity-80 px-20 z-10 flex flex-col justify-center backdrop-blur-[6px] bg-[#f7f6f6]/30`}>
               <Carousel
                 showStatus={false}
                 showThumbs={false}
                 infiniteLoop={true}
                 autoPlay={true}>
                 <div>
-                  <h1 className="text-5xl font-black mb-4 banheadfont">
+                  <h1 className="text-5xl font-black banheadfont">
                     Choose Reliability, Choose Your New Car.
                   </h1>
-                  <p className="text-lg mb-4 text-left font-inter">
+                  <p className="text-lg my-4 mb-6 text-left font-inter">
                     Trusted by over 1 Lakh customers. Choose from 5000+ Unifi
                     Assured Cars
                   </p>
@@ -126,10 +126,10 @@ function index() {
                 </div>
 
                 <div>
-                  <h1 className="text-5xl font-black mb-4 banheadfont">
+                  <h1 className="text-5xl font-black banheadfont font-futura">
                     Fast. Fair. Done. Sell Your Car with Unifi.
                   </h1>
-                  <p className="text-lg mb-4 text-left font-inter">
+                  <p className="text-lg my-4 mb-6 text-left font-inter">
                     Trusted by over 1 Lakh customers. Choose from 5000+ Unifi
                     Assured Cars
                   </p>
@@ -146,13 +146,16 @@ function index() {
             </div>
 
             {/* Image section */}
-            <div className="w-full flex justify-center items-center bg-[#fffde7]">
-              <img
-                src="/homecar.png"
-                className={`object-contain`}
-                alt="Car Image"
-                style={{ width: "70%" }}
-              />
+            <div className="w-full flex justify-center items-center">
+              <div className="w-full h-full bg-[#f7f6f6]/30" />
+              <div className="w-full h-full bg-[#fffde7]">
+                <img
+                  src="/homecar.png"
+                  className={`object-contain absolute right-24`}
+                  alt="Car Image"
+                  style={{ width: "70%" }}
+                />
+              </div>
             </div>
           </div>
 
@@ -160,7 +163,7 @@ function index() {
           <div className={`md:hidden `}>
             <div
               className="relative flex items-center justify-center"
-              style={{ backgroundColor: "#FDF4E3", height: "400px" }}>
+              style={{ backgroundColor: "#fffde7", height: "400px" }}>
               <img
                 src="/homecar.png"
                 className="absolute transform -translate-y-1/2 object-contain mt-12"
@@ -221,58 +224,58 @@ function index() {
         {/* <p className="text-center mb-8 hiwpara">keys to cash unlock the value of your car</p> */}
 
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-6">
-          <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 rounded-lg shadow-md">
+          <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 py-12 rounded-lg shadow-md">
             <div>
-              <img src="/handshake.png" className="w-8 object-cover h-[30px]" />
+              <img src="/handshake-new.png" className="w-16 object-contain" />
             </div>
-            <h4 className="text-lg font-bold buyh4">Sell Car</h4>
-            <p>
+            <h4 className="text-2xl font-bold buyh4">Sell Car</h4>
+            <p className="text-lg">
               Scrapping of your car with Hassle-Free process & legal
               documentation.
             </p>
-            <p className="text-blue-500 cursor-pointer hover:text-orange-500">
+            <p className="text-blue-500 cursor-pointer hover:text-orange-500 mt-4 text-lg">
               Learn More
             </p>
           </div>
 
-          <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 rounded-lg shadow-md">
+          <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 py-12 rounded-lg shadow-md">
             <div>
-              <img src="/rentalcar.png" className="w-8 object-cover h-[30px]" />
+              <img src="/rentalcar-new.png" className="w-16 object-contain" />
             </div>
-            <h4 className="text-lg font-bold buyh4">Buy Car</h4>
-            <p>
+            <h4 className="text-2xl font-bold buyh4">Buy Car</h4>
+            <p className="text-lg">
               Scrapping of your car with Hassle-Free process & legal
               documentation.
             </p>
-            <p className="text-blue-500 cursor-pointer hover:text-orange-500">
-              Learn More
-            </p>{" "}
-          </div>
-
-          <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 rounded-lg shadow-md">
-            <div>
-              <img src="/car-insp.png" className="w-8 object-cover h-[30px]" />
-            </div>
-            <h4 className="text-lg font-bold buyh4">Car Inspection</h4>
-            <p>
-              Scrapping of your car with Hassle-Free process & legal
-              documentation.
-            </p>
-            <p className="text-blue-500 cursor-pointer hover:text-orange-500">
+            <p className="text-blue-500 cursor-pointer hover:text-orange-500 mt-4 text-lg">
               Learn More
             </p>{" "}
           </div>
 
-          <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 rounded-lg shadow-md">
+          <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 py-12 rounded-lg shadow-md">
             <div>
-              <img src="/assur-fix.png" className="w-8 object-cover h-[30px]" />
+              <img src="/car-insp-new.png" className="w-16 object-contain" />
             </div>
-            <h4 className="text-lg font-bold buyh4">Assured Fix</h4>
-            <p>
+            <h4 className="text-2xl font-bold buyh4">Car Inspection</h4>
+            <p className="text-lg">
               Scrapping of your car with Hassle-Free process & legal
               documentation.
             </p>
-            <p className="text-blue-500 cursor-pointer hover:text-orange-500">
+            <p className="text-blue-500 cursor-pointer hover:text-orange-500 mt-4 text-lg">
+              Learn More
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 py-12 rounded-lg shadow-md">
+            <div>
+              <img src="/assur-fix-new.png" className="w-16 object-contain" />
+            </div>
+            <h4 className="text-2xl font-black buyh4">Assured Fix</h4>
+            <p className="text-lg">
+              Scrapping of your car with Hassle-Free process & legal
+              documentation.
+            </p>
+            <p className="text-blue-500 cursor-pointer hover:text-orange-500 mt-4 text-lg">
               Learn More
             </p>
           </div>
@@ -282,7 +285,7 @@ function index() {
       <div className="relative max-w-6xl mx-auto px-4 pt-16">
         {/* <div className="absolute w-full h-60 -z-10 rounded-lg top-4"></div> */}
         {/* <h1 className='py-2 font-bold text-center text-3xl font-bold text-black'>What We Do</h1> */}
-        <div className="text-4xl w-[50] mx-auto px-6 order-last lg:order-first text-center">
+        <div className="text-4xl w-[50] mx-auto px-6 order-last lg:order-first text-center mb-4">
           <h1 className="py-2 font-black">
             <span className="text-orange-500 sellheadfont">How</span>
             <span className="sellheadfont"> to Sell !</span>
@@ -292,55 +295,72 @@ function index() {
           keys to cash unlock the value of your car
         </p>
 
-        <div className="flex gap-6 md:flex-row flex-col">
-          <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg shadow-md">
+        <div className="flex gap-6 md:flex-row flex-col w-full">
+          <div className="relative text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg md:w-[45%] overflow-hidden">
+            <img
+              src="/sell-fast.png"
+              alt="Fast"
+              className="absolute -top-5 -left-5 w-32"
+            />
             <img
               src="carousel/carousel-new-1.png"
               className="img-fluid w-full object-cover h-80 rounded-xl"
               alt="howitworks"
               width="280"
             />
-            <div className="text-left space-y-2">
-              <h4 className="text-lg text-black font-black tracking-widest mt-4 flex-none buyh4">
+            <div className="text-left space-y-4 p-4">
+              <h4 className="text-xl text-black font-black tracking-widest mt-4 flex-none">
                 SUBMIT YOUR CAR DETAILS
               </h4>
-              <p className="text-sm">
+              <p className="text-lg">
                 Provide simple details of your car like mobile number, year and
                 mileage for accurate price.
               </p>
             </div>
           </div>
 
-          <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg shadow-md">
+          <div className="relative text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg md:w-[45%] overflow-hidden">
+            <img
+              src="/sell-fair.png"
+              alt="Fast"
+              className="absolute -top-5 -left-5 w-32"
+            />
             <img
               src="carousel/carousel-new-2.png"
               className="img-fluid w-full object-cover h-80 rounded-xl"
               alt="howitworks"
               width="280"
             />
-            <div className="text-left space-y-2">
-              <h4 className="text-lg text-black font-bold tracking-widest mt-4 flex-none buyh4">
+            <div className="text-left space-y-4 p-4">
+              <h4 className="text-xl text-black font-bold tracking-widest mt-4 flex-none">
                 GET QUICK VALUATION
               </h4>
-              <p className="text-sm">
+              <p className="text-lg">
                 Our advance methods quickly analyze your car price and get the
                 estimate value of your car.
               </p>
             </div>
           </div>
 
-          <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg shadow-md">
+          <div
+            className="relative text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg 
+          md:w-[45%] overflow-hidden">
+            <img
+              src="/sell-done.png"
+              alt="Fast"
+              className="absolute -top-5 -left-5 w-32"
+            />
             <img
               src="carousel/carousel-new-3.png"
               className="img-fluid w-full object-cover h-80 rounded-xl"
               alt="howitworks"
               width="280"
             />
-            <div className="text-left space-y-2">
-              <h4 className="text-lg text-black font-bold tracking-widest mt-4 flex-none buyh4">
+            <div className="text-left space-y-4 p-4">
+              <h4 className="text-xl text-black font-bold tracking-widest mt-4 flex-none">
                 EASY PAYMENT METHODS
               </h4>
-              <p className="tet-sm">
+              <p className="text-lg">
                 We Provide you online and cash payment options according to your
                 suitability.
               </p>

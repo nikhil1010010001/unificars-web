@@ -38,7 +38,7 @@ const Navbar = () => {
 
   return (
     <div className="container">
-      <nav className="w-full z-20 bg-white border-b-[1px] border-black/10 position-fixed">
+      <nav className="w-full z-20 bg-white shadow-sm position-fixed">
         <div className="flex justify-between items-center navmargin">
           <div>
             <Link href="/">

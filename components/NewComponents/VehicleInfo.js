@@ -505,53 +505,61 @@ const VehicleInfo = () => {
             {/* <h1 className='text-xl text-black my-2 flex items-center'>
                   Enter your car registration number &nbsp;<img src="4xfaster.png" style={{width:'20%'}}/>
               </h1> */}
-            <div className="inline-flex items-center space-x-2 w-full max-w-full overflow-hidden">
-              <span className="text-xl font-semibold">
-                Enter your car registration number
-              </span>
-              <Image
-                src="/4xfaster.png"
-                alt="4x Faster"
-                width={50} // Adjust the width and height as per your image's actual size or required dimensions
-                height={20} // Adjust the width and height as per your image's actual size or required dimensions
-                className="ml-2 flex-shrink-0"
-              />
+            <div className="w-full bg-[#dbeaff]/10 p-2 rounded-xl">
+              <div className="inline-flex mb-2 items-center space-x-4 w-full max-w-full overflow-hidden">
+                <span className="text-xl">
+                  Enter your car registration number
+                </span>
+                <Image
+                  src="/4xfaster.png"
+                  alt="4x Faster"
+                  width={80} // Adjust the width and height as per your image's actual size or required dimensions
+                  height={110} // Adjust the width and height as per your image's actual size or required dimensions
+                  className="ml-2 flex-shrink-0"
+                />
+              </div>
+              <div className="font-bold text-[#465166] w-full text-field mb-2">
+                <TextField
+                  error={validNumber}
+                  fullWidth
+                  id={
+                    validNumber
+                      ? "outlined-error-helper-text"
+                      : "outlined-basic"
+                  }
+                  placeholder="Search By Car Number"
+                  variant="outlined"
+                  label="e.g. ( DK XX AC _ _ _ _ )"
+                  type="text"
+                  value={carNumber}
+                  onChange={handleInputChange}
+                  color={validNumber ? "error" : "warning"}
+                  ref={inputRef}
+                  helperText={validNumber ? "Enter a valid number." : ""}
+                  className="shadow-sm"
+                />
+              </div>
+              {/* {validNumber && <p className="m-1 text-[#D04848] font-bold text-sm"> Please enter a valid number</p>} */}
+              {loading ? (
+                <div className="loader text-sm">Loading...</div>
+              ) : (
+                <button
+                  className="bg-blue-500 text-white px-12 py-3 rounded-xl hover:bg-blue-600 text-base font-inter"
+                  onClick={submitCarNumber}>
+                  Get Price
+                </button>
+              )}
+              <div className="w-full flex items-center justify-center my-2 place-self-center">
+                <div className="w-full border-t border-gray-500"></div>
+                <span className="mx-5 text-black text-base font-inter">
+                  {" "}
+                  OR{" "}
+                </span>
+                <div className="w-full border-t border-gray-500"></div>
+              </div>
             </div>
-            <div className="font-bold text-[#465166] w-full text-field mb-2">
-              <TextField
-                error={validNumber}
-                fullWidth
-                id={
-                  validNumber ? "outlined-error-helper-text" : "outlined-basic"
-                }
-                label="Search By Car Number"
-                variant="outlined"
-                placeholder="AA 11 AA 1111"
-                type="text"
-                value={carNumber}
-                onChange={handleInputChange}
-                color={validNumber ? "error" : "warning"}
-                ref={inputRef}
-                helperText={validNumber ? "Enter a valid number." : ""}
-              />
-            </div>
-            {/* {validNumber && <p className="m-1 text-[#D04848] font-bold text-sm"> Please enter a valid number</p>} */}
-            {loading ? (
-              <div className="loader text-sm">Loading...</div>
-            ) : (
-              <button
-                className="bg-blue-500 text-white px-7 py-3 rounded-lg hover:bg-blue-600 text-base font-inter"
-                onClick={submitCarNumber}>
-                Get Price
-              </button>
-            )}
-            <div className="w-full flex items-center justify-center my-2 place-self-center">
-              <div className="w-full border-t border-gray-500"></div>
-              <span className="mx-5 text-black text-base font-inter"> OR </span>
-              <div className="w-full border-t border-gray-500"></div>
-            </div>
-            <h1 className="text-xl text-black mt-4 leading-3">
-              Choose your model
+            <h1 className="text-xl text-black my-4 leading-3">
+              Select your car brand to get started
             </h1>
             {/* <Divider className="w-3/4" />
               <p className="text-md text-[#465166]">or</p>

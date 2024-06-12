@@ -452,22 +452,22 @@ const Sellcar = () => {
     <div className="container mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 container mx-auto gap-4 mt-10 lg:mt-15">
         <div className="text-4xl w-[50] mx-auto px-6 order-last lg:order-first">
-          <h1 className="py-2 font-bold ">
-            <span className="text-orange-500 sellheadfont">Sell</span>
-            <span className="sellheadfont"> Car </span>
-          </h1>
-          <p className="text-lg my-2 font-inter">
-            Select your car brand to get started
-          </p>
-          <h6 className="text-lg text-black my-2 font-inter">
-            ● Instant online quote.
-          </h6>
-          <h6 className="text-lg text-black my-2 font-inter">
-            ● Free doorstep evaluation.
-          </h6>
-          <h6 className="text-lg text-black my-2 font-inter">
-            ● Same day payment.
-          </h6>
+          <div className="md:ml-24 ml-4">
+            <h1 className="py-2 font-bold ">
+              <span className="text-orange-500 sellheadfont">Sell</span>
+              <span className="sellheadfont"> Car </span>
+            </h1>
+            <p className="text-lg my-2">Select your car brand to get started</p>
+            <h6 className="text-lg text-black my-2 font-semibold">
+              ● Instant online quote.
+            </h6>
+            <h6 className="text-lg text-black my-2 font-semibold">
+              ● Free doorstep evaluation.
+            </h6>
+            <h6 className="text-lg text-black my-2 font-semibold">
+              ● Same day payment.
+            </h6>
+          </div>
           <img src={"/selcarimage.png"} alt="" className="rounded-xl" />
         </div>
         <div className="text-4xl font-bold w-[100] px-6 order-first lg:order-last">
