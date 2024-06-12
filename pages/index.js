@@ -81,15 +81,12 @@ function index() {
           <div className="hidden md:flex relative w-full h-[35rem]">
             {/* Text section */}
             <div
-              className={`absolute left-0 top-0 w-1/2 h-full bg-opacity-80 px-20 z-10 flex flex-col justify-center backdrop-blur-sm bg-gradient-to-r from-white`}
-            >
+              className={`absolute left-0 top-0 w-1/2 h-full bg-opacity-80 px-20 z-10 flex flex-col justify-center backdrop-blur-sm bg-gradient-to-r from-white`}>
               <Carousel
-                className=""
                 showStatus={false}
                 showThumbs={false}
-                infiniteLoop
-                autoPlay
-              >
+                infiniteLoop={true}
+                autoPlay={true}>
                 <div>
                   <h1 className="text-5xl font-black mb-4 banheadfont">
                     Choose Reliability, Choose Your New Car.
@@ -102,12 +99,12 @@ function index() {
                   <Link href="/buy-used-cars" passHref>
                     <button
                       className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 font-inter"
-                      style={{ width: "fit-content", float: "left" }}
-                    >
+                      style={{ width: "fit-content", float: "left" }}>
                       Buy Car
                     </button>
                   </Link>
                 </div>
+
                 <div>
                   <h1 className="text-5xl font-black mb-4 banheadfont">
                     Fast. Fair. Done. Sell Your Car with Unifi.
@@ -120,14 +117,14 @@ function index() {
                   <Link href="/sell-used-cars" passHref>
                     <button
                       className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 font-inter"
-                      style={{ width: "fit-content", float: "left" }}
-                    >
+                      style={{ width: "fit-content", float: "left" }}>
                       Sell Car
                     </button>
                   </Link>
                 </div>
               </Carousel>
             </div>
+
             {/* Image section */}
             <div className="w-full flex justify-center items-center bg-[#fffde7]">
               <img
@@ -143,8 +140,7 @@ function index() {
           <div className={`md:hidden `}>
             <div
               className="relative flex items-center justify-center"
-              style={{ backgroundColor: "#FDF4E3", height: "400px" }}
-            >
+              style={{ backgroundColor: "#FDF4E3", height: "400px" }}>
               <img
                 src="/homecar.png"
                 className="absolute transform -translate-y-1/2 object-contain mt-12"
@@ -156,8 +152,7 @@ function index() {
                 showThumbs={false}
                 infiniteLoop
                 autoPlay
-                className="absolute bottom-10 text-center w-full"
-              >
+                className="absolute bottom-10 text-center w-full">
                 <div className="flex flex-col mx-4 items-start justify-start">
                   <h1 className="text-2xl mb-2 font-bold text-start">
                     Choose Reliability, Choose Your New Car.

@@ -19,7 +19,7 @@ import SelectKm from "../SellPageModal/SelectKm";
 import SelectFuelType from "../SellPageModal/SelectFuelType";
 import SelectOwner from "../SellPageModal/SelectOwner";
 import SlotBooking from "./SlotBooking";
-import Image from 'next/image';
+import Image from "next/image";
 
 // import InputMask from 'inputmask';
 
@@ -39,11 +39,10 @@ const VehicleInfo = () => {
   const [carNumber, setCarNumber] = useState("");
   const [BookedStatus, setBookedStatus] = useState(true);
   const [validationerror, setValidationerror] = useState(false);
-  // console.log(BookedStatus); 
+  // console.log(BookedStatus);
   const [validNumber, setValidNumber] = useState(false);
   const [loading, setLoading] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
-
 
   const [carInfo, setCarInfo] = useState({
     brand: {
@@ -99,7 +98,7 @@ const VehicleInfo = () => {
       value: "8",
     },
   ];
-  
+
   const customTab = (label, val) => {
     return (
       <Tab
@@ -141,8 +140,7 @@ const VehicleInfo = () => {
                 onClick={() => {
                   setValue(tabValue);
                 }}
-                className="mx-2"
-              >
+                className="mx-2">
                 <CloseIcon className="text-sm" />
               </button>
             </div>
@@ -180,18 +178,18 @@ const VehicleInfo = () => {
   };
 
   const HandleGetOtp = async () => {
-    if(userNumber == ''){
+    if (userNumber == "") {
       setValidationerror("Phone number is required!");
     }
     if (carNumber === "") {
       getCarValuation();
     }
-    if(userNumber.length  < 10){
+    if (userNumber.length < 10) {
       setValidationerror("Invalid Phone Number");
     }
-    
+
     // console.log("ytesting");
-    if (userNumber != "" &&  userNumber.length  == 10) {
+    if (userNumber != "" && userNumber.length == 10) {
       setValidationerror("");
       const data = {
         ...carInfo,
@@ -237,10 +235,10 @@ const VehicleInfo = () => {
           calculatedyear = 10;
         }
         let calculation = response / calculatedyear;
-        console.log(calculation)
+        console.log(calculation);
         let remainingyears =
           carInfo.year + calculatedyear - new Date().getFullYear();
-          console.log(remainingyears)
+        console.log(remainingyears);
         let expectedprice = Math.round(calculation * remainingyears);
         let expectedprice1 = Math.round(calculation * remainingyears) + 100240;
         console.log([expectedprice, expectedprice1]);
@@ -250,9 +248,8 @@ const VehicleInfo = () => {
   };
 
   const HandleVerifyOTP = async () => {
-    setValidationerror(' ');
-    
-    
+    setValidationerror(" ");
+
     if (OTPNumber != "") {
       const data = {
         ...carInfo,
@@ -281,14 +278,14 @@ const VehicleInfo = () => {
         setlast_id(jsonRes.last_id);
         // setBookSlot(false);
         // setBookedStatus(true);
-        
+
         if (carNumber === "") {
           getCarValuation();
         }
-      }else{
+      } else {
         setValidationerror(jsonRes.status);
       }
-    }else{
+    } else {
       setValidationerror("OTP is required!");
     }
   };
@@ -315,16 +312,15 @@ const VehicleInfo = () => {
     }
   };
 
-  const submitCarNumber = async (e) => { 
+  const submitCarNumber = async (e) => {
     try {
-
       e.preventDefault();
       setLoading(true);
       if (carNumber.length == 13) {
         setValidNumber(false);
 
         let number = carNumber.split(" ").join("");
-        
+
         // console.log(number, "number");
         const response = await fetch(
           "https://crm.unificars.com/api/checkvehiclnumber",
@@ -335,12 +331,11 @@ const VehicleInfo = () => {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              vehicle_number: number
+              vehicle_number: number,
             }),
           }
         );
 
-        
         // const response = await fetch(
         //   "https://api.emptra.com/vehicleRegistrations",
         //   {
@@ -360,8 +355,8 @@ const VehicleInfo = () => {
         // );
 
         const data = await response.json();
-        console.log('chalja',data.data);
-        if(data?.data?.code == 100) {
+        console.log("chalja", data.data);
+        if (data?.data?.code == 100) {
           // Setting Up Brand Logo here
 
           const fetchBrand = await fetch(
@@ -377,9 +372,9 @@ const VehicleInfo = () => {
           const jsonRes = await fetchBrand.json();
           if (jsonRes.code == 200) {
             const brands = jsonRes.data;
-            
+
             brands.map((brand) => {
-              console.log(brands,'sss');
+              console.log(brands, "sss");
               const brandName = brand.brand_name.split(" ");
               for (let val of brandName) {
                 for (let mfg of data.data.result.vehicleManufacturerName.split(
@@ -411,8 +406,7 @@ const VehicleInfo = () => {
             setScreen(2);
             setValidNumber(true);
           }
-        }else if(data?.data === null){
-
+        } else if (data?.data === null) {
           const response = await fetch(
             "https://api.emptra.com/vehicleRegistrations",
             {
@@ -448,9 +442,9 @@ const VehicleInfo = () => {
             const jsonRes = await fetchBrand.json();
             if (jsonRes.code == 200) {
               const brands = jsonRes.data;
-              
+
               brands.map((brand) => {
-                console.log(brands,'sss');
+                console.log(brands, "sss");
                 const brandName = brand.brand_name.split(" ");
                 for (let val of brandName) {
                   for (let mfg of data.result.vehicleManufacturerName.split(
@@ -482,25 +476,21 @@ const VehicleInfo = () => {
               setScreen(2);
               setValidNumber(true);
             }
-          } 
-          else {
+          } else {
             setValidNumber(true);
             console.error("Response Was not right from API");
           }
-
-        }else {
-
+        } else {
           setValidNumber(true);
           console.error("Response Was not right from API");
         }
-      }else{
+      } else {
         setValidNumber(true);
-
       }
     } catch (error) {
       setValidNumber(true);
       console.log(error);
-    }finally {
+    } finally {
       setLoading(false);
     }
   };
@@ -508,354 +498,350 @@ const VehicleInfo = () => {
   // RETURN STARTS
   return (
     <>
-        <div className="bg-blue-custom lg:col-span-2 gap-4 flex flex-col md:w-[100%] z-10 shadow-xl rounded-md">
-          {screen === 1 && (
-            <div className={`p-4 flex flex-col justify-center items-start gap-2 h-[200px]`} >
-              {/* <h1 className='text-xl text-black my-2 flex items-center'>
+      <div className="bg-blue-custom lg:col-span-2 gap-4 flex flex-col md:w-[100%] z-10 shadow-xl rounded-md">
+        {screen === 1 && (
+          <div
+            className={`p-4 flex flex-col justify-center items-start gap-4 min-h-[200px]`}>
+            {/* <h1 className='text-xl text-black my-2 flex items-center'>
                   Enter your car registration number &nbsp;<img src="4xfaster.png" style={{width:'20%'}}/>
               </h1> */}
-              <div className="inline-flex items-center space-x-2 w-full max-w-full overflow-hidden">
-                <span className="text-xl font-semibold">Enter your car number</span>
-                <Image
-                  src="/4xfaster.png"
-                  alt="4x Faster"
-                  width={50} // Adjust the width and height as per your image's actual size or required dimensions
-                  height={20} // Adjust the width and height as per your image's actual size or required dimensions
-                  className="ml-2 flex-shrink-0"
-                />
-              </div>
+            <div className="inline-flex items-center space-x-2 w-full max-w-full overflow-hidden">
+              <span className="text-xl font-semibold">
+                Enter your car number
+              </span>
+              <Image
+                src="/4xfaster.png"
+                alt="4x Faster"
+                width={50} // Adjust the width and height as per your image's actual size or required dimensions
+                height={20} // Adjust the width and height as per your image's actual size or required dimensions
+                className="ml-2 flex-shrink-0"
+              />
+            </div>
 
-              <div className="font-bold text-[#465166] w-full text-field mb-2">
-                <TextField
-                  error={validNumber}
-                  fullWidth
-                  id={
-                    validNumber
-                      ? "outlined-error-helper-text"
-                      : "outlined-basic"
-                  }
-                  label="Search By Car Number"
-                  variant="outlined"
-                  placeholder="AA 11 AA 1111"
-                  type="text"
-                  value={carNumber}
-                  onChange={handleInputChange}
-                  color={validNumber ? "error" : "warning"}
-                  ref={inputRef}
-                  helperText={validNumber ? "Enter a valid number." : ""}
-                />
-              </div>
+            <div className="font-bold text-[#465166] w-full text-field mb-2">
+              <TextField
+                error={validNumber}
+                fullWidth
+                id={
+                  validNumber ? "outlined-error-helper-text" : "outlined-basic"
+                }
+                label="Search By Car Number"
+                variant="outlined"
+                placeholder="AA 11 AA 1111"
+                type="text"
+                value={carNumber}
+                onChange={handleInputChange}
+                color={validNumber ? "error" : "warning"}
+                ref={inputRef}
+                helperText={validNumber ? "Enter a valid number." : ""}
+              />
+            </div>
 
-              {/* {validNumber && <p className="m-1 text-[#D04848] font-bold text-sm"> Please enter a valid number</p>} */}
-              {loading ? (
-                      <div className="loader text-sm">Loading...</div>
-                    ) : (
-                <button className="bg-blue-500 text-white w-full px-7 py-3 rounded-lg hover:bg-blue-600 text-base font-inter" onClick={submitCarNumber}>
-                    Get Price
-                </button>
-               )}
-              {/* <div className="w-full flex items-center justify-center my-2 place-self-center">
+            {/* {validNumber && <p className="m-1 text-[#D04848] font-bold text-sm"> Please enter a valid number</p>} */}
+            {loading ? (
+              <div className="loader text-sm">Loading...</div>
+            ) : (
+              <button
+                className="bg-blue-500 text-white w-full px-7 py-3 rounded-lg hover:bg-blue-600 text-base font-inter"
+                onClick={submitCarNumber}>
+                Get Price
+              </button>
+            )}
+            {/* <div className="w-full flex items-center justify-center my-2 place-self-center">
                   <div className="w-full border-t border-gray-500"></div>
                   <span className="mx-5 text-black text-base font-inter"> OR </span>
                   <div className="w-full border-t border-gray-500"></div>
               </div>
               <h1 className='text-xl text-black mt-4 leading-3'>Choose your model</h1> */}
 
-              {/* <Divider className="w-3/4" />
+            {/* <Divider className="w-3/4" />
               <p className="text-md text-[#465166]">or</p>
               <p className="text-xl text-[#465166]">
                 {" "}
                 Start with your car brand
               </p> */}
-            
-              {/* <PopularBrands
+
+            {/* <PopularBrands
                 setCarInfo={setCarInfo}
                 carInfo={carInfo}
                 screen={screen}
                 setScreen={setScreen}
                 
               /> */}
-            </div>
-          )}
+          </div>
+        )}
 
-          {/* className={`${screen === 1 ? 'hidden' : ''}`} */}
+        {/* className={`${screen === 1 ? 'hidden' : ''}`} */}
 
-          {/* Pills */}
-          {(screen === 2 || screen === 3) && carInfo.brand.name && (
-            <div className="flex flex-row my-2 mx-4 text-[#465166] gap-2 items-center justify-between">
-              {/* <div className="grid grid-cols-3 gap-2">
+        {/* Pills */}
+        {(screen === 2 || screen === 3) && carInfo.brand.name && (
+          <div className="flex flex-row my-2 mx-4 text-[#465166] gap-2 items-center justify-between">
+            {/* <div className="grid grid-cols-3 gap-2">
                 {selectedPillArray.map((item, index) => {
                   return selectedPill(item, index + "");
                 })}
               </div> */}
-              <div className="flex gap-1 items-center">
-                <div>
-                  <Avatar
-                    alt="brand_logo"
-                    src={carInfo.brand.image}
-                    className="bg-[#E1F0DA]"
-                    sx={{ width: 56, height: 56 }}
-                  />
-                </div>
-                <div className="flex flex-col gap-1">
-                  <div className="flex flex-row gap-1 items-center text-xl">
-                    {carInfo.year && <p>{carInfo.year}</p>}
-
-                    {carInfo.model.name && (
-                      <p className=" font-bold">{carInfo.model.name}</p>
-                    )}
-
-                    {carInfo.fuelType && (
-                      <p>{"[ " + carInfo.fuelType + " ]"}</p>
-                    )}
-                  </div>
-
-                  <div>
-                    {carInfo.variant.name && (
-                      <p className="text-xs">{carInfo.variant.name}</p>
-                    )}
-                  </div>
-                </div>
+            <div className="flex gap-1 items-center">
+              <div>
+                <Avatar
+                  alt="brand_logo"
+                  src={carInfo.brand.image}
+                  className="bg-[#E1F0DA]"
+                  sx={{ width: 56, height: 56 }}
+                />
               </div>
+              <div className="flex flex-col gap-1">
+                <div className="flex flex-row gap-1 items-center text-xl">
+                  {carInfo.year && <p>{carInfo.year}</p>}
 
-              <div className="flex justify-end text-[#EF4040] text-xs">
-                <button
-                  className=""
-                  onClick={() => {
-                    setValue("1");
-                    // setScreen(2);
-                    setCarInfo({
-                      brand: {
-                        id: "",
-                        name: "",
-                        iamge: "",
-                      },
-                      model: {
-                        id: "",
-                        name: "",
-                      },
-                      variant: {
-                        id: "",
-                        name: "",
-                      },
-                      year: "",
-                      ownerShip: "",
-                      fuelType: "",
-                      kmDriven: "",
-                      location: "",
-                    });
-                    setScreen(1);
-                    setOTPVerify(false);
-                    setOTPNumber(false);
-                    setOtpSend(false);
-                    setBookedStatus(true);
-                    setIsDisabled(false);
-                  }}
-                >
-                  EDIT
-                </button>
+                  {carInfo.model.name && (
+                    <p className=" font-bold">{carInfo.model.name}</p>
+                  )}
+
+                  {carInfo.fuelType && <p>{"[ " + carInfo.fuelType + " ]"}</p>}
+                </div>
+
+                <div>
+                  {carInfo.variant.name && (
+                    <p className="text-xs">{carInfo.variant.name}</p>
+                  )}
+                </div>
               </div>
             </div>
-          )}
 
-          {/* Tabs Div */}
-          {screen === 2 && (
-            <TabContext value={value} className="mt-2 ">
-              <Box>
-                <TabList
-                  onChange={handleChange}
-                  aria-label="lab API tabs example"
-                  scrollButtons="auto"
-                  // variant="scrollable"
-                  indicatorColor="warning"
-                >
-                  {tabs.map((tab) => {
-                    return customTab(tab.label, tab.value);
-                  })}
-                </TabList>
+            <div className="flex justify-end">
+              <button
+                className="text-[#EF4040] text-xs"
+                onClick={() => {
+                  setValue("1");
+                  // setScreen(2);
+                  setCarInfo({
+                    brand: {
+                      id: "",
+                      name: "",
+                      iamge: "",
+                    },
+                    model: {
+                      id: "",
+                      name: "",
+                    },
+                    variant: {
+                      id: "",
+                      name: "",
+                    },
+                    year: "",
+                    ownerShip: "",
+                    fuelType: "",
+                    kmDriven: "",
+                    location: "",
+                  });
+                  setScreen(1);
+                  setOTPVerify(false);
+                  setOTPNumber(false);
+                  setOtpSend(false);
+                  setBookedStatus(true);
+                  setIsDisabled(false);
+                }}>
+                EDIT
+              </button>
+            </div>
+          </div>
+        )}
 
-                <Divider className="w-full mt-2" />
-              </Box>
-              <div className="overflow-y-auto" style={{height:"300px"}}>
-                <TabPanel value="1">
-                  <PopularBrands
-                    setCarInfo={setCarInfo}
-                    carInfo={carInfo}
-                    screen={screen}
-                    setScreen={setScreen}
+        {/* Tabs Div */}
+        {screen === 2 && (
+          <TabContext value={value} className="mt-2 ">
+            <Box>
+              <TabList
+                onChange={handleChange}
+                aria-label="lab API tabs example"
+                scrollButtons="auto"
+                // variant="scrollable"
+                indicatorColor="warning">
+                {tabs.map((tab) => {
+                  return customTab(tab.label, tab.value);
+                })}
+              </TabList>
+
+              <Divider className="w-full mt-2" />
+            </Box>
+            <div className="overflow-y-auto" style={{ height: "300px" }}>
+              <TabPanel value="1">
+                <PopularBrands
+                  setCarInfo={setCarInfo}
+                  carInfo={carInfo}
+                  screen={screen}
+                  setScreen={setScreen}
+                />
+              </TabPanel>
+
+              <TabPanel value="2">
+                <SelectModel
+                  setCarInfo={setCarInfo}
+                  carInfo={carInfo}
+                  value={value}
+                  setValue={setValue}
+                />
+              </TabPanel>
+
+              <TabPanel value="3">
+                <SelectVariant
+                  setCarInfo={setCarInfo}
+                  carInfo={carInfo}
+                  value={value}
+                  setValue={setValue}
+                />
+              </TabPanel>
+
+              <TabPanel value="4">
+                <SelectYear
+                  setCarInfo={setCarInfo}
+                  carInfo={carInfo}
+                  value={value}
+                  setValue={setValue}
+                />
+              </TabPanel>
+
+              <TabPanel value="5">
+                <SelectOwner
+                  setCarInfo={setCarInfo}
+                  carInfo={carInfo}
+                  value={value}
+                  setValue={setValue}
+                />
+              </TabPanel>
+
+              <TabPanel value="6">
+                <SelectFuelType
+                  setCarInfo={setCarInfo}
+                  carInfo={carInfo}
+                  value={value}
+                  setValue={setValue}
+                />
+              </TabPanel>
+
+              <TabPanel value="7">
+                <SelectKm
+                  setCarInfo={setCarInfo}
+                  carInfo={carInfo}
+                  value={value}
+                  setValue={setValue}
+                  carNumber={carNumber}
+                  setScreen={setScreen}
+                />
+              </TabPanel>
+
+              <TabPanel value="8">
+                <SelectStates
+                  setCarInfo={setCarInfo}
+                  carInfo={carInfo}
+                  value={value}
+                  setValue={setValue}
+                  setScreen={setScreen}
+                />
+              </TabPanel>
+            </div>
+          </TabContext>
+        )}
+        {/* Code For OTP and Car valuation screen */}
+        {screen === 3 && (
+          <div className="flex flex-col text-[#465166]">
+            {!OTPVerify ? (
+              <>
+                <div className="p-2 m-2 gap-6 flex flex-col ">
+                  <h1 className="text-2xl">Enter Your Phone Number</h1>
+
+                  <p className="text-xs">
+                    We will reach you for further queries
+                  </p>
+
+                  <TextField
+                    fullWidth
+                    id="outlined-basic"
+                    label="Enter Mobile NUmber"
+                    variant="outlined"
+                    type="number"
+                    disabled={isDisabled}
+                    value={userNumber}
+                    onChange={(e) => setUserNumber(e.target.value)}
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">+91</InputAdornment>
+                      ),
+                    }}
                   />
-                </TabPanel>
 
-                <TabPanel value="2">
-                  <SelectModel
-                    setCarInfo={setCarInfo}
-                    carInfo={carInfo}
-                    value={value}
-                    setValue={setValue}
-                  />
-                </TabPanel>
-
-                <TabPanel value="3">
-                  <SelectVariant
-                    setCarInfo={setCarInfo}
-                    carInfo={carInfo}
-                    value={value}
-                    setValue={setValue}
-                  />
-                </TabPanel>
-
-                <TabPanel value="4">
-                  <SelectYear
-                    setCarInfo={setCarInfo}
-                    carInfo={carInfo}
-                    value={value}
-                    setValue={setValue}
-                  />
-                </TabPanel>
-
-                <TabPanel value="5">
-                  <SelectOwner
-                    setCarInfo={setCarInfo}
-                    carInfo={carInfo}
-                    value={value}
-                    setValue={setValue}
-                  />
-                </TabPanel>
-
-                <TabPanel value="6">
-                  <SelectFuelType
-                    setCarInfo={setCarInfo}
-                    carInfo={carInfo}
-                    value={value}
-                    setValue={setValue}
-                  />
-                </TabPanel>
-
-                <TabPanel value="7">
-                  <SelectKm
-                    setCarInfo={setCarInfo}
-                    carInfo={carInfo}
-                    value={value}
-                    setValue={setValue}
-                    carNumber={carNumber}
-                    setScreen={setScreen}
-                  />
-                </TabPanel>
-
-                <TabPanel value="8">
-                  <SelectStates
-                    setCarInfo={setCarInfo}
-                    carInfo={carInfo}
-                    value={value}
-                    setValue={setValue}
-                    setScreen={setScreen}
-                  />
-                </TabPanel>
-              </div>
-            </TabContext>
-          )}
-          {/* Code For OTP and Car valuation screen */}
-          {screen === 3 && (
-            <div className="flex flex-col text-[#465166]">
-              {!OTPVerify ? (
-                <>
-                  <div className="p-2 m-2 gap-6 flex flex-col ">
-                    <h1 className="text-2xl">Enter Your Phone Number</h1>
-
-                    <p className="text-xs">
-                      We will reach you for further queries
-                    </p>
-
-                    <TextField
-                      fullWidth
-                      id="outlined-basic"
-                      label="Enter Mobile NUmber"
-                      variant="outlined"
-                      type="number"
-                      disabled={isDisabled}
-                      value={userNumber}
-                      onChange={(e) => setUserNumber(e.target.value)}
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">+91</InputAdornment>
-                        ),
-                      }}
-                    />
-
-                    {OtpSend ? (
-                      <div>
-                        {/* <input
+                  {OtpSend ? (
+                    <div>
+                      {/* <input
                     placeholder="Enter Your OTP"
 
                     className="w-full p-2 border outline-gray-200 rounded border-gray-200 "
                   /> */}
-                        <TextField
-                          fullWidth
-                          id="outlined-basic"
-                          label="Enter OTP"
-                          variant="outlined"
-                          type="number"
-                          color="warning"
-                          
-                          onChange={(e) => setOTPNumber(e.target.value)}
-                          value={OTPNumber}
-                        />
-                        {/* <span className="text-red-600 mt-[2px] text-sm"> {validationerror}</span> */}
+                      <TextField
+                        fullWidth
+                        id="outlined-basic"
+                        label="Enter OTP"
+                        variant="outlined"
+                        type="number"
+                        color="warning"
+                        onChange={(e) => setOTPNumber(e.target.value)}
+                        value={OTPNumber}
+                      />
+                      {/* <span className="text-red-600 mt-[2px] text-sm"> {validationerror}</span> */}
 
-
-                        <div className="flex justify-between gap-2 my-2">
-                          <button
-                            onClick={HandleVerifyOTP}
-                            className="w-full p-2 text-base text-center bg-[#f38102] text-white rounded shadow hover:bg-black hover:text-white transition-all duration-200 ease-in-out "
-                          >
-                            Verify OTP
-                          </button>
-                          <button
-                            onClick={HandleEditNumber}
-                            className="w-full p-2 text-base text-center bg-[#f38102] text-white rounded shadow hover:bg-black hover:text-white transition-all duration-200 ease-in-out "
-                          >
-                            Edit Number
-                          </button>
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="w-full">
+                      <div className="flex justify-between gap-2 my-2">
                         <button
-                          onClick={HandleGetOtp}
-                          className="w-full p-2 text-base text-center bg-[#f38102] text-white rounded shadow hover:bg-black hover:text-white transition-all duration-200 ease-in-out "
-                        >
-                          GET OTP
+                          onClick={HandleVerifyOTP}
+                          className="w-full p-2 text-base text-center bg-[#f38102] text-white rounded shadow hover:bg-black hover:text-white transition-all duration-200 ease-in-out ">
+                          Verify OTP
+                        </button>
+                        <button
+                          onClick={HandleEditNumber}
+                          className="w-full p-2 text-base text-center bg-[#f38102] text-white rounded shadow hover:bg-black hover:text-white transition-all duration-200 ease-in-out ">
+                          Edit Number
                         </button>
                       </div>
-                    )}
-                   <span className="text-red-600 mt-[2px] text-sm"> {validationerror}</span>
-
-                  </div>
-                  <div className="my-6 flex items-center justify-center">
-                    <p className=" font-bold text-sm">
-                      We respect your privacy and your information is secure
-                      with us
-                    </p>
-                  </div>
-                </>
-              ) : (
-                // When OTP is verfied
-                <div className="">
-                  {OTPVerify ? (
-                    <div className="flex tracking-widest flex-col text-blue-900 justify-center items-center">
-                      <div className="text-xl">Expected Price</div>
-                      <h3 className="text-2xl my-2 ">
-                        ₹
-                        {(ExpectedPrice[0] < 0
-                          ? 0
-                          : ExpectedPrice[0]
-                        ).toLocaleString("en-IN")}{" "}
-                        - ₹{ExpectedPrice[1].toLocaleString("en-IN")}
-                      </h3>
-                      <div className="bg-blue-500/20 p-2 rounded text-green-700 my-2">
-                        <p className="text-base">Price May Vary On Inspection</p>
-                      </div>
-                      {/* <div className="flex flex-col justify-center items-center">
+                    </div>
+                  ) : (
+                    <div className="w-full">
+                      <button
+                        onClick={HandleGetOtp}
+                        className="w-full p-2 text-base text-center bg-[#f38102] text-white rounded shadow hover:bg-black hover:text-white transition-all duration-200 ease-in-out ">
+                        GET OTP
+                      </button>
+                    </div>
+                  )}
+                  <span className="text-red-600 mt-[2px] text-sm">
+                    {" "}
+                    {validationerror}
+                  </span>
+                </div>
+                <div className="my-6 flex items-center justify-center">
+                  <p className=" font-bold text-sm">
+                    We respect your privacy and your information is secure with
+                    us
+                  </p>
+                </div>
+              </>
+            ) : (
+              // When OTP is verfied
+              <div className="">
+                {OTPVerify ? (
+                  <div className="flex tracking-widest flex-col text-blue-900 justify-center items-center">
+                    <div className="text-xl">Expected Price</div>
+                    <h3 className="text-2xl my-2 ">
+                      ₹
+                      {(ExpectedPrice[0] < 0
+                        ? 0
+                        : ExpectedPrice[0]
+                      ).toLocaleString("en-IN")}{" "}
+                      - ₹{ExpectedPrice[1].toLocaleString("en-IN")}
+                    </h3>
+                    <div className="bg-blue-500/20 p-2 rounded text-green-700 my-2">
+                      <p className="text-base">Price May Vary On Inspection</p>
+                    </div>
+                    {/* <div className="flex flex-col justify-center items-center">
                         <button
                             onClick={() => {
                               setBookSlot(true);
@@ -866,33 +852,31 @@ const VehicleInfo = () => {
                             Book Slot
                         </button>
                       </div> */}
-                     
-                    </div>
-                    
+                  </div>
+                ) : (
+                  <></>
+                )}
+
+                {/* Slot Booking */}
+                <div ref={bookingRef}>
+                  {!BookSlot ? (
+                    <>
+                      <SlotBooking
+                        last_id={last_id}
+                        setBookedStatus
+                        BookedStatus
+                      />{" "}
+                    </>
                   ) : (
                     <></>
                   )}
-
-                  {/* Slot Booking */}
-                  <div ref={bookingRef}>
-                    {!BookSlot ? (
-                      <>
-                        <SlotBooking
-                          last_id={last_id}
-                          setBookedStatus
-                          BookedStatus
-                        />{" "}
-                      </>
-                    ) : (
-                      <></>
-                    )}
-                  </div>
-                  {/* Ends */}
                 </div>
-              )}
-            </div>
-          )}
-        </div>
+                {/* Ends */}
+              </div>
+            )}
+          </div>
+        )}
+      </div>
     </>
   );
 };

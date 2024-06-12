@@ -156,10 +156,9 @@ const about = () => {
 
       <div
         className="relative bg-cover bg-center h-full"
-        style={{ backgroundImage: "url(/scrap-car.png)", paddingTop: "80px" }}
-      >
+        style={{ backgroundImage: "url(/scrap-car.png)", paddingTop: "80px" }}>
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div className="relative container mx-auto flex items-center justify-between h-96 px-6">
+        <div className="relative container mx-auto flex items-center justify-between min-h-96 px-6">
           <div className="text-white">
             <h1 className="text-4xl font-bold">
               Get the Best Price for your Scrap Car
@@ -172,8 +171,7 @@ const about = () => {
           {/* <div className="bg-white p-6 rounded-lg shadow-lg"> */}
           <div
             className="sticky-element bottom-28 bg-orange-500 p-4 self-baseline challan-headbg"
-            style={{ marginBottom: "120px" }}
-          >
+            style={{ marginBottom: "120px" }}>
             <VehicleInfo />
             {/* <div className='bg-white p-6 rounded-2xl shadow'>
                                 <div className='p-3 rounded-md'>
@@ -207,7 +205,7 @@ const about = () => {
 
       <div className="relative max-w-5xl mx-auto px-4 pt-16">
         {/* <div className="absolute w-full h-60 -z-10 rounded-lg top-4"></div> */}
-        <h1 className="py-2 font-bold text-center text-3xl font-bold text-black">
+        <h1 className="py-2 font-bold text-center text-3xl text-black">
           Why Scrap Car With Unifi Cars
         </h1>
         {/* <p className="text-center mb-8 hiwpara">keys to cash unlock the value of your car</p> */}
@@ -328,8 +326,7 @@ const about = () => {
                     className="h-6 w-6 text-orange-400"
                     fill="currentColor"
                     viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
+                    xmlns="http://www.w3.org/2000/svg">
                     <path
                       fillRule="evenodd"
                       d="M16.707 4.293a1 1 0 010 1.414l-8.5 8.5a1 1 0 01-1.414 0l-3.5-3.5a1 1 0 011.414-1.414L8 11.086l7.293-7.293a1 1 0 011.414 0z"
@@ -385,15 +382,13 @@ const about = () => {
           ].map((vehicle, index) => (
             <div
               key={index}
-              className="bg-gray-100 p-6 rounded-md shadow-md flex flex-col items-center w-[60%] mt-6"
-            >
+              className="bg-gray-100 p-6 rounded-md shadow-md flex flex-col items-center w-[60%] mt-6">
               <div className="flex items-center mb-4">
                 <svg
                   className="h-8 w-8 text-blue-500 mr-3"
                   fill="currentColor"
                   viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+                  xmlns="http://www.w3.org/2000/svg">
                   <path d="M7 16a2 2 0 100 4 2 2 0 000-4zm10 0a2 2 0 100 4 2 2 0 000-4zM7.293 9.293A1 1 0 018 9h1V6H5a1 1 0 00-1 1v8h2a1 1 0 010 2H3a1 1 0 01-1-1v-6.586l.293-.293A1 1 0 013 8V7a3 3 0 013-3h1V3a1 1 0 011-1h8a1 1 0 011 1v1h1a3 3 0 013 3v1a1 1 0 01-.293.707L20 10.586V17a1 1 0 01-1 1h-2a1 1 0 010-2h2v-5.414l-.293-.293A1 1 0 0118 9V8a1 1 0 00-1-1h-3v3h1a1 1 0 011 1l-.293.293a1 1 0 01-.707.293H7.707a1 1 0 01-.707-.293L6 11a1 1 0 011-1h1V7H7v1a1 1 0 00-.293.707L7 9h.293zm3.707 2h4V6H11v5z" />
                 </svg>
                 <h3 className="text-xl font-semibold">{vehicle.type}</h3>
@@ -572,11 +567,9 @@ const about = () => {
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
+        aria-describedby="modal-modal-description">
         <div
-          style={{ display: "flex", flexDirection: "column", height: "100%" }}
-        >
+          style={{ display: "flex", flexDirection: "column", height: "100%" }}>
           <div style={{ flex: "1", overflowY: "auto", padding: "8px" }}>
             <Box sx={style}>
               <div
@@ -585,8 +578,7 @@ const about = () => {
                   textAlign: "right",
                   paddingRight: "8px",
                   paddingTop: "8px",
-                }}
-              >
+                }}>
                 <Button onClick={handleClose}>Close</Button>
               </div>
               <Typography id="modal-modal-title" variant="h6" component="h2">
@@ -614,8 +606,7 @@ const about = () => {
                       href={challan.payment_url}
                       className="text-blue-500"
                       target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                      rel="noopener noreferrer">
                       Pay Now
                     </a>
                   </div>

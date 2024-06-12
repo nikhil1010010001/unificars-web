@@ -610,9 +610,9 @@ const VehicleInfo = () => {
               </div>
             </div>
 
-            <div className="flex justify-end text-orange-500 text-sm border-orange-500 border-solid border rounded-md p-1 px-4 hover:bg-[#f38102] hover:text-white">
+            <div className="flex justify-end">
               <button
-                className=""
+                className="text-orange-500 text-sm border-orange-500 border-solid border rounded-md p-1 px-4 hover:bg-[#f38102] hover:text-white"
                 onClick={() => {
                   setValue("1");
                   // setScreen(2);
@@ -643,7 +643,7 @@ const VehicleInfo = () => {
                   setBookedStatus(true);
                   setIsDisabled(false);
                 }}>
-                EDIT
+                Edit
               </button>
             </div>
           </div>

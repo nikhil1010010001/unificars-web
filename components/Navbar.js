@@ -52,8 +52,7 @@ const Navbar = () => {
             </div>
             <ul
               className={`font-medium hidden text-base items-start xl:flex space-x-6`}
-              style={{ alignItems: "center" }}
-            >
+              style={{ alignItems: "center" }}>
               <Link
                 href="/"
                 className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102] ${
@@ -61,8 +60,7 @@ const Navbar = () => {
                     ? "text-orange-600 underline underline-offset-8"
                     : ""
                 }`}
-                passHref
-              >
+                passHref>
                 Home
               </Link>
               <Link
@@ -72,8 +70,7 @@ const Navbar = () => {
                     ? "text-orange-600 underline underline-offset-8"
                     : ""
                 }`}
-                passHref
-              >
+                passHref>
                 {" "}
                 Buy Car
               </Link>
@@ -84,8 +81,7 @@ const Navbar = () => {
                     ? "text-orange-600 underline underline-offset-8"
                     : ""
                 }`}
-                passHref
-              >
+                passHref>
                 Sell Car
               </Link>
               <Link
@@ -95,8 +91,7 @@ const Navbar = () => {
                     ? "text-orange-600 underline underline-offset-8"
                     : ""
                 }`}
-                passHref
-              >
+                passHref>
                 Assured fix
               </Link>
               <Link
@@ -106,47 +101,43 @@ const Navbar = () => {
                     ? "text-orange-600 underline underline-offset-8"
                     : ""
                 }`}
-                passHref
-              >
+                passHref>
                 Pre Inspection
               </Link>
-              <div className="relative">
+              <div
+                className="relative py-2"
+                onMouseEnter={() => setIsOpen(true)}
+                onMouseLeave={() => setIsOpen(false)}>
                 <button
                   onClick={toggleDropdown}
                   className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102] ${
                     isOpen ? "text-orange-600 underline underline-offset-8" : ""
-                  }`}
-                >
+                  }`}>
                   More Services
                 </button>
                 {isOpen && (
                   <ul
                     className="absolute left-0 mt-2 bg-white shadow-lg rounded-lg"
-                    style={{ width: "max-content" }}
-                  >
+                    style={{ width: "max-content" }}>
                     <li
                       className={`hover:bg-gray-100 ${
                         router.pathname == "/scrap-cars" ? "bg-gray-200" : ""
-                      }`}
-                    >
+                      }`}>
                       <Link
                         href="/scrap-cars"
                         passHref
-                        className="block px-4 py-2"
-                      >
+                        className="block px-4 py-2">
                         Scrap Car
                       </Link>
                     </li>
                     <li
                       className={`hover:bg-gray-100 ${
                         router.pathname == "/challan-check" ? "bg-gray-200" : ""
-                      }`}
-                    >
+                      }`}>
                       <Link
                         href="/challan-check"
                         passHref
-                        className="block px-4 py-2"
-                      >
+                        className="block px-4 py-2">
                         Challan Check
                       </Link>
                     </li>
@@ -155,31 +146,26 @@ const Navbar = () => {
               </div>
               {/* <Link href='#' className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102] ${router.pathname=="/sell-used-cars"?"text-orange-600 underline underline-offset-8":""}`} passHref>More Services</Link> */}
               {/* <Link href='#' className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102] ${router.pathname=="/sell-used-cars"?"text-orange-600 underline underline-offset-8":""}`} passHref>About Us</Link> */}
-              {/* <Link
-                href="/dealer-onboarding"
-                className={`hover:text-[#f38102] active:text-orange-600 ${
-                  router.pathname == "/sell-used-cars" ? "text-orange-600 " : ""
-                }`}
-                passHref> */}
-              <div
-                className="border-orange-500 border-2 cursor-pointer flex rounded-xl font-bold text-orange-500 p-2 px-4 whitespace-nowrap"
-                style={{ width: "max-content" }}
-              >
-                Login
-              </div>
-              {/* </Link> */}
+              <Link
+                href="/login"
+                className={`hover:text-[#f38102] active:text-orange-600 `}
+                passHref>
+                <div
+                  className="border-orange-500 border-2 cursor-pointer flex rounded-xl font-bold text-orange-500  px-4 whitespace-nowrap p-1"
+                  style={{ width: "max-content" }}>
+                  Login
+                </div>
+              </Link>
 
               <Link
                 href="/dealer-onboarding"
                 className={`hover:text-[#f38102] active:text-orange-600 ${
                   router.pathname == "/sell-used-cars" ? "text-orange-600 " : ""
                 }`}
-                passHref
-              >
+                passHref>
                 <div
-                  className="bg-orange-500 cursor-pointer flex rounded-xl font-bold text-white p-2 px-4 whitespace-nowrap border-2 border-orange-500"
-                  style={{ width: "max-content" }}
-                >
+                  className="bg-orange-500 cursor-pointer flex rounded-xl font-bold text-white p-1 px-4 whitespace-nowrap border-2 border-orange-500"
+                  style={{ width: "max-content" }}>
                   Become our partner
                 </div>
               </Link>
@@ -189,13 +175,11 @@ const Navbar = () => {
             <ul
               className={`text-base fixed w-0 opacity-0 z-50 h-full bg-black/60 overflow-hidden right-0 bottom-0 transition-all xl:hidden text-white ${
                 slider ? "w-full opacity-100" : ""
-              }`}
-            >
+              }`}>
               <div className="bg-[#202020] h-full w-64 right-0 absolute flex flex-col space-y-2 font-bold tracking-wider">
                 <div
                   className="absolute right-2 text-2xl top-4 p-4"
-                  onClick={() => setSlider(!slider)}
-                >
+                  onClick={() => setSlider(!slider)}>
                   {" "}
                   <AiOutlineClose />
                 </div>
@@ -204,8 +188,7 @@ const Navbar = () => {
                     href="/"
                     onClick={() => {
                       setSlider(false);
-                    }}
-                  >
+                    }}>
                     <img src="../whitelogo.png" className="w-36" />{" "}
                   </Link>
                 </li>
@@ -217,8 +200,7 @@ const Navbar = () => {
                     }}
                     className={`${
                       router.pathname == "/" ? "text-[#f38102] " : ""
-                    }`}
-                  >
+                    }`}>
                     Home
                   </Link>
                 </li>
@@ -233,8 +215,7 @@ const Navbar = () => {
                       router.pathname == "/buy-used-cars"
                         ? "text-[#f38102] "
                         : ""
-                    }`}
-                  >
+                    }`}>
                     Buy Car
                   </Link>
                 </li>
@@ -249,8 +230,7 @@ const Navbar = () => {
                       router.pathname == "/sell-used-cars"
                         ? "text-[#f38102] "
                         : ""
-                    }`}
-                  >
+                    }`}>
                     Sell Car
                   </Link>
                 </li>
@@ -265,8 +245,7 @@ const Navbar = () => {
                       router.pathname == "/assured-cars"
                         ? "text-[#f38102] "
                         : ""
-                    }`}
-                  >
+                    }`}>
                     Assured Fix
                   </Link>
                 </li>
@@ -281,8 +260,7 @@ const Navbar = () => {
                       router.pathname == "/pre-delivery-inspection"
                         ? "text-[#f38102] "
                         : ""
-                    }`}
-                  >
+                    }`}>
                     Pre Inspection
                   </Link>
                 </li>
@@ -295,8 +273,7 @@ const Navbar = () => {
                     }}
                     className={`${
                       router.pathname == "/scrap-cars" ? "text-[#f38102] " : ""
-                    }`}
-                  >
+                    }`}>
                     Scrap Car
                   </Link>
                 </li>
@@ -311,8 +288,7 @@ const Navbar = () => {
                       router.pathname == "/challan-check"
                         ? "text-[#f38102] "
                         : ""
-                    }`}
-                  >
+                    }`}>
                     Challan Check
                   </Link>
                 </li>
@@ -325,8 +301,7 @@ const Navbar = () => {
                     }}
                     className={`${
                       router.pathname == "/about" ? "text-[#f38102] " : ""
-                    }`}
-                  >
+                    }`}>
                     About Us
                   </Link>
                 </li>
@@ -339,8 +314,7 @@ const Navbar = () => {
                     }}
                     className={`${
                       router.pathname == "/contact" ? "text-[#f38102] " : ""
-                    }`}
-                  >
+                    }`}>
                     Contact
                   </Link>
                 </li>

@@ -40,10 +40,10 @@ const AllCars = ({
         />
       </Head>
 
-      <h3 className="md:px-20 px-10 text-2xl text-[#000] font-black my-2 buyh1fontfamily">
+      <h3 className="md:px-20 px-6 text-2xl text-[#000] font-black my-2 buyh1fontfamily">
         Featured Cars
       </h3>
-      <div className="grid md:px-16 transition-all duration-800 z-10 gap-16 p-4 pt-0">
+      <div className="grid md:px-16 transition-all duration-800 z-10 pt-0">
         <Carousel
           responsive={{
             desktop: {
@@ -72,15 +72,13 @@ const AllCars = ({
           customTransition="transform 500ms ease-in-out"
           transitionDuration={500}
           containerClass="carousel-container"
-          removeArrowOnDeviceType={["tablet", "mobile"]}
-        >
+          removeArrowOnDeviceType={["tablet", "mobile"]}>
           {featureddata && featureddata.length > 0 ? (
             featureddata.map((car, index) => (
               <div
                 key={index}
                 className="carousel-item m-2 featuremain"
-                style={{ marginLeft: "16px", marginRight: "16px" }}
-              >
+                style={{ marginLeft: "16px", marginRight: "16px" }}>
                 <div>
                   <Carousel
                     responsive={{
@@ -89,8 +87,7 @@ const AllCars = ({
                         items: 1,
                       },
                     }}
-                    className="z-10"
-                  >
+                    className="z-10">
                     {car.lead &&
                       car.lead.images &&
                       car.lead.images.length > 0 && (
@@ -104,8 +101,7 @@ const AllCars = ({
                               "_"
                             )}-${car.lead.registration_in.toLowerCase()}`,
                             query: { id: car.lead.id, assured: assured },
-                          }}
-                        >
+                          }}>
                           <Image
                             className="rounded-12"
                             src={car.lead.images[0].image}
@@ -140,8 +136,7 @@ const AllCars = ({
                           .toLowerCase()}-${car.lead.registration_in.toLowerCase()}`,
                         query: { id: car.lead.id, assured: assured },
                       }}
-                      className=""
-                    >
+                      className="">
                       <div className="justify-start items-center">
                         <p className="text-[12px] md:text-sm text-white/100 font-medium font-inter">
                           Unifi Rating
@@ -183,8 +178,7 @@ const AllCars = ({
                         <div className="">
                           <a
                             onClick={() => setIsOpen(true)}
-                            style={{ cursor: "pointer" }}
-                          >
+                            style={{ cursor: "pointer" }}>
                             <img
                               width="122"
                               src="/assured.png"
@@ -212,9 +206,8 @@ const AllCars = ({
                           .toLowerCase()}-${car.lead.registration_in.toLowerCase()}`,
                         query: { id: car.lead.id, assured: assured },
                       }}
-                      className="md:px-1"
-                    >
-                      <div className="flex flex-wrap gap-2 text-sm text-white pt-4">
+                      className="md:px-1">
+                      <div className="flex flex-wrap gap-2 text-sm text-white pt-2">
                         <div className="flex items-center space-x-2 border px-2 rounded-full">
                           <FaGasPump />
                           <span>{car.lead.engine_type}</span>
@@ -265,17 +258,16 @@ const AllCars = ({
         </Carousel>
       </div>
 
-      <h3 className="md:px-20 px-10 text-2xl text-[#000] font-black my-2 buyh1fontfamily">
+      <h3 className="md:px-20 px-6 text-2xl text-[#000] font-black my-2 buyh1fontfamily">
         All Cars
       </h3>
 
       <div
         className={`grid md:px-20 transition-all duration-800 ${
           gridView
-            ? "grid-cols-2 md:gap-4 md:rounded-xl md:justify-center  md:grid-cols-3 lg:grid-cols-3 lg:rounded-xl lg:justify-center lg:gap-8"
+            ? "sm:grid-cols-2 md:gap-4 md:rounded-xl md:justify-center  md:grid-cols-3 lg:grid-cols-3 lg:rounded-xl lg:justify-center lg:gap-8"
             : "grid-cols-1 gap-2 md:grid-cols-2"
-        } z-10 gap-2 p-2 pt-0`}
-      >
+        } z-10 gap-2 p-2 pt-0`}>
         {carListing && carListing.length > 0 ? (
           carListing.map((car, index) => (
             <div
@@ -283,8 +275,7 @@ const AllCars = ({
               id="carList"
               className={`group/link duration-400 transition-all shadow-sm font-robo border-2 border-gray-400/10 rounded-3xl ${
                 gridView ? "" : "grid grid-cols-2 gap-4 items-center"
-              }`}
-            >
+              }`}>
               <div>
                 <Carousel
                   responsive={{
@@ -293,8 +284,7 @@ const AllCars = ({
                       items: 1,
                     },
                   }}
-                  className="z-10"
-                >
+                  className="z-10">
                   {car.lead.images ? (
                     car.lead.images.map((img, idx) => (
                       <Link
@@ -312,8 +302,7 @@ const AllCars = ({
                             .slice(0, 2)}`.toLowerCase(),
                           query: { id: car.lead.id, assured: assured },
                         }}
-                        key={idx}
-                      >
+                        key={idx}>
                         <Image
                           className="rounded-12"
                           src={img.image}
@@ -360,8 +349,7 @@ const AllCars = ({
                       .toLowerCase()}`,
                     query: { id: car.lead.id, assured: assured },
                   }}
-                  className=""
-                >
+                  className="">
                   <div className="justify-start items-center">
                     <p className="text-[12px] md:text-sm text-black/100 font-medium font-inter">
                       Unifi Rating
@@ -402,8 +390,7 @@ const AllCars = ({
                       <div className="">
                         <a
                           onClick={() => setIsOpen(true)}
-                          style={{ cursor: "pointer" }}
-                        >
+                          style={{ cursor: "pointer" }}>
                           <img
                             width="122"
                             src="/assured.png"
@@ -436,10 +423,9 @@ const AllCars = ({
                       .toLowerCase()}`,
                     query: { id: car.lead.id, assured: assured },
                   }}
-                  className="md:px-1"
-                >
-                  <div className="pt-4 flex gap-2 justify-between text-black/100">
-                    <div className="flex flex-wrap gap-2 items-center text-sm">
+                  className="md:px-1">
+                  <div className="pt-2 flex gap-2 justify-between text-black/100 text-xs md:text-sm">
+                    <div className="flex flex-wrap gap-2 items-center">
                       <div className="flex items-center space-x-2 border px-2 rounded-full">
                         <FaGasPump />
                         <span>{car.lead.engine_type}</span>
@@ -507,19 +493,16 @@ const AllCars = ({
         <div className="fixed inset-0 z-10 flex items-center justify-center bg-black bg-opacity-80">
           <div
             className="rounded-lg mt-20 p-0 max-w-lg w-full relative"
-            style={{ maxWidth: "50rem" }}
-          >
+            style={{ maxWidth: "50rem" }}>
             <img src="/assuredban.png" className="w-full shadow" />
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
-            >
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
               <svg
                 className="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+                stroke="currentColor">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
