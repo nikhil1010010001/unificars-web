@@ -312,6 +312,12 @@ const VehicleInfo = () => {
     }
   };
 
+  const getCarDetails = async () => {
+    try {
+      console.log("carNumber", carNumber);
+    } catch (error) {}
+  };
+
   const submitCarNumber = async (e) => {
     try {
       e.preventDefault();
@@ -321,6 +327,9 @@ const VehicleInfo = () => {
 
         let number = carNumber.split(" ").join("");
         console.log(number, "number");
+
+        const isCar = await getCarDetails();
+
         const response = await fetch(
           "https://api.emptra.com/vehicleRegistrations",
           {
@@ -448,7 +457,7 @@ const VehicleInfo = () => {
                 <div className="loader text-sm">Loading...</div>
               ) : (
                 <button
-                  className="w-48 h-14 bg-blue-500 text-white px-7 py-4 rounded-lg hover:bg-blue-600 text-base font-inter"
+                  className="w-48 h-14 bg-blue-500 text-white md:px-7 py-4 rounded-lg hover:bg-blue-600 text-base font-inter"
                   onClick={submitCarNumber}>
                   Get Price
                 </button>

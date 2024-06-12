@@ -10,6 +10,7 @@ import { RiStarSFill, RiStarSLine } from "react-icons/ri";
 
 import dynamic from "next/dynamic";
 import Reviews from "@/components/Home/Reviews";
+import TestemonialCarousel from "@/components/TestemonialCarousel";
 // const BannerCarousel = dynamic(() => import("@/components/Home/BannerCarousel"),{ssr: false});
 const HomeQuestions = dynamic(() => import("@/components/Home/HomeQuestions"), {
   ssr: false,
@@ -62,6 +63,25 @@ function index() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 1280 },
+      items: 3,
+    },
+    desktop: {
+      breakpoint: { max: 1280, min: 720 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 720, min: 464 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1.25,
+    },
+  };
 
   return (
     <>
@@ -161,9 +181,11 @@ function index() {
                     Trusted by over 1 Lakh customers. Choose from 5000+ Unifi
                     Assured Cars
                   </p>
-                  <button className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">
-                    Buy Car
-                  </button>
+                  <Link href="/buy-used-cars" passHref>
+                    <button className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">
+                      Buy Car
+                    </button>
+                  </Link>
                 </div>
 
                 <div className="flex flex-col mx-4 items-start justify-start">
@@ -174,9 +196,11 @@ function index() {
                     Trusted by over 1 Lakh customers. Choose from 5000+ Unifi
                     Assured Cars
                   </p>
-                  <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-                    Sell Car
-                  </button>
+                  <Link href="/sell-used-cars" passHref>
+                    <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                      Sell Car
+                    </button>
+                  </Link>
                 </div>
               </Carousel>
             </div>
@@ -375,141 +399,7 @@ function index() {
         </div>
 
         <div className="px-4 mx-auto">
-          <Carousel showThumbs={false} autoPlay infiniteLoop showStatus={false}>
-            {/* Slide 1 */}
-            <div className="flex items-center w-full">
-              <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-2 h-[342px] w-full">
-                <div>
-                  <img
-                    src="/testimonials/testi1.jpeg"
-                    className="w-24 rounded-full object-cover h-[94px]"
-                  />
-                </div>
-                <div className="flex text-orange-500 mt-3">
-                  <RiStarSFill />
-                  <RiStarSFill />
-                  <RiStarSFill />
-                  <RiStarSFill />
-                  <RiStarSFill />
-                </div>
-                <p className="font-medium my-2 text-center">
-                  I recently purchased a car from Quick Buy. The vehicle is in
-                  excellent condition and truly value for money.
-                </p>
-                <h5 className="my-4 text-lg text-blue-950">SI MOTORS</h5>
-              </div>
-
-              <div className="hidden md:flex flex-col items-center bg-white shadow rounded p-6 mx-2 h-[342px] w-full">
-                <div>
-                  <img
-                    src="/testimonials/testi2.jpeg"
-                    className="w-24 rounded-full object-cover h-[94px]"
-                  />
-                </div>
-                <div className="flex text-orange-500 mt-3">
-                  <RiStarSFill />
-                  <RiStarSFill />
-                  <RiStarSFill />
-                  <RiStarSFill />
-                  <RiStarSLine />
-                </div>
-                <p className="font-medium my-2 text-center">
-                  Our dealership's inventory has improved since we started
-                  sourcing cars from Unificars.
-                </p>
-                <h5 className="my-4 text-lg text-blue-950">AS TRADING</h5>
-              </div>
-
-              <div className="hidden md:flex flex-col items-center bg-white shadow rounded p-6 mx-2 h-[342px] w-full">
-                <div>
-                  <img
-                    src="/testimonials/testi3.jpeg"
-                    className="w-24 rounded-full object-cover h-[94px]"
-                  />
-                </div>
-                <div className="flex text-orange-500 mt-3">
-                  <RiStarSFill />
-                  <RiStarSFill />
-                  <RiStarSFill />
-                  <RiStarSFill />
-                  <RiStarSFill />
-                </div>
-                <p className="font-medium my-2 text-center">
-                  As a dealer, finding reliable sources for quality cars is very
-                  crucial, and Unificars has never disappointed us.
-                </p>
-                <h5 className="my-4 text-lg text-blue-950">GIANI MOTORS</h5>
-              </div>
-            </div>
-
-            {/* Slide 2 */}
-            <div className="flex justify-around">
-              <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-2 h-[342px] w-full">
-                <div>
-                  <img
-                    src="/testimonials/testi4.jpeg"
-                    className="w-24 rounded-full object-cover h-[94px]"
-                  />
-                </div>
-                <div className="flex text-orange-500 mt-3">
-                  <RiStarSFill />
-                  <RiStarSFill />
-                  <RiStarSFill />
-                  <RiStarSFill />
-                  <RiStarSFill />
-                </div>
-                <p className="font-medium my-2 text-center">
-                  The bidding system at unificars is the best system. We have
-                  won numerous cars that are well maintained.
-                </p>
-                <h5 className="my-4 text-lg text-blue-950">GM MOTORS</h5>
-              </div>
-
-              <div className="hidden md:flex flex-col items-center bg-white shadow rounded p-6 mx-2 h-[342px] w-full">
-                <div>
-                  <img
-                    src="/testimonials/testi5.jpeg"
-                    className="w-24 rounded-full object-cover h-[94px]"
-                  />
-                </div>
-                <div className="flex text-orange-500 mt-3">
-                  <RiStarSFill />
-                  <RiStarSFill />
-                  <RiStarSFill />
-                  <RiStarSFill />
-                  <RiStarSFill />
-                </div>
-                <p className="font-medium my-2 text-center">
-                  Customer service at Unificars is Best. From the moment we
-                  inquired till the settlement the process was smooth.
-                </p>
-                <h5 className="my-4 text-lg text-blue-950">
-                  EXPART AUTOMOBILE
-                </h5>
-              </div>
-
-              <div className="hidden md:flex flex-col items-center bg-white shadow rounded p-6 mx-2 h-[342px] w-full">
-                <div>
-                  <img
-                    src="/testimonials/testi6.jpeg"
-                    className="w-24 rounded-full object-cover h-[94px]"
-                  />
-                </div>
-                <div className="flex text-orange-500 mt-3">
-                  <RiStarSFill />
-                  <RiStarSFill />
-                  <RiStarSFill />
-                  <RiStarSFill />
-                  <RiStarSFill />
-                </div>
-                <p className="font-medium my-2 text-center">
-                  Finding a well-maintained car at a great price was easy with
-                  Quick Buy, and the staff were incredibly helpful as well.
-                </p>
-                <h5 className="my-4 text-lg text-blue-950">NAWAJISH MOTORS</h5>
-              </div>
-            </div>
-          </Carousel>
+          <TestemonialCarousel />
         </div>
       </div>
 
