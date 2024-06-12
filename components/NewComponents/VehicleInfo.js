@@ -517,7 +517,6 @@ const VehicleInfo = () => {
                 className="ml-2 flex-shrink-0"
               />
             </div>
-
             <div className="font-bold text-[#465166] w-full text-field mb-2">
               <TextField
                 error={validNumber}
@@ -536,7 +535,6 @@ const VehicleInfo = () => {
                 helperText={validNumber ? "Enter a valid number." : ""}
               />
             </div>
-
             {/* {validNumber && <p className="m-1 text-[#D04848] font-bold text-sm"> Please enter a valid number</p>} */}
             {loading ? (
               <div className="loader text-sm">Loading...</div>
@@ -555,14 +553,12 @@ const VehicleInfo = () => {
             <h1 className="text-xl text-black mt-4 leading-3">
               Choose your model
             </h1>
-
             {/* <Divider className="w-3/4" />
               <p className="text-md text-[#465166]">or</p>
               <p className="text-xl text-[#465166]">
                 {" "}
                 Start with your car brand
               </p> */}
-
             <PopularBrands
               setCarInfo={setCarInfo}
               carInfo={carInfo}

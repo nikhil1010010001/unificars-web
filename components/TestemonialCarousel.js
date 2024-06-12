@@ -23,8 +23,8 @@ function TestemonialCarousel() {
   };
 
   return (
-    <Carousel responsive={responsive} centerMode>
-      <div className="flex flex-col items-center bg-white shadow rounded md:p-6 px-2 mx-2 md:h-[342px]">
+    <Carousel responsive={responsive}>
+      <div className="flex flex-col items-center bg-white shadow rounded md:p-6 px-2 mx-2 md:h-[342px] w-full">
         <div>
           <img
             src="/testimonials/testi1.jpeg"
@@ -45,7 +45,7 @@ function TestemonialCarousel() {
         <h5 className="my-4 text-lg text-blue-950">SI MOTORS</h5>
       </div>
 
-      <div className="flex flex-col items-center bg-white shadow rounded md:p-6 p-2 mx-2 md:h-[342px]">
+      <div className="flex flex-col items-center bg-white shadow rounded md:p-6 p-2 mx-2 md:h-[342px] w-full">
         <div>
           <img
             src="/testimonials/testi2.jpeg"
@@ -66,7 +66,7 @@ function TestemonialCarousel() {
         <h5 className="my-4 text-lg text-blue-950">AS TRADING</h5>
       </div>
 
-      <div className="flex flex-col items-center bg-white shadow rounded md:p-6 px-2 mx-2 md:h-[342px]">
+      <div className="flex flex-col items-center bg-white shadow rounded md:p-6 px-2 mx-2 md:h-[342px] w-full">
         <div>
           <img
             src="/testimonials/testi3.jpeg"
@@ -87,7 +87,7 @@ function TestemonialCarousel() {
         <h5 className="my-4  text-lg text-blue-950">GIANI MOTORS</h5>
       </div>
 
-      <div className="flex flex-col items-center bg-white shadow rounded md:p-6 px-2 mx-2 md:h-[342px]">
+      <div className="flex flex-col items-center bg-white shadow rounded md:p-6 px-2 mx-2 md:h-[342px] w-full">
         <div>
           <img
             src="/testimonials/testi4.jpeg"
@@ -108,7 +108,7 @@ function TestemonialCarousel() {
         <h5 className="my-4 text-lg text-blue-950">GM MOTORS</h5>
       </div>
 
-      <div className="flex flex-col items-center bg-white shadow rounded md:p-6 px-2 mx-2 md:h-[342px]">
+      <div className="flex flex-col items-center bg-white shadow rounded md:p-6 px-2 mx-2 md:h-[342px] w-full">
         <div>
           <img
             src="/testimonials/testi5.jpeg"
@@ -129,7 +129,7 @@ function TestemonialCarousel() {
         <h5 className="my-4 text-lg text-blue-950">EXPART AUTOMOBILE</h5>
       </div>
 
-      <div className="flex flex-col items-center bg-white shadow rounded md:p-6 px-2 mx-2 md:h-[342px]">
+      <div className="flex flex-col items-center bg-white shadow rounded md:p-6 px-2 mx-2 md:h-[342px] w-full">
         <div>
           <img
             src="/testimonials/testi6.jpeg"

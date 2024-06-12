@@ -226,7 +226,7 @@ const AllCars = ({
                         </div>
                         <div className="flex items-center space-x-2 border px-2 rounded-full">
                           <FaCar />
-                          <span>{car.lead.registration_in}****</span>
+                          <span>{car.lead.registration_in} XXXX</span>
                         </div>
                         <div className="flex items-center space-x-2 border px-2 rounded-full">
                           <FaCalendarAlt />
@@ -444,7 +444,7 @@ const AllCars = ({
                       </div>
                       <div className="flex items-center space-x-2 border px-2 rounded-full">
                         <FaCar />
-                        <span>{car.lead.registration_in}****</span>
+                        <span>{car.lead.registration_in} XXXX</span>
                       </div>
                       <div className="flex items-center space-x-2 border px-2 rounded-full">
                         <FaCalendarAlt />

@@ -398,7 +398,7 @@ function index() {
           {/* <img src='/home/title_line.png' /> */}
         </div>
 
-        <div className="px-4 mx-auto">
+        <div className="md:px-4 px-2 mx-auto">
           <TestemonialCarousel />
         </div>
       </div>
