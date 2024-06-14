@@ -39,14 +39,14 @@ const Buycar = () => {
       <div className="mx-auto space-y-6 w-[85%]">
         <div className="text-center my-10 mb-0 font-normal text-xl">
           <h1 className="text-[#000] font-black my-2 text-center sellheadfont">
-            Buy Car
+            Why Buy Car From Us
           </h1>
           {/* <span className="uppercase tracking-widest">
             Keys to cash Unlock the value of your car
           </span> */}
         </div>
-        <div className="flex gap-6 lg:flex-row flex-col ">
-          <Link href="/buy-used-cars" passHref>
+        <div className="flex gap-6 lg:flex-row flex-col">
+          <Link href="/buy-used-cars" passHref className="w-full">
             <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg">
               <img
                 src="carousel/usedcars1.png"
@@ -54,18 +54,19 @@ const Buycar = () => {
                 alt="howitworks"
                 width="280"
               />
-              <div className="text-left space-y-4 p-4">
+              <div className="text-left space-y-4 py-4">
                 <h4 className="text-xl text-black font-black tracking-widest mt-4 flex-none buyh4">
                   210 Point Inspection Report
                 </h4>
                 <p className="text-lg">
-                  Unifi provide 210 check points vehicle inspection report.
+                  Unificars believes in providing better deal for our users with
+                  210-point inspection report.
                 </p>
               </div>
             </div>
           </Link>
 
-          <Link href="/buy-used-cars" passHref>
+          <Link href="/buy-used-cars" passHref className="w-full">
             <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg">
               <img
                 src="carousel/usedcars2.png"
@@ -73,19 +74,19 @@ const Buycar = () => {
                 alt="howitworks"
                 width="280"
               />
-              <div className="text-left space-y-4 p-4">
+              <div className="text-left space-y-4 py-4">
                 <h4 className="text-xl text-black font-bold tracking-widest mt-4 flex-none buyh4">
                   10,000 km engine warranty
                 </h4>
                 <p className="text-lg">
-                  Every car is carefully hand picked after a thorough quality
-                  inspection.
+                  We assure your journey with upto 9,999+ km engine warranty
+                  with us.
                 </p>
               </div>
             </div>
           </Link>
 
-          <Link href="/buy-used-cars" passHref>
+          <Link href="/buy-used-cars" passHref className="w-full">
             <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg">
               <img
                 src="carousel/usedcars3.png"
@@ -93,19 +94,19 @@ const Buycar = () => {
                 alt="howitworks"
                 width="280"
               />
-              <div className="text-left space-y-4 p-4">
+              <div className="text-left space-y-4 py-4">
                 <h4 className="text-xl text-black font-bold tracking-widest mt-4 flex-none buyh4">
                   Free accessories worth 10k
                 </h4>
                 <p className="text-lg">
-                  Every car is carefully hand picked after a thorough quality
-                  inspection.
+                  On your purchase from our side we provides free accessories
+                  worth upto 10K.
                 </p>
               </div>
             </div>
           </Link>
 
-          <Link href="/buy-used-cars" passHref>
+          <Link href="/buy-used-cars" passHref className="w-full">
             <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg">
               <img
                 src="carousel/usedcars4.png"
@@ -113,13 +114,13 @@ const Buycar = () => {
                 alt="howitworks"
                 width="280"
               />
-              <div className="text-left space-y-4 p-4">
+              <div className="text-left space-y-4 py-4">
                 <h4 className="text-xl text-black font-bold tracking-widest mt-4 flex-none buyh4">
                   First Service free
                 </h4>
                 <p className="text-lg">
-                  Every car is carefully hand picked after a thorough quality
-                  inspection.
+                  We provide first free car service for our users ie car
+                  servicing, washing etc. 
                 </p>
               </div>
             </div>
@@ -130,9 +131,9 @@ const Buycar = () => {
           Featured Cars
         </h2>
 
-        <FeaturedCars featuredlist={featuredCars} />
+        <FeaturedCars featuredlist={featuredCars} desktopItemNum={4} />
 
-        <Link href="/buy-used-cars" passHref>
+        <Link href="/buy-used-cars" passHref className="w-full">
           <button className="bg-orange-500 text-white mt-10 px-4 py-1 text-2xl rounded-lg hover:bg-orange-600 browsbtn">
             Browse Car
           </button>

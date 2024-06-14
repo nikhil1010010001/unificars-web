@@ -47,7 +47,7 @@ const AllCars = ({
       </h3>
 
       <div className="md:px-16 px-6">
-        <FeaturedCars featuredlist={featuredlist} />
+        <FeaturedCars featuredlist={featuredlist} desktopItemNum={3} />
       </div>
       <h3 className="md:px-20 px-6 text-2xl text-[#000] font-black my-2 buyh1fontfamily">
         All Cars

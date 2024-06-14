@@ -7,33 +7,33 @@ import InnerImageZoom from "react-inner-image-zoom";
 
 const CarImageCarousel = (props) => {
   const { images, car } = props;
-  // console.log(car)
 
   return (
-    <div>
+    <div className="carousel-container">
       <Head>
         <style>
           {`
-                    .carousel .thumb  {
-                        height: 5rem !important;
-                        width:7rem  !important;
-                        transition:none !important;
-                        padding:0 !important;
-                    }
-                   
-                    .thumbs-wrapper{
-                        margin:10px 0 !important;
-                    }
-                    .thumbs .thumb img  {
-                        height: 100% !important;
-                    }
-                    .carousel.carousel-slider .control-arrow {
-                        background: black !important;
-                    }
-                    `}
+            .carousel-container {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            .carousel {
+              flex: 1;
+              margin-right: 20px;
+            }
+            .thumbnail-container {
+              display: flex;
+              flex-direction: column;
+            }
+            .thumbnail {
+              width: 100px; /* Adjust thumbnail width as needed */
+              margin-bottom: 10px; /* Adjust thumbnail margin as needed */
+            }
+            `}
         </style>
       </Head>
-      <div className="w-full h-auto  mx-auto">
+      <div className="carousel">
         <Carousel
           showStatus={false}
           showArrows={true}
@@ -56,9 +56,6 @@ const CarImageCarousel = (props) => {
                 <div key={index}>
                   <InnerImageZoom
                     src={image.image}
-                    // className="h-[26rem]"
-                    // width={500}
-                    // height={500}
                     alt={`${car.lead[0].Brand.replace(
                       / /g,
                       "_"
@@ -69,7 +66,8 @@ const CarImageCarousel = (props) => {
                       "Registration In"
                     ]
                       .replace(/ /g, "_")
-                      .slice(0, 2)}`}></InnerImageZoom>
+                      .slice(0, 2)}`}
+                  />
                 </div>
               );
             })

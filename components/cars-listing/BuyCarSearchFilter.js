@@ -112,8 +112,7 @@ const BuyCarSearchFilter = (props) => {
                   type: "",
                   brand: "",
                 });
-              }}
-            >
+              }}>
               Clear All
             </button>
 
@@ -155,8 +154,7 @@ const BuyCarSearchFilter = (props) => {
                       min_price: 100000,
                       max_price: 2400000,
                     });
-                  }}
-                >
+                  }}>
                   <AiOutlineClose />
                 </div>
               </div>
@@ -168,8 +166,7 @@ const BuyCarSearchFilter = (props) => {
                 Ownership: {fields.owner}
                 <div
                   className="cursor-pointer"
-                  onClick={() => setFields({ ...fields, owner: "" })}
-                >
+                  onClick={() => setFields({ ...fields, owner: "" })}>
                   <AiOutlineClose />
                 </div>
               </div>
@@ -181,8 +178,7 @@ const BuyCarSearchFilter = (props) => {
                 {fields.km}
                 <div
                   className="cursor-pointer"
-                  onClick={() => setFields({ ...fields, km: "" })}
-                >
+                  onClick={() => setFields({ ...fields, km: "" })}>
                   <AiOutlineClose />
                 </div>
               </div>
@@ -194,8 +190,7 @@ const BuyCarSearchFilter = (props) => {
                 {fields.year}
                 <div
                   className="cursor-pointer"
-                  onClick={() => setFields({ ...fields, year: "" })}
-                >
+                  onClick={() => setFields({ ...fields, year: "" })}>
                   <AiOutlineClose />
                 </div>
               </div>
@@ -207,8 +202,7 @@ const BuyCarSearchFilter = (props) => {
                 {fields.type}
                 <div
                   className="cursor-pointer"
-                  onClick={() => setFields({ ...fields, type: "" })}
-                >
+                  onClick={() => setFields({ ...fields, type: "" })}>
                   <AiOutlineClose />
                 </div>
               </div>
@@ -221,13 +215,11 @@ const BuyCarSearchFilter = (props) => {
           <Accordion
             className="my-2"
             defaultExpanded={true}
-            style={{ boxShadow: "0px 0px 1px rgb(0 0 0 / 4%)" }}
-          >
+            style={{ boxShadow: "0px 0px 1px rgb(0 0 0 / 4%)" }}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
-              id="panel1a-header"
-            >
+              id="panel1a-header">
               <h6 className="text-sm font-semibold font-inter">₹ Budget</h6>
             </AccordionSummary>
             <AccordionDetails>
@@ -244,7 +236,7 @@ const BuyCarSearchFilter = (props) => {
                   <Slider
                     value={value}
                     step={25000}
-                    // valueLabelDisplay="auto"
+                    valueLabelDisplay="auto"
                     onClick={(e) => {
                       console.log(e);
                     }}
@@ -256,7 +248,7 @@ const BuyCarSearchFilter = (props) => {
                     min={100000}
                     onChangeCommitted={HandleSiderValueChanged}
                     max={2500000}
-                    size="small"
+                    size="medium"
                   />
                 </Stack>
               </div>
@@ -268,13 +260,11 @@ const BuyCarSearchFilter = (props) => {
           <Accordion
             className="my-2 shadow"
             defaultExpanded={false}
-            style={{ boxShadow: "0px 0px 1px rgb(0 0 0 / 4%)" }}
-          >
+            style={{ boxShadow: "0px 0px 1px rgb(0 0 0 / 4%)" }}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel2a-content"
-              id="panel2a-header"
-            >
+              id="panel2a-header">
               <h6 className="text-sm font-semibold">Ownership</h6>
             </AccordionSummary>
             <AccordionDetails>
@@ -287,8 +277,7 @@ const BuyCarSearchFilter = (props) => {
                 className="text-xs"
                 sx={{
                   ".MuiFormControlLabel-label": { fontSize: "14px !important" },
-                }}
-              >
+                }}>
                 <FormControlLabel
                   value="1"
                   control={
@@ -340,13 +329,11 @@ const BuyCarSearchFilter = (props) => {
           <Accordion
             className="my-2 shadow"
             defaultExpanded={false}
-            style={{ boxShadow: "0px 0px 1px rgb(0 0 0 / 4%)" }}
-          >
+            style={{ boxShadow: "0px 0px 1px rgb(0 0 0 / 4%)" }}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel2a-content"
-              id="panel2a-header"
-            >
+              id="panel2a-header">
               <h6 className="text-sm font-semibold">Year</h6>
             </AccordionSummary>
             <AccordionDetails>
@@ -359,8 +346,7 @@ const BuyCarSearchFilter = (props) => {
                 }}
                 sx={{
                   ".MuiFormControlLabel-label": { fontSize: "14px !important" },
-                }}
-              >
+                }}>
                 <FormControlLabel
                   value="2022"
                   control={
@@ -477,13 +463,11 @@ const BuyCarSearchFilter = (props) => {
           <Accordion
             className="my-2 shadow"
             defaultExpanded={false}
-            style={{ boxShadow: "0px 0px 1px rgb(0 0 0 / 4%)" }}
-          >
+            style={{ boxShadow: "0px 0px 1px rgb(0 0 0 / 4%)" }}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel2a-content"
-              id="panel2a-header"
-            >
+              id="panel2a-header">
               <h6 className="text-sm font-semibold">KM Driven</h6>
             </AccordionSummary>
             <AccordionDetails>
@@ -495,8 +479,7 @@ const BuyCarSearchFilter = (props) => {
                 }}
                 sx={{
                   ".MuiFormControlLabel-label": { fontSize: "14px !important" },
-                }}
-              >
+                }}>
                 <FormControlLabel
                   value="4000"
                   control={
@@ -558,13 +541,11 @@ const BuyCarSearchFilter = (props) => {
           <Accordion
             className="my-2 shadow"
             defaultExpanded={false}
-            style={{ boxShadow: "0px 0px 1px rgb(0 0 0 / 4%)" }}
-          >
+            style={{ boxShadow: "0px 0px 1px rgb(0 0 0 / 4%)" }}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel2a-content"
-              id="panel2a-header"
-            >
+              id="panel2a-header">
               <h6 className="text-sm font-semibold font-inter">Fuel Type</h6>
             </AccordionSummary>
             <AccordionDetails>
@@ -576,8 +557,7 @@ const BuyCarSearchFilter = (props) => {
                 }}
                 sx={{
                   ".MuiFormControlLabel-label": { fontSize: "14px !important" },
-                }}
-              >
+                }}>
                 <FormControlLabel
                   value="petrol"
                   control={

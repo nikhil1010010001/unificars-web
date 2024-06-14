@@ -193,7 +193,7 @@ const carPage = () => {
                 </div>
               </div>
               <div className="md:p-0 md:pb-4 w-full">
-                <div className="sticky top-5">
+                <div className="sticky top-24">
                   <CarDetailsBox
                     car={car}
                     id={id}
@@ -201,7 +201,7 @@ const carPage = () => {
                     setShowModal={setShowModal}
                     setShowEnquiryModal={setShowEnquiryModal}
                   />
-                  <div className="mt-2 mx-4 lg:mx-0 flex flex-wrap gap-1 text-sm">
+                  {/* <div className="mt-2 mx-4 lg:mx-0 flex flex-wrap gap-1 text-sm">
                     <p className="flex-none items-center flex border-2 border-[#e38102] py-1 px-2 rounded-full gap-1">
                       <TiTick className="bg-[#e38102] rounded-full text-white" />
                       Instant Loan Approval
@@ -226,7 +226,7 @@ const carPage = () => {
                       <TiTick className="bg-[#e38102] rounded-full text-white" />
                       Sell From Your Home
                     </p>
-                  </div>
+                  </div> */}
                   {/* <div className='my-2'>
                                 <img src="/productBannner.png" className='shadow' />
                             </div> */}

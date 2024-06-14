@@ -16,7 +16,7 @@ import Carousel from "react-multi-carousel";
 import Rating from "@mui/material/Rating";
 import { BsInfoCircleFill } from "react-icons/bs";
 
-function FeaturedCars({ featuredlist }) {
+function FeaturedCars({ featuredlist, desktopItemNum }) {
   const imageLink = "button";
   const assured = 0;
 
@@ -36,7 +36,7 @@ function FeaturedCars({ featuredlist }) {
         responsive={{
           desktop: {
             breakpoint: { max: 4000, min: 1024 },
-            items: 4,
+            items: desktopItemNum,
             slidesToSlide: 1,
           },
           tablet: {

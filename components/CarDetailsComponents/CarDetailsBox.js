@@ -2,6 +2,16 @@ import React from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { BsCardChecklist, BsCashCoin, BsWhatsapp } from "react-icons/bs";
 import { TiTick } from "react-icons/ti";
+import {
+  FaWhatsapp,
+  FaFacebook,
+  FaCar,
+  FaUser,
+  FaGasPump,
+  FaRoad,
+  FaCogs,
+} from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa6";
 
 const CarDetailsBox = (props) => {
   const { car, showModal, setShowModal, setShowEnquiryModal, id } = props;
@@ -10,45 +20,49 @@ const CarDetailsBox = (props) => {
   return (
     <div className="p-4 mx-4 bg-white rounded-xl lg:mx-0 border border-black/10 font-light shadow">
       <div>
-        <h1 className="font-semibold text-xl mb-1 tracking-wide">
-          {" "}
+        <h1 className="font-black text-3xl font-inter mb-1 tracking-wide">
           {car && car.lead ? car.lead[0]["Model"] : ""}{" "}
-          {car && car.lead ? car.lead[0]["Brand"] : "Brand"}{" "}
+          {car && car.lead ? car.lead[0]["Brand"] : "Brand"}
         </h1>
         <p className="text-xs mb-2 text-black/70">
           {car && car.lead ? car.lead[0].varient : ""}
         </p>
-        <span className="font-semibold text-base text-black/90">
+        {/* <span className="font-semibold text-base text-black/90">
           ₹{" "}
           {car && car.lead
             ? parseInt(car.lead[0]["Amount"]).toLocaleString("en-IN")
             : "..."}
         </span>
-        <br />
-        <span className="font-semibold text-base text-black/90">
-          Asssured Price - ₹{" "}
-          {car && car.lead
-            ? parseInt(car.lead[0]["refurbished_price"]).toLocaleString("en-IN")
-            : "..."}
-        </span>
+        <br /> */}
       </div>
       <hr className="mt-2" />
       <div className="flex flex-wrap justify-start gap-2 my-4 text-black/80 text-sm">
-        <div className="rounded-xl p-2 bg-gray-200/60">
-          {car.lead[0]["Km Driven"]}
+        <div className="rounded-xl p-2 bg-gray-200/60 flex items-center gap-2 py-1">
+          <FaRoad />
+          {parseInt(car.lead[0]["Km Driven"]).toLocaleString("en-IN")} KM
         </div>
-        <div className="rounded-xl p-2 bg-gray-200/60 ">
-          {car.lead[0]["Ownership"]}
+
+        <div className="rounded-xl p-2 bg-gray-200/60 flex items-center gap-2 py-1">
+          <FaUser />
+          {car.lead[0]["Ownership"].split(" ")[0]} Owner
         </div>
-        <div className="rounded-xl p-2 bg-gray-200/60">
+
+        <div className="rounded-xl p-2 bg-gray-200/60 flex items-center gap-2 py-1">
+          <FaCogs />
+          {car.lead[0]["transmission"]}
+        </div>
+
+        <div className="rounded-xl p-2 bg-gray-200/60 flex items-center gap-2 py-1">
+          <FaGasPump />
           {car.lead[0]["Fuel Type"]}
         </div>
-        <div className="rounded-xl p-2 px-4 bg-gray-200/60 ">
-          {car.lead[0]["Registration In"].slice(0, 2)}
+
+        <div className="rounded-xl p-2 bg-gray-200/60 flex items-center gap-2 py-1">
+          <FaCar />
+          {car.lead[0]["Registration In"]}
         </div>
       </div>
-
-      <div className="flex flex-col gap-3 text-sm border-b-2 p-2">
+      {/* <div className="flex flex-col gap-3 text-sm border-b-2 p-2">
         <div className="flex items-center">
           <BsCashCoin className="mr-2 text-[#f38102]" />
           <p className="font-semibold tracking-wider">Free Rc transfer</p>
@@ -75,6 +89,15 @@ const CarDetailsBox = (props) => {
             <AiOutlineArrowRight className="my-1 mx-1" />
           </a>
         </div>
+      </div> */}
+
+      <div className="mb-4">
+        <span className="font-black text-xl text-black/90">
+          Asssured Price - ₹{" "}
+          {car && car.lead
+            ? parseInt(car.lead[0]["refurbished_price"]).toLocaleString("en-IN")
+            : "..."}
+        </span>
       </div>
 
       <div className="flex gap-2 text-center my-2">
@@ -92,6 +115,17 @@ const CarDetailsBox = (props) => {
             {/* <p className="text-[10px] p-0">100% Refundable</p> */}
           </div>
         </button>
+      </div>
+
+      <div className="flex flex-col items-center justify-center gap-2 mt-6">
+        <p className="font-bold text-2xl">Share With</p>
+        <div className="flex items-center gap-8 mt-2">
+          <FaWhatsapp className="text-green-500 text-4xl" />
+
+          <FaInstagram className="text-red-500 text-4xl" />
+
+          <FaFacebook className="text-blue-500 text-4xl" />
+        </div>
       </div>
     </div>
   );

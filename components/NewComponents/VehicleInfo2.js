@@ -384,17 +384,16 @@ const VehicleInfo = () => {
             console.log("post db data", data);
           }
         } else {
-          // try {
-          //   const res = await axios.post(
-          //     `https://crm.unificars.com/api/getBrandVariantresponse`,
-          //     { vehicle_number: number }
-          //   );
-          //   console.log("backend varient res", res.data);
-          //   return res.data.data;
-          // } catch (error) {
-          //   console.log("error", error);
-          //   return null;
-          // }
+          try {
+            const res = await axios.post(
+              `https://crm.unificars.com/api/getBrandVariantresponse`,
+              { dl_number: number }
+            );
+            console.log("backend varient res", res.data);
+            // data = res.data.data;
+          } catch (error) {
+            console.log("error", error);
+          }
         }
 
         if (data.code === 100) {
