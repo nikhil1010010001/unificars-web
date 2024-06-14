@@ -130,7 +130,7 @@ const carPage = () => {
           {car && car.lead[0] ? car.lead[0].Brand : ""} - Unifi Cars
         </title>
       </Head>
-      <div className="bg-gray-100/60" style={{ paddingTop: "90px" }}>
+      <div className="bg-gray-100/10" style={{ paddingTop: "90px" }}>
         {ShowSpinner ? (
           // showing spinner when car data is fecthing
           <div className="flex col-span-4 justify-center h-96 items-center w-11/12 my-8 m-auto rounded-xl">
@@ -160,7 +160,7 @@ const carPage = () => {
                       car={car}
                     />
                   </div>
-                  <div className="flex justify-end mx-6">
+                  {/* <div className="flex justify-end mx-6">
                     <Link
                       href={{
                         pathname: `/car-images/${car.lead[0].Brand.replace(
@@ -181,7 +181,7 @@ const carPage = () => {
                       <GrGallery className="my-1" />
                       View All Images
                     </Link>{" "}
-                  </div>
+                  </div> */}
                   <div className="space-y-4">
                     <CarOverView CarDetails={car.lead} />
                     {/* <CheckPoint/> */}

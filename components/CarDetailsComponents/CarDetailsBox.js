@@ -18,7 +18,7 @@ const CarDetailsBox = (props) => {
   console.log(car);
 
   return (
-    <div className="p-4 mx-4 bg-white rounded-xl lg:mx-0 border border-black/10 font-light shadow">
+    <div className="p-4 mx-4 bg-white rounded-xl lg:mx-0 border border-black/10 font-light carousel-item">
       <div>
         <h1 className="font-black text-3xl font-inter mb-1 tracking-wide">
           {car && car.lead ? car.lead[0]["Model"] : ""}{" "}
@@ -35,7 +35,7 @@ const CarDetailsBox = (props) => {
         </span>
         <br /> */}
       </div>
-      <hr className="mt-2" />
+      {/* <hr className="mt-2" /> */}
       <div className="flex flex-wrap justify-start gap-2 my-4 text-black/80 text-sm">
         <div className="rounded-xl p-2 bg-gray-200/60 flex items-center gap-2 py-1">
           <FaRoad />
@@ -91,16 +91,16 @@ const CarDetailsBox = (props) => {
         </div>
       </div> */}
 
-      <div className="mb-4">
-        <span className="font-black text-xl text-black/90">
-          Asssured Price - ₹{" "}
+      <div className="my-6">
+        <span className="font-black text-3xl text-black/90">
+          ₹{" "}
           {car && car.lead
             ? parseInt(car.lead[0]["refurbished_price"]).toLocaleString("en-IN")
             : "..."}
         </span>
       </div>
 
-      <div className="flex gap-2 text-center my-2">
+      <div className="flex gap-4 text-center my-4">
         <button
           className="transition-all hover:scale-105 duration-200 px-2 w-full bg-blue-500 text-white font-bold hover:text-white shadow rounded-lg"
           onClick={() => setShowModal(!showModal)}>
