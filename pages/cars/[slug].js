@@ -201,6 +201,8 @@ const carPage = () => {
                     setShowModal={setShowModal}
                     setShowEnquiryModal={setShowEnquiryModal}
                   />
+
+                  <img src="/carDetailsInfoImg.png" className="w-full mt-4" />
                   {/* <div className="mt-2 mx-4 lg:mx-0 flex flex-wrap gap-1 text-sm">
                     <p className="flex-none items-center flex border-2 border-[#e38102] py-1 px-2 rounded-full gap-1">
                       <TiTick className="bg-[#e38102] rounded-full text-white" />

@@ -390,6 +390,9 @@ const VehicleInfo = () => {
               { dl_number: number }
             );
             console.log("backend varient res", res.data);
+
+            console.log("carInfo before edit", carInfo);
+
             // data = res.data.data;
           } catch (error) {
             console.log("error", error);
@@ -439,6 +442,8 @@ const VehicleInfo = () => {
                 }
               }
             });
+
+            console.log("carInfo after edit", carInfo);
 
             setValue("7");
             setScreen(2);
