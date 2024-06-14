@@ -55,9 +55,9 @@ const CarPageRelatedCars = (props) => {
             return (
               <div
                 className="bg-white mx-1 min-h-[20rem] md:h-auto max-w-[20rem] rounded shadow"
-                key={index}
-              >
+                key={index}>
                 <Link
+                  target="_blank"
                   href={{
                     pathname: `/cars/${car.lead.brand
                       .replace(/ /g, "_")
@@ -71,8 +71,7 @@ const CarPageRelatedCars = (props) => {
                       .slice(0, 2)
                       .toLowerCase()}`,
                     query: { id: car.lead.id, assured: assured },
-                  }}
-                >
+                  }}>
                   <Image
                     src={car.lead.images[0].image}
                     width={300}
@@ -99,6 +98,7 @@ const CarPageRelatedCars = (props) => {
                     />
                   </div>
                   <Link
+                    target="_blank"
                     href={{
                       pathname: `/cars/${car.lead.brand
                         .replace(/ /g, "_")
@@ -113,8 +113,7 @@ const CarPageRelatedCars = (props) => {
                         .toLowerCase()}`,
                       query: { id: car.lead.id, assured: assured },
                     }}
-                    className="md:px-2 group/link"
-                  >
+                    className="md:px-2 group/link">
                     <div>
                       <h4 className="text-sm md:text-base group-hover/link:text-blue-900">
                         {car.lead.model} {car.lead.brand}
@@ -144,8 +143,7 @@ const CarPageRelatedCars = (props) => {
                         <div className="">
                           <a
                             onClick={() => setIsOpen(true)}
-                            style={{ cursor: "pointer" }}
-                          >
+                            style={{ cursor: "pointer" }}>
                             <img
                               width="122"
                               src="/assured.png"
@@ -166,6 +164,7 @@ const CarPageRelatedCars = (props) => {
                     ""
                   )}
                   <Link
+                    target="_blank"
                     href={{
                       pathname: `/cars/${car.lead.brand
                         .replace(/ /g, "_")
@@ -180,8 +179,7 @@ const CarPageRelatedCars = (props) => {
                         .toLowerCase()}`,
                       query: { id: car.lead.id, assured: assured },
                     }}
-                    className="md:px-2"
-                  >
+                    className="md:px-2">
                     {/* <div className='flex justify-start gap-2 items-center'>
                                             <p className='text-[12px] md:text-sm text-black/60'>Engine</p>
                                             <Rating name="read-only" value={parseInt(car.lead.engine_rating)} size="small" readOnly />

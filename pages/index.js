@@ -11,6 +11,7 @@ import { RiStarSFill, RiStarSLine } from "react-icons/ri";
 import dynamic from "next/dynamic";
 import Reviews from "@/components/Home/Reviews";
 import TestemonialCarousel from "@/components/TestemonialCarousel";
+import CookiesSection from "@/components/CookiesSection";
 // const BannerCarousel = dynamic(() => import("@/components/Home/BannerCarousel"),{ssr: false});
 const HomeQuestions = dynamic(() => import("@/components/Home/HomeQuestions"), {
   ssr: false,
@@ -83,6 +84,30 @@ function index() {
     },
   };
 
+  const [userLocation, setUserLocation] = useState({});
+
+  const userGeolocation = async () => {
+    const localLocation = localStorage.getItem("userLocation");
+
+    console.log("localLocation", localLocation);
+
+    if (!localLocation) {
+      const geolocation = navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setUserLocation(position.coords);
+          localStorage.setItem("userLocation", JSON.stringify(position.coords));
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
+  };
+
+  useEffect(() => {
+    userGeolocation();
+  }, []);
+
   return (
     <>
       <Head>
@@ -150,7 +175,7 @@ function index() {
               <div className="w-full h-full bg-[#f7f6f6]/30" />
               <div className="w-full h-full bg-[#fffde7]">
                 <img
-                  src="/homecar.png"
+                  src="/homecar-new.png"
                   className={`object-contain absolute right-24`}
                   alt="Car Image"
                   style={{ width: "70%" }}
@@ -210,6 +235,8 @@ function index() {
           </div>
         </div>
       </div>
+
+      <CookiesSection />
 
       <div className="relative max-w-6xl mx-auto px-4 pt-16">
         {/* <div className="absolute w-full h-60 -z-10 rounded-lg top-4"></div> */}

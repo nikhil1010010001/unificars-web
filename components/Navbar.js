@@ -146,7 +146,7 @@ const Navbar = () => {
               </div>
               {/* <Link href='#' className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102] ${router.pathname=="/sell-used-cars"?"text-orange-600 underline underline-offset-8":""}`} passHref>More Services</Link> */}
               {/* <Link href='#' className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102] ${router.pathname=="/sell-used-cars"?"text-orange-600 underline underline-offset-8":""}`} passHref>About Us</Link> */}
-              <Link
+              {/* <Link
                 href="/login"
                 className={`hover:text-[#f38102] active:text-orange-600 `}
                 passHref>
@@ -155,7 +155,7 @@ const Navbar = () => {
                   style={{ width: "max-content" }}>
                   Login
                 </div>
-              </Link>
+              </Link> */}
 
               <Link
                 href="/dealer-onboarding"

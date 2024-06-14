@@ -20,6 +20,8 @@ import SelectFuelType from "../SellPageModal2/SelectFuelType";
 import SelectOwner from "../SellPageModal2/SelectOwner";
 import SlotBooking from "./SlotBooking";
 import Image from "next/image";
+import axios from "axios";
+import { data } from "autoprefixer";
 
 // import InputMask from 'inputmask';
 
@@ -259,7 +261,7 @@ const VehicleInfo = () => {
         model: carInfo.model.name,
         varient: carInfo.variant.name,
       };
-      console.log(JSON.stringify(data));
+      console.log("verifi data", JSON.stringify(data));
 
       const fetchData = await fetch(
         "https://api.unificars.com/api/customerrequestverify",
@@ -312,43 +314,89 @@ const VehicleInfo = () => {
     }
   };
 
-  const getCarDetails = async () => {
+  const getCarDetails = async (carNum) => {
     try {
-      console.log("carNumber", carNumber);
-    } catch (error) {}
+      const res = await axios.post(
+        `https://crm.unificars.com/api/checkvehiclnumber`,
+        { vehicle_number: carNum }
+      );
+      console.log("res", res.data);
+      return res.data.data;
+    } catch (error) {
+      console.log("error", error);
+      return null;
+    }
   };
 
-  const submitCarNumber = async (e) => {
+  const submitCarNumber = async () => {
     try {
-      e.preventDefault();
+      // e.preventDefault();
       setLoading(true);
-      if (carNumber.length == 13) {
+      if (carNumber.length === 13) {
         setValidNumber(false);
 
         let number = carNumber.split(" ").join("");
-        console.log(number, "number");
 
-        const isCar = await getCarDetails();
+        let data = await getCarDetails(number);
 
-        const response = await fetch(
-          "https://api.emptra.com/vehicleRegistrations",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              secretKey:
-                "rt50rd1OViWQyA6pv40WbWJJmHCwIvGUBEAM6OLmaqTyhE61RiJ8whOOQDHdslXVT",
-              clientId:
-                "932bee8472f77a75f9a328430973d1ab:87937c1398e424117fe02fcf3f070290",
-            },
-            body: JSON.stringify({
-              vehicleNumber: number,
-              blacklistCheck: true,
-            }),
+        console.log("db data", data);
+
+        if (data === null) {
+          const response = await fetch(
+            "https://api.emptra.com/vehicleRegistrations",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                secretKey:
+                  "rt50rd1OViWQyA6pv40WbWJJmHCwIvGUBEAM6OLmaqTyhE61RiJ8whOOQDHdslXVT",
+                clientId:
+                  "932bee8472f77a75f9a328430973d1ab:87937c1398e424117fe02fcf3f070290",
+              },
+              body: JSON.stringify({
+                vehicleNumber: number,
+                blacklistCheck: true,
+              }),
+            }
+          );
+
+          let emptraData = await response.json();
+
+          console.log(emptraData, "emptra data");
+
+          // Call the third API with the data from the second API
+          if (emptraData.status !== 400) {
+            const thirdApiResponse = await fetch(
+              "https://crm.unificars.com/api/vehiclenumber",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  vehicle_number: number,
+                  object: emptraData,
+                }),
+              }
+            );
+
+            data = await thirdApiResponse.json();
+            console.log("post db data", data);
           }
-        );
+        } else {
+          // try {
+          //   const res = await axios.post(
+          //     `https://crm.unificars.com/api/getBrandVariantresponse`,
+          //     { vehicle_number: number }
+          //   );
+          //   console.log("backend varient res", res.data);
+          //   return res.data.data;
+          // } catch (error) {
+          //   console.log("error", error);
+          //   return null;
+          // }
+        }
 
-        const data = await response.json();
         if (data.code === 100) {
           // Setting Up Brand Logo here
           const fetchBrand = await fetch(
@@ -458,7 +506,7 @@ const VehicleInfo = () => {
               ) : (
                 <button
                   className="w-48 h-14 bg-blue-500 text-white md:px-7 py-4 rounded-lg hover:bg-blue-600 text-base font-inter"
-                  onClick={submitCarNumber}>
+                  onClick={(e) => submitCarNumber()}>
                   Get Price
                 </button>
               )}

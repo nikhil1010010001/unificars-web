@@ -591,11 +591,11 @@ li.thumb {
 }
 
 .changefeaturedcartext {
-  padding: 10px;
   /* background-image: linear-gradient(to right, #2f88ff, #1c5299); */
-  border-radius: 0px 0px 20px 20px;
+  border-radius: 20px;
   color: black;
-  min-height: 255px;
+
+  /* min-height: 255px; */
   /* border:1px solid #8080805c; */
 }
 
@@ -622,4 +622,8 @@ li.thumb {
 
   top: 30px;
   /* Adjust as needed */
+}
+
+.carousel-item {
+  box-shadow: 0 4px 12px #ebf4f9;
 }

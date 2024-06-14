@@ -10,18 +10,20 @@ import CloseIcon from "@mui/icons-material/Close";
 import Divider from "@mui/material/Divider";
 import Avatar from "@mui/material/Avatar";
 import InputAdornment from "@mui/material/InputAdornment";
-import PopularBrands from "../SellPageModal/PopularBrand";
-import SelectModel from "../SellPageModal/SelectModel";
-import SelectYear from "../SellPageModal/SelectYear";
-import SelectVariant from "../SellPageModal/SelectVarient";
-import SelectStates from "../SellPageModal/SelectStates";
-import SelectKm from "../SellPageModal/SelectKm";
-import SelectFuelType from "../SellPageModal/SelectFuelType";
-import SelectOwner from "../SellPageModal/SelectOwner";
+import PopularBrands from "../SellPageModal2/PopularBrand2";
+import SelectModel from "../SellPageModal2/SelectModel";
+import SelectYear from "../SellPageModal2/SelectYear";
+import SelectVariant from "../SellPageModal2/SelectVarient";
+import SelectStates from "../SellPageModal2/SelectStates";
+import SelectKm from "../SellPageModal2/SelectKm";
+import SelectFuelType from "../SellPageModal2/SelectFuelType";
+import SelectOwner from "../SellPageModal2/SelectOwner";
 import SlotBooking from "./SlotBooking";
 import Image from "next/image";
 
 // import InputMask from 'inputmask';
+
+// car number for DL 1C AE 2216
 
 const VehicleInfo = () => {
   const [value, setValue] = useState("1");
@@ -114,7 +116,6 @@ const VehicleInfo = () => {
                 borderRadius: "10px",
               }
             : {
-                // backgroundColor: "#E1F0DA",
                 color: "black",
               }
         }
@@ -236,10 +237,8 @@ const VehicleInfo = () => {
           calculatedyear = 10;
         }
         let calculation = response / calculatedyear;
-        console.log(calculation);
         let remainingyears =
           carInfo.year + calculatedyear - new Date().getFullYear();
-        console.log(remainingyears);
         let expectedprice = Math.round(calculation * remainingyears);
         let expectedprice1 = Math.round(calculation * remainingyears) + 100240;
         console.log([expectedprice, expectedprice1]);
@@ -313,6 +312,12 @@ const VehicleInfo = () => {
     }
   };
 
+  const getCarDetails = async () => {
+    try {
+      console.log("carNumber", carNumber);
+    } catch (error) {}
+  };
+
   const submitCarNumber = async (e) => {
     try {
       e.preventDefault();
@@ -321,45 +326,31 @@ const VehicleInfo = () => {
         setValidNumber(false);
 
         let number = carNumber.split(" ").join("");
+        console.log(number, "number");
 
-        // console.log(number, "number");
+        const isCar = await getCarDetails();
+
         const response = await fetch(
-          "https://crm.unificars.com/api/checkvehiclnumber",
+          "https://api.emptra.com/vehicleRegistrations",
           {
             method: "POST",
             headers: {
-              "Access-Control-Allow-Origin": "*",
               "Content-Type": "application/json",
+              secretKey:
+                "rt50rd1OViWQyA6pv40WbWJJmHCwIvGUBEAM6OLmaqTyhE61RiJ8whOOQDHdslXVT",
+              clientId:
+                "932bee8472f77a75f9a328430973d1ab:87937c1398e424117fe02fcf3f070290",
             },
             body: JSON.stringify({
-              vehicle_number: number,
+              vehicleNumber: number,
+              blacklistCheck: true,
             }),
           }
         );
 
-        // const response = await fetch(
-        //   "https://api.emptra.com/vehicleRegistrations",
-        //   {
-        //     method: "POST",
-        //     headers: {
-        //       "Content-Type": "application/json",
-        //       secretKey:
-        //         "rt50rd1OViWQyA6pv40WbWJJmHCwIvGUBEAM6OLmaqTyhE61RiJ8whOOQDHdslXVT",
-        //       clientId:
-        //         "932bee8472f77a75f9a328430973d1ab:87937c1398e424117fe02fcf3f070290",
-        //     },
-        //     body: JSON.stringify({
-        //       vehicleNumber: number,
-        //       blacklistCheck: true,
-        //     }),
-        //   }
-        // );
-
         const data = await response.json();
-        console.log("chalja", data.data);
-        if (data?.data?.code == 100) {
+        if (data.code === 100) {
           // Setting Up Brand Logo here
-
           const fetchBrand = await fetch(
             "https://api.unificars.com/api/getwebrands",
             {
@@ -375,10 +366,9 @@ const VehicleInfo = () => {
             const brands = jsonRes.data;
 
             brands.map((brand) => {
-              console.log(brands, "sss");
               const brandName = brand.brand_name.split(" ");
               for (let val of brandName) {
-                for (let mfg of data.data.result.vehicleManufacturerName.split(
+                for (let mfg of data.result.vehicleManufacturerName.split(
                   " "
                 )) {
                   if (mfg.toLowerCase() === val.toLowerCase()) {
@@ -389,14 +379,14 @@ const VehicleInfo = () => {
                         name: brand.brand_name,
                         image: brand.image,
                       },
-                      model: { name: data.data.result.model.split(" ")[1] },
-                      year: data.data.result.vehicleManufacturingMonthYear.split(
+                      model: { name: data.result.model.split(" ")[1] },
+                      year: data.result.vehicleManufacturingMonthYear.split(
                         "/"
                       )[1],
-                      variant: { name: data.data.result.model },
-                      fuelType: data.data.result.type,
-                      location: data.data.result.regAuthority,
-                      ownerShip: data.data.result.ownerCount,
+                      variant: { name: data.result.model },
+                      fuelType: data.result.type,
+                      location: data.result.regAuthority,
+                      ownerShip: data.result.ownerCount,
                     });
                   }
                 }
@@ -406,80 +396,6 @@ const VehicleInfo = () => {
             setValue("7");
             setScreen(2);
             setValidNumber(true);
-          }
-        } else if (data?.data === null) {
-          const response = await fetch(
-            "https://api.emptra.com/vehicleRegistrations",
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                secretKey:
-                  "rt50rd1OViWQyA6pv40WbWJJmHCwIvGUBEAM6OLmaqTyhE61RiJ8whOOQDHdslXVT",
-                clientId:
-                  "932bee8472f77a75f9a328430973d1ab:87937c1398e424117fe02fcf3f070290",
-              },
-              body: JSON.stringify({
-                vehicleNumber: number,
-                blacklistCheck: true,
-              }),
-            }
-          );
-
-          const data = await response.json();
-
-          if (data.code == 100) {
-            // Setting Up Brand Logo here
-            const fetchBrand = await fetch(
-              "https://api.unificars.com/api/getwebrands",
-              {
-                method: "POST",
-                headers: {
-                  "Access-Control-Allow-Origin": "*",
-                  "Content-Type": "application/json",
-                },
-              }
-            );
-            const jsonRes = await fetchBrand.json();
-            if (jsonRes.code == 200) {
-              const brands = jsonRes.data;
-
-              brands.map((brand) => {
-                console.log(brands, "sss");
-                const brandName = brand.brand_name.split(" ");
-                for (let val of brandName) {
-                  for (let mfg of data.result.vehicleManufacturerName.split(
-                    " "
-                  )) {
-                    if (mfg.toLowerCase() === val.toLowerCase()) {
-                      setCarInfo({
-                        ...carInfo,
-                        brand: {
-                          id: brand.id,
-                          name: brand.brand_name,
-                          image: brand.image,
-                        },
-                        model: { name: data.result.model.split(" ")[1] },
-                        year: data.result.vehicleManufacturingMonthYear.split(
-                          "/"
-                        )[1],
-                        variant: { name: data.result.model },
-                        fuelType: data.result.type,
-                        location: data.result.regAuthority,
-                        ownerShip: data.result.ownerCount,
-                      });
-                    }
-                  }
-                }
-              });
-
-              setValue("7");
-              setScreen(2);
-              setValidNumber(true);
-            }
-          } else {
-            setValidNumber(true);
-            console.error("Response Was not right from API");
           }
         } else {
           setValidNumber(true);
@@ -496,122 +412,73 @@ const VehicleInfo = () => {
     }
   };
 
-  const [hideAnimation, setHideAnimation] = useState(false);
-
-  const handleHideAnimation = () => {
-    setHideAnimation(!hideAnimation);
-  };
-
-  console.log(carNumber.length);
-
   // RETURN STARTS
   return (
     <>
-      <div className="lg:col-span-2 gap-4 flex flex-col md:w-[100%] z-10">
+      <div className="gap-4 flex flex-col z-10 rounded-md">
         {screen === 1 && (
-          <div className="md:p-2 flex flex-col justify-center items-start gap-2">
-            {/* <h1 className='text-xl text-black my-2 flex items-center'>
-                  Enter your car registration number &nbsp;<img src="4xfaster.png" style={{width:'20%'}}/>
-              </h1> */}
-            <div className="w-full bg-[#dbeaff]/10 p-2 rounded-xl">
-              <div className="inline-flex mb-2 items-center space-x-4 w-full max-w-full overflow-hidden">
-                <span className="text-xl">
-                  Enter your car registration number
-                </span>
-                <Image
-                  src="/4xfaster.png"
-                  alt="4x Faster"
-                  width={80} // Adjust the width and height as per your image's actual size or required dimensions
-                  height={110} // Adjust the width and height as per your image's actual size or required dimensions
-                  className="ml-2 flex-shrink-0"
-                />
-              </div>
-              <div className="font-bold text-[#465166] w-full mb-2 relative">
-                {/* <TextField
+          <div
+            className={`p-4 flex flex-col justify-center items-start gap-4 w-full`}>
+            <div className="inline-flex items-center space-x-2 w-full max-w-full overflow-hidden">
+              <span className="text-xl font-semibold">
+                Enter your car registration number
+              </span>
+              <Image
+                src="/4xfaster.png"
+                alt="4x Faster"
+                width={50}
+                height={20}
+                className="ml-2 flex-shrink-0"
+              />
+            </div>
+            <div className="flex w-full gap-4">
+              <div className="font-bold text-[#465166] w-full text-field">
+                <TextField
                   error={validNumber}
-                  fullWidth
                   id={
                     validNumber
                       ? "outlined-error-helper-text"
                       : "outlined-basic"
                   }
-                  placeholder="Search By Car Number"
+                  label="Search By Car Number"
                   variant="outlined"
-                  label="e.g. ( DL XX AC _ _ _ _ )"
+                  placeholder="AA 11 AA 1111"
                   type="text"
                   value={carNumber}
                   onChange={handleInputChange}
                   color={validNumber ? "error" : "warning"}
                   ref={inputRef}
                   helperText={validNumber ? "Enter a valid number." : ""}
-                  className="shadow-sm"
-                /> */}
-
-                <input
-                  type="text"
-                  className="w-full p-2 rounded-2xl shadow-lg text-xl px-4 outline-none  border border-gray-200"
-                  value={carNumber}
-                  onChange={handleInputChange}
-                  placeholder={hideAnimation ? "DL XX AC XXXX" : ""}
-                  ref={inputRef}
-                  onBlur={() => {
-                    if (carNumber.length === 0) {
-                      setHideAnimation(false);
-                    }
-                  }}
+                  className="w-full"
                 />
-
-                {!hideAnimation && (
-                  <div
-                    className="absolute top-0 m-auto w-full h-full z-10 flex items-center"
-                    onClick={handleHideAnimation}>
-                    <div>
-                      <h1 className="ml-4 animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5 text-xl text-gray-500">
-                        DL XX AC XXXX
-                      </h1>
-                    </div>
-                  </div>
-                )}
               </div>
-
-              <p className="text-sm p-2 pt-0 text-[#D04848]">
-                {validNumber ? "Please enter a valid number." : ""}
-              </p>
-
-              {/* {validNumber && (
-                <p className="m-1 text-[#D04848] font-bold text-sm">
-                  {" "}
-                  Please enter a valid number
-                </p>
-              )} */}
 
               {loading ? (
                 <div className="loader text-sm">Loading...</div>
               ) : (
                 <button
-                  className="bg-blue-500 text-white px-12 py-3 rounded-xl hover:bg-blue-600 text-base font-inter"
+                  className="w-48 h-14 bg-blue-500 text-white md:px-7 py-4 rounded-lg hover:bg-blue-600 text-base font-inter"
                   onClick={submitCarNumber}>
                   Get Price
                 </button>
               )}
-              <div className="w-full flex items-center justify-center my-2 place-self-center">
-                <div className="w-full border-t border-gray-500"></div>
-                <span className="mx-5 text-black text-base font-inter">
-                  {" "}
-                  OR{" "}
-                </span>
-                <div className="w-full border-t border-gray-500"></div>
-              </div>
             </div>
-            <h1 className="text-xl text-black my-4 leading-3">
-              Select your car brand to get started
+            <div className="w-full flex items-center justify-center my-2 place-self-center">
+              <div className="w-full border-t border-gray-500"></div>
+              <span className="mx-5 text-black text-base font-inter"> OR </span>
+              <div className="w-full border-t border-gray-500"></div>
+            </div>
+            <h1 className="text-xl text-black mt-4 leading-3">
+              Choose your model
             </h1>
+
             {/* <Divider className="w-3/4" />
               <p className="text-md text-[#465166]">or</p>
               <p className="text-xl text-[#465166]">
                 {" "}
                 Start with your car brand
               </p> */}
+
             <PopularBrands
               setCarInfo={setCarInfo}
               carInfo={carInfo}
@@ -625,13 +492,13 @@ const VehicleInfo = () => {
 
         {/* Pills */}
         {(screen === 2 || screen === 3) && carInfo.brand.name && (
-          <div className="flex flex-row my-2 text-[#465166] gap-2 items-center justify-between">
+          <div className="flex flex-row my-2 mx-4 text-[#465166] gap-2 items-center justify-between">
             {/* <div className="grid grid-cols-3 gap-2">
                 {selectedPillArray.map((item, index) => {
                   return selectedPill(item, index + "");
                 })}
               </div> */}
-            <div className="flex gap-1 items-center flex-wrap">
+            <div className="flex gap-1 items-center">
               <div>
                 <Avatar
                   alt="brand_logo"
@@ -640,7 +507,7 @@ const VehicleInfo = () => {
                   sx={{ width: 100, height: 100 }}
                 />
               </div>
-              <div className="flex flex-wrap flex-col gap-1">
+              <div className="flex flex-col gap-1">
                 <div className="flex flex-row gap-1 items-center text-xl">
                   {carInfo.year && <p>{carInfo.year}</p>}
 
@@ -648,11 +515,7 @@ const VehicleInfo = () => {
                     <p className=" font-bold">{carInfo.model.name}</p>
                   )}
 
-                  {carInfo.fuelType && (
-                    <p className="whitespace-nowrap">
-                      {"[ " + carInfo.fuelType + " ]"}
-                    </p>
-                  )}
+                  {carInfo.fuelType && <p>{"[ " + carInfo.fuelType + " ]"}</p>}
                 </div>
 
                 <div>
@@ -665,7 +528,7 @@ const VehicleInfo = () => {
 
             <div className="flex justify-end">
               <button
-                className="text-orange-500 text-sm border-orange-500 border-solid border rounded-md p-1 px-4 hover:bg-[#f38102] hover:text-white"
+                className=" border border-orange-500 text-orange-500 px-4 py-2 rounded-lg hover:bg-orange-500 hover:text-white transition-all duration-200 ease-in-out"
                 onClick={() => {
                   setValue("1");
                   // setScreen(2);
@@ -704,12 +567,18 @@ const VehicleInfo = () => {
 
         {/* Tabs Div */}
         {screen === 2 && (
-          <TabContext value={value} className="mt-2 ">
+          <TabContext value={value} className="mt-2">
             <Box>
               <TabList
                 onChange={handleChange}
                 aria-label="lab API tabs example"
                 scrollButtons="auto"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  margin: "auto",
+                }}
                 variant="scrollable"
                 indicatorColor="warning">
                 {tabs.map((tab) => {
@@ -719,7 +588,7 @@ const VehicleInfo = () => {
 
               <Divider className="w-full p-2" />
             </Box>
-            <div className="overflow-y-auto" style={{ height: "300px" }}>
+            <div>
               <TabPanel value="1">
                 <PopularBrands
                   setCarInfo={setCarInfo}
@@ -799,7 +668,7 @@ const VehicleInfo = () => {
         )}
         {/* Code For OTP and Car valuation screen */}
         {screen === 3 && (
-          <div className="flex flex-col text-[#465166]">
+          <div className="flex flex-col text-[#465166] w-[60%] mx-auto">
             {!OTPVerify ? (
               <>
                 <div className="p-2 m-2 gap-6 flex flex-col ">
@@ -884,13 +753,13 @@ const VehicleInfo = () => {
                 {OTPVerify ? (
                   <div className="flex tracking-widest flex-col text-blue-900 justify-center items-center">
                     <div className="text-xl">Expected Price</div>
-                    <h3 className="text-base my-2 font-semibold">
+                    <h3 className="text-2xl my-2 ">
                       ₹
                       {(ExpectedPrice[0] < 0
                         ? 0
                         : ExpectedPrice[0]
                       ).toLocaleString("en-IN")}{" "}
-                      to ₹{ExpectedPrice[1].toLocaleString("en-IN")}
+                      - ₹{ExpectedPrice[1].toLocaleString("en-IN")}
                     </h3>
                     <div className="bg-blue-500/20 p-2 rounded text-green-700 my-2">
                       <p className="text-base">Price May Vary On Inspection</p>

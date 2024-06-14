@@ -17,7 +17,6 @@ import {
   FaRoad,
 } from "react-icons/fa";
 import FeaturedCars from "../FeaturedCars";
-import { BsInfoCircleFill } from "react-icons/bs";
 
 const AllCars = ({
   carListing,
@@ -152,20 +151,53 @@ const AllCars = ({
                       readOnly
                     />
                   </div>
-
                   <div className="relative">
-                    <h4 className="text-md font-black my-2 font-inter text-start">
-                      {car.lead.brand}
+                    <h4 className="text-md font-bold font-inter">
+                      {car.lead.model} {car.lead.brand}
                     </h4>
-                    <p className="mb-4 md:text-sm text-start space-x-2">
-                      {/* {car.lead.varient} */}
-                      <span>{car.lead.model}</span>
-                      <span>•</span>
-                      <span>{car.lead.transmission}</span>
+                    <p className="text-xs md:text-sm font-normal text-black/80">
+                      {car.lead.varient}
                     </p>
+                    <div className="pt-1 flex lg:items-center justify-between flex-col lg:flex-row">
+                      <div className="">
+                        <img
+                          src={`/${imageLink}.png`}
+                          className="w-32 lg:mx-0"
+                        />
+                      </div>
+                      <p className="font-bold font-inter">
+                        ₹{" "}
+                        {parseInt(car.lead.selling_amount).toLocaleString(
+                          "en-IN"
+                        )}
+                      </p>
+                    </div>
                   </div>
                 </Link>
-
+                {parseInt(car.lead.refurbished_price) && (
+                  <div className="relative">
+                    <div className="flex lg:items-center justify-between flex-col lg:flex-row">
+                      <div className="">
+                        <a
+                          onClick={() => setIsOpen(true)}
+                          style={{ cursor: "pointer" }}>
+                          <img
+                            width="122"
+                            src="/assured.png"
+                            alt="info--v1"
+                            style={{ marginRight: "15px" }}
+                          />
+                        </a>
+                      </div>
+                      <p className="font-bold font-inter">
+                        ₹{" "}
+                        {parseInt(car.lead.refurbished_price).toLocaleString(
+                          "en-IN"
+                        )}
+                      </p>
+                    </div>
+                  </div>
+                )}
                 <Link
                   href={{
                     pathname: `/cars/${car.lead.brand
@@ -180,46 +212,50 @@ const AllCars = ({
                       .slice(0, 2)
                       .toLowerCase()}`,
                     query: { id: car.lead.id, assured: assured },
-                  }}>
-                  <div className="flex flex-wrap gap-2 text-xs mt-2">
-                    <div className="flex items-center space-x-2 p-2 py-1 rounded-md bg-gray-100">
-                      <FaGasPump />
-                      <span>{car.lead.engine_type}</span>
+                  }}
+                  className="md:px-1">
+                  <div className="pt-2 flex gap-2 justify-between text-black/100 text-xs md:text-sm">
+                    <div className="flex flex-wrap gap-2 items-center">
+                      <div className="flex items-center space-x-2 border px-2 rounded-full">
+                        <FaGasPump />
+                        <span>{car.lead.engine_type}</span>
+                      </div>
+                      <div className="flex items-center space-x-2 border px-2 rounded-full">
+                        <FaRoad />
+                        <span>{car.lead.km_driven.split(" ")[0]}</span>
+                      </div>
+                      <div className="flex items-center space-x-2 border px-2 rounded-full">
+                        <FaMapMarkerAlt />
+                        <span>{car.lead.registration_in.slice(0, 2)}</span>
+                      </div>
+                      <div className="flex items-center space-x-2 border px-2 rounded-full">
+                        <FaClipboardCheck />
+                        <span>Rc-Original</span>
+                      </div>
+                      <div className="flex items-center space-x-2 border px-2 rounded-full">
+                        <FaCar />
+                        <span>{car.lead.registration_in} XXXX</span>
+                      </div>
+                      <div className="flex items-center space-x-2 border px-2 rounded-full">
+                        <FaCalendarAlt />
+                        <span>{car.lead.manufacturing_date}</span>
+                      </div>
+                      <div className="flex items-center space-x-2 border px-2 rounded-full">
+                        <FaCogs />
+                        <span>{car.lead.transmission}</span>
+                      </div>
+                      <div className="flex items-center space-x-2 border px-2 rounded-full">
+                        <FaUser />
+                        <span>{car.lead.ownership}</span>
+                      </div>
                     </div>
-
-                    <div className="flex items-center space-x-2 p-2 py-1 rounded-md bg-gray-100">
-                      <FaRoad />
-                      <span>
-                        {parseInt(
-                          car.lead.km_driven.split(" ")[0]
-                        ).toLocaleString("en-IN")}
-                      </span>
-                    </div>
-
-                    <div className="flex items-center space-x-2 p-2 py-1 rounded-md bg-gray-100">
-                      <FaCar />
-                      <span>{car.lead.registration_in}</span>
-                    </div>
-
-                    <div className="flex items-center space-x-2 p-2 py-1 rounded-md bg-gray-100">
-                      <FaUser />
-                      <span>{car.lead.ownership.split(" ")[0]} Owner</span>
-                    </div>
-                  </div>
-
-                  <div className="pt-4 flex flex-wrap-reverse gap-1 lg:items-center flex-row lg:flex-row my-2">
-                    <p className="font-bold font-inter px-2">
-                      ₹{" "}
-                      {parseInt(car.lead.selling_amount).toLocaleString(
-                        "en-IN"
-                      )}
-                    </p>
-
-                    <BsInfoCircleFill className="text-blue-500 text-xl" />
+                    {/* <p><span style={{ display: 'flex' }}>&nbsp;&nbsp;&nbsp;{((car.lead.km_driven).split(' '))[0]} km</span></p>
+                                        <p><span style={{ display: 'flex' }}>&nbsp;&nbsp;&nbsp;{((car.lead.ownership).split(" "))[0]}</span></p>
+                                        <p><span style={{ display: 'flex' }}>&nbsp;&nbsp;&nbsp;{car.lead.engine_type}</span></p>
+                                        <p><span style={{ display: 'flex' }}>&nbsp;&nbsp;&nbsp;{(car.lead.registration_in).slice(0, 2)}</span></p> */}
                   </div>
                 </Link>
               </div>
-
               {/* {[5, 12, 15, 23, 34, 41, 48, 55, 62, 69, 76].includes(index) && (
                                 <>
                                     {folder == "listing" ? (

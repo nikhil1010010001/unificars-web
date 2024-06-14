@@ -147,8 +147,8 @@ const carPage = () => {
                 setShowEnquiryModal={setShowEnquiryModal}
               />
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-2 py-4 mx-auto lg:w-11/12 ">
-              <div className="col-span-2 px-4 mb-4">
+            <div className="flex lg:gap-2 py-4 mx-auto lg:w-11/12 ">
+              <div className="px-4 mb-4 w-full">
                 <div>
                   <div className="relative">
                     <CarImageCarousel
@@ -177,8 +177,7 @@ const carPage = () => {
                           .toLowerCase()}`,
                         query: { id: id, assured: assured },
                       }}
-                      className="mb-6 hover:text-blue-600 flex gap-2 shadow p-2 rounded-xl"
-                    >
+                      className="mb-6 hover:text-blue-600 flex gap-2 shadow p-2 rounded-xl">
                       <GrGallery className="my-1" />
                       View All Images
                     </Link>{" "}
@@ -193,7 +192,7 @@ const carPage = () => {
                   </div>
                 </div>
               </div>
-              <div className="md:p-0 md:pb-4">
+              <div className="md:p-0 md:pb-4 w-full">
                 <div className="sticky top-5">
                   <CarDetailsBox
                     car={car}
@@ -239,19 +238,16 @@ const carPage = () => {
             <div
               className={`fixed z-50 overflow-hidden top-0 w-full transition-all duration-200 ease-in-out flex justify-center items-center ${
                 CurrentImage.url != "" ? "h-full" : "h-0"
-              }`}
-            >
+              }`}>
               <div
                 className="absolute top-0 bg-black/50 w-full h-full"
-                onClick={() => dispatch(ImageDisplayHide())}
-              ></div>
+                onClick={() => dispatch(ImageDisplayHide())}></div>
               <div className="z-40 bg-white relative m-4">
                 <div
                   className="absolute -top-2 -right-2 z-40 bg-white/70 rounded-full cursor-pointer"
                   onClick={() => {
                     dispatch(ImageDisplayHide());
-                  }}
-                >
+                  }}>
                   {" "}
                   <IoIosCloseCircle className="text-2xl text-black" />{" "}
                 </div>

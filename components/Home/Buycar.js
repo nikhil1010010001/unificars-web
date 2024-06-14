@@ -36,7 +36,7 @@ const Buycar = () => {
 
   return (
     <div className="py-6 text-center from-white to-blue-50 text-gray-600">
-      <div className="w-11/12 mx-auto">
+      <div className="mx-auto space-y-6 w-[85%]">
         <div className="text-center my-10 mb-0 font-normal text-xl">
           <h1 className="text-[#000] font-black my-2 text-center sellheadfont">
             Buy Car
@@ -45,7 +45,7 @@ const Buycar = () => {
             Keys to cash Unlock the value of your car
           </span> */}
         </div>
-        <div className="flex gap-6 md:flex-row flex-col">
+        <div className="flex gap-6 lg:flex-row flex-col ">
           <Link href="/buy-used-cars" passHref>
             <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg">
               <img
@@ -55,7 +55,7 @@ const Buycar = () => {
                 width="280"
               />
               <div className="text-left space-y-4 p-4">
-                <h4 className="text-xl text-black font-black tracking-widest mt-4 flex-none buyh4 whitespace-nowrap">
+                <h4 className="text-xl text-black font-black tracking-widest mt-4 flex-none buyh4">
                   210 Point Inspection Report
                 </h4>
                 <p className="text-lg">
@@ -125,6 +125,10 @@ const Buycar = () => {
             </div>
           </Link>
         </div>
+
+        <h2 className="text-[#000] font-black my-2 text-center sellheadfont pt-8">
+          Featured Cars
+        </h2>
 
         <FeaturedCars featuredlist={featuredCars} />
 
