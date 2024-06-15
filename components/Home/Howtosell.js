@@ -2,56 +2,89 @@ import React from "react";
 
 const HowToSell = () => {
   return (
-    <div className="relative max-w-5xl mx-auto px-4 pt-16">
-      <div className="absolute w-full h-60 inset-0 bg-blue-50 -z-10 rounded-lg shadow-md top-4"></div>
-      {/* <h2 className="text-3xl font-bold text-center mb-4">How to Sell !</h2> */}
-      <h1 className="py-2 font-bold text-center">
-        {" "}
-        <span className="text-blue-500 sellheadfont">How </span>
-        <span className="sellheadfont">to Sell !</span>
-      </h1>
+    <div className="relative max-w-6xl mx-auto px-4 pt-16">
+      {/* <div className="absolute w-full h-60 -z-10 rounded-lg top-4"></div> */}
+      {/* <h1 className='py-2 font-bold text-center text-3xl font-bold text-black'>What We Do</h1> */}
+      <div className="text-4xl w-[50] mx-auto px-6 order-last lg:order-first text-center mb-4">
+        <h1 className="py-2 font-black">
+          <span className="text-orange-500 sellheadfont">How</span>
+          <span className="sellheadfont"> to Sell !</span>
+        </h1>
+      </div>
       <p className="text-center mb-8 hiwpara">
         keys to cash unlock the value of your car
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        <div className="hover:bg-blue-500 hover:text-white bg-white text-black p-6 rounded-lg shadow-md ">
-          {/* <div className="mb-4">
-            <img src="/icons/car-details.svg" alt="Car Details" className="mx-auto" />
-          </div> */}
-          <h4 className="text-base font-semibold mb-2 buyh4 text-center">
-            SUBMIT YOUR CAR DETAILS
-          </h4>
-          <p className="mb-4">
-            Provide simple details of your car like mobile number, year and
-            mileage for accurate price.
-          </p>
-          {/* <a href="#" className="text-white">Read more</a> */}
+
+      <div className="flex gap-6 md:flex-row flex-col w-full">
+        <div className="relative text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg md:w-[45%] overflow-hidden">
+          <img
+            src="/sell-fast.png"
+            alt="Fast"
+            className="absolute -top-5 -left-5 w-32"
+          />
+          <img
+            src="carousel/carousel-new-1.png"
+            className="img-fluid w-full object-cover h-80 rounded-xl"
+            alt="howitworks"
+            width="280"
+          />
+          <div className="text-left space-y-4 p-4">
+            <h4 className="text-xl text-black font-black tracking-widest mt-4 flex-none">
+              SUBMIT YOUR CAR DETAILS
+            </h4>
+            <p className="text-lg">
+              Provide simple details of your car like mobile number, year and
+              mileage for accurate price.
+            </p>
+          </div>
         </div>
-        <div className="hover:bg-blue-500 hover:text-white bg-white text-black p-6 rounded-lg shadow-md ">
-          {/* <div className="mb-4">
-            <img src="/icons/quick-valuation.svg" alt="Quick Valuation" className="mx-auto" />
-          </div> */}
-          <h4 className="text-base font-semibold mb-2 buyh4 text-center">
-            GET QUICK VALUATION
-          </h4>
-          <p className="mb-4">
-            Our advance methods quickly analyze your car price and get the
-            estimate value of your car.
-          </p>
-          {/* <a href="#" className="text-blublack">Read more</a> */}
+
+        <div className="relative text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg md:w-[45%] overflow-hidden">
+          <img
+            src="/sell-fair.png"
+            alt="Fast"
+            className="absolute -top-5 -left-5 w-32"
+          />
+          <img
+            src="carousel/carousel-new-2.png"
+            className="img-fluid w-full object-cover h-80 rounded-xl"
+            alt="howitworks"
+            width="280"
+          />
+          <div className="text-left space-y-4 p-4">
+            <h4 className="text-xl text-black font-bold tracking-widest mt-4 flex-none">
+              GET QUICK VALUATION
+            </h4>
+            <p className="text-lg">
+              Our advance methods quickly analyze your car price and get the
+              estimate value of your car.
+            </p>
+          </div>
         </div>
-        <div className="hover:bg-blue-500 hover:text-white bg-white text-black p-6 rounded-lg shadow-md ">
-          {/* <div className="mb-4">
-            <img src="/icons/easy-payment.svg" alt="Easy Payment" className="mx-auto" />
-          </div> */}
-          <h4 className="text-base font-semibold mb-2 buyh4 text-center">
-            EASY PAYMENT METHODS
-          </h4>
-          <p className="mb-4">
-            We Provide you online and cash payment options according to your
-            suitability.
-          </p>
-          {/* <a href="#" className="text-blublack">Read more</a> */}
+
+        <div
+          className="relative text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg 
+      md:w-[45%] overflow-hidden">
+          <img
+            src="/sell-done.png"
+            alt="Fast"
+            className="absolute -top-5 -left-5 w-32"
+          />
+          <img
+            src="carousel/carousel-new-3.png"
+            className="img-fluid w-full object-cover h-80 rounded-xl"
+            alt="howitworks"
+            width="280"
+          />
+          <div className="text-left space-y-4 p-4">
+            <h4 className="text-xl text-black font-bold tracking-widest mt-4 flex-none">
+              EASY PAYMENT METHODS
+            </h4>
+            <p className="text-lg">
+              We Provide you online and cash payment options according to your
+              suitability.
+            </p>
+          </div>
         </div>
       </div>
     </div>

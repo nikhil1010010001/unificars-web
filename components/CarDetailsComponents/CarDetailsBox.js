@@ -100,6 +100,20 @@ const CarDetailsBox = (props) => {
         </span>
       </div>
 
+      <div>
+        <p className="font-bold text-xl">What you get</p>
+        <ul className="list-disc py-2 ps-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+          <li>Free ownership transfer</li>
+          <li>Free accessories</li>
+          <li>Comprehensive insurance</li>
+          <li>Certificate pollution certificate</li>{" "}
+          <li>
+            Complete warranty upto 10,000 km on upto 30 days whenever comes
+            first.
+          </li>
+        </ul>
+      </div>
+
       <div className="flex gap-4 text-center my-4">
         <button
           className="transition-all hover:scale-105 duration-200 px-2 w-full bg-blue-500 text-white font-bold hover:text-white shadow rounded-lg"
@@ -117,14 +131,14 @@ const CarDetailsBox = (props) => {
         </button>
       </div>
 
-      <div className="flex flex-col items-center justify-center gap-2 mt-6">
-        <p className="font-bold text-2xl">Share With</p>
-        <div className="flex items-center gap-8 mt-2">
-          <FaWhatsapp className="text-green-500 text-4xl" />
+      <div className="flex flex-wrap items-center justify-center gap-4 mt-6">
+        <p className="font-bold text-xl">Share With Friends :</p>
+        <div className="flex items-center gap-4">
+          <FaWhatsapp className="text-green-500 text-2xl" />
 
-          <FaInstagram className="text-red-500 text-4xl" />
+          <FaInstagram className="text-red-500 text-2xl" />
 
-          <FaFacebook className="text-blue-500 text-4xl" />
+          <FaFacebook className="text-blue-500 text-2xl" />
         </div>
       </div>
     </div>

@@ -43,7 +43,6 @@ const VehicleInfo = () => {
   const [carNumber, setCarNumber] = useState("");
   const [BookedStatus, setBookedStatus] = useState(true);
   const [validationerror, setValidationerror] = useState(false);
-  // console.log(BookedStatus);
   const [validNumber, setValidNumber] = useState(false);
   const [loading, setLoading] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
@@ -68,6 +67,7 @@ const VehicleInfo = () => {
     kmDriven: "",
     location: "",
   });
+
   const tabs = [
     {
       label: "Brand",
@@ -162,7 +162,7 @@ const VehicleInfo = () => {
   };
 
   useEffect(() => {
-    console.log(carInfo.brand, "From useEffect");
+    // console.log(carInfo.brand, "From useEffect");
     if (carNumber === "") {
       setValue("2");
     }
@@ -185,14 +185,13 @@ const VehicleInfo = () => {
     if (userNumber == "") {
       setValidationerror("Phone number is required!");
     }
-    if (carNumber === "") {
+    if (carNumber !== "") {
       getCarValuation();
     }
     if (userNumber.length < 10) {
       setValidationerror("Invalid Phone Number");
     }
 
-    // console.log("ytesting");
     if (userNumber != "" && userNumber.length == 10) {
       setValidationerror("");
       const data = {
@@ -216,7 +215,9 @@ const VehicleInfo = () => {
       model_name: carInfo.variant.name,
       id: carInfo.model.id,
     };
-    // console.log(data, "data object from evaluation");
+
+    console.log("Evaluation data", data);
+
     try {
       const valuation = await fetch(
         "https://api.unificars.com/api/getvarientmodelamount",
@@ -231,11 +232,14 @@ const VehicleInfo = () => {
       );
 
       const value = await valuation.json();
+
       if (value.code == 200) {
         const response = value.data;
-        console.log(response, "response object from evaluation");
+
+        console.log("response object from evaluation", response);
+
         let calculatedyear = 15;
-        if (carInfo.fuelType === "DIESEL") {
+        if (carInfo.fuelType === "Diesel") {
           calculatedyear = 10;
         }
         let calculation = response / calculatedyear;
@@ -243,7 +247,12 @@ const VehicleInfo = () => {
           carInfo.year + calculatedyear - new Date().getFullYear();
         let expectedprice = Math.round(calculation * remainingyears);
         let expectedprice1 = Math.round(calculation * remainingyears) + 100240;
-        console.log([expectedprice, expectedprice1]);
+
+        console.log("expected price calculation", [
+          expectedprice,
+          expectedprice1,
+        ]);
+
         setExpectedPrice([expectedprice, expectedprice1]);
       }
     } catch (error) {}
@@ -261,7 +270,6 @@ const VehicleInfo = () => {
         model: carInfo.model.name,
         varient: carInfo.variant.name,
       };
-      console.log("verifi data", JSON.stringify(data));
 
       const fetchData = await fetch(
         "https://api.unificars.com/api/customerrequestverify",
@@ -281,7 +289,7 @@ const VehicleInfo = () => {
         // setBookSlot(false);
         // setBookedStatus(true);
 
-        if (carNumber === "") {
+        if (carNumber !== "") {
           getCarValuation();
         }
       } else {
@@ -320,7 +328,7 @@ const VehicleInfo = () => {
         `https://crm.unificars.com/api/checkvehiclnumber`,
         { vehicle_number: carNum }
       );
-      console.log("res", res.data);
+      // console.log("res", res.data);
       return res.data.data;
     } catch (error) {
       console.log("error", error);
@@ -331,6 +339,7 @@ const VehicleInfo = () => {
   const submitCarNumber = async () => {
     try {
       // e.preventDefault();
+
       setLoading(true);
       if (carNumber.length === 13) {
         setValidNumber(false);
@@ -338,8 +347,6 @@ const VehicleInfo = () => {
         let number = carNumber.split(" ").join("");
 
         let data = await getCarDetails(number);
-
-        console.log("db data", data);
 
         if (data === null) {
           const response = await fetch(
@@ -364,7 +371,7 @@ const VehicleInfo = () => {
 
           console.log(emptraData, "emptra data");
 
-          // Call the third API with the data from the second API
+          // Call the third API with the data from the second API (save to db)
           if (emptraData.status !== 400) {
             const thirdApiResponse = await fetch(
               "https://crm.unificars.com/api/vehiclenumber",
@@ -381,7 +388,8 @@ const VehicleInfo = () => {
             );
 
             data = await thirdApiResponse.json();
-            console.log("post db data", data);
+
+            console.log("post to db data", data);
           }
         } else {
           try {
@@ -389,17 +397,36 @@ const VehicleInfo = () => {
               `https://crm.unificars.com/api/getBrandVariantresponse`,
               { dl_number: number }
             );
-            console.log("backend varient res", res.data);
 
-            console.log("carInfo before edit", carInfo);
+            console.log("res data from getBrandVariantresponse", res.data);
 
-            // data = res.data.data;
+            setCarInfo({
+              ...carInfo,
+              brand: {
+                id: res.data.message.brand.id,
+                name: res.data.message.brand.brand_name,
+              },
+              model: {
+                id: res.data.message.model.id,
+                name: res.data.message.model.model,
+              },
+              variant: {
+                id: res.data.message.variant.id,
+                name: res.data.message.variant.variant,
+              },
+              year: res.data.message.registrationDate,
+              ownerShip: res.data.message.owner,
+              fuelType: res.data.message.type,
+              location: res.data.message.location,
+            });
+
+            console.log("carInfo from getBrandVariantresponse", carInfo);
           } catch (error) {
             console.log("error", error);
           }
         }
 
-        if (data.code === 100) {
+        if (data && data.code === 100) {
           // Setting Up Brand Logo here
           const fetchBrand = await fetch(
             "https://api.unificars.com/api/getwebrands",
@@ -443,7 +470,7 @@ const VehicleInfo = () => {
               }
             });
 
-            console.log("carInfo after edit", carInfo);
+            console.log("carInfo brand updated", carInfo);
 
             setValue("7");
             setScreen(2);
@@ -464,6 +491,12 @@ const VehicleInfo = () => {
     }
   };
 
+  const [hideAnimation, setHideAnimation] = useState(false);
+
+  const handleHideAnimation = () => {
+    setHideAnimation(!hideAnimation);
+  };
+
   // RETURN STARTS
   return (
     <>
@@ -471,21 +504,21 @@ const VehicleInfo = () => {
         {screen === 1 && (
           <div
             className={`p-4 flex flex-col justify-center items-start gap-4 w-full`}>
-            <div className="inline-flex items-center space-x-2 w-full max-w-full overflow-hidden">
-              <span className="text-xl font-semibold">
+            <div className="inline-flex items-center space-x-4 w-full max-w-full overflow-hidden">
+              <span className="text-2xl font-semibold">
                 Enter your car registration number
               </span>
               <Image
                 src="/4xfaster.png"
                 alt="4x Faster"
-                width={50}
-                height={20}
+                width={70}
+                height={100}
                 className="ml-2 flex-shrink-0"
               />
             </div>
-            <div className="flex w-full gap-4">
-              <div className="font-bold text-[#465166] w-full text-field">
-                <TextField
+            <div className="flex items-center w-full">
+              <div className="font-bold text-[#465166] w-full text-field relative">
+                {/* <TextField
                   error={validNumber}
                   id={
                     validNumber
@@ -502,8 +535,38 @@ const VehicleInfo = () => {
                   ref={inputRef}
                   helperText={validNumber ? "Enter a valid number." : ""}
                   className="w-full"
+                /> */}
+
+                <input
+                  type="text"
+                  className="w-full p-4 rounded-2xl shadow-lg text-xl outline-none  border border-gray-200"
+                  value={carNumber}
+                  onChange={handleInputChange}
+                  placeholder={hideAnimation ? "DL XX AC XXXX" : ""}
+                  ref={inputRef}
+                  onBlur={() => {
+                    if (carNumber.length === 0) {
+                      setHideAnimation(false);
+                    }
+                  }}
                 />
+
+                {!hideAnimation && (
+                  <div
+                    className="absolute top-0 m-auto w-full h-full z-10 flex items-center"
+                    onClick={handleHideAnimation}>
+                    <div>
+                      <h1 className="ml-4 animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5 text-xl text-gray-500">
+                        DL XX AC XXXX
+                      </h1>
+                    </div>
+                  </div>
+                )}
               </div>
+
+              <p className="text-sm p-2 pt-0 text-[#D04848]">
+                {validNumber ? "Please enter a valid number." : ""}
+              </p>
 
               {loading ? (
                 <div className="loader text-sm">Loading...</div>
@@ -520,7 +583,7 @@ const VehicleInfo = () => {
               <span className="mx-5 text-black text-base font-inter"> OR </span>
               <div className="w-full border-t border-gray-500"></div>
             </div>
-            <h1 className="text-xl text-black mt-4 leading-3">
+            <h1 className="text-2xl font-bold text-black mt-4 leading-3">
               Choose your model
             </h1>
 

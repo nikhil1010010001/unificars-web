@@ -130,7 +130,7 @@ const Footer = () => {
             <br />
           </div>
         </div>
-        <ScrollToTopButton />
+        {/* <ScrollToTopButton /> */}
       </footer>
     </div>
   );

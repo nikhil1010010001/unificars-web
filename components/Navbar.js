@@ -84,7 +84,8 @@ const Navbar = () => {
                 passHref>
                 Sell Car
               </Link>
-              <Link
+
+              {/* <Link
                 href="/assured-cars"
                 className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102] ${
                   router.pathname == "/assured-cars"
@@ -93,7 +94,8 @@ const Navbar = () => {
                 }`}
                 passHref>
                 Assured fix
-              </Link>
+              </Link> */}
+
               <Link
                 href="/pre-delivery-inspection"
                 className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102] ${
@@ -234,7 +236,8 @@ const Navbar = () => {
                     Sell Car
                   </Link>
                 </li>
-                <li className="px-4 border-white/20 py-2 border-b-[1px]">
+
+                {/* <li className="px-4 border-white/20 py-2 border-b-[1px]">
                   {" "}
                   <Link
                     href="/assured-cars"
@@ -248,7 +251,8 @@ const Navbar = () => {
                     }`}>
                     Assured Fix
                   </Link>
-                </li>
+                </li> */}
+
                 <li className="px-4 border-white/20 py-2 border-b-[1px]">
                   {" "}
                   <Link

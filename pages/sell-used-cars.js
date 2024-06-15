@@ -18,6 +18,7 @@ const VehicleInfo = dynamic(
 
 import { useRouter } from "next/router";
 import Head from "next/head";
+import TestemonialCarousel from "@/components/TestemonialCarousel";
 
 const sellCars = () => {
   const [OpenModal, setOpenModal] = useState(false);
@@ -74,10 +75,9 @@ const sellCars = () => {
 
         <div
           className="text-center items-center flex flex-col mx-4"
-          style={{ paddingTop: "120px" }}
-        >
+          style={{ paddingTop: "120px" }}>
           {/* <p className='tracking-widest text-gray-600 text-lg'>SELL YOUR CAR WITH NO FUSS</p> */}
-          <h1 className="text-4xl text-black my-2">
+          <h1 className="text-4xl text-black my-2 font-black">
             Sell Your Car At Best Price Instantly From Home
           </h1>
           {/* <img src='/home/title_line.png' alt="line" /> */}
@@ -100,11 +100,12 @@ const sellCars = () => {
           <VehicleInfo />
         </div>
 
-        <div>
-          {/* <HowItWork /> */}
-          <Howtosell />
-          <AskQuestions />
-        </div>
+        {/* <HowItWork /> */}
+        <Howtosell />
+
+        <TestemonialCarousel />
+
+        <AskQuestions />
 
         {/* modal starts here  */}
         <div>

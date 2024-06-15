@@ -276,9 +276,7 @@ const carPage = () => {
             <div>
               <Questions />
             </div>
-            <div>
-              <HowItWork />
-            </div>
+            <div>{/* <HowItWork /> */}</div>
             <OtpModal
               showModal={showModal}
               setShowModal={setShowModal}
