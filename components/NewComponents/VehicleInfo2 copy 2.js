@@ -246,8 +246,8 @@ const VehicleInfo = () => {
         let calculation = response / calculatedyear;
         let remainingyears =
           carInfo.year + calculatedyear - new Date().getFullYear();
-        let expectedprice = Math.round(calculation + remainingyears);
-        let expectedprice1 = Math.round(calculation + remainingyears) + 100240;
+        let expectedprice = Math.round(calculation * remainingyears);
+        let expectedprice1 = Math.round(calculation * remainingyears) + 100240;
 
         console.log("expected price calculation", [
           expectedprice,
@@ -353,24 +353,6 @@ const VehicleInfo = () => {
         let data = await getCarDetails(number);
 
         if (data === null) {
-          // const response = await fetch(
-          //   "https://api.emptra.com/vehicleRegistrations",
-          //   {
-          //     method: "POST",
-          //     headers: {
-          //       "Content-Type": "application/json",
-          //       secretKey:
-          //         "rt50rd1OViWQyA6pv40WbWJJmHCwIvGUBEAM6OLmaqTyhE61RiJ8whOOQDHdslXVT",
-          //       clientId:
-          //         "932bee8472f77a75f9a328430973d1ab:87937c1398e424117fe02fcf3f070290",
-          //     },
-          //     body: JSON.stringify({
-          //       vehicleNumber: number,
-          //       blacklistCheck: true,
-          //     }),
-          //   }
-          // );
-
           const response = await axios.post(
             "https://api.emptra.com/vehicleRegistrations",
             {
@@ -472,7 +454,7 @@ const VehicleInfo = () => {
           if (jsonRes.code == 200) {
             const brands = jsonRes.data;
 
-            // console.log("fetchBrand", brands);
+            console.log("fetchBrand", brands);
 
             brands.map((brand) => {
               const brandName = brand.brand_name.split(" ");
@@ -491,16 +473,16 @@ const VehicleInfo = () => {
                       model: {
                         id: brandVariantResponse?.model?.id,
                         name:
-                          brandVariantResponse?.model?.model ||
-                          data?.result?.model.split(" ")[1],
+                          brandVariantResponse.model.model ||
+                          data.result.model.split(" ")[1],
                       },
                       year: data.result.vehicleManufacturingMonthYear.split(
                         "/"
                       )[1],
                       variant: {
-                        id: brandVariantResponse?.variant?.id,
+                        id: brandVariantResponse.variant.id,
                         name:
-                          brandVariantResponse?.variant.variant ||
+                          brandVariantResponse.variant.variant ||
                           data.result.model,
                       },
                       fuelType: data.result.type,
