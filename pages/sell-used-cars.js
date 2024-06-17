@@ -103,8 +103,9 @@ const sellCars = () => {
         {/* <HowItWork /> */}
         <Howtosell />
 
-        <TestemonialCarousel />
-
+        <div className="w-full h-fit">
+          <TestemonialCarousel />
+        </div>
         <AskQuestions />
 
         {/* modal starts here  */}

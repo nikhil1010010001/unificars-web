@@ -13,6 +13,7 @@ import Reviews from "@/components/Home/Reviews";
 import TestemonialCarousel from "@/components/TestemonialCarousel";
 import CookiesSection from "@/components/CookiesSection";
 import HowToSell from "@/components/Home/Howtosell";
+import ExploreActionCard from "@/components/ExploreActionCard";
 // const BannerCarousel = dynamic(() => import("@/components/Home/BannerCarousel"),{ssr: false});
 const HomeQuestions = dynamic(() => import("@/components/Home/HomeQuestions"), {
   ssr: false,
@@ -261,9 +262,11 @@ function index() {
               Scrapping of your car with Hassle-Free process & legal
               documentation.
             </p>
-            <p className="text-blue-500 cursor-pointer hover:text-orange-500 mt-4 text-lg">
-              Learn More
-            </p>
+            <Link href="/sell-used-cars" passHref>
+              <p className="text-blue-500 cursor-pointer hover:text-orange-500 mt-4 text-lg">
+                Learn More
+              </p>
+            </Link>
           </div>
 
           <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 py-12 rounded-lg shadow-md">
@@ -275,9 +278,11 @@ function index() {
               Scrapping of your car with Hassle-Free process & legal
               documentation.
             </p>
-            <p className="text-blue-500 cursor-pointer hover:text-orange-500 mt-4 text-lg">
-              Learn More
-            </p>{" "}
+            <Link href="/buy-used-cars" passHref>
+              <p className="text-blue-500 cursor-pointer hover:text-orange-500 mt-4 text-lg">
+                Learn More
+              </p>
+            </Link>
           </div>
 
           <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 py-12 rounded-lg shadow-md">
@@ -289,9 +294,11 @@ function index() {
               Scrapping of your car with Hassle-Free process & legal
               documentation.
             </p>
-            <p className="text-blue-500 cursor-pointer hover:text-orange-500 mt-4 text-lg">
-              Learn More
-            </p>
+            <Link href="/pre-delivery-inspection" passHref>
+              <p className="text-blue-500 cursor-pointer hover:text-orange-500 mt-4 text-lg">
+                Learn More
+              </p>
+            </Link>
           </div>
 
           <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 py-12 rounded-lg shadow-md">
@@ -303,9 +310,11 @@ function index() {
               Scrapping of your car with Hassle-Free process & legal
               documentation.
             </p>
-            <p className="text-blue-500 cursor-pointer hover:text-orange-500 mt-4 text-lg">
-              Learn More
-            </p>
+            <Link href="/assured-cars" passHref>
+              <p className="text-blue-500 cursor-pointer hover:text-orange-500 mt-4 text-lg">
+                Learn More
+              </p>
+            </Link>
           </div>
         </div>
       </div>
@@ -315,6 +324,10 @@ function index() {
       <SellCar />
 
       <Buycar />
+
+      <div className="w-full mt-8 my-16">
+        <ExploreActionCard />
+      </div>
 
       {/* <Howtosell/> */}
 
@@ -342,14 +355,6 @@ function index() {
           <div className="line"><img src={"/howtojoin.png"} alt="" className='rounded-xl' style={{width:'60%',margin:'auto'}}/></div>
       </div> */}
 
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-1 container mx-auto mt-5 lg:mt-10">
-          <div className="line">
-            <img src={"/unififixassured.png"} alt="" className="rounded-xl" />
-          </div>
-        </div>
-      </div>
-
       {/* <Reviews /> */}
 
       <div className="bg-gray-50 pb-12">
@@ -363,6 +368,14 @@ function index() {
 
         <div className="md:px-4 px-2 mx-auto">
           <TestemonialCarousel />
+        </div>
+      </div>
+
+      <div className="container mx-auto my-16">
+        <div className="grid grid-cols-1 lg:grid-cols-1 container mx-auto mt-5 lg:mt-10">
+          <div className="line">
+            <img src={"/download-banner.png"} alt="" className="rounded-xl" />
+          </div>
         </div>
       </div>
 

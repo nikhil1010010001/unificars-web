@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const HowToSell = () => {
@@ -45,11 +46,13 @@ const HowToSell = () => {
             alt="Fast"
             className="absolute -top-5 -left-5 w-32"
           />
-          <img
-            src="carousel/carousel-new-2.png"
+          <Image
+            quality={100}
+            src="/carousel/carousel-new-2.png"
             className="img-fluid w-full object-cover h-80 rounded-xl"
             alt="howitworks"
-            width="280"
+            height={980}
+            width={980}
           />
           <div className="text-left space-y-4 p-4">
             <h4 className="text-xl text-black font-bold tracking-widest mt-4 flex-none">
@@ -71,7 +74,7 @@ const HowToSell = () => {
             className="absolute -top-5 -left-5 w-32"
           />
           <img
-            src="carousel/carousel-new-3.png"
+            src="carousel/carousel-new-4.png"
             className="img-fluid w-full object-cover h-80 rounded-xl"
             alt="howitworks"
             width="280"

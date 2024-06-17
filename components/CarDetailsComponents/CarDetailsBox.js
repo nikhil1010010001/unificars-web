@@ -108,7 +108,7 @@ const CarDetailsBox = (props) => {
           <li>Comprehensive insurance</li>
           <li>Certificate pollution certificate</li>{" "}
           <li>
-            Complete warranty upto 10,000 km on upto 30 days whenever comes
+            Complete warranty upto 2,000 km on upto 30 days whenever comes
             first.
           </li>
         </ul>

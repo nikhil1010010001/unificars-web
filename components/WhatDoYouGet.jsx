@@ -16,7 +16,7 @@ function WhatDoYouGet() {
     },
     {
       name: "Steering, Suspension & Brake",
-      items: ["listSteering Condition", "Suspension", "Brakes"],
+      items: ["Steering Condition", "Suspension", "Brakes"],
     },
     {
       name: "Air Conditioning",
@@ -25,7 +25,7 @@ function WhatDoYouGet() {
     {
       name: "Electrical & Interior",
       items: [
-        "listInterior Condition",
+        "Interior Condition",
         "No. of Power Windows",
         "No. of Airbags",
         "Electrical Components",
@@ -60,13 +60,13 @@ function WhatDoYouGet() {
   const [currentItems, setCurrentItems] = useState(0);
 
   return (
-    <div className="rounded-xl p-8 my-1 flex gap-4 carousel-item h-fit">
-      <div className="flex flex-col gap-2 w-[500px]">
+    <div className="rounded-xl md:p-8 my-1 flex gap-2 md:gap-4 carousel-item h-fit border">
+      <div className="flex flex-col gap-2 md:w-[500px]">
         {data.map((item, index) => (
           <button
             className={`${
               currentItems === index && "bg-blue-100 font-black"
-            } py-2 px-8 text-start rounded-lg transition-all`}
+            } p-2 md:px-8 text-start rounded-lg transition-all`}
             onClick={() => setCurrentItems(index)}>
             {item.name}
           </button>
@@ -74,9 +74,9 @@ function WhatDoYouGet() {
       </div>
 
       <div className="w-full h-full flex flex-col bg-gray-50 gap-1 rounded-md">
-        <div className="flex flex-col gap-1 w-full p-2 overflow-auto h-[280px] border rounded-md">
+        <div className="flex flex-col gap-1 w-full p-2 overflow-auto md:h-[280px] border rounded-md">
           {data[currentItems].items.map((item, index) => (
-            <button className="border-b-2 py-2 px-8 text-start rounded last:border-none">
+            <button className="border-b-2 p-2 md:px-8 text-start rounded last:border-none">
               {item}
             </button>
           ))}

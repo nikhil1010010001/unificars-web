@@ -8,6 +8,7 @@ import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import HomeQuestions from "@/components/Home/HomeQuestions";
 import WhatDoYouGet from "@/components/WhatDoYouGet";
+import TestemonialCarousel from "@/components/TestemonialCarousel";
 
 const pdi = ({ isOpen, onClose }) => {
   const responsive = {
@@ -197,13 +198,14 @@ const pdi = ({ isOpen, onClose }) => {
             <img src="/pdi-new.png" className="w-full h-full object-cover" />
           </div>
 
-          <div className="flex items-center justify-end pt-8 md:px-12 px-2 pb-0">
-            <div className="relative bg-white rounded-lg shadow-lg w-[500px] p-6">
+          <div className="flex items-center justify-end md:p-12 py-8 px-2 pb-0">
+            <div className="relative bg-white rounded-lg shadow-lg w-[500px] p-6 border">
               {step === 1 && (
                 <div>
-                  <div className="flex gap-4">
-                    <h2 className="text-xl font-bold mb-4">
-                      When Would You Like to get your car inspected
+                  <div className="flex gap-4 justify-center items-center">
+                    <h2 className="text-2xl font-black mb-4">
+                      Buy Confidently with
+                      <span className="text-orange-500"> Unificars</span>
                     </h2>
                   </div>
                   <input
@@ -424,7 +426,7 @@ const pdi = ({ isOpen, onClose }) => {
               Water Damage
             </h4>
             <p className="text-lg">
-              <span className="text-orange-500 font-semibold">1 Lakh +</span> by
+              <span className="text-orange-500 font-semibold">1 Lakh+</span> by
               floods annually, resulting in water damage, rust, and electrical
               issues
             </p>
@@ -443,8 +445,8 @@ const pdi = ({ isOpen, onClose }) => {
               Fake Service History
             </h4>
             <p className="text-lg">
-              <span className="text-orange-500 font-semibold">15 %</span> of
-              used car sales have fabricated service records
+              <span className="text-orange-500 font-semibold">15%</span> of used
+              car sales have fabricated service records
             </p>
           </div>
         </div>
@@ -487,7 +489,7 @@ const pdi = ({ isOpen, onClose }) => {
       </div>
       {/* fault card end here */}
 
-      <div className="mt-16 md:px-20 px-10 space-y-8">
+      <div className="mt-16 md:px-20 px-4 space-y-6">
         <h1 className="text-center font-black text-4xl">
           <span className="text-orange-500 font-semibold">What </span>
           Do You Get?
@@ -645,13 +647,12 @@ const pdi = ({ isOpen, onClose }) => {
       </div>
 
       {/* <Reviews/> */}
-      <div className="bg-gray-50 py-16">
+      {/* <div className="bg-gray-50 py-16">
         <div className="text-center items-center flex flex-col mb-6">
           <h2 className="text-4xl text-[#000] my-2">Testimonials</h2>
           <p className="customgryfnt text-lg font-normal">
             Their good reviews motivate us to do more
           </p>
-          {/* <img src='/home/title_line.png' /> */}
         </div>
         <div className=" w-11/12 mx-auto">
           <Carousel responsive={responsive}>
@@ -782,7 +783,9 @@ const pdi = ({ isOpen, onClose }) => {
             </div>
           </Carousel>
         </div>
-      </div>
+      </div> */}
+
+      <TestemonialCarousel />
 
       <HomeQuestions />
 

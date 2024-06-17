@@ -23,7 +23,7 @@ function TestemonialCarousel() {
   };
 
   return (
-    <div className="bg-gray-50 py-12">
+    <div className="bg-gray-50 py-12 w-full">
       <div className="text-center items-center flex flex-col mb-6 px-4">
         <h2 className="text-2xl md:text-4xl font-bold text-[#000] my-2">
           What Our Clients Are Saying
@@ -34,7 +34,7 @@ function TestemonialCarousel() {
         {/* <img src='/home/title_line.png' /> */}
       </div>
       <div className=" w-11/12 mx-auto">
-        <Carousel responsive={responsive}>
+        <Carousel responsive={responsive} arrows={false}>
           <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-4 h-[342px]">
             <div>
               <img
