@@ -9,6 +9,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import dynamic from "next/dynamic";
+import TestemonialCarousel from "@/components/TestemonialCarousel";
 
 const VehicleInfo = dynamic(
   () => import("@/components/NewComponents/VehicleInfo3"),
@@ -155,14 +156,14 @@ const about = () => {
             </div> */}
 
       <div
-        className="relative bg-cover bg-center h-[550px] pt-20 bg-blue-500"
+        className="relative bg-cover bg-center min-h-[550px] pt-44 md:-pt-20 bg-blue-500"
         // style={{ backgroundImage: "url(/scrap-car.png)", paddingTop: "80px" }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="relative container mx-auto flex items-center justify-between h-full px-6">
-          <div className="flex items-center gap-4 justify-between w-full">
+          <div className="flex flex-wrap items-center gap-4 justify-between w-full">
             <div className="text-white">
-              <h1 className="text-6xl font-black">
+              <h1 className="md:text-6xl text-2xl font-black">
                 Get the Best Price for
                 <br />
                 your Scrap Car
@@ -174,7 +175,7 @@ const about = () => {
             </div>
             {/* <div className="bg-white p-6 rounded-lg shadow-lg"> */}
             <div
-              className="sticky-element bottom-28 bg-orange-500 p-4 self-baseline challan-headbg min-w-[500px] m-auto"
+              className="sticky-element bottom-28 bg-orange-500 p-4 self-baseline challan-headbg w-full md:min-w-[500px] m-auto"
               style={{ marginBottom: "120px" }}>
               <VehicleInfo />
               {/* <div className='bg-white p-6 rounded-2xl shadow'>
@@ -252,7 +253,7 @@ const about = () => {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto p-6 md:p-8 bg-white carousel-item border mt-16 rounded-md flex items-center justify-around gap-4">
+      <div className="max-w-6xl mx-2 md:mx-auto p-6 md:p-8 bg-white carousel-item border mt-16 rounded-md flex items-center justify-around gap-4 flex-wrap">
         <h1 className="py-2 font-black text-4xl text-black">
           Steps to scrap your car
           <br />
@@ -357,7 +358,10 @@ const about = () => {
         </div>
       </div> */}
 
-      <img src="/compliance-banner.png" className="max-w-6xl mx-auto mt-16 " />
+      <img
+        src="/compliance-banner.png"
+        className="px-2 md:max-w-6xl mx-auto mt-16 "
+      />
 
       {/* <div className="container mx-auto p-6 md:px-10 mt-5">
         <div className="relative">
@@ -366,17 +370,17 @@ const about = () => {
           </div>
         </div>
       </div> */}
-      <div className="max-w-6xl mx-auto p-6 rounded-md mt-16">
+      <div className="max-w-6xl mx-auto p-2 md:p-6 rounded-md mt-16">
         <h1 className="py-2 text-center text-3xl font-bold text-black">
           When Is It Time to Scrap Your Car?
         </h1>
         <div className="flex w-[80%] mx-auto gap-6 justify-items-center">
           {[
-            { type: "Private Vehicle", petrol: "15 Years", diesel: "15 Years" },
+            { type: "Private Vehicle", petrol: "15 Years", diesel: "10 Years" },
             {
               type: "Commercial Vehicle",
               petrol: "15 Years",
-              diesel: "15 Years",
+              diesel: "10 Years",
             },
           ].map((vehicle, index) => (
             <div
@@ -441,13 +445,12 @@ const about = () => {
             </div> */}
 
       {/* <Reviews/> */}
-      <div className="bg-gray-50 py-12 mt-16">
+      {/* <div className="bg-gray-50 py-12 mt-16">
         <div className="text-center items-center flex flex-col mb-6">
           <h2 className="text-4xl text-[#000] my-2">Testimonials</h2>
           <p className="customgryfnt text-lg font-normal">
             Their good reviews motivate us to do more
           </p>
-          {/* <img src='/home/title_line.png' /> */}
         </div>
         <div className=" w-11/12 mx-auto">
           <Carousel responsive={responsive}>
@@ -578,7 +581,9 @@ const about = () => {
             </div>
           </Carousel>
         </div>
-      </div>
+      </div> */}
+
+      <TestemonialCarousel />
 
       <Modal
         open={open}

@@ -253,69 +253,57 @@ function index() {
         {/* <p className="text-center mb-8 hiwpara">keys to cash unlock the value of your car</p> */}
 
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-6">
-          <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 py-12 rounded-lg shadow-md">
-            <div>
-              <img src="/handshake-new.png" className="w-16 object-contain" />
-            </div>
-            <h4 className="text-2xl font-bold buyh4">Sell Car</h4>
-            <p className="text-lg">
-              Scrapping of your car with Hassle-Free process & legal
-              documentation.
-            </p>
-            <Link href="/sell-used-cars" passHref>
-              <p className="text-blue-500 cursor-pointer hover:text-orange-500 mt-4 text-lg">
-                Learn More
+          <Link href="/sell-used-cars" passHref>
+            <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 py-12 rounded-lg shadow-md">
+              <div>
+                <img src="/handshake-new.png" className="w-16 object-contain" />
+              </div>
+              <h4 className="text-2xl font-bold buyh4">Sell Car</h4>
+              <p className="text-lg">
+                Sell your car easily with us and get better offers with hassle
+                free process.
+                <br /> &nbsp;
               </p>
-            </Link>
-          </div>
+            </div>
+          </Link>
 
-          <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 py-12 rounded-lg shadow-md">
-            <div>
-              <img src="/rentalcar-new.png" className="w-16 object-contain" />
-            </div>
-            <h4 className="text-2xl font-bold buyh4">Buy Car</h4>
-            <p className="text-lg">
-              Scrapping of your car with Hassle-Free process & legal
-              documentation.
-            </p>
-            <Link href="/buy-used-cars" passHref>
-              <p className="text-blue-500 cursor-pointer hover:text-orange-500 mt-4 text-lg">
-                Learn More
+          <Link href="/buy-used-cars" passHref>
+            <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 py-12 rounded-lg shadow-md">
+              <div>
+                <img src="/rentalcar-new.png" className="w-16 object-contain" />
+              </div>
+              <h4 className="text-2xl font-bold buyh4">Buy Car</h4>
+              <p className="text-lg">
+                Explore top quality used cars at unbeatable price. Enjoy stress
+                free car buying experience.
               </p>
-            </Link>
-          </div>
+            </div>
+          </Link>
 
-          <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 py-12 rounded-lg shadow-md">
-            <div>
-              <img src="/car-insp-new.png" className="w-16 object-contain" />
-            </div>
-            <h4 className="text-2xl font-bold buyh4">Car Inspection</h4>
-            <p className="text-lg">
-              Scrapping of your car with Hassle-Free process & legal
-              documentation.
-            </p>
-            <Link href="/pre-delivery-inspection" passHref>
-              <p className="text-blue-500 cursor-pointer hover:text-orange-500 mt-4 text-lg">
-                Learn More
+          <Link href="/pre-delivery-inspection" passHref>
+            <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 py-12 rounded-lg shadow-md">
+              <div>
+                <img src="/car-insp-new.png" className="w-16 object-contain" />
+              </div>
+              <h4 className="text-2xl font-bold buyh4">Car Inspection</h4>
+              <p className="text-lg">
+                Our car experts checked your car from interior to exterior and
+                ensures your safety as our priority.
               </p>
-            </Link>
-          </div>
-
-          <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 py-12 rounded-lg shadow-md">
-            <div>
-              <img src="/assur-fix-new.png" className="w-16 object-contain" />
             </div>
-            <h4 className="text-2xl font-black buyh4">Assured Fix</h4>
-            <p className="text-lg">
-              Scrapping of your car with Hassle-Free process & legal
-              documentation.
-            </p>
-            <Link href="/assured-cars" passHref>
-              <p className="text-blue-500 cursor-pointer hover:text-orange-500 mt-4 text-lg">
-                Learn More
+          </Link>
+          <Link href="/assured-cars" passHref>
+            <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 py-12 rounded-lg shadow-md">
+              <div>
+                <img src="/assur-fix-new.png" className="w-16 object-contain" />
+              </div>
+              <h4 className="text-2xl font-black buyh4">Assured Fix</h4>
+              <p className="text-lg">
+                Buy a used car without any stress with Unifi’s assured fix
+                service. <br /> &nbsp;
               </p>
-            </Link>
-          </div>
+            </div>
+          </Link>
         </div>
       </div>
 

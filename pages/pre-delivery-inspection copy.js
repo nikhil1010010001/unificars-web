@@ -5,6 +5,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { RiStarSFill, RiStarSLine } from "react-icons/ri";
 import { MdOutlineCancel } from "react-icons/md";
+import TestemonialCarousel from "@/components/TestemonialCarousel";
 
 const pdi = ({ isOpen, onClose }) => {
   const responsive = {
@@ -504,13 +505,12 @@ const pdi = ({ isOpen, onClose }) => {
       </div>
 
       {/* <Reviews/> */}
-      <div className="bg-gray-50 py-12">
+      {/* <div className="bg-gray-50 py-12">
         <div className="text-center items-center flex flex-col mb-6">
           <h2 className="text-4xl text-[#000] my-2">Testimonials</h2>
           <p className="customgryfnt text-lg font-normal">
             Their good reviews motivate us to do more
           </p>
-          {/* <img src='/home/title_line.png' /> */}
         </div>
         <div className=" w-11/12 mx-auto">
           <Carousel responsive={responsive}>
@@ -641,7 +641,9 @@ const pdi = ({ isOpen, onClose }) => {
             </div>
           </Carousel>
         </div>
-      </div>
+      </div> */}
+
+      <TestemonialCarousel />
 
       {/* ... other parts of your component ... */}
     </div>

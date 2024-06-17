@@ -12,6 +12,7 @@ import {
   FaCogs,
 } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
+import Link from "next/link";
 
 const CarDetailsBox = (props) => {
   const { car, showModal, setShowModal, setShowEnquiryModal, id } = props;
@@ -134,11 +135,19 @@ const CarDetailsBox = (props) => {
       <div className="flex flex-wrap items-center justify-center gap-4 mt-6">
         <p className="font-bold text-xl">Share With Friends :</p>
         <div className="flex items-center gap-4">
-          <FaWhatsapp className="text-green-500 text-2xl" />
+          <Link
+            href="https://wa.me/+919911771977?text=Hey%20Unificars%20%20I%20want%20to%20buy%20MARUTI%20CELERIO%20VXI%20GREEN%20GREY%202019%201st%20Ownership%20containing%20UNC-30577"
+            target="_blank">
+            <FaWhatsapp className="text-green-500 text-2xl" />
+          </Link>
 
-          <FaInstagram className="text-red-500 text-2xl" />
+          <Link href="https://www.instagram.com/unificars/" target="_blank">
+            <FaInstagram className="text-red-500 text-2xl" />
+          </Link>
 
-          <FaFacebook className="text-blue-500 text-2xl" />
+          <Link href="https://www.facebook.com/UnifiCars/" target="_blank">
+            <FaFacebook className="text-blue-500 text-2xl" />
+          </Link>
         </div>
       </div>
     </div>

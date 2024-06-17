@@ -276,10 +276,10 @@ const Challan = () => {
 
                 {/* table */}
                 <div className="space-y-4">
-                  <h1 className="text-2xl text-black font-sansserif font-extrabold">
+                  <h1 className="text-2xl text-black font-extrabold">
                     What are the common type of traffic challan?
                   </h1>
-                  <main className="flex items-center justify-center min-h-screen bg-gray-100 mt-3">
+                  <div className="flex items-center justify-center min-h-screen bg-gray-100 mt-3">
                     <div className="bg-white shadow-md rounded-lg overflow-hidden w-4/4">
                       <table className="min-w-full leading-normal">
                         <thead>
@@ -358,7 +358,7 @@ const Challan = () => {
                         </tbody>
                       </table>
                     </div>
-                  </main>
+                  </div>
                 </div>
               </div>
             </div>

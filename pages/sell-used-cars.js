@@ -19,6 +19,7 @@ const VehicleInfo = dynamic(
 import { useRouter } from "next/router";
 import Head from "next/head";
 import TestemonialCarousel from "@/components/TestemonialCarousel";
+import HomeQuestions from "@/components/Home/HomeQuestions";
 
 const sellCars = () => {
   const [OpenModal, setOpenModal] = useState(false);
@@ -106,7 +107,9 @@ const sellCars = () => {
         <div className="w-full h-fit">
           <TestemonialCarousel />
         </div>
-        <AskQuestions />
+        {/* <AskQuestions /> */}
+
+        <HomeQuestions />
 
         {/* modal starts here  */}
         <div>

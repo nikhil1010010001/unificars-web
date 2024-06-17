@@ -30,7 +30,7 @@ const HowToSell = () => {
             width="280"
           />
           <div className="text-left space-y-4 p-4">
-            <h4 className="text-xl text-black font-black tracking-widest mt-4 flex-none">
+            <h4 className="text-xl text-black font-black mt-4 flex-none">
               SUBMIT YOUR CAR DETAILS
             </h4>
             <p className="text-lg">
@@ -55,7 +55,7 @@ const HowToSell = () => {
             width={980}
           />
           <div className="text-left space-y-4 p-4">
-            <h4 className="text-xl text-black font-bold tracking-widest mt-4 flex-none">
+            <h4 className="text-xl text-black font-bold mt-4 flex-none">
               GET QUICK VALUATION
             </h4>
             <p className="text-lg">
@@ -80,7 +80,7 @@ const HowToSell = () => {
             width="280"
           />
           <div className="text-left space-y-4 p-4">
-            <h4 className="text-xl text-black font-bold tracking-widest mt-4 flex-none">
+            <h4 className="text-xl text-black font-bold mt-4 flex-none">
               EASY PAYMENT METHODS
             </h4>
             <p className="text-lg">

@@ -391,7 +391,7 @@ const dealership = () => {
                 />
                 <div className="px-4 pb-3">
                   <h4 className="text-2xl font-black text-black uppercase mt-4 flex-none">
-                    Bid placing time
+                    Bid placing
                   </h4>
                   <p className="mx-5 font-normal my-4 text-lg">
                     You can easily start the bidding from our wide range of
@@ -408,7 +408,7 @@ const dealership = () => {
                 />
                 <div className="px-4 pb-3">
                   <h4 className="text-2xl font-black text-black uppercase mt-4 flex-none">
-                    Deal closing time
+                    Deal closing
                   </h4>
                   <p className="mx-5 font-normal my-4 text-lg">
                     Close the deal after winning the bid.
@@ -446,8 +446,8 @@ const dealership = () => {
                     Delivery time
                   </h4>
                   <p className="mx-5 font-normal my-4 text-lg">
-                    After completion of payment, we will provide you the
-                    doorstep delivery with all completed documents.
+                    After completion of payment, we provide you the doorstep
+                    delivery with all completed documents.
                   </p>
                 </div>
               </div>
