@@ -265,10 +265,12 @@ const dealership = () => {
                                     <img src='/home/title_line.png' alt="line" />
                                 </div> */}
                 <div className="text-center items-center flex flex-col mb-6">
-                  <h2 className="text-4xl my-2">Why choose us</h2>
-                  <p className=" customgryfnt text-lg">
+                  <h2 className="text-4xl font-black">Why Partners with Us</h2>
+                  <p className=" text-lg my-4">
                     Unifi Cars ensures every deal is built on clarity, trust,
-                    and experience, so you can make smart and secure purchases.
+                    and experience
+                    <br />
+                    so you can make smart and secure purchases.
                   </p>
                   {/* <img src='/home/title_line.png' alt='home'/> */}
                 </div>
@@ -276,7 +278,7 @@ const dealership = () => {
                   <div className="text-center flex flex-wrap justify-center align-item-center">
                     <img
                       src="carousel/WCU1.jpg"
-                      className="img-fluid transition duration-300 transform hover:scale-110 whychooseus relative"
+                      className="img-fluid h-64 transition object-cover duration-300 transform hover:scale-110 whychooseus relative"
                       alt="howitworks"
                       width="250px"
                     />
@@ -289,7 +291,7 @@ const dealership = () => {
                   <div className="text-center flex flex-wrap justify-center align-item-center">
                     <img
                       src="carousel/WCU2.jpg"
-                      className="img-fluid transition duration-300 transform hover:scale-110 whychooseus relative"
+                      className="img-fluid h-64 transition object-cover duration-300 transform hover:scale-110 whychooseus relative"
                       alt="howitworks"
                       width="250px"
                     />
@@ -301,7 +303,7 @@ const dealership = () => {
                   <div className="text-center flex flex-wrap justify-center align-item-center">
                     <img
                       src="carousel/WCU3.png"
-                      className="img-fluid transition duration-300 transform hover:scale-110 whychooseus relative"
+                      className="img-fluid h-64 transition object-cover duration-300 transform hover:scale-110 whychooseus relative"
                       alt="howitworks"
                       width="250px"
                     />
@@ -313,7 +315,7 @@ const dealership = () => {
                   <div className="text-center flex flex-wrap justify-center align-item-center">
                     <img
                       src="carousel/WCU4.png"
-                      className="img-fluid transition duration-300 transform hover:scale-110 whychooseus relative"
+                      className="img-fluid h-64 transition object-cover duration-300 transform hover:scale-110 whychooseus relative"
                       alt="howitworks"
                       width="250px"
                     />
@@ -336,58 +338,62 @@ const dealership = () => {
         <div className="py-10 text-center bg-gradient-radial from-white text-gray-600">
           <div className="w-11/12 mx-auto">
             <div className="text-center items-center flex flex-col mb-6">
-              <h2 className="text-4xl text-[#000] my-2">How It Works !</h2>
-              <p className=" customgryfnt text-lg">
+              <h2 className="text-4xl text-[#000] font-black">
+                How It Works !
+              </h2>
+              <p className="text-lg my-4">
                 Make your car buying journey easy and convenient with us.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-              <div className="text-center flex flex-wrap justify-center cardhow">
+              {/* <div className="text-center flex flex-wrap justify-center cardhow">
                 <img
                   src="icons/join.png"
-                  className="img-fluid transition duration-300 transform hover:scale-110 p-[16px]"
+                  className="img-fluid transition duration-300 transform hover:scale-110"
                   alt="howitworks"
                   width="200px"
                 />
                 <div className="px-4 pb-3">
-                  <h4 className="text-xl text-orange-500 font-bold  uppercase mt-4 flex-none">
+                  <h4 className="text-2xl font-black text-black uppercase mt-4 flex-none">
                     Join our family
                   </h4>
-                  <p className="mx-5 hiwpara font-normal">
+                  <p className="mx-5 font-normal my-4 text-lg">
                     You can easily become the part of our family by downloading
                     our auction app to take part in the auctions.
                   </p>
                 </div>
-              </div>
-              <div className="text-center flex flex-wrap justify-center cardhow">
+              </div> */}
+
+              {/* <div className="text-center flex flex-wrap justify-center cardhow">
                 <img
                   src="icons/onboarding.png"
-                  className="img-fluid transition duration-300 transform hover:scale-110 p-[16px]"
+                  className="img-fluid transition duration-300 transform hover:scale-110"
                   alt="howitworks"
                   width="200px"
                 />
                 <div className="px-4 pb-3">
-                  <h4 className="text-xl text-orange-500 font-bold  uppercase flex-none">
+                  <h4 className="text-2xl font-black text-black uppercase mt-4 flex-none">
                     On boarding form
                   </h4>
-                  <p className="mx-5 hiwpara font-normal">
+                  <p className="mx-5 font-normal my-4 text-lg">
                     Our advance methods quickly analyse your car price and get
                     the estimate value of your car.{" "}
                   </p>
                 </div>
-              </div>
+              </div> */}
+
               <div className="text-center flex flex-wrap justify-center cardhow">
                 <img
                   src="icons/biding.png"
-                  className="img-fluid transition duration-300 transform hover:scale-110 p-[16px]"
+                  className="img-fluid transition duration-300 transform hover:scale-110"
                   alt="howitworks"
                   width="200px"
                 />
                 <div className="px-4 pb-3">
-                  <h4 className="text-xl text-orange-500 font-bold  uppercase flex-none">
+                  <h4 className="text-2xl font-black text-black uppercase mt-4 flex-none">
                     Bid placing time
                   </h4>
-                  <p className="mx-5 hiwpara font-normal">
+                  <p className="mx-5 font-normal my-4 text-lg">
                     You can easily start the bidding from our wide range of
                     cars.{" "}
                   </p>
@@ -396,48 +402,50 @@ const dealership = () => {
               <div className="text-center flex flex-wrap justify-center cardhow">
                 <img
                   src="icons/dealclose.png"
-                  className="img-fluid transition duration-300 transform hover:scale-110 p-[16px]"
+                  className="img-fluid transition duration-300 transform hover:scale-110"
                   alt="howitworks"
                   width="200px"
                 />
                 <div className="px-4 pb-3">
-                  <h4 className="text-xl text-orange-500 font-bold  uppercase flex-none">
+                  <h4 className="text-2xl font-black text-black uppercase mt-4 flex-none">
                     Deal closing time
                   </h4>
-                  <p className="mx-5 hiwpara font-normal">
+                  <p className="mx-5 font-normal my-4 text-lg">
                     Close the deal after winning the bid.
                   </p>
                 </div>
               </div>
-              <div className="text-center flex flex-wrap justify-center cardhow">
+
+              {/* <div className="text-center flex flex-wrap justify-center cardhow">
                 <img
                   src="icons/payment.png"
-                  className="img-fluid transition duration-300 transform hover:scale-110 p-[16px]"
+                  className="img-fluid transition duration-300 transform hover:scale-110"
                   alt="howitworks"
                   width="200px"
                 />
                 <div className="px-4 pb-3">
-                  <h4 className="text-xl text-orange-500 font-bold  uppercase flex-none">
+                  <h4 className="text-2xl font-black text-black uppercase mt-4 flex-none">
                     Payment time
                   </h4>
-                  <p className="mx-5 hiwpara font-normal">
+                  <p className="mx-5 font-normal my-4 text-lg">
                     After winning the bidding we will offers the various payment
                     methods just like online and offline methods.
                   </p>
                 </div>
-              </div>
+              </div> */}
+
               <div className="text-center flex flex-wrap justify-center cardhow">
                 <img
                   src="https://api.unificars.com/front/img/icon/hiw1copy.png"
-                  className="img-fluid transition duration-300 transform hover:scale-110 p-[16px]"
+                  className="img-fluid transition duration-300 transform hover:scale-110"
                   alt="howitworks"
                   width="200px"
                 />
                 <div className="px-4 pb-3">
-                  <h4 className="text-xl text-orange-500 font-bold  uppercase flex-none">
+                  <h4 className="text-2xl font-black text-black uppercase mt-4 flex-none">
                     Delivery time
                   </h4>
-                  <p className="mx-5 hiwpara font-normal">
+                  <p className="mx-5 font-normal my-4 text-lg">
                     After completion of payment, we will provide you the
                     doorstep delivery with all completed documents.
                   </p>

@@ -4,7 +4,10 @@ import Head from "next/head";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { RiStarSFill, RiStarSLine } from "react-icons/ri";
-import { MdOutlineCancel } from "react-icons/md";
+import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
+import HomeQuestions from "@/components/Home/HomeQuestions";
+import WhatDoYouGet from "@/components/WhatDoYouGet";
 
 const pdi = ({ isOpen, onClose }) => {
   const responsive = {
@@ -26,7 +29,7 @@ const pdi = ({ isOpen, onClose }) => {
     },
   };
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     name: "",
@@ -57,9 +60,10 @@ const pdi = ({ isOpen, onClose }) => {
     };
   }, []);
 
-  const openModal = () => setIsModalOpen(true);
+  // const openModal = () => setIsModalOpen(true);
+
   const closeModal = () => {
-    setIsModalOpen(false);
+    // setIsModalOpen(false);
     setStep(1); // Reset step when modal closes
     setFormData({
       name: "",
@@ -166,6 +170,18 @@ const pdi = ({ isOpen, onClose }) => {
   const description =
     "Unificars is your top destination for buy and sell used cars, offering competitive pricing and valuable car-related information.";
   const canonicalUrl = "https://unificars.com/about";
+
+  // new logic
+
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Trigger animation only once
+    threshold: 0.5, // Trigger when 50% of the component is visible
+  });
+
+  const setLocation = () => {
+    console.log("setLocation");
+  };
+
   return (
     <div className="">
       <Head>
@@ -174,189 +190,356 @@ const pdi = ({ isOpen, onClose }) => {
         <link rel="canonical" href={canonicalUrl} />
         {/* Add other meta tags if needed */}
       </Head>
-      <div className="">
-        <div className="relative" style={{ paddingTop: "80px" }}>
-          <div>
-            <img src="/pdi.png" />
+      {/* top banner*/}
+      <div className="relative">
+        <div className="w-full h-full relative" style={{ paddingTop: "80px" }}>
+          <div className="absolute w-full h-full -z-10">
+            <img src="/pdi-new.png" className="w-full h-full object-cover" />
           </div>
 
-          <div className="absolute right-[3%] top-3/4 ">
-            <div className="flex gap-4 justify-center mt-3">
-              <Link
-                href="#"
-                className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102]`}
-                passHref
-                onClick={openModal}>
-                <div
-                  className="bg-blue-500 cursor-pointer flex rounded-md font-bold text-white px-4 py-2 whitespace-nowrap text-base"
-                  style={{ width: "max-content" }}>
-                  Book Inspection
+          <div className="flex items-center justify-end pt-8 md:px-12 px-2 pb-0">
+            <div className="relative bg-white rounded-lg shadow-lg w-[500px] p-6">
+              {step === 1 && (
+                <div>
+                  <div className="flex gap-4">
+                    <h2 className="text-xl font-bold mb-4">
+                      When Would You Like to get your car inspected
+                    </h2>
+                  </div>
+                  <input
+                    className="w-full mb-2 p-2 border border-gray-300 rounded"
+                    placeholder="Enter your Name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="w-full mb-2 p-2 border border-gray-300 rounded"
+                    placeholder="Enter your address"
+                    name="address"
+                    value={formData.address}
+                    onChange={handleChange}
+                  />
+                  <button
+                    className="w-full mb-2 p-2 border border-gray-300 rounded bg-yellow-300"
+                    onClick={setLocation}>
+                    Select your location
+                  </button>
+                  <input
+                    className="w-full mb-2 p-2 border border-gray-300 rounded"
+                    placeholder="Enter Phone Number"
+                    name="phoneNumber"
+                    value={formData.phoneNumber}
+                    maxLength={10}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="w-full mb-2 p-2 border border-gray-300 rounded"
+                    placeholder="Enter OTP"
+                    name="otp"
+                    disabled={formData.phoneNumber === ""}
+                    value={formData.otp}
+                    onChange={handleChange}
+                  />
+                  {msg && <div className="mb-4 text-red-500">{msg}</div>}
+                  <button
+                    className="w-full p-2 bg-blue-500 text-white rounded"
+                    onClick={handleNext}>
+                    {otpSent ? "Verify OTP" : "Send OTP"}
+                  </button>
                 </div>
-              </Link>
+              )}
+              {step === 2 && (
+                <div>
+                  <h2 className="text-xl font-bold mb-4">Enter Car Details</h2>
+                  <select
+                    className="w-full mb-2 p-2 border border-gray-300 rounded"
+                    name="brand"
+                    value={formData.carDetails.brand}
+                    onChange={handleChange}>
+                    <option>Car Brand</option>
+                    {/* Add more options */}
+                  </select>
+                  <select
+                    className="w-full mb-2 p-2 border border-gray-300 rounded"
+                    name="model"
+                    value={formData.carDetails.model}
+                    onChange={handleChange}>
+                    <option>Model</option>
+                    {/* Add more options */}
+                  </select>
+                  <select
+                    className="w-full mb-2 p-2 border border-gray-300 rounded"
+                    name="variant"
+                    value={formData.carDetails.variant}
+                    onChange={handleChange}>
+                    <option>Variant</option>
+                    {/* Add more options */}
+                  </select>
+                  <select
+                    className="w-full mb-2 p-2 border border-gray-300 rounded"
+                    name="transmission"
+                    value={formData.carDetails.transmission}
+                    onChange={handleChange}>
+                    <option>Transmission</option>
+                    {/* Add more options */}
+                  </select>
+                  <select
+                    className="w-full mb-2 p-2 border border-gray-300 rounded"
+                    name="fuelType"
+                    value={formData.carDetails.fuelType}
+                    onChange={handleChange}>
+                    <option>Fuel Type</option>
+                    {/* Add more options */}
+                  </select>
+                  <input
+                    className="w-full mb-2 p-2 border border-gray-300 rounded"
+                    placeholder="Current location of the car"
+                    name="location"
+                    value={formData.carDetails.location}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="w-full mb-2 p-2 border border-gray-300 rounded"
+                    placeholder="Current status of the car"
+                    name="status"
+                    value={formData.carDetails.status}
+                    onChange={handleChange}
+                  />
+                  <div className="flex justify-between">
+                    <button
+                      className="p-2 bg-gray-300 rounded"
+                      onClick={handleBack}>
+                      Back
+                    </button>
+                    <button
+                      className="p-2 bg-blue-500 text-white rounded"
+                      onClick={handleNext}>
+                      Next
+                    </button>
+                  </div>
+                </div>
+              )}
+              {step === 3 && (
+                <div>
+                  <h2 className="text-xl font-bold mb-4">
+                    Confirm Details and Pay
+                  </h2>
+                  <label className="mb-4 flex items-center">
+                    <input
+                      type="checkbox"
+                      className="mr-2"
+                      checked={formData.confirmation}
+                      onChange={handleCheckboxChange}
+                    />
+                    Confirm that the provided details are correct
+                  </label>
+                  <button
+                    className="w-full p-2 bg-blue-500 text-white rounded"
+                    onClick={handlePayment}>
+                    Pay ₹999
+                  </button>
+                  <div className="flex justify-between mt-4">
+                    <button
+                      className="p-2 bg-gray-300 rounded"
+                      onClick={handleBack}>
+                      Back
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
       </div>
 
-      {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="relative bg-white rounded-lg shadow-lg w-96 p-6">
-            {step === 1 && (
-              <div>
-                <div className="flex gap-4">
-                  <h2 className="text-xl font-bold mb-4">
-                    When Would You Like to get your car inspected?
-                  </h2>
-                  <MdOutlineCancel
-                    className="text-5xl hover:text-orange-500 cursor-pointer"
-                    onClick={closeModal}
-                  />
-                </div>
-                <input
-                  className="w-full mb-2 p-2 border border-gray-300 rounded"
-                  placeholder="Enter your Name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                />
-                <input
-                  className="w-full mb-2 p-2 border border-gray-300 rounded"
-                  placeholder="Enter your address"
-                  name="address"
-                  value={formData.address}
-                  onChange={handleChange}
-                />
-                <button className="w-full mb-2 p-2 border border-gray-300 rounded bg-yellow-300">
-                  Select your location
-                </button>
-                <input
-                  className="w-full mb-2 p-2 border border-gray-300 rounded"
-                  placeholder="Enter Phone Number"
-                  name="phoneNumber"
-                  value={formData.phoneNumber}
-                  maxLength={10}
-                  onChange={handleChange}
-                />
-                <input
-                  className="w-full mb-2 p-2 border border-gray-300 rounded"
-                  placeholder="Enter OTP"
-                  name="otp"
-                  disabled={formData.phoneNumber === ""}
-                  value={formData.otp}
-                  onChange={handleChange}
-                />
-                {msg && <div className="mb-4 text-red-500">{msg}</div>}
-                <button
-                  className="w-full p-2 bg-blue-500 text-white rounded"
-                  onClick={handleNext}>
-                  {otpSent ? "Verify OTP" : "Send OTP"}
-                </button>
-              </div>
+      {/* car numbers */}
+      <div className="flex flex-wrap gap-2 justify-around mt-16 lg:mt-36 md:mx-20 p-4 md:p-10 border bg-gradient-to-r from-white rounded-2xl to-blue-50/50">
+        <div className="lg:flex items-center gap-4 font-black">
+          <div
+            ref={ref}
+            className="flex justify-center items-center md:text-3xl gap-1 text-orange-500">
+            {inView && (
+              <CountUp start={1} end={10} duration={2} decimals={0}>
+                {({ countUpRef }) => <div ref={countUpRef} />}
+              </CountUp>
             )}
-            {step === 2 && (
-              <div>
-                <h2 className="text-xl font-bold mb-4">Enter Car Details</h2>
-                <select
-                  className="w-full mb-2 p-2 border border-gray-300 rounded"
-                  name="brand"
-                  value={formData.carDetails.brand}
-                  onChange={handleChange}>
-                  <option>Car Brand</option>
-                  {/* Add more options */}
-                </select>
-                <select
-                  className="w-full mb-2 p-2 border border-gray-300 rounded"
-                  name="model"
-                  value={formData.carDetails.model}
-                  onChange={handleChange}>
-                  <option>Model</option>
-                  {/* Add more options */}
-                </select>
-                <select
-                  className="w-full mb-2 p-2 border border-gray-300 rounded"
-                  name="variant"
-                  value={formData.carDetails.variant}
-                  onChange={handleChange}>
-                  <option>Variant</option>
-                  {/* Add more options */}
-                </select>
-                <select
-                  className="w-full mb-2 p-2 border border-gray-300 rounded"
-                  name="transmission"
-                  value={formData.carDetails.transmission}
-                  onChange={handleChange}>
-                  <option>Transmission</option>
-                  {/* Add more options */}
-                </select>
-                <select
-                  className="w-full mb-2 p-2 border border-gray-300 rounded"
-                  name="fuelType"
-                  value={formData.carDetails.fuelType}
-                  onChange={handleChange}>
-                  <option>Fuel Type</option>
-                  {/* Add more options */}
-                </select>
-                <input
-                  className="w-full mb-2 p-2 border border-gray-300 rounded"
-                  placeholder="Current location of the car"
-                  name="location"
-                  value={formData.carDetails.location}
-                  onChange={handleChange}
-                />
-                <input
-                  className="w-full mb-2 p-2 border border-gray-300 rounded"
-                  placeholder="Current status of the car"
-                  name="status"
-                  value={formData.carDetails.status}
-                  onChange={handleChange}
-                />
-                <div className="flex justify-between">
-                  <button
-                    className="p-2 bg-gray-300 rounded"
-                    onClick={handleBack}>
-                    Back
-                  </button>
-                  <button
-                    className="p-2 bg-blue-500 text-white rounded"
-                    onClick={handleNext}>
-                    Next
-                  </button>
-                </div>
-              </div>
+            <span> CR+</span>
+          </div>
+          <p className="md:text-xl text-sm md:text-center">
+            Inspections
+            <br />
+            Done
+          </p>
+        </div>
+
+        <div className="lg:flex items-center gap-4 font-black">
+          <div
+            ref={ref}
+            className="flex justify-center items-center md:text-3xl gap-1 text-orange-500">
+            {inView && (
+              <CountUp start={10} end={50} duration={2} decimals={0}>
+                {({ countUpRef }) => <div ref={countUpRef} />}
+              </CountUp>
             )}
-            {step === 3 && (
-              <div>
-                <h2 className="text-xl font-bold mb-4">
-                  Confirm Details and Pay
-                </h2>
-                <label className="mb-4 flex items-center">
-                  <input
-                    type="checkbox"
-                    className="mr-2"
-                    checked={formData.confirmation}
-                    onChange={handleCheckboxChange}
-                  />
-                  Confirm that the provided details are correct
-                </label>
-                <button
-                  className="w-full p-2 bg-blue-500 text-white rounded"
-                  onClick={handlePayment}>
-                  Pay ₹999
-                </button>
-                <div className="flex justify-between mt-4">
-                  <button
-                    className="p-2 bg-gray-300 rounded"
-                    onClick={handleBack}>
-                    Back
-                  </button>
-                </div>
-              </div>
+            <span>L</span>
+          </div>
+          <p className="md:text-xl text-sm md:text-center">
+            Happy
+            <br />
+            Customers
+          </p>
+        </div>
+
+        <div className="lg:flex items-center gap-4 font-black">
+          <div
+            ref={ref}
+            className="flex justify-center items-center md:text-3xl gap-1 text-orange-500">
+            {inView && (
+              <CountUp start={100} end={200} duration={2} decimals={0}>
+                {({ countUpRef }) => <div ref={countUpRef} />}
+              </CountUp>
             )}
+            <span>+</span>
+          </div>
+          <p className="md:text-xl text-sm md:text-center">
+            Locations
+            <br />
+            Available
+          </p>
+        </div>
+      </div>
+
+      {/* fault card start here */}
+      <div className="flex md:gap-6 gap-2 lg:flex-row flex-col mt-16 md:px-20 px-4">
+        <div className="text-center justify-center md:my-4 bg-[#FBFBFB] text-black p-2 rounded-lg w-full">
+          <img
+            src="/water-damage.png"
+            className="img-fluid w-full h-60 object-cover rounded-lg"
+            alt="howitworks"
+            width="280"
+          />
+          <div className="text-left space-y-4 py-4">
+            <h4 className="text-xl text-black font-black tracking-widest mt-4 flex-none buyh4">
+              Water Damage
+            </h4>
+            <p className="text-lg">
+              <span className="text-orange-500 font-semibold">1 Lakh +</span> by
+              floods annually, resulting in water damage, rust, and electrical
+              issues
+            </p>
           </div>
         </div>
-      )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 container mx-auto gap-4 mt-16 lg:mt-24 md:px-20 px-10">
+        <div className="text-center justify-center md:my-4 bg-[#FBFBFB] text-black p-2 rounded-lg w-full">
+          <img
+            src="/fake-service-history.png"
+            className="img-fluid w-full h-60 object-cover rounded-lg"
+            alt="howitworks"
+            width="280"
+          />
+          <div className="text-left space-y-4 py-4">
+            <h4 className="text-xl text-black font-bold tracking-widest mt-4 flex-none buyh4">
+              Fake Service History
+            </h4>
+            <p className="text-lg">
+              <span className="text-orange-500 font-semibold">15 %</span> of
+              used car sales have fabricated service records
+            </p>
+          </div>
+        </div>
+
+        <div className="text-center justify-center md:my-4 bg-[#FBFBFB] text-black p-2 rounded-lg w-full">
+          <img
+            src="/tempered-odometer.png"
+            className="img-fluid w-full h-60 object-cover rounded-lg"
+            alt="howitworks"
+            width="280"
+          />
+          <div className="text-left space-y-4 py-4">
+            <h4 className="text-xl text-black font-bold tracking-widest mt-4 flex-none buyh4">
+              Tampered Odometers
+            </h4>
+            <p className="text-lg">
+              <span className="text-orange-500 font-semibold">20-30%</span> of
+              used car sales have fabricated service records
+            </p>
+          </div>
+        </div>
+
+        <div className="text-center justify-center md:my-4 bg-[#FBFBFB] text-black p-2 rounded-lg w-full">
+          <img
+            src="/hiden-accidental-history.png"
+            className="img-fluid w-full h-60 object-cover rounded-lg"
+            alt="howitworks"
+            width="280"
+          />
+          <div className="text-left space-y-4 py-4">
+            <h4 className="text-xl text-black font-bold tracking-widest mt-4 flex-none buyh4">
+              Hidden Accident History
+            </h4>
+            <p className="text-lg">
+              <span className="text-orange-500 font-semibold">40%</span> of used
+              cars have some accidental history
+            </p>
+          </div>
+        </div>
+      </div>
+      {/* fault card end here */}
+
+      <div className="mt-16 md:px-20 px-10 space-y-8">
+        <h1 className="text-center font-black text-4xl">
+          <span className="text-orange-500 font-semibold">What </span>
+          Do You Get?
+        </h1>
+        <WhatDoYouGet />
+      </div>
+
+      {/* What Does the 210-Point Inspection Cover? */}
+      <div className="relative mx-auto px-4 pt-16 mb-4">
+        <div className="mb-12 font-bold md:text-center">
+          <h2 className="text-4xl text-black">
+            What Does the 210-Point
+            <br />
+            Inspection Cover
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 container mx-auto gap-4 md:px-10 px-2">
+          <div className="text-xl  text-black">
+            <h2 className="py-2 font-bold">Engine and Transmission:</h2>
+            <p className="text-lg text-gray-700 my-2">
+              Thorough checks of the engine, transmission, and related
+              components to ensure smooth and efficient performance.
+            </p>
+            <h2 className="py-2 font-bold">Brakes and Suspension:</h2>
+            <p className="text-lg text-gray-700 my-2">
+              Inspection of the brake system, suspension, and steering for
+              optimal safety and handling.
+            </p>
+            <h2 className="py-2 font-bold">Electrical Systems:</h2>
+            <p className="text-lg text-gray-700 my-2">
+              Testing of all electrical systems, including the battery,
+              alternator, and lighting.
+            </p>
+            <h2 className="py-2 font-bold">Interior and Exterior:</h2>
+            <p className="text-lg text-gray-700 my-2">
+              Examination of the car’s interior and exterior for any signs of
+              wear, damage, or defects.
+            </p>
+            <h2 className="py-2 font-bold">Safety Features:</h2>
+            <p className="text-lg text-gray-700 my-2">
+              Verification of all safety features, such as airbags, seat belts,
+              and anti-lock braking systems.
+            </p>
+          </div>
+
+          <div className="line">
+            <img src={"/pdi2.png"} alt="" className="w-[100%] mx-auto" />
+          </div>
+        </div>
+      </div>
+
+      {/* <div className="grid grid-cols-1 lg:grid-cols-2 container mx-auto gap-4 mt-16 md:px-20 px-10">
         <div className="text-3xl text-black">
           <h2 className="py-2 font-bold ">
             Ensure Your Car is Road-Ready with Unificars PDI
@@ -382,62 +565,7 @@ const pdi = ({ isOpen, onClose }) => {
         <div className="line">
           <img src={"/assured1.png"} alt="" className="w-[80%] mx-auto" />
         </div>
-      </div>
-
-      <div className="relative max-w-5xl mx-auto px-4 pt-16">
-        {/* <div className="absolute w-full h-60 -z-10 rounded-lg top-4"></div> */}
-        <h1 className="py-2 font-bold text-center text-3xl font-bold text-black">
-          Why Choose Unificars PDI?
-        </h1>
-        <p className="text-center mb-8 hiwpara">
-          keys to cash unlock the value of your car
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-4 gap-6">
-          <div className="hover:bg-blue-500 hover:text-white bg-white text-black p-6 rounded-lg shadow-md ">
-            <h4 className="text-base font-semibold mb-2 buyh4 text-center">
-              Thorough Inspection
-            </h4>
-            <p className="mb-4">
-              Our certified technicians perform a detailed 210-point inspection
-              covering all critical aspects of your car, from the engine and
-              transmission to the brakes and suspension. This ensures that every
-              component is in optimal working order.
-            </p>
-          </div>
-          <div className="hover:bg-blue-500 hover:text-white bg-white text-black p-6 rounded-lg shadow-md ">
-            <h4 className="text-base font-semibold mb-2 buyh4 text-center">
-              Peace of Mind
-            </h4>
-            <p className="mb-4">
-              With Unificars PDI, you can be assured that your car is safe,
-              reliable, and ready for the road. Our inspection identifies any
-              potential issues, allowing you to address them before they become
-              major problems.
-            </p>
-          </div>
-          <div className="hover:bg-blue-500 hover:text-white bg-white text-black p-6 rounded-lg shadow-md ">
-            <h4 className="text-base font-semibold mb-2 buyh4 text-center">
-              Expert Technicians
-            </h4>
-            <p className="mb-4">
-              Our team of experienced technicians uses the latest tools and
-              technology to provide accurate and reliable inspection reports.
-              Trust the experts at Unificars to give you a clear picture of your
-              car's condition.
-            </p>
-          </div>
-          <div className="hover:bg-blue-500 hover:text-white bg-white text-black p-6 rounded-lg shadow-md ">
-            <h4 className="text-base font-semibold mb-2 buyh4 text-center">
-              Comprehensive Reports
-            </h4>
-            <p className="mb-4">
-              Receive a detailed report outlining the condition of each
-              inspected component. Our transparent reporting helps you make
-              informed decisions about any necessary repairs or maintenance.
-            </p>
-          </div>
-        </div>
-      </div>
+      </div> */}
 
       <div className="mx-auto bg-blue-100 mt-16 ">
         <div className="font-bold text-center py-14 ">
@@ -462,49 +590,62 @@ const pdi = ({ isOpen, onClose }) => {
         </div>
       </div>
 
-      <div className="relative max-w-5xl mx-auto px-4 pt-16 mb-4">
-        <div className="mb-12 font-bold text-center">
-          <h2 className="text-4xl text-black">
-            What Does the 210-Point Inspection Cover?
-          </h2>
-        </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 container mx-auto gap-4 px-10">
-          <div className="text-base font-bold text-black">
-            <h2 className="py-2">Engine and Transmission:</h2>
-            <p className="text-sm text-gray-700 my-2">
-              Thorough checks of the engine, transmission, and related
-              components to ensure smooth and efficient performance.
-            </p>
-            <h2 className="py-2">Brakes and Suspension:</h2>
-            <p className="text-sm text-gray-700 my-2">
-              Inspection of the brake system, suspension, and steering for
-              optimal safety and handling.
-            </p>
-            <h2 className="py-2">Electrical Systems:</h2>
-            <p className="text-sm text-gray-700 my-2">
-              Testing of all electrical systems, including the battery,
-              alternator, and lighting.
-            </p>
-            <h2 className="py-2">Interior and Exterior:</h2>
-            <p className="text-sm text-gray-700 my-2">
-              Examination of the car’s interior and exterior for any signs of
-              wear, damage, or defects.
-            </p>
-            <h2 className="py-2">Safety Features:</h2>
-            <p className="text-sm text-gray-700 my-2">
-              Verification of all safety features, such as airbags, seat belts,
-              and anti-lock braking systems.
+      <div className="relative mx-auto px-4 pt-16 md:px-20">
+        <h1 className="py-2 text-center text-3xl font-bold text-black">
+          Why Choose Pre Delivery Inspection{" "}
+        </h1>
+        <p className="text-center mb-8 text-lg">
+          keys to cash unlock the value of your car
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-4 gap-6">
+          <div className="bg-blue-200 text-black p-6 rounded-lg carousel-item">
+            <h4 className="text-xl font-black mb-2 buyh4 text-center">
+              Thorough Inspection
+            </h4>
+            <p className="mb-4 text-center">
+              Our certified technicians perform a detailed 210-point inspection
+              covering all critical aspects of your car, from the engine and
+              transmission to the brakes and suspension. This ensures that every
+              component is in optimal working order.
             </p>
           </div>
-
-          <div className="line">
-            <img src={"/pdi2.png"} alt="" className="w-[100%] mx-auto" />
+          <div className="bg-white text-black p-6 rounded-lg carousel-item">
+            <h4 className="text-xl font-black mb-2 buyh4 text-center">
+              Peace of Mind
+            </h4>
+            <p className="mb-4 text-center">
+              With Unificars PDI, you can be assured that your car is safe,
+              reliable, and ready for the road. Our inspection identifies any
+              potential issues, allowing you to address them before they become
+              major problems.
+            </p>
+          </div>
+          <div className="bg-white text-black p-6 rounded-lg carousel-item">
+            <h4 className="text-xl font-black mb-2 buyh4 text-center">
+              Expert Technicians
+            </h4>
+            <p className="mb-4 text-center">
+              Our team of experienced technicians uses the latest tools and
+              technology to provide accurate and reliable inspection reports.
+              Trust the experts at Unificars to give you a clear picture of your
+              car's condition.
+            </p>
+          </div>
+          <div className="bg-white text-black p-6 rounded-lg carousel-item">
+            <h4 className="text-xl font-black mb-2 buyh4 text-center">
+              Reports
+            </h4>
+            <p className="mb-4 text-center">
+              Receive a detailed report outlining the condition of each
+              inspected component. Our transparent reporting helps you make
+              informed decisions about any necessary repairs or maintenance.
+            </p>
           </div>
         </div>
       </div>
 
       {/* <Reviews/> */}
-      <div className="bg-gray-50 py-12">
+      <div className="bg-gray-50 py-16">
         <div className="text-center items-center flex flex-col mb-6">
           <h2 className="text-4xl text-[#000] my-2">Testimonials</h2>
           <p className="customgryfnt text-lg font-normal">
@@ -642,6 +783,8 @@ const pdi = ({ isOpen, onClose }) => {
           </Carousel>
         </div>
       </div>
+
+      <HomeQuestions />
 
       {/* ... other parts of your component ... */}
     </div>

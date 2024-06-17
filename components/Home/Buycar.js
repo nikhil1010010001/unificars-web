@@ -35,7 +35,7 @@ const Buycar = () => {
   }, []);
 
   return (
-    <div className="py-6 text-center from-white to-blue-50 text-gray-600">
+    <div className="py-6 text-center text-gray-600">
       <div className="mx-auto space-y-6 w-[85%]">
         <div className="text-center my-10 mb-0 font-normal text-xl">
           <h1 className="text-[#000] font-black my-2 text-center sellheadfont">

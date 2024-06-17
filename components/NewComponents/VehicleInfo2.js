@@ -233,27 +233,24 @@ const VehicleInfo = () => {
       );
 
       const value = await valuation.json();
-
       if (value.code == 200) {
         const response = value.data;
 
         console.log("response object from evaluation", response);
 
         let calculatedyear = 15;
-        if (carInfo.fuelType === "Diesel") {
+        if (carInfo.fuelType === "DIESEL") {
           calculatedyear = 10;
         }
         let calculation = response / calculatedyear;
         let remainingyears =
-          carInfo.year + calculatedyear - new Date().getFullYear();
-        let expectedprice = Math.round(calculation + remainingyears);
-        let expectedprice1 = Math.round(calculation + remainingyears) + 100240;
+          Number(carInfo.year) +
+          Number(calculatedyear) -
+          new Date().getFullYear();
 
-        console.log("expected price calculation", [
-          expectedprice,
-          expectedprice1,
-        ]);
-
+        let expectedprice = Math.round(calculation * remainingyears);
+        let expectedprice1 = Math.round(calculation * remainingyears) + 100240;
+        console.log([expectedprice, expectedprice1]);
         setExpectedPrice([expectedprice, expectedprice1]);
       }
     } catch (error) {}

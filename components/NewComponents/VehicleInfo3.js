@@ -505,17 +505,17 @@ const VehicleInfo = () => {
             {/* <h1 className='text-xl text-black my-2 flex items-center'>
                   Enter your car registration number &nbsp;<img src="4xfaster.png" style={{width:'20%'}}/>
               </h1> */}
-            <div className="inline-flex items-center space-x-2 w-full max-w-full overflow-hidden">
+            <div className="inline-flex items-center justify-center space-x-2 w-full max-w-full overflow-hidden">
               <span className="text-xl font-semibold">
                 Enter your car number
               </span>
-              <Image
+              {/* <Image
                 src="/4xfaster.png"
                 alt="4x Faster"
                 width={50} // Adjust the width and height as per your image's actual size or required dimensions
                 height={20} // Adjust the width and height as per your image's actual size or required dimensions
                 className="ml-2 flex-shrink-0"
-              />
+              /> */}
             </div>
 
             <div className="font-bold text-[#465166] w-full text-field mb-2">
@@ -525,7 +525,7 @@ const VehicleInfo = () => {
                 id={
                   validNumber ? "outlined-error-helper-text" : "outlined-basic"
                 }
-                label="Search By Car Number"
+                label="Enter your Car Number"
                 variant="outlined"
                 placeholder="AA 11 AA 1111"
                 type="text"

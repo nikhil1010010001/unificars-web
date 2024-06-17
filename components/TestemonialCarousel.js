@@ -24,8 +24,8 @@ function TestemonialCarousel() {
 
   return (
     <div className="bg-gray-50 py-12">
-      <div className="text-center items-center flex flex-col mb-6">
-        <h2 className="text-4xl text-[#000] my-2">
+      <div className="text-center items-center flex flex-col mb-6 px-4">
+        <h2 className="text-2xl md:text-4xl font-bold text-[#000] my-2">
           What Our Clients Are Saying
         </h2>
         <p className="customgryfnt text-lg font-normal">

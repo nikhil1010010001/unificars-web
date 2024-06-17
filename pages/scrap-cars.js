@@ -155,25 +155,29 @@ const about = () => {
             </div> */}
 
       <div
-        className="relative bg-cover bg-center h-full"
-        style={{ backgroundImage: "url(/scrap-car.png)", paddingTop: "80px" }}>
+        className="relative bg-cover bg-center h-[550px] pt-20 bg-blue-500"
+        // style={{ backgroundImage: "url(/scrap-car.png)", paddingTop: "80px" }}
+      >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div className="relative container mx-auto flex items-center justify-between min-h-96 px-6">
-          <div className="text-white">
-            <h1 className="text-4xl font-bold">
-              Get the Best Price for your Scrap Car
-            </h1>
-            <p className="mt-2">
-              Scrapping of your car with Hassle-Free process & legal
-              documentation.
-            </p>
-          </div>
-          {/* <div className="bg-white p-6 rounded-lg shadow-lg"> */}
-          <div
-            className="sticky-element bottom-28 bg-orange-500 p-4 self-baseline challan-headbg"
-            style={{ marginBottom: "120px" }}>
-            <VehicleInfo />
-            {/* <div className='bg-white p-6 rounded-2xl shadow'>
+        <div className="relative container mx-auto flex items-center justify-between h-full px-6">
+          <div className="flex items-center gap-4 justify-between w-full">
+            <div className="text-white">
+              <h1 className="text-6xl font-black">
+                Get the Best Price for
+                <br />
+                your Scrap Car
+              </h1>
+              <p className="mt-8 text-xl">
+                Scrapping of your car with Hassle-Free process and <br /> legal
+                documentation.
+              </p>
+            </div>
+            {/* <div className="bg-white p-6 rounded-lg shadow-lg"> */}
+            <div
+              className="sticky-element bottom-28 bg-orange-500 p-4 self-baseline challan-headbg min-w-[500px] m-auto"
+              style={{ marginBottom: "120px" }}>
+              <VehicleInfo />
+              {/* <div className='bg-white p-6 rounded-2xl shadow'>
                                 <div className='p-3 rounded-md'>
                                     <h1 className='text-3xl text-black my-2 font-sansserif font-extrabold text-center'>Enter Your Car Number</h1>
                                     <div className="font-bold text-[#465166] w-full text-field mb-2">
@@ -198,39 +202,49 @@ const about = () => {
                                     )}
                                 </div>
                             </div> */}
+            </div>
           </div>
-          {/* </div> */}
         </div>
       </div>
 
       <div className="relative max-w-5xl mx-auto px-4 pt-16">
         {/* <div className="absolute w-full h-60 -z-10 rounded-lg top-4"></div> */}
         <h1 className="py-2 font-bold text-center text-3xl text-black">
-          Why Scrap Car With Unifi Cars
+          Benefits of scraping car with Unifi cars
         </h1>
         {/* <p className="text-center mb-8 hiwpara">keys to cash unlock the value of your car</p> */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-6">
-          <div className="hover:bg-blue-500 hover:text-white bg-white text-black p-6 rounded-lg shadow-md h-56 place-content-center">
-            <h4 className="text-base font-semibold mb-2 buyh4 text-center">
-              Get Best Price
-            </h4>
+          <div className="bg-gray-100 text-black p-6 py-12 rounded-lg shadow-md min-h-56 place-content-center">
+            <img
+              src="/scrap-car-price.png"
+              className="h-12 object-cover rounded-lg mb-4"
+            />
+            <h4 className="text-base font-bold mb-2">Get Best Price</h4>
             <p className="mb-4">
               Get an accurate and fair quote for scrapping your car and helping
               the environment.
             </p>
           </div>
-          <div className="hover:bg-blue-500 hover:text-white bg-white text-black p-6 rounded-lg shadow-md h-56 place-content-center">
-            <h4 className="text-base font-semibold mb-2 buyh4 text-center">
+
+          <div className="bg-blue-200 text-black p-6 py-12 rounded-lg shadow-md min-h-56 place-content-center">
+            <img
+              src="/scrap-car-certificate.png"
+              className="h-12 object-cover rounded-lg mb-4 invert"
+            />
+            <h4 className="text-base font-bold mb-2">
               Instant Disposal Certificate
             </h4>
             <p className="mb-4">
               Get benefits on buying a new car with a Certificate of deposit.
             </p>
           </div>
-          <div className="hover:bg-blue-500 hover:text-white bg-white text-black p-6 rounded-lg shadow-md h-56 place-content-center">
-            <h4 className="text-base font-semibold mb-2 buyh4 text-center">
-              Transparency
-            </h4>
+
+          <div className="bg-gray-100 text-black p-6 py-12 rounded-lg shadow-md min-h-56 place-content-center">
+            <img
+              src="/scrap-car-transparency.png"
+              className="h-12 object-cover rounded-lg mb-4"
+            />
+            <h4 className="text-base font-bold mb-2">Transparency</h4>
             <p className="mb-4">
               Unifi Cars partners only with Government-registered vendors.
             </p>
@@ -238,12 +252,14 @@ const about = () => {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto p-6 bg-white shadow-md mt-16 rounded-md">
-        <h1 className="py-2 font-bold text-center text-3xl text-black">
-          Steps to scrap your car with Unifi cars
+      <div className="max-w-6xl mx-auto p-6 md:p-8 bg-white carousel-item border mt-16 rounded-md flex items-center justify-around gap-4">
+        <h1 className="py-2 font-black text-4xl text-black">
+          Steps to scrap your car
+          <br />
+          with Unifi cars
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        <div className="grid gap-6 w-[400px] text-lg font-semibold">
           <div className="flex items-start space-x-3">
             <div className="flex-shrink-0">
               <div className="bg-orange-500 text-white rounded-full h-8 w-8 flex items-center justify-center">
@@ -299,7 +315,7 @@ const about = () => {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto p-6 rounded-md flex mt-16">
+      {/* <div className="max-w-6xl mx-auto p-6 rounded-md flex mt-16">
         <div className="w-1/2">
           <img
             src="scrap-legal.png" // replace with the actual path to your image
@@ -339,45 +355,28 @@ const about = () => {
             ))}
           </ul>
         </div>
-      </div>
+      </div> */}
 
-      <div className="container mx-auto p-6 md:px-10 mt-5">
+      <img src="/compliance-banner.png" className="max-w-6xl mx-auto mt-16 " />
+
+      {/* <div className="container mx-auto p-6 md:px-10 mt-5">
         <div className="relative">
           <div>
             <img src="/pdi.png" />
           </div>
         </div>
-      </div>
-
-      <div className="max-w-6xl mx-auto p-6 mt-16 rounded-md">
-        <h1 className="py-2 font-bold text-center text-3xl text-black">
-          Scrap Car Policy
-        </h1>
-        <p>
-          The process of scrapping a car is guided by the Vehicle Scrappage
-          Policy 2021 from the Government of India. According to this policy,
-          when a car is too old or doesn't meet emission and fitness standards,
-          it can be scrapped. Car owners can choose to scrap their vehicles
-          voluntarily and get benefits like financial incentives, tax rebates,
-          or discounts on buying a new vehicle. The scrapped cars are sent to
-          authorized scrap yards, where they are taken apart, and the materials
-          are recycled or disposed of responsibly. This policy helps reduce
-          pollution, encourages recycling, and boosts the automotive industry,
-          while also providing benefits to those who scrap their old cars.
-        </p>
-      </div>
-
-      <div className="max-w-6xl mx-auto p-6 rounded-md">
-        <h1 className="py-2 font-bold text-center text-3xl font-bold text-black">
+      </div> */}
+      <div className="max-w-6xl mx-auto p-6 rounded-md mt-16">
+        <h1 className="py-2 text-center text-3xl font-bold text-black">
           When Is It Time to Scrap Your Car?
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center">
+        <div className="flex w-[80%] mx-auto gap-6 justify-items-center">
           {[
-            { type: "Private Vehicle", petrol: "15 Days", diesel: "15 Days" },
+            { type: "Private Vehicle", petrol: "15 Years", diesel: "15 Years" },
             {
               type: "Commercial Vehicle",
-              petrol: "15 Days",
-              diesel: "15 Days",
+              petrol: "15 Years",
+              diesel: "15 Years",
             },
           ].map((vehicle, index) => (
             <div
@@ -393,11 +392,11 @@ const about = () => {
                 </svg>
                 <h3 className="text-xl font-semibold">{vehicle.type}</h3>
               </div>
-              <div className="w-full flex justify-between">
+              <div className="w-full flex justify-between text-xl font-bold">
                 <span>Petrol</span>
                 <span>{vehicle.petrol}</span>
               </div>
-              <div className="w-full flex justify-between">
+              <div className="w-full flex justify-between text-xl font-bold">
                 <span>Diesel</span>
                 <span>{vehicle.diesel}</span>
               </div>
@@ -405,6 +404,24 @@ const about = () => {
           ))}
         </div>
       </div>
+
+      {/* <div className="max-w-6xl mx-auto p-6 mt-16 rounded-md">
+        <h1 className="py-2 font-bold text-center text-3xl text-black">
+          Scrap Car Policy
+        </h1>
+        <p>
+          The process of scrapping a car is guided by the Vehicle Scrappage
+          Policy 2021 from the Government of India. According to this policy,
+          when a car is too old or doesn't meet emission and fitness standards,
+          it can be scrapped. Car owners can choose to scrap their vehicles
+          voluntarily and get benefits like financial incentives, tax rebates,
+          or discounts on buying a new vehicle. The scrapped cars are sent to
+          authorized scrap yards, where they are taken apart, and the materials
+          are recycled or disposed of responsibly. This policy helps reduce
+          pollution, encourages recycling, and boosts the automotive industry,
+          while also providing benefits to those who scrap their old cars.
+        </p>
+      </div> */}
 
       {/* <div className='grid grid-cols-1 lg:grid-cols-2 container mx-auto gap-4 mt-16 lg:mt-24 md:px-20 px-10'>
                 <div className="text-3xl font-bold text-black">
@@ -424,7 +441,7 @@ const about = () => {
             </div> */}
 
       {/* <Reviews/> */}
-      <div className="bg-gray-50 py-12">
+      <div className="bg-gray-50 py-12 mt-16">
         <div className="text-center items-center flex flex-col mb-6">
           <h2 className="text-4xl text-[#000] my-2">Testimonials</h2>
           <p className="customgryfnt text-lg font-normal">
