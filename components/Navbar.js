@@ -87,7 +87,7 @@ const Navbar = () => {
               <Link
                 href="/about"
                 className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102] ${
-                  router.pathname == "/sell-used-cars"
+                  router.pathname == "/about"
                     ? "text-orange-600 underline underline-offset-8"
                     : ""
                 }`}
@@ -97,7 +97,7 @@ const Navbar = () => {
               <Link
                 href="/contact"
                 className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102] ${
-                  router.pathname == "/sell-used-cars"
+                  router.pathname == "/contact"
                     ? "text-orange-600 underline underline-offset-8"
                     : ""
                 }`}
