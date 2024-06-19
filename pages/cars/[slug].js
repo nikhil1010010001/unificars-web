@@ -59,6 +59,7 @@ import Head from "next/head";
 import { useDispatch, useSelector } from "react-redux";
 import { IoLogoModelS, IoIosCloseCircle } from "react-icons/io";
 import { ImageDisplayHide } from "../../ReduxStore/actions/ModalImage";
+import Car210PointsModal from "@/components/CarDetailsComponents/Car210PointsModal";
 
 const carPage = () => {
   const router = useRouter();
@@ -69,6 +70,7 @@ const carPage = () => {
   const [ShowSpinner, setShowSpinner] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [showEnquiryModal, setShowEnquiryModal] = useState(false);
+  const [carDetailsModal, setCarDetailsModal] = useState(false);
 
   const dispatch = useDispatch();
   const CurrentImage = useSelector((state) => state.CurrentImage);
@@ -91,7 +93,8 @@ const carPage = () => {
     setShowSpinner(false);
     if (jsonData.code == 200) {
       setCar(jsonData.data);
-      console.log(jsonData.data);
+
+      console.log("car report details ", jsonData.data);
       if (jsonData.data.lead[0].Brand) {
         const brandName = jsonData.data.lead[0].Brand.split(" ")[0];
         fetchRelatedCars(brandName);
@@ -281,11 +284,19 @@ const carPage = () => {
               showModal={showModal}
               setShowModal={setShowModal}
               carId={id}
+              setCarDetailsModal={setCarDetailsModal}
             />
             <EnquiryModal
               carId={id}
               showEnquiryModal={showEnquiryModal}
               setShowEnquiryModal={setShowEnquiryModal}
+            />
+
+            <Car210PointsModal
+              showModal={carDetailsModal}
+              setShowModal={setCarDetailsModal}
+              carDetails={car.detaiapi}
+              // setCarDetailsModal={setCarDetailsModal}
             />
           </>
         )}

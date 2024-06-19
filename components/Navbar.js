@@ -84,6 +84,26 @@ const Navbar = () => {
                 passHref>
                 Sell Car
               </Link>
+              <Link
+                href="/about"
+                className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102] ${
+                  router.pathname == "/sell-used-cars"
+                    ? "text-orange-600 underline underline-offset-8"
+                    : ""
+                }`}
+                passHref>
+                About Us
+              </Link>
+              <Link
+                href="/contact"
+                className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102] ${
+                  router.pathname == "/sell-used-cars"
+                    ? "text-orange-600 underline underline-offset-8"
+                    : ""
+                }`}
+                passHref>
+                Contact Us
+              </Link>
 
               {/* <Link
                 href="/assured-cars"
@@ -96,7 +116,7 @@ const Navbar = () => {
                 Assured fix
               </Link> */}
 
-              <Link
+              {/* <Link
                 href="/pre-delivery-inspection"
                 className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102] ${
                   router.pathname == "/pre-delivery-inspection"
@@ -105,18 +125,18 @@ const Navbar = () => {
                 }`}
                 passHref>
                 Pre Inspection
-              </Link>
+              </Link> */}
               <div
                 className="relative py-2"
                 onMouseEnter={() => setIsOpen(true)}
                 onMouseLeave={() => setIsOpen(false)}>
-                <button
+                {/* <button
                   onClick={toggleDropdown}
                   className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102] ${
                     isOpen ? "text-orange-600 underline underline-offset-8" : ""
                   }`}>
                   More Services
-                </button>
+                </button> */}
                 {isOpen && (
                   <ul
                     className="absolute left-0 mt-2 bg-white shadow-lg rounded-lg"

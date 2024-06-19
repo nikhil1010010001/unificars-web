@@ -6,7 +6,7 @@ import LinearProgress from "@mui/material/LinearProgress";
 import { orange } from "@mui/material/colors";
 
 const OtpModal = (props) => {
-  const { showModal, setShowModal, carId } = props;
+  const { showModal, setShowModal, carId, setCarDetailsModal } = props;
   const router = useRouter();
 
   const [UserNumber, setUserNumber] = useState("");
@@ -100,7 +100,11 @@ const OtpModal = (props) => {
             code: 200,
             status: ["Please Wait while Fecthing a Report..."],
           });
-          router.push(jsonResponse.link);
+          // router.push(jsonResponse.link);
+          setShowModal(false);
+
+          setCarDetailsModal(true);
+
           // for showing progress
           setInterval(() => {
             setProgress((pre) => pre + 20);
@@ -231,6 +235,7 @@ const OtpModal = (props) => {
               </button>
             </p>
           </div>
+
           <form onSubmit={HandelOtpSubmit}>
             <label className="block mt-4">
               <input

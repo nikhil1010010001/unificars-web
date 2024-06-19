@@ -28,7 +28,7 @@ function FeaturedCars({ featuredlist, desktopItemNum }) {
     }
   }, [featuredlist]);
 
-  console.log("this is new featured list", featuredlist);
+  // console.log("this is new featured list", featuredlist);
 
   return (
     <div className="grid transition-all duration-800 z-10">

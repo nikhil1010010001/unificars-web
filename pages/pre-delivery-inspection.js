@@ -9,6 +9,8 @@ import { useInView } from "react-intersection-observer";
 import HomeQuestions from "@/components/Home/HomeQuestions";
 import WhatDoYouGet from "@/components/WhatDoYouGet";
 import TestemonialCarousel from "@/components/TestemonialCarousel";
+import { fromLatLng, setDefaults } from "react-geocode";
+import { pdiCarHealthenquiry } from "@/common/common";
 
 const pdi = ({ isOpen, onClose }) => {
   const responsive = {
@@ -37,6 +39,7 @@ const pdi = ({ isOpen, onClose }) => {
     address: "",
     phoneNumber: "",
     otp: "",
+    email: "",
     carDetails: {
       brand: "",
       model: "",
@@ -50,6 +53,7 @@ const pdi = ({ isOpen, onClose }) => {
   });
   const [otpSent, setOtpSent] = useState(false);
   const [msg, setMsg] = useState("");
+  const [otpResId, setOtpResId] = useState("");
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -71,6 +75,7 @@ const pdi = ({ isOpen, onClose }) => {
       address: "",
       phoneNumber: "",
       otp: "",
+      email: "",
       carDetails: {
         brand: "",
         model: "",
@@ -90,8 +95,13 @@ const pdi = ({ isOpen, onClose }) => {
       // Send OTP API call
       // Assuming sendOtpApi is a function that sends the OTP and returns a promise
       try {
-        await sendOtpApi(formData.phoneNumber);
-        setOtpSent(true);
+        await sendOtpApi(
+          formData.name,
+          formData.phoneNumber,
+          formData.email,
+          formData.address
+        );
+
         setMsg("OTP sent successfully");
       } catch (error) {
         setMsg("Failed to send OTP");
@@ -100,9 +110,19 @@ const pdi = ({ isOpen, onClose }) => {
       // Verify OTP API call
       // Assuming verifyOtpApi is a function that verifies the OTP and returns a promise
       try {
-        await verifyOtpApi(formData.phoneNumber, formData.otp);
-        setStep((prev) => prev + 1);
-        setMsg("");
+        const res = await verifyOtpForPdiCarHealthEnquiry(
+          formData.phoneNumber,
+          formData.otp
+        );
+
+        console.log("res", res);
+
+        if (res.code === 200) {
+          setStep((prev) => prev + 1);
+          setMsg("");
+        }
+
+        // await verifyOtpApi(formData.phoneNumber, formData.otp);
       } catch (error) {
         setMsg("Invalid OTP");
       }
@@ -152,7 +172,7 @@ const pdi = ({ isOpen, onClose }) => {
       },
       prefill: {
         name: formData.name,
-        email: "example@example.com",
+        email: formData.email || "example@example.com",
         contact: formData.phoneNumber,
       },
       notes: {
@@ -172,15 +192,41 @@ const pdi = ({ isOpen, onClose }) => {
     "Unificars is your top destination for buy and sell used cars, offering competitive pricing and valuable car-related information.";
   const canonicalUrl = "https://unificars.com/about";
 
-  // new logic
+  // animation logic
 
   const { ref, inView } = useInView({
     triggerOnce: true, // Trigger animation only once
     threshold: 0.5, // Trigger when 50% of the component is visible
   });
 
-  const setLocation = () => {
-    console.log("setLocation");
+  // set current location
+
+  setDefaults({
+    key: "AIzaSyDVCW7NP6pt8-JMxxOQe7GNa6nG1SksGVk", // Your API key here.
+    language: "en", // Default language for responses.
+    region: "in", // Default region for responses.
+  });
+
+  const setLocation = async () => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      fromLatLng(position.coords.latitude, position.coords.longitude)
+        .then(({ results }) => {
+          setFormData({ ...formData, address: results[0].formatted_address });
+        })
+        .catch((error) => console.error(error));
+    });
+  };
+
+  // Simulated OTP API calls for demonstration purposes
+  const sendOtpApi = async (name, phone, email, address) => {
+    // return new Promise((resolve) => setTimeout(resolve, 1000));
+
+    const res = await pdiCarHealthenquiry(name, phone, email, address);
+    setOtpResId(res.last_id);
+    console.log("OTP RES ID", res.last_id);
+    if (res.code === 200) {
+      setOtpSent(true);
+    }
   };
 
   return (
@@ -217,6 +263,14 @@ const pdi = ({ isOpen, onClose }) => {
                   />
                   <input
                     className="w-full mb-2 p-2 border border-gray-300 rounded"
+                    placeholder="Enter your email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="w-full mb-2 p-2 border border-gray-300 rounded"
                     placeholder="Enter your address"
                     name="address"
                     value={formData.address}
@@ -231,18 +285,23 @@ const pdi = ({ isOpen, onClose }) => {
                     className="w-full mb-2 p-2 border border-gray-300 rounded"
                     placeholder="Enter Phone Number"
                     name="phoneNumber"
+                    type="number"
                     value={formData.phoneNumber}
                     maxLength={10}
                     onChange={handleChange}
                   />
-                  <input
-                    className="w-full mb-2 p-2 border border-gray-300 rounded"
-                    placeholder="Enter OTP"
-                    name="otp"
-                    disabled={formData.phoneNumber === ""}
-                    value={formData.otp}
-                    onChange={handleChange}
-                  />
+                  {otpSent && (
+                    <input
+                      className="w-full mb-2 p-2 border border-gray-300 rounded"
+                      placeholder="Enter OTP"
+                      name="otp"
+                      type="number"
+                      minLength={6}
+                      disabled={formData.phoneNumber === ""}
+                      value={formData.otp}
+                      onChange={handleChange}
+                    />
+                  )}
                   {msg && <div className="mb-4 text-red-500">{msg}</div>}
                   <button
                     className="w-full p-2 bg-blue-500 text-white rounded"
@@ -792,19 +851,6 @@ const pdi = ({ isOpen, onClose }) => {
       {/* ... other parts of your component ... */}
     </div>
   );
-};
-
-// Simulated OTP API calls for demonstration purposes
-const sendOtpApi = async (phoneNumber) => {
-  return new Promise((resolve) => setTimeout(resolve, 1000));
-};
-
-const verifyOtpApi = async (phoneNumber, otp) => {
-  if (otp === "1234") {
-    return new Promise((resolve) => setTimeout(resolve, 1000));
-  } else {
-    throw new Error("Invalid OTP");
-  }
 };
 
 export default pdi;

@@ -11,7 +11,7 @@ const BuyCarSearchFilter = dynamic(() =>
 );
 
 const BuyUsedCars = ({ initialCars, initialTotalItems, featuredCars }) => {
-  console.log("this is featured", featuredCars);
+  // console.log("this is featured", featuredCars);
   const [carListing, setCarListing] = useState(initialCars || []);
   // const featuredlist = useState(featuredCars() || []);
   const [loading, setLoading] = useState(false);
