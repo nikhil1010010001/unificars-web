@@ -11,6 +11,7 @@ import { useRouter } from "next/router";
 import { Provider } from "react-redux";
 import store from "../ReduxStore/Store";
 import WhatsappSupport from "@/components/WhatsappSupport";
+import NextTopLoader from "nextjs-toploader";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -71,6 +72,19 @@ export default function App({ Component, pageProps }) {
             }}
           />
         </Head>
+
+        <NextTopLoader
+          color="#f97316"
+          initialPosition={0.2}
+          crawlSpeed={200}
+          crawl={true}
+          showSpinner={false}
+          easing="ease"
+          speed={200}
+          shadow="0 0 10px #f97316,0 0 5px #f97316"
+          zIndex={1600}
+        />
+
         <Navbar />
         <div>
           <Component {...pageProps} />

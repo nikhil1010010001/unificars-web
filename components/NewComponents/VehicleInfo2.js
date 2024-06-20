@@ -51,7 +51,7 @@ const VehicleInfo = () => {
     brand: {
       id: "",
       name: "",
-      iamge: "",
+      image: "",
     },
     model: {
       id: "",
@@ -168,52 +168,10 @@ const VehicleInfo = () => {
     }
   }, [carInfo.brand]);
 
-  const sendOtp = async (data) => {
-    const fetchData = await fetch("https://api.unificars.com/api/sendotp", {
-      method: "POST",
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    const jsonRes = await fetchData.json();
-    return jsonRes;
-  };
-
-  const HandleGetOtp = async () => {
-    if (userNumber == "") {
-      setValidationerror("Phone number is required!");
-    }
-    if (carNumber !== "") {
-      getCarValuation();
-    }
-    if (userNumber.length < 10) {
-      setValidationerror("Invalid Phone Number");
-    }
-
-    if (userNumber != "" && userNumber.length == 10) {
-      setValidationerror("");
-      const data = {
-        ...carInfo,
-        mobile_number: userNumber,
-        brand: carInfo.brand.name,
-        model: carInfo.model.name,
-        varient: carInfo.variant.name,
-      };
-      const res = await sendOtp(data);
-      if (res.code == 200) {
-        setOtpSend(true);
-        setIsDisabled(true);
-      }
-    }
-  };
-
   const getCarValuation = async () => {
     const data = {
       year: carInfo.year,
       model_name: carInfo.variant.name,
-      // id: 270,
       id: carInfo.model.id,
     };
 
@@ -236,10 +194,8 @@ const VehicleInfo = () => {
       if (value.code == 200) {
         const response = value.data;
 
-        console.log("response object from evaluation", response);
-
         let calculatedyear = 15;
-        if (carInfo.fuelType === "DIESEL") {
+        if (carInfo.fuelType === "Diesel") {
           calculatedyear = 10;
         }
         let calculation = response / calculatedyear;
@@ -251,9 +207,50 @@ const VehicleInfo = () => {
         let expectedprice = Math.round(calculation * remainingyears);
         let expectedprice1 = Math.round(calculation * remainingyears) + 100240;
         console.log([expectedprice, expectedprice1]);
-        setExpectedPrice([expectedprice, expectedprice1]);
+        setExpectedPrice([Math.abs(expectedprice), Math.abs(expectedprice1)]);
       }
     } catch (error) {}
+  };
+
+  const sendOtp = async (data) => {
+    const fetchData = await fetch("https://api.unificars.com/api/sendotp", {
+      method: "POST",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    const jsonRes = await fetchData.json();
+    return jsonRes;
+  };
+
+  const HandleGetOtp = async () => {
+    if (userNumber == "") {
+      setValidationerror("Phone number is required!");
+    }
+
+    getCarValuation();
+
+    if (userNumber.length < 10) {
+      setValidationerror("Invalid Phone Number");
+    }
+
+    if (userNumber != "" && userNumber.length == 10) {
+      setValidationerror("");
+      const data = {
+        ...carInfo,
+        mobile_number: userNumber,
+        brand: carInfo.brand.name,
+        model: carInfo.model.name,
+        varient: carInfo.variant.name,
+      };
+      const res = await sendOtp(data);
+      if (res.code == 200) {
+        setOtpSend(true);
+        setIsDisabled(true);
+      }
+    }
   };
 
   const HandleVerifyOTP = async () => {
@@ -281,15 +278,14 @@ const VehicleInfo = () => {
         }
       );
       const jsonRes = await fetchData.json();
+
       if (jsonRes.code == 200) {
         setOTPVerify(true);
         setlast_id(jsonRes.last_id);
         // setBookSlot(false);
         // setBookedStatus(true);
 
-        if (carNumber !== "") {
-          getCarValuation();
-        }
+        getCarValuation();
       } else {
         setValidationerror(jsonRes.status);
       }
@@ -334,40 +330,19 @@ const VehicleInfo = () => {
     }
   };
 
-  const [brandVariantResponse, setBrandVariantResponse] = useState(null);
   const [emptraData, setEmptraData] = useState(null);
 
   const submitCarNumber = async () => {
     try {
-      // e.preventDefault();
-
       setLoading(true);
+
       if (carNumber.length === 13) {
         setValidNumber(false);
 
         let number = carNumber.split(" ").join("");
-
         let data = await getCarDetails(number);
 
         if (data === null) {
-          // const response = await fetch(
-          //   "https://api.emptra.com/vehicleRegistrations",
-          //   {
-          //     method: "POST",
-          //     headers: {
-          //       "Content-Type": "application/json",
-          //       secretKey:
-          //         "rt50rd1OViWQyA6pv40WbWJJmHCwIvGUBEAM6OLmaqTyhE61RiJ8whOOQDHdslXVT",
-          //       clientId:
-          //         "932bee8472f77a75f9a328430973d1ab:87937c1398e424117fe02fcf3f070290",
-          //     },
-          //     body: JSON.stringify({
-          //       vehicleNumber: number,
-          //       blacklistCheck: true,
-          //     }),
-          //   }
-          // );
-
           const response = await axios.post(
             "https://api.emptra.com/vehicleRegistrations",
             {
@@ -406,52 +381,11 @@ const VehicleInfo = () => {
             );
 
             const resData = await thirdApiResponse.json();
-
             console.log("post to db data", resData);
-          }
-        } else {
-          try {
-            const res = await axios.post(
-              `https://crm.unificars.com/api/getBrandVariantresponse`,
-              { dl_number: number }
-            );
-
-            // data = res.data.message;
-
-            console.log(
-              "res data from getBrandVariantresponse",
-              res.data.message
-            );
-
-            setBrandVariantResponse(res.data.message);
-
-            setCarInfo({
-              ...carInfo,
-              brand: {
-                id: res.data.message.brand.id,
-                name: res.data.message.brand.brand_name,
-              },
-              model: {
-                id: res.data.message.model.id,
-                name: res.data.message.model.model,
-              },
-              variant: {
-                id: res.data.message.variant.id,
-                name: res.data.message.variant.variant,
-              },
-              year: res.data.message.registrationDate,
-              ownerShip: res.data.message.owner,
-              fuelType: res.data.message.type,
-              location: res.data.message.location,
-            });
-
-            console.log("carInfo from getBrandVariantresponse", carInfo);
-          } catch (error) {
-            console.log("error", error);
           }
         }
 
-        if (data && data.code === 100) {
+        if (data?.code === 100) {
           // Setting Up Brand Logo here
           const fetchBrand = await fetch(
             "https://api.unificars.com/api/getwebrands",
@@ -469,8 +403,6 @@ const VehicleInfo = () => {
           if (jsonRes.code == 200) {
             const brands = jsonRes.data;
 
-            // console.log("fetchBrand", brands);
-
             brands.map((brand) => {
               const brandName = brand.brand_name.split(" ");
               for (let val of brandName) {
@@ -486,44 +418,62 @@ const VehicleInfo = () => {
                         image: brand.image,
                       },
                       model: {
-                        id: brandVariantResponse?.model?.id,
-                        name:
-                          brandVariantResponse?.model?.model ||
-                          data?.result?.model.split(" ")[1],
+                        name: data.result.model.split(" ")[1],
                       },
                       year: data.result.vehicleManufacturingMonthYear.split(
                         "/"
                       )[1],
                       variant: {
-                        id: brandVariantResponse?.variant?.id,
-                        name:
-                          brandVariantResponse?.variant.variant ||
-                          data.result.model,
+                        name: data.result.model,
                       },
                       fuelType: data.result.type,
                       location: data.result.regAuthority,
                       ownerShip: data.result.ownerCount,
                     });
 
-                    // year: carInfo.year,
-                    // model_name: carInfo.variant.name,
-                    // id: carInfo.model.id,
-                    // id: 270,
+                    console.log("carInfo brand updated", carInfo);
+
+                    setValue("7");
+                    setScreen(2);
+                    setValidNumber(true);
                   }
                 }
               }
             });
-
-            console.log("carInfo brand updated", carInfo);
-
-            setValue("7");
-            setScreen(2);
-            setValidNumber(true);
           }
         } else {
           setValidNumber(true);
           console.error("Response Was not right from API");
         }
+
+        const res = await axios.post(
+          `https://crm.unificars.com/api/getBrandVariantresponse`,
+          { dl_number: number }
+        );
+
+        console.log("res data from getBrandVariantresponse", res.data.message);
+
+        setCarInfo({
+          ...carInfo,
+          brand: {
+            id: res.data.message.brand.id,
+            name: res.data.message.brand.brand_name,
+          },
+          model: {
+            id: res.data.message.model.id,
+            name: res.data.message.model.model,
+          },
+          variant: {
+            id: res.data.message.variant.id,
+            name: res.data.message.variant.variant,
+          },
+          year: res.data.message.registrationDate,
+          ownerShip: res.data.message.owner,
+          fuelType: res.data.message.type,
+          location: res.data.message.location,
+        });
+
+        console.log("carInfo from getBrandVariantresponse", carInfo);
       } else {
         setValidNumber(true);
       }
@@ -534,6 +484,8 @@ const VehicleInfo = () => {
       setLoading(false);
     }
   };
+
+  console.log("carInfo in the end", carInfo);
 
   const [hideAnimation, setHideAnimation] = useState(false);
 
@@ -618,7 +570,7 @@ const VehicleInfo = () => {
               ) : (
                 <button
                   className="w-48 h-14 bg-blue-500 text-white md:px-7 py-4 rounded-lg hover:bg-blue-600 text-base font-inter"
-                  onClick={(e) => submitCarNumber()}>
+                  onClick={submitCarNumber}>
                   Get Price
                 </button>
               )}
@@ -662,10 +614,11 @@ const VehicleInfo = () => {
               <div>
                 <Avatar
                   alt="brand_logo"
-                  src={carInfo.brand.image}
+                  src={carInfo?.brand?.image}
                   className="bg-[#E1F0DA]"
                   sx={{ width: 100, height: 100 }}
                 />
+                {carInfo?.brand?.image || "no image"}
               </div>
               <div className="flex flex-col gap-1">
                 <div className="flex flex-row gap-1 items-center text-xl">
@@ -696,7 +649,7 @@ const VehicleInfo = () => {
                     brand: {
                       id: "",
                       name: "",
-                      iamge: "",
+                      image: "",
                     },
                     model: {
                       id: "",

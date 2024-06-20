@@ -28,8 +28,9 @@ const SelectStates = ({ setCarInfo, carInfo, setValue, value, setScreen }) => {
   }, []);
 
   // { setUserCar({ ...UserCar, location:e.statename});setOpenModal(false); UserCarTabArray[6] = e.statename; setCurrentTab("7"); setVerifyNum(true) }
-  const handleClick = (e) => {
-    setCarInfo({ ...carInfo, location: e.statename });
+  const handleClick = async (state) => {
+    await setCarInfo({ ...carInfo, location: state.statename });
+
     setScreen(3);
   };
   return (
@@ -37,13 +38,13 @@ const SelectStates = ({ setCarInfo, carInfo, setValue, value, setScreen }) => {
       {!Loading ? (
         <div className="flex flex-wrap mx-auto gap-4 ">
           {States.length > 0 ? (
-            States.map((e, index) => {
+            States.map((item, index) => {
               return (
                 <div
-                  onClick={() => handleClick(e)}
+                  onClick={() => handleClick(item)}
                   className="shadow-md px-4 p-2 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-200 hover:bg-[#f38102] hover:text-white rounded-lg"
                   key={index}>
-                  <div className="text-sm">{e.statename} </div>
+                  <div className="text-sm">{item.statename} </div>
                 </div>
               );
             })

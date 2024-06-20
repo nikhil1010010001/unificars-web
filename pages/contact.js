@@ -284,7 +284,7 @@ const contact = () => {
 
           <div className="mb-6">
             <h1 className="text-3xl font-bold">CONTACT</h1>
-            <nav className="text-black text-sm"></nav>
+            <nav className="text-black text-sm"> </nav>
           </div>
         </div>
 
