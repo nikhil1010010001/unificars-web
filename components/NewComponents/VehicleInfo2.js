@@ -410,26 +410,28 @@ const VehicleInfo = () => {
                   " "
                 )) {
                   if (mfg.toLowerCase() === val.toLowerCase()) {
-                    setCarInfo({
-                      ...carInfo,
+                    setCarInfo((prev) => ({
+                      ...prev,
                       brand: {
                         id: brand.id,
                         name: brand.brand_name,
                         image: brand.image,
                       },
                       model: {
+                        ...prev.model,
                         name: data.result.model.split(" ")[1],
                       },
                       year: data.result.vehicleManufacturingMonthYear.split(
                         "/"
                       )[1],
                       variant: {
+                        ...prev.variant,
                         name: data.result.model,
                       },
                       fuelType: data.result.type,
                       location: data.result.regAuthority,
                       ownerShip: data.result.ownerCount,
-                    });
+                    }));
 
                     console.log("carInfo brand updated", carInfo);
 
@@ -453,17 +455,20 @@ const VehicleInfo = () => {
 
         console.log("res data from getBrandVariantresponse", res.data.message);
 
-        setCarInfo({
-          ...carInfo,
+        setCarInfo((prev) => ({
+          ...prev,
           brand: {
+            ...prev.brand,
             id: res.data.message.brand.id,
             name: res.data.message.brand.brand_name,
           },
           model: {
+            ...prev.model,
             id: res.data.message.model.id,
             name: res.data.message.model.model,
           },
           variant: {
+            ...prev.variant,
             id: res.data.message.variant.id,
             name: res.data.message.variant.variant,
           },
@@ -471,7 +476,7 @@ const VehicleInfo = () => {
           ownerShip: res.data.message.owner,
           fuelType: res.data.message.type,
           location: res.data.message.location,
-        });
+        }));
 
         console.log("carInfo from getBrandVariantresponse", carInfo);
       } else {
@@ -606,10 +611,10 @@ const VehicleInfo = () => {
         {(screen === 2 || screen === 3) && carInfo.brand.name && (
           <div className="flex flex-row my-2 mx-4 text-[#465166] gap-2 items-center justify-between">
             {/* <div className="grid grid-cols-3 gap-2">
-                {selectedPillArray.map((item, index) => {
-                  return selectedPill(item, index + "");
-                })}
-              </div> */}
+              {selectedPillArray.map((item, index) => {
+                return selectedPill(item, index + "");
+              })}
+            </div> */}
             <div className="flex gap-1 items-center">
               <div>
                 <Avatar
@@ -618,7 +623,6 @@ const VehicleInfo = () => {
                   className="bg-[#E1F0DA]"
                   sx={{ width: 100, height: 100 }}
                 />
-                {carInfo?.brand?.image || "no image"}
               </div>
               <div className="flex flex-col gap-1">
                 <div className="flex flex-row gap-1 items-center text-xl">
