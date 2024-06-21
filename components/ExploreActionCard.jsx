@@ -7,19 +7,25 @@ function ExploreActionCard() {
       <Link href="/scrap-cars" passHref>
         <img
           src="/get-price-explore.png"
-          className="max-h-[350px] w-full object-cover"
+          className="max-h-[300px] w-full object-cover"
         />
       </Link>
       <Link href="/challan-check" passHref>
         <img
           src="/pay-challan-explore.png"
-          className="max-h-[350px] object-cover w-full"
+          className="max-h-[300px] object-cover w-full"
         />
       </Link>
       <Link href="/pre-delivery-inspection" passHref>
         <img
           src="/pdi-explore.png"
-          className="max-h-[350px] object-cover w-full"
+          className="max-h-[300px] object-cover w-full"
+        />
+      </Link>
+      <Link href="/sell-used-cars" passHref>
+        <img
+          src="/resel-value.png"
+          className="max-h-[300px] object-cover w-full"
         />
       </Link>
     </div>

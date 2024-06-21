@@ -20,6 +20,7 @@ import SelectFuelType from "../SellPageModal/SelectFuelType";
 import SelectOwner from "../SellPageModal/SelectOwner";
 import SlotBooking from "./SlotBooking";
 import Image from "next/image";
+import { getCarValuation } from "@/common/common";
 
 // import InputMask from 'inputmask';
 
@@ -183,7 +184,7 @@ const VehicleInfo = () => {
       setValidationerror("Phone number is required!");
     }
     if (carNumber === "") {
-      getCarValuation();
+      getCarValuation(carInfo, setExpectedPrice);
     }
     if (userNumber.length < 10) {
       setValidationerror("Invalid Phone Number");
@@ -207,46 +208,46 @@ const VehicleInfo = () => {
     }
   };
 
-  const getCarValuation = async () => {
-    const data = {
-      year: carInfo.year,
-      model_name: carInfo.variant.name,
-      id: carInfo.model.id,
-    };
-    // console.log(data, "data object from evaluation");
-    try {
-      const valuation = await fetch(
-        "https://api.unificars.com/api/getvarientmodelamount",
-        {
-          method: "POST",
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
+  // const getCarValuation = async () => {
+  //   const data = {
+  //     year: carInfo.year,
+  //     model_name: carInfo.variant.name,
+  //     id: carInfo.model.id,
+  //   };
+  //   // console.log(data, "data object from evaluation");
+  //   try {
+  //     const valuation = await fetch(
+  //       "https://api.unificars.com/api/getvarientmodelamount",
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Access-Control-Allow-Origin": "*",
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify(data),
+  //       }
+  //     );
 
-      const value = await valuation.json();
-      if (value.code == 200) {
-        const response = value.data;
-        console.log(response, "response object from evaluation");
-        let calculatedyear = 15;
-        if (carInfo.fuelType === "DIESEL") {
-          calculatedyear = 10;
-        }
-        let calculation = response / calculatedyear;
-        console.log(calculation);
-        let remainingyears =
-          carInfo.year + calculatedyear - new Date().getFullYear();
-        console.log(remainingyears);
-        let expectedprice = Math.round(calculation * remainingyears);
-        let expectedprice1 = Math.round(calculation * remainingyears) + 100240;
-        console.log([expectedprice, expectedprice1]);
-        setExpectedPrice([expectedprice, expectedprice1]);
-      }
-    } catch (error) {}
-  };
+  //     const value = await valuation.json();
+  //     if (value.code == 200) {
+  //       const response = value.data;
+  //       console.log(response, "response object from evaluation");
+  //       let calculatedyear = 15;
+  //       if (carInfo.fuelType === "DIESEL") {
+  //         calculatedyear = 10;
+  //       }
+  //       let calculation = response / calculatedyear;
+  //       console.log(calculation);
+  //       let remainingyears =
+  //         carInfo.year + calculatedyear - new Date().getFullYear();
+  //       console.log(remainingyears);
+  //       let expectedprice = Math.round(calculation * remainingyears);
+  //       let expectedprice1 = Math.round(calculation * remainingyears) + 100240;
+  //       console.log([expectedprice, expectedprice1]);
+  //       setExpectedPrice([expectedprice, expectedprice1]);
+  //     }
+  //   } catch (error) {}
+  // };
 
   const HandleVerifyOTP = async () => {
     setValidationerror(" ");
@@ -281,7 +282,7 @@ const VehicleInfo = () => {
         // setBookedStatus(true);
 
         if (carNumber === "") {
-          getCarValuation();
+          getCarValuation(carInfo, setExpectedPrice);
         }
       } else {
         setValidationerror(jsonRes.status);

@@ -2,6 +2,8 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { FaCheck } from "react-icons/fa";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 
 function Car210PointsModal({ showModal, setShowModal, carDetails }) {
   const [selectedCarIndex, setSelectedCarIndex] = useState(0);
@@ -9,8 +11,6 @@ function Car210PointsModal({ showModal, setShowModal, carDetails }) {
   const HandleCloseModal = () => {
     setShowModal(false);
   };
-
-  const [hideElementIndex, setHideElementIndex] = useState([]);
 
   console.log("car details in car details modal", carDetails);
 
@@ -59,14 +59,17 @@ function Car210PointsModal({ showModal, setShowModal, carDetails }) {
                             key={index}
                             className="w-[200px] border rounded-xl px-2">
                             <p className="p-2">{detail.name}</p>
-                            <Image
-                              priority
-                              src={image.image}
-                              alt={"Parts image"}
-                              width={200}
-                              height={200}
-                              className="rounded-xl object-cover h-[200px] w-[200px]"
-                            />
+                            <Zoom>
+                              <Image
+                                priority
+                                src={image.image}
+                                alt={"Parts image"}
+                                width={250}
+                                height={250}
+                                className="rounded-xl object-cover h-[200px] w-[200px]"
+                              />
+                            </Zoom>
+
                             <div className="flex flex-wrap justify-between p-2">
                               <p>{detail.condition}</p>
                             </div>
@@ -77,15 +80,27 @@ function Car210PointsModal({ showModal, setShowModal, carDetails }) {
                 </div>
               ))
             : carDetails[selectedCarIndex].car_details.map((detail, index) => (
-                <div
-                  className="flex items-center justify-start gap-4 w-full p-4 py-2"
-                  key={index}>
-                  <FaCheck className="text-green-500 w-10" />
-                  <p className="font-bold w-full">{detail.name}</p>
+                <div className="w-full p-4 py-2 space-y-4" key={index}>
+                  <div className="flex items-center justify-start gap-4">
+                    <FaCheck className="text-green-500 w-10" />
+                    <p className="font-bold w-full">{detail.name}</p>
 
-                  <p className="p-2 bg-gray-200 rounded-lg w-full">
-                    {detail.condition || "N/A"}
-                  </p>
+                    <p className="p-2 bg-gray-200 rounded-lg w-full">
+                      {detail.video ? (
+                        <video
+                          width="320"
+                          height="240"
+                          controls
+                          preload="none"
+                          className="rounded-lg mx-auto">
+                          <source src={detail.video} type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      ) : (
+                        detail.condition || "N/A"
+                      )}
+                    </p>
+                  </div>
                 </div>
               ))}
         </div>
