@@ -10,7 +10,11 @@ import HomeQuestions from "@/components/Home/HomeQuestions";
 import WhatDoYouGet from "@/components/WhatDoYouGet";
 import TestemonialCarousel from "@/components/TestemonialCarousel";
 import { fromLatLng, setDefaults } from "react-geocode";
-import { pdiCarHealthenquiry } from "@/common/common";
+import {
+  FetchCarBrands,
+  pdiCarHealthenquiry,
+  verifyOtpForPdiCarHealthEnquiry,
+} from "@/common/common";
 
 const pdi = ({ isOpen, onClose }) => {
   const responsive = {
@@ -33,7 +37,7 @@ const pdi = ({ isOpen, onClose }) => {
   };
 
   // const [isModalOpen, setIsModalOpen] = useState(false);
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(2);
   const [formData, setFormData] = useState({
     name: "",
     address: "",
@@ -114,8 +118,6 @@ const pdi = ({ isOpen, onClose }) => {
           formData.phoneNumber,
           formData.otp
         );
-
-        console.log("res", res);
 
         if (res.code === 200) {
           setStep((prev) => prev + 1);
@@ -223,11 +225,23 @@ const pdi = ({ isOpen, onClose }) => {
 
     const res = await pdiCarHealthenquiry(name, phone, email, address);
     setOtpResId(res.last_id);
-    console.log("OTP RES ID", res.last_id);
+    console.log("OTP RES ID", res.last_id); //OTP RES ID 35584
     if (res.code === 200) {
       setOtpSent(true);
     }
   };
+
+  const [fetchCarBrandsDetails, setFetchCarBrandsDetails] = useState([]);
+
+  useEffect(() => {
+    const fetchCarFunc = async () => {
+      const fetchCarRes = await FetchCarBrands();
+      setFetchCarBrandsDetails(fetchCarRes.data);
+    };
+    fetchCarFunc();
+  }, []);
+
+  console.log("fetchCarBrandsDetails", fetchCarBrandsDetails);
 
   return (
     <div className="">
@@ -317,10 +331,17 @@ const pdi = ({ isOpen, onClose }) => {
                     className="w-full mb-2 p-2 border border-gray-300 rounded"
                     name="brand"
                     value={formData.carDetails.brand}
+                    defaultValue="Select Car Brand"
                     onChange={handleChange}>
-                    <option>Car Brand</option>
+                    <option value="Select Car Brand">Select Car Brand</option>
+                    {fetchCarBrandsDetails.map((car) => (
+                      <option key={car.id} value={car.brand_name}>
+                        {car.brand_name}
+                      </option>
+                    ))}
                     {/* Add more options */}
                   </select>
+
                   <select
                     className="w-full mb-2 p-2 border border-gray-300 rounded"
                     name="model"
@@ -329,6 +350,7 @@ const pdi = ({ isOpen, onClose }) => {
                     <option>Model</option>
                     {/* Add more options */}
                   </select>
+
                   <select
                     className="w-full mb-2 p-2 border border-gray-300 rounded"
                     name="variant"

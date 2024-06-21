@@ -79,3 +79,13 @@ export const getCarValuation = async (carInfo, setExpectedPrice) => {
     console.log("getCarValuation error", error);
   }
 };
+
+export const FetchCarBrands = async () => {
+  try {
+    const res = await axios.post(`https://api.unificars.com/api/getwebrands`);
+    const data = await res.data;
+    return data;
+  } catch (error) {
+    console.log("error", error);
+  }
+};
