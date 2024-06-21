@@ -537,7 +537,7 @@ span.MuiSlider-track.css-1n40zqk-MuiSlider-track {
 
 .challan-headbg {
   position: relative;
-  height: 190px;
+  min-height: 190px;
   border-radius: 20px;
 }
 

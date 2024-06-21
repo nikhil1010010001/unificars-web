@@ -22,6 +22,7 @@ import SlotBooking from "./SlotBooking";
 import Image from "next/image";
 import axios from "axios";
 import { data } from "autoprefixer";
+import { getCarValuation } from "@/common/common";
 
 // import InputMask from 'inputmask';
 
@@ -168,50 +169,6 @@ const VehicleInfo = () => {
     }
   }, [carInfo.brand]);
 
-  const getCarValuation = async () => {
-    const data = {
-      year: carInfo.year,
-      model_name: carInfo.variant.name,
-      id: carInfo.model.id,
-    };
-
-    console.log("Evaluation data", data);
-
-    try {
-      const valuation = await fetch(
-        "https://api.unificars.com/api/getvarientmodelamount",
-        {
-          method: "POST",
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
-
-      const value = await valuation.json();
-      if (value.code == 200) {
-        const response = value.data;
-
-        let calculatedyear = 15;
-        if (carInfo.fuelType === "Diesel") {
-          calculatedyear = 10;
-        }
-        let calculation = response / calculatedyear;
-        let remainingyears =
-          Number(carInfo.year) +
-          Number(calculatedyear) -
-          new Date().getFullYear();
-
-        let expectedprice = Math.round(calculation * remainingyears);
-        let expectedprice1 = Math.round(calculation * remainingyears) + 100240;
-        console.log([expectedprice, expectedprice1]);
-        setExpectedPrice([Math.abs(expectedprice), Math.abs(expectedprice1)]);
-      }
-    } catch (error) {}
-  };
-
   const sendOtp = async (data) => {
     const fetchData = await fetch("https://api.unificars.com/api/sendotp", {
       method: "POST",
@@ -230,7 +187,7 @@ const VehicleInfo = () => {
       setValidationerror("Phone number is required!");
     }
 
-    getCarValuation();
+    getCarValuation(carInfo, setExpectedPrice);
 
     if (userNumber.length < 10) {
       setValidationerror("Invalid Phone Number");
@@ -285,7 +242,7 @@ const VehicleInfo = () => {
         // setBookSlot(false);
         // setBookedStatus(true);
 
-        getCarValuation();
+        getCarValuation(carInfo, setExpectedPrice);
       } else {
         setValidationerror(jsonRes.status);
       }
@@ -489,8 +446,6 @@ const VehicleInfo = () => {
       setLoading(false);
     }
   };
-
-  console.log("carInfo in the end", carInfo);
 
   const [hideAnimation, setHideAnimation] = useState(false);
 

@@ -33,7 +33,6 @@ const SlotBooking = ({ last_id, setBookedStatus, BookedStatus }) => {
     const date = tomorrow.toLocaleDateString("en-US", options);
     SelectDate.push(date);
   }
-  console.log(SelectDate);
 
   const HandleFormSubmit = async (e) => {
     e.preventDefault();
@@ -72,8 +71,8 @@ const SlotBooking = ({ last_id, setBookedStatus, BookedStatus }) => {
             </div>
 
             {BookingDetails.days == "" ? (
-              <div className="flex flex-col justify-center items-center my-5">
-                <h3 className="tracking-widest text-gray-600 text-lg my-5">
+              <div className="flex flex-col justify-center items-center my-4">
+                <h3 className="tracking-widest text-gray-600 text-lg mb-5">
                   When Would You Like to get your car inspected?
                 </h3>
                 <div className="flex justify-start items-center flex-wrap gap-4">

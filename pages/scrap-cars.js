@@ -161,7 +161,7 @@ const about = () => {
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="relative container mx-auto flex items-center justify-between h-full px-6">
-          <div className="flex flex-wrap md:flex-nowrap items-center gap-4 justify-between w-full">
+          <div className="flex flex-wrap md:flex-nowrap gap-4 justify-between w-full">
             <div className="text-white">
               <h1 className="md:text-6xl text-2xl font-black">
                 Get the Best Price for
@@ -174,9 +174,7 @@ const about = () => {
               </p>
             </div>
             {/* <div className="bg-white p-6 rounded-lg shadow-lg"> */}
-            <div
-              className="sticky-element bottom-28 bg-orange-500 p-4 self-baseline challan-headbg w-full md:w-[500px] m-auto"
-              style={{ marginBottom: "120px" }}>
+            <div className="h-full  bg-orange-500 p-4 self-baseline challan-headbg w-full md:w-[500px] m-auto mb-28">
               <VehicleInfo />
               {/* <div className='bg-white p-6 rounded-2xl shadow'>
                                 <div className='p-3 rounded-md'>

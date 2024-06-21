@@ -124,7 +124,7 @@ const Sellcar = () => {
     brand: {
       id: "",
       name: "",
-      iamge: "",
+      image: "",
     },
     model: {
       id: "",

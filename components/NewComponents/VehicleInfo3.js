@@ -20,6 +20,7 @@ import SelectFuelType from "../SellPageModal/SelectFuelType";
 import SelectOwner from "../SellPageModal/SelectOwner";
 import SlotBooking from "./SlotBooking";
 import Image from "next/image";
+import { getCarValuation } from "@/common/common";
 
 // import InputMask from 'inputmask';
 
@@ -48,7 +49,7 @@ const VehicleInfo = () => {
     brand: {
       id: "",
       name: "",
-      iamge: "",
+      image: "",
     },
     model: {
       id: "",
@@ -66,36 +67,8 @@ const VehicleInfo = () => {
   });
   const tabs = [
     {
-      label: "Brand",
-      value: "1",
-    },
-    {
-      label: "Model",
-      value: "2",
-    },
-    {
-      label: "Variant",
-      value: "3",
-    },
-    {
-      label: "Year",
-      value: "4",
-    },
-    {
-      label: "Ownership",
-      value: "5",
-    },
-    {
-      label: "Fuel Type",
-      value: "6",
-    },
-    {
       label: "KM Driven",
       value: "7",
-    },
-    {
-      label: "Location",
-      value: "8",
     },
   ];
 
@@ -111,9 +84,9 @@ const VehicleInfo = () => {
                 backgroundColor: "#f38102",
                 color: "white",
                 fontWeight: "bold",
+                borderRadius: "10px",
               }
             : {
-                backgroundColor: "#E1F0DA",
                 color: "black",
               }
         }
@@ -158,7 +131,7 @@ const VehicleInfo = () => {
   };
 
   useEffect(() => {
-    console.log(carInfo.brand, "From useEffect");
+    console.log(carInfo, "From useEffect");
     if (carNumber === "") {
       setValue("2");
     }
@@ -182,7 +155,7 @@ const VehicleInfo = () => {
       setValidationerror("Phone number is required!");
     }
     if (carNumber === "") {
-      getCarValuation();
+      getCarValuation(carInfo, setExpectedPrice);
     }
     if (userNumber.length < 10) {
       setValidationerror("Invalid Phone Number");
@@ -197,6 +170,7 @@ const VehicleInfo = () => {
         brand: carInfo.brand.name,
         model: carInfo.model.name,
         varient: carInfo.variant.name,
+        scrap: true,
       };
       const res = await sendOtp(data);
       if (res.code == 200) {
@@ -206,46 +180,46 @@ const VehicleInfo = () => {
     }
   };
 
-  const getCarValuation = async () => {
-    const data = {
-      year: carInfo.year,
-      model_name: carInfo.variant.name,
-      id: carInfo.model.id,
-    };
-    // console.log(data, "data object from evaluation");
-    try {
-      const valuation = await fetch(
-        "https://api.unificars.com/api/getvarientmodelamount",
-        {
-          method: "POST",
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
+  // const getCarValuation = async () => {
+  //   const data = {
+  //     year: carInfo.year,
+  //     model_name: carInfo.variant.name,
+  //     id: carInfo.model.id,
+  //   };
+  //   // console.log(data, "data object from evaluation");
+  //   try {
+  //     const valuation = await fetch(
+  //       "https://api.unificars.com/api/getvarientmodelamount",
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Access-Control-Allow-Origin": "*",
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify(data),
+  //       }
+  //     );
 
-      const value = await valuation.json();
-      if (value.code == 200) {
-        const response = value.data;
-        console.log(response, "response object from evaluation");
-        let calculatedyear = 15;
-        if (carInfo.fuelType === "DIESEL") {
-          calculatedyear = 10;
-        }
-        let calculation = response / calculatedyear;
-        console.log(calculation);
-        let remainingyears =
-          carInfo.year + calculatedyear - new Date().getFullYear();
-        console.log(remainingyears);
-        let expectedprice = Math.round(calculation * remainingyears);
-        let expectedprice1 = Math.round(calculation * remainingyears) + 100240;
-        console.log([expectedprice, expectedprice1]);
-        setExpectedPrice([expectedprice, expectedprice1]);
-      }
-    } catch (error) {}
-  };
+  //     const value = await valuation.json();
+  //     if (value.code == 200) {
+  //       const response = value.data;
+  //       console.log(response, "response object from evaluation");
+  //       let calculatedyear = 15;
+  //       if (carInfo.fuelType === "DIESEL") {
+  //         calculatedyear = 10;
+  //       }
+  //       let calculation = response / calculatedyear;
+  //       console.log(calculation);
+  //       let remainingyears =
+  //         carInfo.year + calculatedyear - new Date().getFullYear();
+  //       console.log(remainingyears);
+  //       let expectedprice = Math.round(calculation * remainingyears);
+  //       let expectedprice1 = Math.round(calculation * remainingyears) + 100240;
+  //       console.log([expectedprice, expectedprice1]);
+  //       setExpectedPrice([expectedprice, expectedprice1]);
+  //     }
+  //   } catch (error) {}
+  // };
 
   const HandleVerifyOTP = async () => {
     setValidationerror(" ");
@@ -280,7 +254,7 @@ const VehicleInfo = () => {
         // setBookedStatus(true);
 
         if (carNumber === "") {
-          getCarValuation();
+          getCarValuation(carInfo, setExpectedPrice);
         }
       } else {
         setValidationerror(jsonRes.status);
@@ -374,7 +348,7 @@ const VehicleInfo = () => {
             const brands = jsonRes.data;
 
             brands.map((brand) => {
-              console.log(brands, "sss");
+              // console.log(brands, "sss");
               const brandName = brand.brand_name.split(" ");
               for (let val of brandName) {
                 for (let mfg of data.data.result.vehicleManufacturerName.split(
@@ -444,7 +418,7 @@ const VehicleInfo = () => {
               const brands = jsonRes.data;
 
               brands.map((brand) => {
-                console.log(brands, "sss");
+                // console.log(brands, "sss");
                 const brandName = brand.brand_name.split(" ");
                 for (let val of brandName) {
                   for (let mfg of data.result.vehicleManufacturerName.split(
@@ -575,7 +549,7 @@ const VehicleInfo = () => {
 
         {/* Pills */}
         {(screen === 2 || screen === 3) && carInfo.brand.name && (
-          <div className="flex flex-row my-2 mx-4 text-[#465166] gap-2 items-center justify-between">
+          <div className="flex flex-row m-4 text-[#465166] gap-2 items-center justify-between">
             {/* <div className="grid grid-cols-3 gap-2">
                 {selectedPillArray.map((item, index) => {
                   return selectedPill(item, index + "");
@@ -619,7 +593,7 @@ const VehicleInfo = () => {
                     brand: {
                       id: "",
                       name: "",
-                      iamge: "",
+                      image: "",
                     },
                     model: {
                       id: "",
@@ -650,73 +624,30 @@ const VehicleInfo = () => {
 
         {/* Tabs Div */}
         {screen === 2 && (
-          <TabContext value={value} className="mt-2 ">
+          <TabContext value={value} className="m-2">
             <Box>
-              <TabList
-                onChange={handleChange}
-                aria-label="lab API tabs example"
-                scrollButtons="auto"
-                // variant="scrollable"
-                indicatorColor="warning">
-                {tabs.map((tab) => {
-                  return customTab(tab.label, tab.value);
-                })}
-              </TabList>
+              <div className="mx-2">
+                <TabList
+                  onChange={handleChange}
+                  aria-label="lab API tabs example"
+                  scrollButtons="auto"
+                  // variant="scrollable"
+                  indicatorColor="warning">
+                  {tabs.map((tab) => {
+                    return customTab(tab.label, tab.value);
+                  })}
+                </TabList>
+              </div>
 
-              <Divider className="w-full mt-2" />
+              {/* <Divider className="w-full mt-2" /> */}
             </Box>
-            <div className="overflow-y-auto" style={{ height: "300px" }}>
+            <div className="w-full h-full">
               <TabPanel value="1">
                 <PopularBrands
                   setCarInfo={setCarInfo}
                   carInfo={carInfo}
                   screen={screen}
                   setScreen={setScreen}
-                />
-              </TabPanel>
-
-              <TabPanel value="2">
-                <SelectModel
-                  setCarInfo={setCarInfo}
-                  carInfo={carInfo}
-                  value={value}
-                  setValue={setValue}
-                />
-              </TabPanel>
-
-              <TabPanel value="3">
-                <SelectVariant
-                  setCarInfo={setCarInfo}
-                  carInfo={carInfo}
-                  value={value}
-                  setValue={setValue}
-                />
-              </TabPanel>
-
-              <TabPanel value="4">
-                <SelectYear
-                  setCarInfo={setCarInfo}
-                  carInfo={carInfo}
-                  value={value}
-                  setValue={setValue}
-                />
-              </TabPanel>
-
-              <TabPanel value="5">
-                <SelectOwner
-                  setCarInfo={setCarInfo}
-                  carInfo={carInfo}
-                  value={value}
-                  setValue={setValue}
-                />
-              </TabPanel>
-
-              <TabPanel value="6">
-                <SelectFuelType
-                  setCarInfo={setCarInfo}
-                  carInfo={carInfo}
-                  value={value}
-                  setValue={setValue}
                 />
               </TabPanel>
 
@@ -727,16 +658,6 @@ const VehicleInfo = () => {
                   value={value}
                   setValue={setValue}
                   carNumber={carNumber}
-                  setScreen={setScreen}
-                />
-              </TabPanel>
-
-              <TabPanel value="8">
-                <SelectStates
-                  setCarInfo={setCarInfo}
-                  carInfo={carInfo}
-                  value={value}
-                  setValue={setValue}
                   setScreen={setScreen}
                 />
               </TabPanel>
@@ -827,36 +748,6 @@ const VehicleInfo = () => {
             ) : (
               // When OTP is verfied
               <div className="">
-                {OTPVerify ? (
-                  <div className="flex tracking-widest flex-col text-blue-900 justify-center items-center">
-                    <div className="text-xl">Expected Price</div>
-                    <h3 className="text-2xl my-2 ">
-                      ₹
-                      {(ExpectedPrice[0] < 0
-                        ? 0
-                        : ExpectedPrice[0]
-                      ).toLocaleString("en-IN")}{" "}
-                      - ₹{ExpectedPrice[1].toLocaleString("en-IN")}
-                    </h3>
-                    <div className="bg-blue-500/20 p-2 rounded text-green-700 my-2">
-                      <p className="text-base">Price May Vary On Inspection</p>
-                    </div>
-                    {/* <div className="flex flex-col justify-center items-center">
-                        <button
-                            onClick={() => {
-                              setBookSlot(true);
-                              bookingRef.current.scrollIntoView({ behavior: "smooth" });
-                            }}
-                            className="w-full p-2 text-base mb-8 mt-3 text-center bg-[#f38102] text-white rounded shadow hover:bg-black hover:text-white transition-all duration-200 ease-in-out "
-                          >
-                            Book Slot
-                        </button>
-                      </div> */}
-                  </div>
-                ) : (
-                  <></>
-                )}
-
                 {/* Slot Booking */}
                 <div ref={bookingRef}>
                   {!BookSlot ? (
