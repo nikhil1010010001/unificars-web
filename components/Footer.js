@@ -10,6 +10,7 @@ import {
   BsFillTelephoneFill,
   BsFillCarFrontFill,
 } from "react-icons/bs";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -25,7 +26,7 @@ const Footer = () => {
             <Link
               href={"/"}
               className="flex title-font font-medium items-center md:justify-start justify-center ">
-              <img src={"/whitelogo.png"} className="w-32" />
+              <Image src={"/whitelogo.png"} width={100} height={100} />
             </Link>
             <p className="text-left  text-sm max-w-[300px]">
               Your all-in-one platform for discovering and streaming your

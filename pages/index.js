@@ -155,11 +155,11 @@ function index() {
 
                 <div>
                   <h1 className="text-5xl font-black banheadfont font-futura">
-                    Fast. Fair. Done. Sell Your Car with Unifi.
+                    Fast, Fair, Done: Sell Your Car with Unifi Cars
                   </h1>
                   <p className="text-lg my-4 mb-6 text-left font-inter">
-                    Trusted by over 1 Lakh customers. Choose from 5000+ Unifi
-                    Assured Cars
+                    Experience a transparent and hassle-free car selling
+                    journey. With Unifi Cars.
                   </p>
                   {/* <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 font-inter" style={{ width: 'fit-content', float: 'left' }}>Sell Car</button> */}
                   <Link href="/sell-used-cars" passHref>
@@ -368,7 +368,7 @@ function index() {
           <img src='/home/title_line.png' />
         </div> */}
 
-        <div className="md:px-4 px-2 mx-auto">
+        <div className="md:px-4 px-2 mx-auto -my-8">
           {/* <TestemonialCarousel /> */}
           <TestimonialCarousel />
         </div>
