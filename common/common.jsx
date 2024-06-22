@@ -60,6 +60,8 @@ export const getCarValuation = async (carInfo, setExpectedPrice) => {
     if (value.code == 200) {
       const response = value.data;
 
+      console.log("response", response);
+
       let calculatedyear = 15;
       if (carInfo.fuelType === "Diesel") {
         calculatedyear = 10;

@@ -136,7 +136,7 @@ const CarDetailsBox = (props) => {
         <p className="font-bold text-xl">Share With Friends :</p>
         <div className="flex items-center gap-4">
           <Link
-            href="https://wa.me/+919911771977?text=Hey%20Unificars%20%20I%20want%20to%20buy%20MARUTI%20CELERIO%20VXI%20GREEN%20GREY%202019%201st%20Ownership%20containing%20UNC-30577"
+            href="https://api.whatsapp.com/send?phone=919911771977&text=Hi"
             target="_blank">
             <FaWhatsapp className="text-green-500 text-2xl" />
           </Link>

@@ -81,7 +81,7 @@ function TestimonialCarousel() {
   };
 
   return (
-    <div className="bg-white py-12 w-full">
+    <div className="bg-white my-16 w-full">
       <div className="text-center items-center flex flex-col mb-6 px-4">
         <h2 className="text-2xl md:text-4xl font-bold text-[#000] my-2">
           What Our Clients Are Saying

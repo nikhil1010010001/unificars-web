@@ -26,7 +26,7 @@ const Footer = () => {
             <Link
               href={"/"}
               className="flex title-font font-medium items-center md:justify-start justify-center ">
-              <Image src={"/whitelogo.png"} width={100} height={100} />
+              <Image src={"/whitelogo.png"} width={200} height={100} />
             </Link>
             <p className="text-left  text-sm max-w-[300px]">
               Your all-in-one platform for discovering and streaming your
@@ -74,7 +74,7 @@ const Footer = () => {
           <div className="my-4 mt-6">
             <div className="px-2 grid grid-cols-2 gap-3">
               <div>
-                <h4 className="text-md mb-4 font-bold">
+                <h4 className="text-xl mb-4 font-bold">
                   <b>Company</b>
                 </h4>
                 <ul className="flex gap-2 flex-col">
@@ -85,7 +85,7 @@ const Footer = () => {
                     <Link href={"#"}>Services</Link>
                   </li>
                   <li className="transition-all duration-150 ">
-                    <Link href={"/pre-delivery-inspection"}>Pricing</Link>
+                    <Link href={"/pre-delivery-inspection"}>PDI</Link>
                   </li>
 
                   <li className="transition-all duration-150">
@@ -98,7 +98,7 @@ const Footer = () => {
                 </ul>
               </div>
               <div>
-                <h4 className="text-md mb-4  font-bold">
+                <h4 className="text-xl mb-4  font-bold">
                   <b>What we do</b>
                 </h4>
                 <ul className="flex gap-2 flex-col ">
@@ -125,7 +125,7 @@ const Footer = () => {
             <div className="flex gap-10"></div>
           </div>
           <div className="flex flex-col mr-4 pl-3 mt-6">
-            <h4 className=" font-bold mb-4 text-md">Sell your used car in</h4>
+            <h4 className=" font-bold mb-4 text-xl">Sell your used car in</h4>
             <p className="text-left  text-sm">
               Building No. 1A, Top Floor, DLF, Moti Nagar, New Delhi-110015.
             </p>

@@ -22,15 +22,15 @@ const about = () => {
         <link rel="canonical" href={canonicalUrl} />
         {/* Add other meta tags if needed */}
       </Head>
-      <div className="pt-20 pb-12">
+      <div className="pb-4">
         <div className="relative">
-          <div>
+          <div className="my-12">
             <Image
               src="/aboutus.png"
               alt="about us"
               width={1000}
               height={500}
-              className="w-full"
+              className="w-full object-cover"
             />
           </div>
           {/* <div className='absolute left-[45%] top-1/3 '>
@@ -59,7 +59,7 @@ const about = () => {
               <br />
               PRIVATE LIMITED
             </h2>
-            <p className="text-sm text-black-600 my-2 font-inter">
+            <p className="text-md text-black-600 my-4 font-inter">
               Welcome to our platform for buying and selling used cars! We
               strive to provide a seamless and convenient experience for
               individuals looking to purchase or sell pre-owned cars.
@@ -68,7 +68,7 @@ const about = () => {
 
           <div>
             <ul className="my-4 flex flex-col gap-6 ">
-              <li className="flex font-sm border-b-2 pb-4">
+              <li className="flex font-sm border-b-2 pb-4 text-lg font-inter">
                 <div className="flex-none pt-1 mr-4">
                   <FaCar className="bg-[#ffffff] text-4xl " />
                 </div>
@@ -76,7 +76,7 @@ const about = () => {
                 the destination.
               </li>
 
-              <li className="flex font-sm border-b-2 pb-4">
+              <li className="flex font-sm border-b-2 pb-4 text-lg font-inter">
                 <div className="flex-none pt-1 mr-4">
                   <IoDocumentTextSharp className="bg-[#ffffff] text-4xl " />
                 </div>
@@ -85,8 +85,8 @@ const about = () => {
                 free.
               </li>
 
-              <li className="flex font-sm">
-                <div className="flex-none pt-1 mr-4">
+              <li className="flex text-lg font-inter">
+                <div className="flex-none pt-1 mr-4 ">
                   <BsFillBuildingsFill className="bg-[#ffffff] text-4xl " />
                 </div>
                 Sounds familiar? You are at the right place. We understand the
@@ -98,40 +98,89 @@ const about = () => {
         </div>
       </div>
 
-      <div className="bg-[#E2E2E2] py-10 px-2">
-        <div className="grid grid-cols-1 lg:grid-cols-2 container mx-auto gap-4 ">
-          <div className=" mx-4 font-bold text-black content-center">
-            <h2 className="py-2 text-2xl">Our Mission</h2>
-            <p className="font-normal text-black my-2 text-justify">
+      <div className="my-16 max-w-[1000px] mx-auto">
+        <h2 className="text-4xl font-bold text-black font-inter text-center mb-8">
+          Our Team
+        </h2>
+        <div className="flex flex-wrap justify-evenly items-center gap-4 lg:gap-8">
+          <div className="flex flex-col gap-4">
+            <Image
+              src="/about-team-1.png"
+              alt="Team"
+              width={100}
+              height={100}
+              className="w-24 rounded-full"
+            />
+            <p className="text-2xl text-orange-500 font-bold">Amit Gupta</p>
+            <p>Founder, CEO</p>
+          </div>
+
+          <div className="flex flex-col gap-4 items-center justify-center">
+            <Image
+              src="/about-team-2.png"
+              alt="Team"
+              width={100}
+              height={100}
+              className="w-24 rounded-full"
+            />
+            <p className="text-2xl text-orange-500 font-bold">Vikas Jangra</p>
+            <p>Co-founder</p>
+          </div>
+
+          <div className="flex flex-col gap-4 items-center justify-center">
+            <Image
+              src="/about-team-3.png"
+              alt="Team"
+              width={100}
+              height={100}
+              className="w-24 rounded-full"
+            />
+            <p className="text-2xl text-orange-500 font-bold">Amit Taneja</p>
+            <p>Director & CFO</p>
+          </div>
+
+          <div className="flex flex-col gap-4 items-center justify-center">
+            <Image
+              src="/about-team-4.png"
+              alt="Team"
+              width={100}
+              height={100}
+              className="w-24 rounded-full"
+            />
+            <p className="text-2xl text-orange-500 font-bold">Satyajit Gupta</p>
+            <p>Director & COO</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-[#fbfbfb] py-10 px-2 lg:px-20">
+        <div className="container mx-auto gap-4 ">
+          <h2 className="py-2 text-4xl text-center font-bold">Our Mission</h2>
+          <div className="line">
+            <Image
+              src={"/about-india.png"}
+              alt="India map"
+              className="rounded-xl w-[400px] mx-auto"
+              width={800}
+              height={500}
+            />
+          </div>
+          <div className="font-bold text-black content-center max-w-[800px] mx-auto">
+            <p className="font-normal text-black my-2 text-center text-xl">
               At Unificars we are trying to rectify the pain points, still
               holding a pre owned car seller or buyer from selling or buying it
               online. There are already multiple platforms to buy or sell a car
-              but what they lack in service, is our USP.
+              but what they lack in service, is our USP. We think it's time to
+              revolutionize the process of selling and buying pre owned cars in
+              India.
             </p>
-            <h6 className="font-normal text-black my-2 text-justify">
-              We think it's time to revolutionize the process of selling and
-              buying pre owned cars in India.
-            </h6>
-          </div>
-          <div className="line">
-            <img src={"/map.png"} alt="" className="rounded-xl" />
           </div>
         </div>
       </div>
 
       {/* <Reviews/> */}
-      <div className="bg-gray-50 py-12 h-full">
-        <div className="text-center items-center flex flex-col mb-6 px-2">
-          <h2 className="text-4xl text-[#000] my-2">Testimonials</h2>
-          <p className="customgryfnt text-lg font-normal">
-            Their good reviews motivate us to do more
-          </p>
-          {/* <img src='/home/title_line.png' /> */}
-        </div>
-        <div className="w-11/12 mx-auto">
-          <TestemonialCarousel />
-        </div>
-      </div>
+
+      <TestemonialCarousel />
     </div>
   );
 };

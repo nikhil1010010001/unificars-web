@@ -1,4 +1,11 @@
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import { LuPhoneCall } from "react-icons/lu";
+import { MdOutlineMailOutline } from "react-icons/md";
+import { HiOutlineLocationMarker } from "react-icons/hi";
+import { FaWhatsapp, FaFacebook } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa6";
+import Link from "next/link";
 
 const contact = () => {
   const [UserDetails, setUserDetails] = useState({
@@ -61,9 +68,15 @@ const contact = () => {
 
   return (
     <div className="">
-      <div className="relative" style={{ paddingTop: "85px" }}>
-        <div>
-          <img src="/contactus.png" className="w-[100%]" />
+      <div className="relative">
+        <div className="my-12">
+          <Image
+            src="/contact-bg.png"
+            alt="about us"
+            width={1000}
+            height={500}
+            className="w-full object-cover"
+          />
         </div>
         {/* <div className='absolute left-[45%] top-1/3 '>
                     <h2 className='text-white text-xl lg:text-5xl text-center'>Buy, Sell, and Drive On!</h2>
@@ -75,7 +88,7 @@ const contact = () => {
                 </div> */}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+      <div className="max-w-[1000px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
         <div className="p-8 md:pl-16 justify-self-center">
           {/* <Head>
                         <title>{title}</title>
@@ -84,24 +97,69 @@ const contact = () => {
                     </Head> */}
 
           <div className="mb-6">
-            <h1 className="text-3xl font-bold">CONTACT US</h1>
-            <nav className="text-black text-sm">
-              <a href="#" className="hover:underline text-black">
-                Home
-              </a>{" "}
-              / <span>Contact</span>
-            </nav>
+            <h1 className="text-4xl font-bold mb-4">Get In Touch</h1>
+            <p>
+              Any questions or need assistance? Reach out to unifi cars for any
+              queries, support or information.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-8 mt-12">
+            <div className="flex items-center gap-4">
+              <LuPhoneCall className="text-2xl" />
+              <div>
+                <p className="font-bold">Phone Call</p>
+                <p>+91 9911771977</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <MdOutlineMailOutline className="text-2xl" />
+              <div>
+                <p className="font-bold">Email drop Us</p>
+                <Link href="mailto:info@unificars.com">info@unificars.com</Link>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <HiOutlineLocationMarker className="text-2xl" />
+              <div>
+                <p className="font-bold">Location</p>
+                <p>
+                  Building No. 1A, Top Floor, DLF, Moti Nagar, New Delhi-110015.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-4 mt-6">
+              <p className="font-bold text-xl">Follow Us</p>
+              <div className="flex items-center gap-4 ml-4">
+                <Link
+                  href="https://api.whatsapp.com/send?phone=919911771977&text=Hi"
+                  target="_blank">
+                  <FaWhatsapp className="text-green-500 text-3xl" />
+                </Link>
+
+                <Link
+                  href="https://www.instagram.com/unificars/"
+                  target="_blank">
+                  <FaInstagram className="text-red-500 text-3xl" />
+                </Link>
+
+                <Link
+                  href="https://www.facebook.com/UnifiCars/"
+                  target="_blank">
+                  <FaFacebook className="text-blue-500 text-3xl" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="p-8 rounded">
+        <div className="p-8 rounded-2xl bg-[#E2E2E2]/20">
           <div className="space-y-4">
-            <h2 className="text-xl font-semibold mb-4">HOW CAN WE HELP?</h2>
-            <p className="text-gray-600">
-              Buy and Sell Used cars from unificars with ease. Certified used
-              cars with more than 210 Check points instant payment and hassel
-              free process
-            </p>
+            <h2 className="text-2xl font-semibold mb-4">Send Us Message</h2>
+
             <form
               className="space-y-4"
               onSubmit={HandleFormSubmit}
@@ -119,7 +177,7 @@ const contact = () => {
                     name="name"
                     onChange={(e) => UserInputChange(e)}
                     value={UserDetails.name}
-                    className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                    className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm"
                   />
                   <span id="name_error" className=""></span>
                 </div>
@@ -135,7 +193,7 @@ const contact = () => {
                     name="email"
                     onChange={(e) => UserInputChange(e)}
                     value={UserDetails.email}
-                    className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                    className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm"
                   />
                   <span id="email_error" className=""></span>
                 </div>
@@ -150,10 +208,11 @@ const contact = () => {
                   <input
                     type="number"
                     id="mobile"
+                    maxLength={10}
                     name="mobile"
                     onChange={(e) => UserInputChange(e)}
                     value={UserDetails.phone}
-                    className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                    className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm"
                   />
                   <span id="mobile_error" className=""></span>
                 </div>
@@ -169,7 +228,7 @@ const contact = () => {
                     name="subject"
                     onChange={(e) => UserInputChange(e)}
                     value={UserDetails.subject}
-                    className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                    className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm"
                   />
                   <span id="subject_error" className=""></span>
                 </div>
@@ -178,7 +237,7 @@ const contact = () => {
                                 <label htmlFor="topic" className="block text-sm font-medium text-gray-700">
                                     Which topic best matches your question?
                                 </label>
-                                <input type="text" id="topic" className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" />
+                                <input type="text" id="topic" className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm" />
                             </div> */}
               <div>
                 <label
@@ -192,11 +251,11 @@ const contact = () => {
                   onChange={(e) => UserInputChange(e)}
                   value={UserDetails.message}
                   rows="4"
-                  className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"></textarea>
+                  className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm"></textarea>
                 <span id="message_error" className=""></span>
               </div>
               {/* <div>
-                            <button type="submit" className="w-full py-2 px-4 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            <button type="submit" className="w-full py-2 px-4 bg-orange-500 text-white font-medium rounded-md hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">
                                 SEND MESSAGE
                             </button>
                             </div> */}
@@ -222,7 +281,7 @@ const contact = () => {
               <div className="text-green-500">{msg}</div>
               <button
                 type="submit"
-                className="bg-blue-500 rounded-md shadow p-2 px-4 border disabled:border-0 bg-blue-500 text-white disabled:bg-blue-300"
+                className="rounded-md shadow p-2 px-4 border disabled:border-0 bg-orange-500 text-white disabled:bg-orange-300"
                 disabled={!UserDetails.check}>
                 Submit
               </button>
@@ -272,16 +331,11 @@ const contact = () => {
                     </div > */}
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+
+      {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
         <div
           className="p-8 md:pl-16 justify-self-center"
           style={{ width: "60%" }}>
-          {/* <Head>
-                        <title>{title}</title>
-                        <meta name="description" content={description} />
-                        <link rel="canonical" href={canonicalUrl} />
-                    </Head> */}
-
           <div className="mb-6">
             <h1 className="text-3xl font-bold">CONTACT</h1>
             <nav className="text-black text-sm"> </nav>
@@ -290,10 +344,10 @@ const contact = () => {
 
         <div className="p-8 rounded">
           <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg">
-            <div className="flex bg-blue-100 p-8 rounded justify-between">
+            <div className="flex bg-orange-100 p-8 rounded justify-between">
               <h3 className="font-bold">Mail :</h3>
               <p>
-                <a href="mailto:info@unificars.com" className="text-blue-600">
+                <a href="mailto:info@unificars.com" className="text-orange-600">
                   info@unificars.com
                 </a>
               </p>
@@ -304,10 +358,10 @@ const contact = () => {
                 Building No. 1A, Top Floor, DLF, Moti Nagar, New Delhi-110015.
               </p>
             </div>
-            <div className="flex bg-blue-100 p-8 rounded justify-between">
+            <div className="flex bg-orange-100 p-8 rounded justify-between">
               <h3 className="font-bold">Phone:</h3>
               <p>
-                <a href="tel:+919911771977" className="text-blue-600">
+                <a href="tel:+919911771977" className="text-orange-600">
                   +91 9911771977
                 </a>
               </p>
@@ -318,6 +372,17 @@ const contact = () => {
             </div>
           </div>
         </div>
+      </div> */}
+
+      <div className="my-16">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14004.106011720996!2d77.1457614!3d28.6589251!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03dcf6e36613%3A0x771518fcd5684a90!2sUnifi%20Cars!5e0!3m2!1sen!2sin!4v1719059550101!5m2!1sen!2sin"
+          height="450"
+          style={{ border: 0 }}
+          allowfullscreen=""
+          loading="lazy"
+          className="w-full"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   );
