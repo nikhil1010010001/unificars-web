@@ -81,7 +81,7 @@ function TestimonialCarousel() {
   };
 
   return (
-    <div className="bg-gray-50 py-12 w-full">
+    <div className="bg-white py-12 w-full">
       <div className="text-center items-center flex flex-col mb-6 px-4">
         <h2 className="text-2xl md:text-4xl font-bold text-[#000] my-2">
           What Our Clients Are Saying
@@ -97,12 +97,6 @@ function TestimonialCarousel() {
               key={testimonial.id}
               className="flex flex-col items-center bg-white shadow border-2 rounded-3xl p-6 mx-2  max-w-[500px]">
               <div>
-                {/* <img
-                  src={testimonial.image}
-                  className="w-24 rounded-full object-cover h-[94px]"
-                  alt="testimonial"
-                /> */}
-
                 <div className="flex justify-between items-center w-full flex-wrap gap-2">
                   <h2 className="font-bold text-lg">{testimonial.name}</h2>
                   <p className="text-sm">{testimonial.location}</p>

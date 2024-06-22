@@ -313,8 +313,8 @@ function index() {
               </div>
               <h4 className="text-2xl font-black buyh4">Challan check</h4>
               <p className="text-lg">
-                Scrapping of your car with Hassle-Free process & legal
-                documentation. <br /> &nbsp;
+                Stay informed & avoid penalties with our direct and easy process
+                to fill your traffic challan online.
               </p>
             </div>
           </Link>
@@ -327,7 +327,7 @@ function index() {
 
       <Buycar />
 
-      <div className="w-full mt-8 my-16">
+      <div className="w-full my-16">
         <ExploreActionCard />
       </div>
 
@@ -359,7 +359,7 @@ function index() {
 
       {/* <Reviews /> */}
 
-      <div className="bg-gray-50 pb-12">
+      <div>
         {/* <div className="text-center items-center flex flex-col mb-6">
           <h2 className="text-4xl text-[#000] my-2 font-black">Testimonials</h2>
           <p className="customgryfnt text-lg font-normal">
@@ -382,7 +382,9 @@ function index() {
         </div>
       </div>
 
-      <HomeQuestions />
+      <div className="my-16">
+        <HomeQuestions />
+      </div>
     </>
   );
 }
