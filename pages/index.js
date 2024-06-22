@@ -10,10 +10,11 @@ import { RiStarSFill, RiStarSLine } from "react-icons/ri";
 
 import dynamic from "next/dynamic";
 import Reviews from "@/components/Home/Reviews";
-import TestemonialCarousel from "@/components/TestemonialCarousel";
+// import TestemonialCarousel from "@/components/TestemonialCarousel";
 import CookiesSection from "@/components/CookiesSection";
 import HowToSell from "@/components/Home/Howtosell";
 import ExploreActionCard from "@/components/ExploreActionCard";
+import TestimonialCarousel from "@/components/TestemonialCarousel";
 // const BannerCarousel = dynamic(() => import("@/components/Home/BannerCarousel"),{ssr: false});
 const HomeQuestions = dynamic(() => import("@/components/Home/HomeQuestions"), {
   ssr: false,
@@ -256,7 +257,10 @@ function index() {
           <Link href="/sell-used-cars" passHref>
             <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 py-12 rounded-lg shadow-md">
               <div>
-                <img src="/handshake-new.png" className="w-16 object-contain" />
+                <img
+                  src="/handshake-new.png"
+                  className="w-16 h-16 object-contain"
+                />
               </div>
               <h4 className="text-2xl font-bold buyh4">Sell Car</h4>
               <p className="text-lg">
@@ -270,7 +274,10 @@ function index() {
           <Link href="/buy-used-cars" passHref>
             <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 py-12 rounded-lg shadow-md">
               <div>
-                <img src="/rentalcar-new.png" className="w-16 object-contain" />
+                <img
+                  src="/rentalcar-new.png"
+                  className="w-16 h-16 object-contain"
+                />
               </div>
               <h4 className="text-2xl font-bold buyh4">Buy Car</h4>
               <p className="text-lg">
@@ -283,7 +290,10 @@ function index() {
           <Link href="/pre-delivery-inspection" passHref>
             <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 py-12 rounded-lg shadow-md">
               <div>
-                <img src="/car-insp-new.png" className="w-16 object-contain" />
+                <img
+                  src="/car-insp-new.png"
+                  className="w-16 h-16 object-contain"
+                />
               </div>
               <h4 className="text-2xl font-bold buyh4">Car Inspection</h4>
               <p className="text-lg">
@@ -292,15 +302,19 @@ function index() {
               </p>
             </div>
           </Link>
-          <Link href="/assured-cars" passHref>
+          {/* <Link href="/challan-check" passHref> */}
+          <Link href="#" passHref>
             <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 py-12 rounded-lg shadow-md">
               <div>
-                <img src="/assur-fix-new.png" className="w-16 object-contain" />
+                <img
+                  src="/challan-check.png"
+                  className="w-16 h-16 object-contain"
+                />
               </div>
-              <h4 className="text-2xl font-black buyh4">Assured Fix</h4>
+              <h4 className="text-2xl font-black buyh4">Challan check</h4>
               <p className="text-lg">
-                Buy a used car without any stress with Unifi’s assured fix
-                service. <br /> &nbsp;
+                Scrapping of your car with Hassle-Free process & legal
+                documentation. <br /> &nbsp;
               </p>
             </div>
           </Link>
@@ -355,7 +369,8 @@ function index() {
         </div> */}
 
         <div className="md:px-4 px-2 mx-auto">
-          <TestemonialCarousel />
+          {/* <TestemonialCarousel /> */}
+          <TestimonialCarousel />
         </div>
       </div>
 

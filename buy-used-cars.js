@@ -125,7 +125,8 @@ const buyUsedCars = () => {
                                 width={800}
                                 height={800}
                                 priority={true}
-                                alt="car Image"></Image>
+                                alt="car Image"
+                              />
                             </div>
                           ))
                         ) : (

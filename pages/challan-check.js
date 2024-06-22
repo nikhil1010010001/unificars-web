@@ -364,7 +364,7 @@ const Challan = () => {
             </div>
 
             {/* e-challan check */}
-            <div className="mt-36 mb-20 md:mt-0 max-w-[500px] w-full md:sticky-element md:sticky md:top-28  bottom-28 bg-orange-500 p-4 self-baseline challan-headbg">
+            <div className="mt-36 border-2 border-red-500 mb-20 md:mt-0 max-w-[500px] w-full md:sticky-element md:sticky md:top-36  bottom-28 bg-orange-500 p-4 self-baseline challan-headbg">
               <div className="bg-white p-6 md:px-2 px-6 rounded-2xl shadow">
                 <div className="p-3 rounded-md">
                   <h1 className="text-3xl text-black my-2 font-sansserif font-extrabold text-center">

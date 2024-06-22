@@ -2,6 +2,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import FeaturedCars from "../FeaturedCars";
+import Image from "next/image";
 
 const Buycar = () => {
   const [featuredCars, setFeaturedCars] = useState([]);
@@ -48,11 +49,12 @@ const Buycar = () => {
         <div className="flex gap-6 lg:flex-row flex-col">
           <Link href="/buy-used-cars" passHref className="w-full">
             <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg">
-              <img
-                src="carousel/usedcars1.png"
+              <Image
+                width={400}
+                height={400}
+                src="/carousel/used-car-1.png"
                 className="img-fluid w-full h-80 object-cover rounded-lg"
                 alt="howitworks"
-                width="280"
               />
               <div className="text-left space-y-4 py-4">
                 <h4 className="text-xl text-black font-black tracking-widest mt-4 flex-none buyh4">
@@ -69,7 +71,7 @@ const Buycar = () => {
           <Link href="/buy-used-cars" passHref className="w-full">
             <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg">
               <img
-                src="carousel/usedcars2.png"
+                src="carousel/used-car-2.png"
                 className="img-fluid w-full h-80 object-cover rounded-lg"
                 alt="howitworks"
                 width="280"
@@ -89,7 +91,7 @@ const Buycar = () => {
           <Link href="/buy-used-cars" passHref className="w-full">
             <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg">
               <img
-                src="carousel/usedcars3.png"
+                src="carousel/used-car-3.png"
                 className="img-fluid w-full h-80 object-cover rounded-lg"
                 alt="howitworks"
                 width="280"
@@ -109,7 +111,7 @@ const Buycar = () => {
           <Link href="/buy-used-cars" passHref className="w-full">
             <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg">
               <img
-                src="carousel/usedcars4.png"
+                src="carousel/used-car-4.png"
                 className="img-fluid w-full h-80 object-cover rounded-lg"
                 alt="howitworks"
                 width="280"

@@ -18,16 +18,19 @@ const HowToSell = () => {
 
       <div className="flex gap-6 md:flex-row flex-col w-full">
         <div className="relative text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg md:w-[45%] overflow-hidden">
-          <img
+          <Image
+            width={100}
+            height={100}
             src="/sell-fast.png"
             alt="Fast"
             className="absolute -top-5 -left-5 w-32"
           />
-          <img
-            src="carousel/carousel-new-1.png"
+          <Image
+            width={400}
+            height={400}
+            src="/carousel/carousel-new-1.png"
             className="img-fluid w-full object-cover h-80 rounded-xl"
             alt="howitworks"
-            width="280"
           />
           <div className="text-left space-y-4 p-4">
             <h4 className="text-xl text-black font-black mt-4 flex-none">
@@ -41,18 +44,19 @@ const HowToSell = () => {
         </div>
 
         <div className="relative text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg md:w-[45%] overflow-hidden">
-          <img
+          <Image
+            width={100}
+            height={100}
             src="/sell-fair.png"
             alt="Fast"
             className="absolute -top-5 -left-5 w-32"
           />
           <Image
-            quality={100}
             src="/carousel/carousel-new-2.png"
             className="img-fluid w-full object-cover h-80 rounded-xl"
             alt="howitworks"
-            height={980}
-            width={980}
+            height={400}
+            width={400}
           />
           <div className="text-left space-y-4 p-4">
             <h4 className="text-xl text-black font-bold mt-4 flex-none">
@@ -68,16 +72,19 @@ const HowToSell = () => {
         <div
           className="relative text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg 
       md:w-[45%] overflow-hidden">
-          <img
+          <Image
+            width={100}
+            height={100}
             src="/sell-done.png"
             alt="Fast"
             className="absolute -top-5 -left-5 w-32"
           />
-          <img
-            src="carousel/carousel-new-4.png"
+          <Image
+            width={400}
+            height={400}
+            src="/carousel/carousel-new-4.png"
             className="img-fluid w-full object-cover h-80 rounded-xl"
             alt="howitworks"
-            width="280"
           />
           <div className="text-left space-y-4 p-4">
             <h4 className="text-xl text-black font-bold mt-4 flex-none">

@@ -6,13 +6,13 @@ function ExploreActionCard() {
     <div className="flex flex-wrap w-full items-center justify-center gap-6 px-4">
       <Link href="/scrap-cars" passHref>
         <img
-          src="/get-price-explore.png"
+          src="/scrap-explore.png"
           className="max-h-[300px] w-full object-cover"
         />
       </Link>
       <Link href="/challan-check" passHref>
         <img
-          src="/pay-challan-explore.png"
+          src="/challan-explore.png"
           className="max-h-[300px] object-cover w-full"
         />
       </Link>
@@ -24,7 +24,7 @@ function ExploreActionCard() {
       </Link>
       <Link href="/sell-used-cars" passHref>
         <img
-          src="/resel-value.png"
+          src="/resale-explore.png"
           className="max-h-[300px] object-cover w-full"
         />
       </Link>

@@ -160,7 +160,7 @@ const VehicleInfo = () => {
   };
 
   useEffect(() => {
-    console.log(carInfo.brand, "From useEffect");
+    // console.log(carInfo.brand, "From useEffect");
     if (carNumber === "") {
       setValue("2");
     }
@@ -710,8 +710,12 @@ const VehicleInfo = () => {
               <TabList
                 onChange={handleChange}
                 aria-label="lab API tabs example"
-                scrollButtons="auto"
+                scrollButtons="off"
                 variant="scrollable"
+                style={{
+                  width: "100%",
+                  borderRadius: "10px",
+                }}
                 indicatorColor="warning">
                 {tabs.map((tab) => {
                   return customTab(tab.label, tab.value);
@@ -720,8 +724,13 @@ const VehicleInfo = () => {
 
               <Divider className="w-full p-2" />
             </Box>
-            <div className="overflow-y-auto" style={{ height: "300px" }}>
-              <TabPanel value="1">
+            <div
+              className="overflow-y-auto"
+              style={{
+                height: "300px",
+                borderRadius: "10px",
+              }}>
+              <TabPanel value="1" style={{ padding: "0px" }}>
                 <PopularBrands
                   setCarInfo={setCarInfo}
                   carInfo={carInfo}
@@ -730,7 +739,7 @@ const VehicleInfo = () => {
                 />
               </TabPanel>
 
-              <TabPanel value="2">
+              <TabPanel value="2" style={{ padding: "0px" }}>
                 <SelectModel
                   setCarInfo={setCarInfo}
                   carInfo={carInfo}
@@ -739,7 +748,7 @@ const VehicleInfo = () => {
                 />
               </TabPanel>
 
-              <TabPanel value="3">
+              <TabPanel value="3" style={{ padding: "0px" }}>
                 <SelectVariant
                   setCarInfo={setCarInfo}
                   carInfo={carInfo}
@@ -748,7 +757,7 @@ const VehicleInfo = () => {
                 />
               </TabPanel>
 
-              <TabPanel value="4">
+              <TabPanel value="4" style={{ padding: "0px" }}>
                 <SelectYear
                   setCarInfo={setCarInfo}
                   carInfo={carInfo}
@@ -757,7 +766,7 @@ const VehicleInfo = () => {
                 />
               </TabPanel>
 
-              <TabPanel value="5">
+              <TabPanel value="5" style={{ padding: "0px" }}>
                 <SelectOwner
                   setCarInfo={setCarInfo}
                   carInfo={carInfo}
@@ -766,7 +775,7 @@ const VehicleInfo = () => {
                 />
               </TabPanel>
 
-              <TabPanel value="6">
+              <TabPanel value="6" style={{ padding: "0px" }}>
                 <SelectFuelType
                   setCarInfo={setCarInfo}
                   carInfo={carInfo}
@@ -775,7 +784,7 @@ const VehicleInfo = () => {
                 />
               </TabPanel>
 
-              <TabPanel value="7">
+              <TabPanel value="7" style={{ padding: "0px" }}>
                 <SelectKm
                   setCarInfo={setCarInfo}
                   carInfo={carInfo}
@@ -786,7 +795,7 @@ const VehicleInfo = () => {
                 />
               </TabPanel>
 
-              <TabPanel value="8">
+              <TabPanel value="8" style={{ padding: "0px" }}>
                 <SelectStates
                   setCarInfo={setCarInfo}
                   carInfo={carInfo}

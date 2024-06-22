@@ -74,8 +74,8 @@ const CarPageRelatedCars = (props) => {
                   }}>
                   <Image
                     src={car.lead.images[0].image}
-                    width={300}
-                    height={300}
+                    width={200}
+                    height={200}
                     alt="car image"
                     style={{
                       borderRadius: "1.1rem",

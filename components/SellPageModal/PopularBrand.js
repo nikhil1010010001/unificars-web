@@ -51,7 +51,6 @@ const SellByPopularBrands = ({ setCarInfo, carInfo, screen, setScreen }) => {
                       setCarInfo((prevCarInfo) => ({
                         ...prevCarInfo,
                         brand: {
-                          ...prevCarInfo.brand,
                           id: e.id,
                           name: e.brand_name,
                           image: e.image,
@@ -62,8 +61,8 @@ const SellByPopularBrands = ({ setCarInfo, carInfo, screen, setScreen }) => {
                     key={index}>
                     <Image
                       priority
-                      width={800}
-                      height={800}
+                      width={200}
+                      height={200}
                       src={e.image}
                       alt={e.brand_name}
                     />
@@ -107,8 +106,8 @@ const SellByPopularBrands = ({ setCarInfo, carInfo, screen, setScreen }) => {
                     key={index}>
                     <Image
                       priority
-                      width={800}
-                      height={800}
+                      width={200}
+                      height={200}
                       src={e.image}
                       alt={e.brand_name}
                     />
