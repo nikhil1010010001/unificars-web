@@ -676,7 +676,7 @@ const VehicleInfo = () => {
                 height: "300px",
                 borderRadius: "10px",
               }}>
-              <TabPanel value="1" style={{ padding: "0px" }}>
+              <TabPanel value="1" style={{ padding: "5px" }}>
                 <PopularBrands
                   setCarInfo={setCarInfo}
                   carInfo={carInfo}
@@ -685,7 +685,7 @@ const VehicleInfo = () => {
                 />
               </TabPanel>
 
-              <TabPanel value="2" style={{ padding: "0px" }}>
+              <TabPanel value="2" style={{ padding: "5px" }}>
                 <SelectModel
                   setCarInfo={setCarInfo}
                   carInfo={carInfo}
@@ -694,7 +694,7 @@ const VehicleInfo = () => {
                 />
               </TabPanel>
 
-              <TabPanel value="3" style={{ padding: "0px" }}>
+              <TabPanel value="3" style={{ padding: "5px" }}>
                 <SelectVariant
                   setCarInfo={setCarInfo}
                   carInfo={carInfo}
@@ -703,7 +703,7 @@ const VehicleInfo = () => {
                 />
               </TabPanel>
 
-              <TabPanel value="4" style={{ padding: "0px" }}>
+              <TabPanel value="4" style={{ padding: "5px" }}>
                 <SelectYear
                   setCarInfo={setCarInfo}
                   carInfo={carInfo}
@@ -712,7 +712,7 @@ const VehicleInfo = () => {
                 />
               </TabPanel>
 
-              <TabPanel value="5" style={{ padding: "0px" }}>
+              <TabPanel value="5" style={{ padding: "5px" }}>
                 <SelectOwner
                   setCarInfo={setCarInfo}
                   carInfo={carInfo}
@@ -721,7 +721,7 @@ const VehicleInfo = () => {
                 />
               </TabPanel>
 
-              <TabPanel value="6" style={{ padding: "0px" }}>
+              <TabPanel value="6" style={{ padding: "5px" }}>
                 <SelectFuelType
                   setCarInfo={setCarInfo}
                   carInfo={carInfo}
@@ -730,7 +730,7 @@ const VehicleInfo = () => {
                 />
               </TabPanel>
 
-              <TabPanel value="7" style={{ padding: "0px" }}>
+              <TabPanel value="7" style={{ padding: "5px" }}>
                 <SelectKm
                   setCarInfo={setCarInfo}
                   carInfo={carInfo}
@@ -741,7 +741,7 @@ const VehicleInfo = () => {
                 />
               </TabPanel>
 
-              <TabPanel value="8" style={{ padding: "0px" }}>
+              <TabPanel value="8" style={{ padding: "5px" }}>
                 <SelectStates
                   setCarInfo={setCarInfo}
                   carInfo={carInfo}

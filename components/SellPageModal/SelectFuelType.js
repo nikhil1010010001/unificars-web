@@ -8,7 +8,8 @@ const SelectFuel = ({ setCarInfo, carInfo, value, setValue }) => {
     setValue(parseInt(value) + 1 + "");
   };
   return (
-    <div className="flex flex-wrap mx-auto gap-4 ">
+    <div className="flex flex-wrap mx-auto gap-4">
+      <p className="w-full text-lg mb-2">Select a fuel type for next step</p>
       {Fuel.length > 0 ? (
         Fuel.map((e, index) => {
           return (

@@ -29,6 +29,7 @@ const SelectKm = ({
   };
   return (
     <div className="flex flex-wrap items-center gap-4">
+      <p className="w-full text-lg mb-2">Select a km driven for next step</p>
       {Km.length > 0 ? (
         Km.map((e, index) => {
           return (

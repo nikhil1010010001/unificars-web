@@ -17,6 +17,7 @@ const SelectYear = ({ setCarInfo, carInfo, value, setValue }) => {
   };
   return (
     <div className="flex flex-wrap mx-auto gap-4 ">
+      <p className="w-full text-lg mb-2">Select a year for next step</p>
       {Year.length > 0 ? (
         Year.map((e, index) => {
           return (

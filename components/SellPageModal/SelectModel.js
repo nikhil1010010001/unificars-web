@@ -43,7 +43,8 @@ const SelectModel = ({ setCarInfo, carInfo, setValue, value }) => {
   return (
     <>
       {!Loading ? (
-        <div className=" mx-auto  gap-4 flex flex-wrap">
+        <div className="mx-auto gap-4 flex flex-wrap">
+          <p className="w-full text-lg mb-2">Select a model for next step</p>
           {BrandsModels.length > 0 ? (
             BrandsModels.map((e, index) => {
               return (

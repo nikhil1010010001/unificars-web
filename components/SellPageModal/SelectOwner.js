@@ -9,7 +9,8 @@ const SelectOwner = ({ setCarInfo, carInfo, value, setValue }) => {
   };
 
   return (
-    <div className="flex flex-wrap mx-auto gap-4 ">
+    <div className="flex flex-wrap mx-auto gap-4">
+      <p className="w-full text-lg mb-2">Select an owner for next step</p>
       {Owner.length > 0 ? (
         Owner.map((e, index) => {
           return (

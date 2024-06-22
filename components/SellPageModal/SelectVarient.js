@@ -44,6 +44,7 @@ const SelectVariant = ({ setCarInfo, carInfo, value, setValue }) => {
     <>
       {!Loading ? (
         <div className="flex flex-wrap mx-auto gap-4 ">
+          <p className="w-full text-lg mb-2">Select a variant for next step</p>
           {BrandsModelVareints.length > 0 ? (
             BrandsModelVareints.map((e, index) => {
               return (

@@ -36,6 +36,7 @@ const SelectStates = ({ setCarInfo, carInfo, setValue, value, setScreen }) => {
     <>
       {!Loading ? (
         <div className="flex flex-wrap items-center gap-4">
+          <p className="w-full text-lg mb-2">Select a state for next step</p>
           {States.length > 0 ? (
             States.map((e, index) => {
               return (
