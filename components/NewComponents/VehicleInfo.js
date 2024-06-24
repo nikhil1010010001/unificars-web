@@ -536,14 +536,14 @@ const VehicleInfo = () => {
                 <div className="loader text-sm">Loading...</div>
               ) : (
                 <button
-                  className="bg-blue-500 text-white px-12 py-3 rounded-xl hover:bg-blue-600 text-base font-inter"
+                  className="bg-blue-500 text-white px-12 py-3 rounded-xl hover:bg-blue-600 text-base font-sans"
                   onClick={submitCarNumber}>
                   Get Price
                 </button>
               )}
               <div className="w-full flex items-center justify-center my-2 place-self-center">
                 <div className="w-full border-t border-gray-500"></div>
-                <span className="mx-5 text-black text-base font-inter">
+                <span className="mx-5 text-black text-base font-sans">
                   {" "}
                   OR{" "}
                 </span>

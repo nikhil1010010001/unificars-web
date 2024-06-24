@@ -3,50 +3,15 @@ import Head from "next/head";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Link from "next/link";
-import { TiTick } from "react-icons/ti";
-import { RiStarSFill, RiStarSLine } from "react-icons/ri";
-
-// import Carousel from "react-multi-carousel";
-
-import dynamic from "next/dynamic";
-import Reviews from "@/components/Home/Reviews";
-// import TestemonialCarousel from "@/components/TestemonialCarousel";
 import CookiesSection from "@/components/CookiesSection";
 import HowToSell from "@/components/Home/Howtosell";
 import ExploreActionCard from "@/components/ExploreActionCard";
 import TestimonialCarousel from "@/components/TestemonialCarousel";
-// const BannerCarousel = dynamic(() => import("@/components/Home/BannerCarousel"),{ssr: false});
-const HomeQuestions = dynamic(() => import("@/components/Home/HomeQuestions"), {
-  ssr: false,
-});
-const SellCar = dynamic(() => import("@/components/Home/SellCar"), {
-  ssr: false,
-});
-const Buycar = dynamic(() => import("@/components/Home/Buycar"), {
-  ssr: false,
-});
-const Howtosell = dynamic(() => import("@/components/Home/Howtosell"), {
-  ssr: false,
-});
 
-const responsive = {
-  superLargeDesktop: {
-    breakpoint: { max: 4000, min: 1280 },
-    items: 3,
-  },
-  desktop: {
-    breakpoint: { max: 1280, min: 720 },
-    items: 3,
-  },
-  tablet: {
-    breakpoint: { max: 720, min: 464 },
-    items: 2,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1.25,
-  },
-};
+import HomeQuestions from "@/components/Home/HomeQuestions";
+import SellCar from "@/components/Home/SellCar";
+import Buycar from "@/components/Home/Buycar";
+import Image from "next/image";
 
 function index() {
   const [isMobile, setIsMobile] = useState(false);
@@ -68,34 +33,13 @@ function index() {
     };
   }, []);
 
-  const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 4000, min: 1280 },
-      items: 3,
-    },
-    desktop: {
-      breakpoint: { max: 1280, min: 720 },
-      items: 3,
-    },
-    tablet: {
-      breakpoint: { max: 720, min: 464 },
-      items: 2,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1.25,
-    },
-  };
-
   const [userLocation, setUserLocation] = useState({});
 
   const userGeolocation = async () => {
     const localLocation = localStorage.getItem("userLocation");
 
-    console.log("localLocation", localLocation);
-
     if (!localLocation) {
-      const geolocation = navigator.geolocation.getCurrentPosition(
+      navigator.geolocation.getCurrentPosition(
         (position) => {
           setUserLocation(position.coords);
           localStorage.setItem("userLocation", JSON.stringify(position.coords));
@@ -139,14 +83,14 @@ function index() {
                   <h1 className="text-5xl font-black banheadfont">
                     Choose Reliability, Choose Your New Car.
                   </h1>
-                  <p className="text-lg my-4 mb-6 text-left font-inter">
+                  <p className="text-lg my-4 mb-6 text-left font-sans">
                     Trusted by over 1 Lakh customers. Choose from 5000+ Unifi
                     Assured Cars
                   </p>
-                  {/* <button className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 font-inter" style={{ width: 'fit-content', float: 'left' }}>Buy Car</button> */}
-                  <Link href="/buy-used-cars" passHref>
+
+                  <Link href="/buy-used-cars">
                     <button
-                      className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 font-inter"
+                      className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 font-sans"
                       style={{ width: "fit-content", float: "left" }}>
                       Buy Car
                     </button>
@@ -157,14 +101,14 @@ function index() {
                   <h1 className="text-5xl font-black banheadfont font-futura">
                     Fast, Fair, Done: Sell Your Car with Unifi Cars
                   </h1>
-                  <p className="text-lg my-4 mb-6 text-left font-inter">
+                  <p className="text-lg my-4 mb-6 text-left font-sans">
                     Experience a transparent and hassle-free car selling
                     journey. With Unifi Cars.
                   </p>
-                  {/* <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 font-inter" style={{ width: 'fit-content', float: 'left' }}>Sell Car</button> */}
-                  <Link href="/sell-used-cars" passHref>
+
+                  <Link href="/sell-used-cars">
                     <button
-                      className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 font-inter"
+                      className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 font-sans"
                       style={{ width: "fit-content", float: "left" }}>
                       Sell Car
                     </button>
@@ -177,20 +121,21 @@ function index() {
             <div className="w-full flex justify-center items-center">
               <div className="w-full h-full bg-[#f7f6f6]/30" />
               <div className="w-full h-full bg-[#fffde7]">
-                <img
+                <Image
+                  width={700}
+                  height={350}
                   src="/homecar-new.png"
-                  className={`object-contain absolute right-24`}
+                  className="object-contain w-[70%] absolute right-24"
                   alt="Car Image"
-                  style={{ width: "70%" }}
                 />
               </div>
             </div>
           </div>
 
           {/* For smaller screens */}
-          <div className={`md:hidden `}>
+          <div className={`md:hidden`}>
             <div
-              className="relative flex items-center justify-center"
+              className="relative flex items-center justify-center mt-10"
               style={{ backgroundColor: "#fffde7", height: "400px" }}>
               <img
                 src="/homecar.png"
@@ -212,7 +157,7 @@ function index() {
                     Trusted by over 1 Lakh customers. Choose from 5000+ Unifi
                     Assured Cars
                   </p>
-                  <Link href="/buy-used-cars" passHref>
+                  <Link href="/buy-used-cars">
                     <button className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">
                       Buy Car
                     </button>
@@ -227,7 +172,7 @@ function index() {
                     Trusted by over 1 Lakh customers. Choose from 5000+ Unifi
                     Assured Cars
                   </p>
-                  <Link href="/sell-used-cars" passHref>
+                  <Link href="/sell-used-cars">
                     <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
                       Sell Car
                     </button>
@@ -242,8 +187,6 @@ function index() {
       <CookiesSection />
 
       <div className="relative max-w-6xl mx-auto px-4 pt-16">
-        {/* <div className="absolute w-full h-60 -z-10 rounded-lg top-4"></div> */}
-        {/* <h1 className='py-2 font-bold text-center text-3xl font-bold text-black'>What We Do</h1> */}
         <div className="text-4xl w-[50] mx-auto px-6 order-last lg:order-first text-center">
           <h1 className="py-6 font-bold">
             <span className="text-orange-500 sellheadfont">What</span>
@@ -251,10 +194,8 @@ function index() {
           </h1>
         </div>
 
-        {/* <p className="text-center mb-8 hiwpara">keys to cash unlock the value of your car</p> */}
-
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-6">
-          <Link href="/sell-used-cars" passHref>
+          <Link href="/sell-used-cars">
             <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 py-12 rounded-lg shadow-md">
               <div>
                 <img
@@ -271,7 +212,7 @@ function index() {
             </div>
           </Link>
 
-          <Link href="/buy-used-cars" passHref>
+          <Link href="/buy-used-cars">
             <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 py-12 rounded-lg shadow-md">
               <div>
                 <img
@@ -287,7 +228,7 @@ function index() {
             </div>
           </Link>
 
-          <Link href="/pre-delivery-inspection" passHref>
+          <Link href="/pre-delivery-inspection">
             <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 py-12 rounded-lg shadow-md">
               <div>
                 <img
@@ -302,8 +243,8 @@ function index() {
               </p>
             </div>
           </Link>
-          {/* <Link href="/challan-check" passHref> */}
-          <Link href="#" passHref>
+
+          <Link href="/challan-check">
             <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 py-12 rounded-lg shadow-md">
               <div>
                 <img
@@ -331,45 +272,8 @@ function index() {
         <ExploreActionCard />
       </div>
 
-      {/* <Howtosell/> */}
-
-      {/* <div className="container mx-auto p-6 md:px-10 mt-5">
-          <div className='relative' >
-              <div><img src='/pdi.png' /></div>
-          </div>
-      </div>
-
-      <div className='grid grid-cols-1 lg:grid-cols-2 container mx-auto gap-4 mt-10 mb-16 lg:mt-10 border-2 rounded-xl'>
-          <div className=" mx-4 mt-2 font-bold place-self-center">
-              <h2 className='py-2 text-4xl text-black ' >How to join us</h2>
-              <p className='font-normal text-black my-2 '>Join our family in 4 simple steps.</p>
-              <ul className='my-12 flex flex-col gap-6 '>
-                  <li className='flex font-bold'><div className='flex-none pt-1 mr-2'><TiTick className='bg-[#FFB648] text-xl rounded-full text-[#ffffff]' /></div>Register yourself and our Executive will contact you within 24 Hours.</li>
-
-                  <li className='flex font-bold'><div className='flex-none pt-1 mr-2'><TiTick className='bg-[#FFB648] text-xl rounded-full text-[#ffffff]' /></div>Download the app via playstore or app store</li>
-
-                  <li className='flex font-bold'><div className='flex-none pt-1 mr-2'><TiTick className='bg-[#FFB648] text-xl rounded-full text-[#ffffff]' /></div>Verifying your profile</li>
-                  
-                  <li className='flex font-bold'><div className='flex-none pt-1 mr-2'><TiTick className='bg-[#FFB648] text-xl rounded-full text-[#ffffff]' /></div>Start bidding on the cars</li>
-              </ul>
-          </div>
-          
-          <div className="line"><img src={"/howtojoin.png"} alt="" className='rounded-xl' style={{width:'60%',margin:'auto'}}/></div>
-      </div> */}
-
-      {/* <Reviews /> */}
-
       <div>
-        {/* <div className="text-center items-center flex flex-col mb-6">
-          <h2 className="text-4xl text-[#000] my-2 font-black">Testimonials</h2>
-          <p className="customgryfnt text-lg font-normal">
-            Their good reviews motivate us to do more
-          </p>
-          <img src='/home/title_line.png' />
-        </div> */}
-
-        <div className="md:px-4 px-2 mx-auto -my-8">
-          {/* <TestemonialCarousel /> */}
+        <div className="md:px-4 px-2 mx-auto my-16">
           <TestimonialCarousel />
         </div>
       </div>

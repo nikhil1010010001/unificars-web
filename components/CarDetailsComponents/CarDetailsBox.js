@@ -21,7 +21,7 @@ const CarDetailsBox = (props) => {
   return (
     <div className="p-4 mx-4 bg-white rounded-xl lg:mx-0 font-light carousel-item">
       <div>
-        <h1 className="font-black text-3xl font-inter mb-1 tracking-wide">
+        <h1 className="font-black text-3xl font-sans mb-1 tracking-wide">
           {car && car.lead ? car.lead[0]["Model"] : ""}{" "}
           {car && car.lead ? car.lead[0]["Brand"] : "Brand"}
         </h1>

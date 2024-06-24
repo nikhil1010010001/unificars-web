@@ -27,8 +27,7 @@ const FilterCars = (props) => {
             className="lg:hidden flex cursor-pointer items-center group/filter hover:bg-[#f38102] hover:text-white hover:border-white transition-all duration-200 active:bg-orange-600 active:text-white gap-1 text-sm border-[1px] p-1 rounded border-[#f38102]/20 text-gray-600"
             onClick={() => {
               setFilterSection(!filterSection);
-            }}
-          >
+            }}>
             <RiListRadio className="text-[#f38102] group-hover/filter:text-white active:text-white" />
             <p>Filters</p>
           </div>
@@ -54,15 +53,13 @@ const FilterCars = (props) => {
       <div
         className={`fixed bg-black/40 bottom-0 w-full overflow-hidden z-50 transition-all duration-500 ease-in-out ${
           filterSection ? "h-full" : "h-0"
-        }`}
-      >
+        }`}>
         <div className="w-screen bg-white h-full overflow-y-scroll">
           <div className="pt-10 p-8 pb-4 border-b-2 text-xl relative">
             <h6>Filters</h6>
             <div
               className="absolute right-2 text-2xl top-6 p-4"
-              onClick={() => setFilterSection(false)}
-            >
+              onClick={() => setFilterSection(false)}>
               <AiOutlineClose />
             </div>
           </div>

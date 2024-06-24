@@ -457,7 +457,7 @@ const VehicleInfo = () => {
                 <div className="loader text-sm">Loading...</div>
               ) : (
                 <button
-                  className="w-48 h-14 bg-blue-500 text-white md:px-7 py-4 rounded-lg hover:bg-blue-600 text-base font-inter"
+                  className="w-48 h-14 bg-blue-500 text-white md:px-7 py-4 rounded-lg hover:bg-blue-600 text-base font-sans"
                   onClick={submitCarNumber}>
                   Get Price
                 </button>
@@ -465,7 +465,7 @@ const VehicleInfo = () => {
             </div>
             <div className="w-full flex items-center justify-center my-2 place-self-center">
               <div className="w-full border-t border-gray-500"></div>
-              <span className="mx-5 text-black text-base font-inter"> OR </span>
+              <span className="mx-5 text-black text-base font-sans"> OR </span>
               <div className="w-full border-t border-gray-500"></div>
             </div>
             <h1 className="text-xl text-black mt-4 leading-3">

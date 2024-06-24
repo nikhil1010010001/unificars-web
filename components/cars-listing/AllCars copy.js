@@ -141,7 +141,7 @@ const AllCars = ({
                   }}
                   className="">
                   <div className="justify-start items-center">
-                    <p className="text-[12px] md:text-sm text-black/100 font-medium font-inter">
+                    <p className="text-[12px] md:text-sm text-black/100 font-medium font-sans">
                       Unifi Rating
                     </p>
                     <Rating
@@ -152,7 +152,7 @@ const AllCars = ({
                     />
                   </div>
                   <div className="relative">
-                    <h4 className="text-md font-bold font-inter">
+                    <h4 className="text-md font-bold font-sans">
                       {car.lead.model} {car.lead.brand}
                     </h4>
                     <p className="text-xs md:text-sm font-normal text-black/80">
@@ -165,7 +165,7 @@ const AllCars = ({
                           className="w-32 lg:mx-0"
                         />
                       </div>
-                      <p className="font-bold font-inter">
+                      <p className="font-bold font-sans">
                         ₹{" "}
                         {parseInt(car.lead.selling_amount).toLocaleString(
                           "en-IN"
@@ -189,7 +189,7 @@ const AllCars = ({
                           />
                         </a>
                       </div>
-                      <p className="font-bold font-inter">
+                      <p className="font-bold font-sans">
                         ₹{" "}
                         {parseInt(car.lead.refurbished_price).toLocaleString(
                           "en-IN"

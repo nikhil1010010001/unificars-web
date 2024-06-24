@@ -2,53 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Futura";
-  src: url("https://db.onlinewebfonts.com/t/02a0efa4275f78836dfc89db9e21feea.eot");
-  src: url("https://db.onlinewebfonts.com/t/02a0efa4275f78836dfc89db9e21feea.eot?#iefix") format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/02a0efa4275f78836dfc89db9e21feea.woff2") format("woff2"),
-    url("https://db.onlinewebfonts.com/t/02a0efa4275f78836dfc89db9e21feea.woff") format("woff"),
-    url("https://db.onlinewebfonts.com/t/02a0efa4275f78836dfc89db9e21feea.ttf") format("truetype"),
-    url("https://db.onlinewebfonts.com/t/02a0efa4275f78836dfc89db9e21feea.svg#Futura-Book") format("svg");
-}
-
-/* @font-face {
-  font-family: 'Futura';
-  src: url('/futura/futura_n5.woff2') format('woff2'),
-       url('/futura/futura_n5.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Futura';
-  src: url('/futura/futura_n6.woff2') format('woff2'),
-       url('/futura/futura_n6.woff') format('woff');
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Futura';
-  src: url('/futura/futura_o5.woff2') format('woff2'),
-       url('/futura/futura_o5.woff') format('woff');
-  font-weight: 400;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Futura';
-  src: url('/futura/futura_o6.woff2') format('woff2'),
-       url('/futura/futura_o6.woff') format('woff');
-  font-weight: 600;
-  font-style: italic;
-} */
 
 * {
   padding: 0;
   margin: 0;
   /* font-weight: bold; */
-  font-family: "Futura";
+  /* font-family: "sans"; */
 }
 
 * ::-webkit-scrollbar {
@@ -414,7 +373,6 @@
   font-size: 24px;
   line-height: 25px;
   font-weight: 200;
-  font-family: "Inter";
   color: black;
 }
 
@@ -486,14 +444,6 @@
   font-size: 38px;
   line-height: normal;
   /* font-family: sans-serif; */
-}
-
-.font-sansserif {
-  font-family: sans-serif;
-}
-
-.font-inter {
-  font-family: "Inter";
 }
 
 span.MuiSlider-track.css-1n40zqk-MuiSlider-track {
@@ -568,7 +518,6 @@ button.control-arrow.control-prev {
 
 .changehomwq {
   margin: 0;
-  font-family: "Inter";
   font-weight: 400 !important;
   font-size: 1rem;
   line-height: 1.5;

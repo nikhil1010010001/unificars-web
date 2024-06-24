@@ -47,7 +47,7 @@ const Buycar = () => {
           </span> */}
         </div>
         <div className="flex gap-6 lg:flex-row flex-col">
-          <Link href="/buy-used-cars" passHref className="w-full">
+          <Link href="/buy-used-cars" className="w-full">
             <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg">
               <Image
                 width={400}
@@ -68,7 +68,7 @@ const Buycar = () => {
             </div>
           </Link>
 
-          <Link href="/buy-used-cars" passHref className="w-full">
+          <Link href="/buy-used-cars" className="w-full">
             <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg">
               <img
                 src="carousel/used-car-2.png"
@@ -88,7 +88,7 @@ const Buycar = () => {
             </div>
           </Link>
 
-          <Link href="/buy-used-cars" passHref className="w-full">
+          <Link href="/buy-used-cars" className="w-full">
             <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg">
               <img
                 src="carousel/used-car-3.png"
@@ -108,7 +108,7 @@ const Buycar = () => {
             </div>
           </Link>
 
-          <Link href="/buy-used-cars" passHref className="w-full">
+          <Link href="/buy-used-cars" className="w-full">
             <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg">
               <img
                 src="carousel/used-car-4.png"
@@ -135,7 +135,7 @@ const Buycar = () => {
 
         <FeaturedCars featuredlist={featuredCars} desktopItemNum={4} />
 
-        <Link href="/buy-used-cars" passHref className="w-full">
+        <Link href="/buy-used-cars" className="w-full">
           <button className="bg-orange-500 text-white mt-10 px-4 py-1 text-2xl rounded-lg hover:bg-orange-600 browsbtn">
             Browse Car
           </button>

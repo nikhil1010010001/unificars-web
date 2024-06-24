@@ -10,6 +10,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import dynamic from "next/dynamic";
 import TestemonialCarousel from "@/components/TestemonialCarousel";
+import Image from "next/image";
 
 const VehicleInfo = dynamic(
   () => import("@/components/NewComponents/VehicleInfo3"),
@@ -356,9 +357,11 @@ const about = () => {
         </div>
       </div> */}
 
-      <img
+      <Image
+        width={1000}
+        height={500}
         src="/compliance-banner.png"
-        className="px-2 md:max-w-6xl mx-auto mt-16 "
+        className="px-2 md:max-w-6xl mx-auto mt-16 w-full"
       />
 
       {/* <div className="container mx-auto p-6 md:px-10 mt-5">
@@ -406,180 +409,6 @@ const about = () => {
           ))}
         </div>
       </div>
-
-      {/* <div className="max-w-6xl mx-auto p-6 mt-16 rounded-md">
-        <h1 className="py-2 font-bold text-center text-3xl text-black">
-          Scrap Car Policy
-        </h1>
-        <p>
-          The process of scrapping a car is guided by the Vehicle Scrappage
-          Policy 2021 from the Government of India. According to this policy,
-          when a car is too old or doesn't meet emission and fitness standards,
-          it can be scrapped. Car owners can choose to scrap their vehicles
-          voluntarily and get benefits like financial incentives, tax rebates,
-          or discounts on buying a new vehicle. The scrapped cars are sent to
-          authorized scrap yards, where they are taken apart, and the materials
-          are recycled or disposed of responsibly. This policy helps reduce
-          pollution, encourages recycling, and boosts the automotive industry,
-          while also providing benefits to those who scrap their old cars.
-        </p>
-      </div> */}
-
-      {/* <div className='grid grid-cols-1 lg:grid-cols-2 container mx-auto gap-4 mt-16 lg:mt-24 md:px-20 px-10'>
-                <div className="text-3xl font-bold text-black">
-                    <h2 className='py-2'>210 Point Inspection Report</h2>
-                    <p className='text-lg text-black-600 my-2'>Unifi provide 210 check <br/>points vehicle inspection report.</p>
-                    
-                </div>
-                <div className="line"><img src={"/assured1.png"} alt="" className='w-[80%] mx-auto'/></div>
-            </div>
-
-            <div className="container mx-auto">
-                <div className='grid grid-cols-1 lg:grid-cols-1 container mx-auto mt-5 lg:mt-10'>
-                    <div className="line">
-                        <img src={"/unififixassured.png"} alt="" className='rounded-xl' />
-                    </div>
-                </div>
-            </div> */}
-
-      {/* <Reviews/> */}
-      {/* <div className="bg-gray-50 py-12 mt-16">
-        <div className="text-center items-center flex flex-col mb-6">
-          <h2 className="text-4xl text-[#000] my-2">Testimonials</h2>
-          <p className="customgryfnt text-lg font-normal">
-            Their good reviews motivate us to do more
-          </p>
-        </div>
-        <div className=" w-11/12 mx-auto">
-          <Carousel responsive={responsive}>
-            <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-4 h-[342px]">
-              <div>
-                <img
-                  src="/testimonials/testi1.jpeg"
-                  className="w-24 rounded-full object-cover h-[94px]"
-                />
-              </div>
-              <div className="flex text-orange-500 mt-3">
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-              </div>
-              <p className="font-medium my-2 text-center ">
-                I recently purchased a car from Quick Buy. The vehicle is in
-                excellent condition and truly value for money.
-              </p>
-              <h5 className="my-4 text-lg text-blue-950">SI MOTORS</h5>
-            </div>
-
-            <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-4 h-[342px]">
-              <div>
-                <img
-                  src="/testimonials/testi2.jpeg"
-                  className="w-24 rounded-full object-cover h-[94px]"
-                />
-              </div>
-              <div className="flex text-orange-500 mt-3">
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSLine />
-              </div>
-              <p className="font-medium my-2 text-center ">
-                Our dealership's inventory has improved since we started
-                sourcing cars from Unificars.
-              </p>
-              <h5 className="my-4 text-lg text-blue-950">AS TRADING</h5>
-            </div>
-
-            <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-4 h-[342px]">
-              <div>
-                <img
-                  src="/testimonials/testi3.jpeg"
-                  className="w-24 rounded-full object-cover h-[94px]"
-                />
-              </div>
-              <div className="flex text-orange-500 mt-3">
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-              </div>
-              <p className="font-medium my-2 text-center ">
-                As a dealer, finding reliable sources for quality cars is very
-                crucial, and Unificars has never disappointed us.
-              </p>
-              <h5 className="my-4  text-lg text-blue-950">GIANI MOTORS</h5>
-            </div>
-
-            <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-4 h-[342px]">
-              <div>
-                <img
-                  src="/testimonials/testi4.jpeg"
-                  className="w-24 rounded-full object-cover h-[94px]"
-                />
-              </div>
-              <div className="flex text-orange-500 mt-3">
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-              </div>
-              <p className="font-medium my-2 text-center ">
-                The bidding system at unificars is the best system. We have won
-                numerous cars that are well maintained.
-              </p>
-              <h5 className="my-4 text-lg text-blue-950">GM MOTORS</h5>
-            </div>
-
-            <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-4 h-[342px]">
-              <div>
-                <img
-                  src="/testimonials/testi5.jpeg"
-                  className="w-24 rounded-full object-cover h-[94px]"
-                />
-              </div>
-              <div className="flex text-orange-500 mt-3">
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-              </div>
-              <p className="font-medium my-2 text-center ">
-                Customer service at Unificars is Best. From the moment we
-                inquired till the settlement the process was smooth.
-              </p>
-              <h5 className="my-4 text-lg text-blue-950">EXPART AUTOMOBILE</h5>
-            </div>
-
-            <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-4 h-[342px]">
-              <div>
-                <img
-                  src="/testimonials/testi6.jpeg"
-                  className="w-24 rounded-full object-cover h-[94px]"
-                />
-              </div>
-              <div className="flex text-orange-500 mt-3">
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-              </div>
-              <p className="font-medium my-2 text-center ">
-                Finding a well-maintained car at a great price was easy with
-                Quick Buy, and the staff were incredibly helpful as well.
-              </p>
-              <h5 className="my-4  text-lg text-blue-950">NAWAJISH MOTORS</h5>
-            </div>
-          </Carousel>
-        </div>
-      </div> */}
 
       <TestemonialCarousel />
 

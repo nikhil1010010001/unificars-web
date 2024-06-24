@@ -16,7 +16,7 @@ const Footer = () => {
   return (
     <div>
       <footer
-        className="h-[400px] body-font bg-white border-t-2 border-black/10 text-sm font-light"
+        className="min-h-[400px] body-font bg-white border-t-2 border-black/10 text-sm font-light"
         style={{
           backgroundImage: `url('/footer-image.png')`,
           backgroundSize: "cover",
@@ -25,8 +25,13 @@ const Footer = () => {
           <div className="px-5 flex flex-col">
             <Link
               href={"/"}
-              className="flex title-font font-medium items-center md:justify-start justify-center ">
-              <Image src={"/whitelogo.png"} width={200} height={100} />
+              className="flex title-font font-medium items-center">
+              <Image
+                src={"/whitelogo.png"}
+                width={200}
+                height={100}
+                // className="border"
+              />
             </Link>
             <p className="text-left  text-sm max-w-[300px]">
               Your all-in-one platform for discovering and streaming your
@@ -66,9 +71,9 @@ const Footer = () => {
                 <BsTwitter className="text-2xl" />
               </a>
             </div>
-            <p className="text-sm">
+            {/* <p className="text-sm">
               Copyright © 2023. All rights reserved. by Unifi Cars
-            </p>
+            </p> */}
           </div>
 
           <div className="my-4 mt-6">

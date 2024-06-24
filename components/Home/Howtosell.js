@@ -33,7 +33,7 @@ const HowToSell = () => {
             alt="howitworks"
           />
           <div className="text-left space-y-4 p-4">
-            <h4 className="text-xl text-black font-black mt-4 flex-none">
+            <h4 className="text-xl text-black font-bold mt-4 flex-none">
               SUBMIT YOUR CAR DETAILS
             </h4>
             <p className="text-lg">

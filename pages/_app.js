@@ -1,22 +1,17 @@
 import "@/styles/globals.css";
 
+import NextTopLoader from "nextjs-toploader";
 import dynamic from "next/dynamic";
-
-const Navbar = dynamic(() => import("@/components/Navbar"), { ssr: true });
-const Footer = dynamic(() => import("@/components/Footer"), { ssr: true });
-import Head from "next/head";
 import Script from "next/script";
-
-import { useRouter } from "next/router";
+import Head from "next/head";
 import { Provider } from "react-redux";
 import store from "../ReduxStore/Store";
-import WhatsappSupport from "@/components/WhatsappSupport";
-import NextTopLoader from "nextjs-toploader";
-import TopBar from "@/components/TopBar";
+
+const Navbar = dynamic(() => import("@/components/Navbar"));
+const Footer = dynamic(() => import("@/components/Footer"));
+const WhatsappSupport = dynamic(() => import("@/components/WhatsappSupport"));
 
 export default function App({ Component, pageProps }) {
-  const router = useRouter();
-
   return (
     <>
       <Provider store={store}>
@@ -85,8 +80,6 @@ export default function App({ Component, pageProps }) {
           shadow="0 0 10px #ffffff,0 0 5px #ffffff"
           zIndex={1600}
         />
-
-        <TopBar />
 
         <Navbar />
         <div>

@@ -1,20 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
-import dynamic from "next/dynamic";
+import React, { useEffect, useState } from "react";
 
-import PopularBrand from "@/components/SellPageModal3/PopularBrand";
-import HowItWork from "@/components/CarDetailsComponents/HowItWork";
-import AskQuestions from "@/components/Home/AskQuestions";
 import SellModal from "@/components/SellPageModal3/SellModal";
-import CheckValue from "@/components/SellPageModal3/CheckValue";
-import UserBookSlot from "@/components/SellPageModal3/UserBookSlot";
 
-const Howtosell = dynamic(() => import("@/components/Home/Howtosell"), {
-  ssr: false,
-});
-const VehicleInfo = dynamic(
-  () => import("@/components/NewComponents/VehicleInfo2"),
-  { ssr: false }
-);
+import Howtosell from "@/components/Home/Howtosell";
+import VehicleInfo from "@/components/NewComponents/VehicleInfo2";
 
 import { useRouter } from "next/router";
 import Head from "next/head";
@@ -36,7 +25,6 @@ const sellCars = () => {
   const arr = new Array(7);
   const [UserCarTabArray, setUserCarTabArray] = useState(arr);
   const [CurrentTab, setCurrentTab] = useState("0");
-  const [UserNumber, setUserNumber] = useState("");
 
   const router = useRouter();
 
@@ -60,14 +48,11 @@ const sellCars = () => {
     }
   }, [router]);
 
-  const [last_id, setlast_id] = useState(null);
   const [verifyNum, setVerifyNum] = useState(false);
-  const [BookSlot, setBookSlot] = useState(false);
 
-  const bookingRef = useRef();
   return (
     <>
-      <div>
+      <div className="pt-16">
         <Head>
           <title>{title}</title>
           <meta name="description" content={description} />
@@ -77,37 +62,24 @@ const sellCars = () => {
         <div
           className="text-center items-center flex flex-col mx-4"
           style={{ paddingTop: "120px" }}>
-          {/* <p className='tracking-widest text-gray-600 text-lg'>SELL YOUR CAR WITH NO FUSS</p> */}
           <h1 className="text-4xl text-black my-2 font-black">
             Sell Your Car At Best Price Instantly From Home
           </h1>
-          {/* <img src='/home/title_line.png' alt="line" /> */}
 
           <h3 className="text-2xl uppercase tracking-wide text-blue-950 my-6">
             Let's select your car brand
           </h3>
         </div>
-        {/* {!verifyNum ?
-                    <div className='mb-4'>
-                        <PopularBrand setOpenModal={setOpenModal} setUserCarTabArray={setUserCarTabArray} UserCarTabArray={UserCarTabArray} OpenModal={OpenModal} UserCar={UserCar} setUserCar={setUserCar} CurrentTab={CurrentTab} setCurrentTab={setCurrentTab} />
-                    </div>
-                    : <><CheckValue setlast_id={setlast_id} UserNumber={UserNumber} setUserNumber={setUserNumber} UserCar={UserCar} BookSlot={BookSlot} setBookSlot={setBookSlot} bookingRef={bookingRef} /> </>}
-
-                <div className='my-4' ref={bookingRef}>
-                    {BookSlot ? <><UserBookSlot last_id={last_id} /> </> : <></>}
-                </div> */}
 
         <div className="container mx-auto md:w-[70%] mb-6">
           <VehicleInfo />
         </div>
 
-        {/* <HowItWork /> */}
         <Howtosell />
 
         <div className="w-full h-fit">
           <TestemonialCarousel />
         </div>
-        {/* <AskQuestions /> */}
 
         <HomeQuestions />
 

@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { TiTick } from "react-icons/ti";
 
-import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { RiStarSFill, RiStarSLine } from "react-icons/ri";
 import { useRouter } from "next/router";
 import TestemonialCarousel from "@/components/TestemonialCarousel";
+import Image from "next/image";
 
 const dealership = () => {
   const router = useRouter();
@@ -65,23 +64,15 @@ const dealership = () => {
   };
 
   return (
-    <div className="">
+    <div className="pt-10">
       <div className="relative" style={{ paddingTop: "85px" }}>
-        <div>
-          <img
-            src="Banner-Image.png"
-            className="hidden md:block  h-[40rem] w-[100rem] bannerimage"
-          />
-          <div className="block md:hidden bg-[#0e223b] h-[40rem] w-full"></div>
-        </div>
-        {/* <div className='absolute left-[45%] top-1/3 '>
-                    <h2 className='text-white text-xl lg:text-5xl text-center'>Buy, Sell, and Drive On!</h2>
-                    <p className='text-white text-2xl my-4 hidden lg:block'>Let the UNIFI WHEELS PRIVATE LIMITED be a part of your journey.</p>
-                    <div className='flex gap-4 justify-center mt-3'>
-                        <Link href={"/assured-cars"} className='bg-[#f38102] p-1 lg:p-2 text-white cursor-pointer hover:scale-105 lg:px-6 hover:text-[#f38102] hover:bg-white border-[#f38102] border text-center transition-all duration-300 ease-in-out rounded shadow'>Buy Car</Link>
-                        <Link href={"/sell-used-cars"} className='bg-[#f38102] p-1 lg:p-2 text-white cursor-pointer hover:scale-105 lg:px-6 hover:text-[#f38102] hover:bg-white border-[#f38102] border text-center transition-all duration-300 ease-in-out rounded shadow'>Sell Car</Link>
-                    </div>
-                </div> */}
+        <Image
+          width={1000}
+          height={500}
+          src="/Banner-Image.png"
+          className="hidden md:block  min-h-[40rem] w-full bannerimage"
+        />
+
         <div
           className="setmaindiv3 absolute top-5 right-[5%] bg-white p-7 rounded mt-[120px] md:mt-[90px]"
           style={{
@@ -89,18 +80,11 @@ const dealership = () => {
             justifySelf: "center!important",
             marginLeft: "auto",
           }}>
-          {/* <div className="ribbon-pop font-bold text-2xl my-2 capitalize">Dealer Onboarding</div> */}
           <h3 className="font-bold text-2xl my-2 capitalize text-center">
             BECOME OUR CHANNEL PARTNER
           </h3>
-          {/* <div className=""><img src={'/title_line.png'} alt="" /></div> */}
 
           <form onSubmit={HandleFormSubmit} id="enquiry">
-            {/* <div className="form-grp">
-                            <label className="flex gap-2 mt-2" htmlFor="email"><FaAngleDoubleRight className='my-1 text-orange-500' /> Email <span className='text-orange-500'>*</span></label>
-                            <input  required type="email" className='p-2 w-full focus:outline-none rounded-xl shadow2' name="email" id="email" placeholder="Your Email" />
-                            <span id="email_error" className=""></span>
-                        </div> */}
             <div className="box form-grp w-full mt-5">
               <input
                 type="text"
@@ -111,12 +95,7 @@ const dealership = () => {
                 value={UserDetails.fname}
                 required
               />
-              {/* <label for="fname">Full Name</label> */}
             </div>
-            {/* <div className="box form-grp w-48 mt-5 mars-3">
-                            <input type="lname" placeholder="" name="lname" id="lname" onChange={(e) => UserInputChange(e)} value={UserDetails.lname} required />
-                            <label for="lname">Last Name</label>
-                        </div> */}
             <div className="box form-grp w-full mt-5">
               <input
                 type="email"
@@ -127,17 +106,8 @@ const dealership = () => {
                 value={UserDetails.email}
                 required
               />
-              {/* <label for="email">Your Email</label> */}
             </div>
-            {/* <div className="box form-grp w-full mt-5" > */}
 
-            {/* <select className="form-select" name="state" id="state" style={{ padding: '14px 6px', border: '1px solid black', borderRadius: '15px', color: 'rgb(34 34 34/79%)' }}>
-                                <option selected>Select Your State</option>
-                                <option value="1">One</option>
-                            </select> */}
-            {/* <input type="state" placeholder="" name="state" id="state" onChange={(e)=>UserInputChange(e)} value={UserDetails.state} required/> */}
-            {/* <label for="state">Select your State</label> */}
-            {/* </div> */}
             <div className="box form-grp w-full mt-5">
               <select
                 className="form-select"
@@ -208,7 +178,6 @@ const dealership = () => {
                 value={UserDetails.mobile}
                 required
               />
-              {/* <label for="mobile">Your Mobile</label> */}
             </div>
 
             <div
@@ -223,10 +192,7 @@ const dealership = () => {
                 value={UserDetails.otp}
                 requiredb={isFormSubmitted}
               />
-              {/* <label for="otp">OTP</label> */}
 
-              {/* <label className="flex gap-2 mt-2" htmlFor="otp"><FaAngleDoubleRight className='my-1 text-orange-500' /> Otp <span className='text-orange-500'>*</span></label>
-                            <input  requiredb={isFormSubmitted} type="number" onChange={(e)=>UserInputChange(e)} value={UserDetails.otp} className='p-2 w-full focus:outline-none rounded-xl shadow2' name="otp" id="otp" placeholder="Your otp"/> */}
               <span id="otp_error" className=""></span>
             </div>
             <div className="form-grp">
@@ -250,8 +216,6 @@ const dealership = () => {
               We respect your privacy. Your information is confidential with us.
             </span>
             <div className="text-green-500">{msg}</div>
-
-            {/* <button>Başvur</button> */}
           </form>
         </div>
       </div>
@@ -260,10 +224,6 @@ const dealership = () => {
           <div className="container mx-auto items-center">
             <div className="p-4">
               <div className="">
-                {/* <div className="text-4xl font-bold text-orange-500">
-                                    <h2 className='py-2'>Why choose us <span className='text-blue-900'>US </span></h2>
-                                    <img src='/home/title_line.png' alt="line" />
-                                </div> */}
                 <div className="text-center items-center flex flex-col mb-6">
                   <h2 className="text-4xl font-black">Why Partners with Us</h2>
                   <p className=" text-lg my-4">
@@ -272,7 +232,6 @@ const dealership = () => {
                     <br />
                     so you can make smart and secure purchases.
                   </p>
-                  {/* <img src='/home/title_line.png' alt='home'/> */}
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                   <div className="text-center flex flex-wrap justify-center align-item-center">
@@ -283,10 +242,7 @@ const dealership = () => {
                       width="250px"
                     />
                     <div className="after"></div>
-                    <div className="px-4 absolute">
-                      {/* <h4 className="text-xl text-white font-bold  uppercase mt-4 flex-none">Verified cars</h4> */}
-                      {/* <p className="mx-5 hiwpara">You can easily become the part of our family by downloading our auction app to take part in the auctions.</p> */}
-                    </div>
+                    <div className="px-4 absolute"></div>
                   </div>
                   <div className="text-center flex flex-wrap justify-center align-item-center">
                     <img
@@ -295,10 +251,7 @@ const dealership = () => {
                       alt="howitworks"
                       width="250px"
                     />
-                    <div className="px-4 absolute">
-                      {/* <h4 className="text-xl text-white font-bold  uppercase flex-none">Transparent<br />bidding process</h4> */}
-                      {/* <p className="mx-5 hiwpara"> </p> */}
-                    </div>
+                    <div className="px-4 absolute"></div>
                   </div>
                   <div className="text-center flex flex-wrap justify-center align-item-center">
                     <img
@@ -307,29 +260,19 @@ const dealership = () => {
                       alt="howitworks"
                       width="250px"
                     />
-                    <div className="px-4 absolute">
-                      {/* <h4 className="text-xl text-white font-bold  uppercase flex-none">Get car at your<br /> doorstep</h4> */}
-                      {/* <p className="mx-5 hiwpara">After winning the bidding we will offers the various payment methods just like online and offline methods.</p> */}
-                    </div>
                   </div>
                   <div className="text-center flex flex-wrap justify-center align-item-center">
-                    <img
-                      src="carousel/WCU4.png"
+                    <Image
+                      width={250}
+                      height={250}
+                      src="/carousel/WCU4.png"
                       className="img-fluid h-64 transition object-cover duration-300 transform hover:scale-110 whychooseus relative"
                       alt="howitworks"
-                      width="250px"
                     />
-                    <div className="px-4 absolute">
-                      {/* <h4 className="text-xl text-white font-bold  uppercase flex-none">Secured payment<br /> methods</h4> */}
-                      {/* <p className="mx-5 hiwpara">Secured payment methods</p> */}
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            {/* <div className="">
-                            <img src={"/whyus.jpg"} className='rounded-xl' alt="" width="500"/>
-                        </div> */}
           </div>
         </div>
       </div>
@@ -346,42 +289,6 @@ const dealership = () => {
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-              {/* <div className="text-center flex flex-wrap justify-center cardhow">
-                <img
-                  src="icons/join.png"
-                  className="img-fluid transition duration-300 transform hover:scale-110"
-                  alt="howitworks"
-                  width="200px"
-                />
-                <div className="px-4 pb-3">
-                  <h4 className="text-2xl font-black text-black uppercase mt-4 flex-none">
-                    Join our family
-                  </h4>
-                  <p className="mx-5 font-normal my-4 text-lg">
-                    You can easily become the part of our family by downloading
-                    our auction app to take part in the auctions.
-                  </p>
-                </div>
-              </div> */}
-
-              {/* <div className="text-center flex flex-wrap justify-center cardhow">
-                <img
-                  src="icons/onboarding.png"
-                  className="img-fluid transition duration-300 transform hover:scale-110"
-                  alt="howitworks"
-                  width="200px"
-                />
-                <div className="px-4 pb-3">
-                  <h4 className="text-2xl font-black text-black uppercase mt-4 flex-none">
-                    On boarding form
-                  </h4>
-                  <p className="mx-5 font-normal my-4 text-lg">
-                    Our advance methods quickly analyse your car price and get
-                    the estimate value of your car.{" "}
-                  </p>
-                </div>
-              </div> */}
-
               <div className="text-center flex flex-wrap justify-center cardhow">
                 <img
                   src="icons/biding.png"
@@ -416,24 +323,6 @@ const dealership = () => {
                 </div>
               </div>
 
-              {/* <div className="text-center flex flex-wrap justify-center cardhow">
-                <img
-                  src="icons/payment.png"
-                  className="img-fluid transition duration-300 transform hover:scale-110"
-                  alt="howitworks"
-                  width="200px"
-                />
-                <div className="px-4 pb-3">
-                  <h4 className="text-2xl font-black text-black uppercase mt-4 flex-none">
-                    Payment time
-                  </h4>
-                  <p className="mx-5 font-normal my-4 text-lg">
-                    After winning the bidding we will offers the various payment
-                    methods just like online and offline methods.
-                  </p>
-                </div>
-              </div> */}
-
               <div className="text-center flex flex-wrap justify-center cardhow">
                 <img
                   src="https://api.unificars.com/front/img/icon/hiw1copy.png"
@@ -455,12 +344,6 @@ const dealership = () => {
           </div>
         </div>
       </div>
-
-      {/* <div className='flex items-center mx-auto'>
-                <div className='hidden lg:block w-[100%]'>
-                    <img src="howitjoin.png" className=' w-[100%]' />
-                </div>
-            </div> */}
 
       <div className="grid grid-cols-1 lg:grid-cols-2 container mx-auto gap-4 mt-10 mb-16 lg:mt-10 border-2 rounded-xl">
         <div className=" mx-4 mt-2 font-bold place-self-center">
@@ -510,7 +393,6 @@ const dealership = () => {
         </div>
       </div>
 
-      {/* <Reviews/> */}
       <TestemonialCarousel />
 
       <style jsx>{`

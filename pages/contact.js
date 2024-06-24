@@ -69,23 +69,13 @@ const contact = () => {
   return (
     <div className="">
       <div className="relative">
-        <div className="my-12">
-          <Image
-            src="/contact-bg.png"
-            alt="about us"
-            width={1000}
-            height={500}
-            className="w-full object-cover"
-          />
-        </div>
-        {/* <div className='absolute left-[45%] top-1/3 '>
-                    <h2 className='text-white text-xl lg:text-5xl text-center'>Buy, Sell, and Drive On!</h2>
-                    <p className='text-white text-2xl my-4 hidden lg:block'>Let the UNIFI WHEELS PRIVATE LIMITED be a part of your journey.</p>
-                    <div className='flex gap-4 justify-center mt-3'>
-                        <Link href={"/assured-cars"} className='bg-[#f38102] p-1 lg:p-2 text-white cursor-pointer hover:scale-105 lg:px-6 hover:text-[#f38102] hover:bg-white border-[#f38102] border text-center transition-all duration-300 ease-in-out rounded shadow'>Buy Car</Link>
-                        <Link href={"/sell-used-cars"} className='bg-[#f38102] p-1 lg:p-2 text-white cursor-pointer hover:scale-105 lg:px-6 hover:text-[#f38102] hover:bg-white border-[#f38102] border text-center transition-all duration-300 ease-in-out rounded shadow'>Sell Car</Link>
-                    </div>
-                </div> */}
+        <Image
+          src="/contact-bg.png"
+          alt="about us"
+          width={1000}
+          height={800}
+          className="w-full object-cover pt-12"
+        />
       </div>
 
       <div className="max-w-[1000px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 p-4">

@@ -87,7 +87,7 @@ const CarPageRelatedCars = (props) => {
 
                 <div className="changeallcartext" style={{ height: "300px" }}>
                   <div className="justify-start items-center">
-                    <p className="text-[12px] md:text-sm text-black font-medium font-inter">
+                    <p className="text-[12px] md:text-sm text-black font-medium font-sans">
                       Unifi Rating
                     </p>
                     <Rating

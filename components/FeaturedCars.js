@@ -127,7 +127,7 @@ function FeaturedCars({ featuredlist, desktopItemNum }) {
                       }}
                       className="">
                       <div className="text-start">
-                        <p className="text-[12px] md:text-sm font-medium font-inter">
+                        <p className="text-[12px] md:text-sm font-medium">
                           Unifi Rating
                         </p>
                         <Rating
@@ -138,7 +138,7 @@ function FeaturedCars({ featuredlist, desktopItemNum }) {
                         />
                       </div>
                       <div className="relative">
-                        <h4 className="text-md font-black my-2 font-inter text-start">
+                        <h4 className="text-md font-black my-2 font-sans text-start">
                           {car.lead.brand}
                         </h4>
                         <p className="mb-4 md:text-sm text-start space-x-2">
@@ -171,7 +171,7 @@ function FeaturedCars({ featuredlist, desktopItemNum }) {
                     //           </div> */}
                     //       </a>
                     //     </div>
-                    //     <p className="font-bold font-inter">
+                    //     <p className="font-bold font-sans">
                     //       ₹{" "}
                     //       {parseInt(car.lead.refurbished_price).toLocaleString(
                     //         "en-IN"
@@ -239,7 +239,7 @@ function FeaturedCars({ featuredlist, desktopItemNum }) {
                       </div>
 
                       <div className="pt-4 flex flex-wrap-reverse gap-1 lg:items-center flex-row lg:flex-row my-2">
-                        <p className="font-bold font-inter px-2">
+                        <p className="font-bold font-sans px-2">
                           ₹{" "}
                           {parseInt(car.lead.selling_amount).toLocaleString(
                             "en-IN"

@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
-import {
-  BsFillTelephoneFill,
-  BsFacebook,
-  BsTwitter,
-  BsLinkedin,
-  BsInstagram,
-} from "react-icons/bs";
 import { AiOutlineClose } from "react-icons/ai";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import TopBar from "./TopBar";
+import Image from "next/image";
 
 const Navbar = () => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
@@ -39,11 +34,16 @@ const Navbar = () => {
   return (
     <div className="container">
       <nav className="w-full z-20 bg-white shadow-sm position-fixed">
+        <TopBar />
         <div className="flex justify-between items-center navmargin">
           <div>
             <Link href="/">
-              {" "}
-              <img src="../logo.png" className="w-36" />{" "}
+              <Image
+                width={120}
+                height={120}
+                src="/logo.png"
+                className="w-36"
+              />
             </Link>
           </div>
           <div>
@@ -59,8 +59,7 @@ const Navbar = () => {
                   router.pathname == "/"
                     ? "text-orange-600 underline underline-offset-8"
                     : ""
-                }`}
-                passHref>
+                }`}>
                 Home
               </Link>
               <Link
@@ -69,8 +68,7 @@ const Navbar = () => {
                   router.pathname == "/buy-used-cars"
                     ? "text-orange-600 underline underline-offset-8"
                     : ""
-                }`}
-                passHref>
+                }`}>
                 {" "}
                 Buy Car
               </Link>
@@ -80,28 +78,17 @@ const Navbar = () => {
                   router.pathname == "/sell-used-cars"
                     ? "text-orange-600 underline underline-offset-8"
                     : ""
-                }`}
-                passHref>
+                }`}>
                 Sell Car
               </Link>
-              <Link
-                href="/about"
-                className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102] ${
-                  router.pathname == "/about"
-                    ? "text-orange-600 underline underline-offset-8"
-                    : ""
-                }`}
-                passHref>
-                About Us
-              </Link>
+
               <Link
                 href="/contact"
                 className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102] ${
                   router.pathname == "/contact"
                     ? "text-orange-600 underline underline-offset-8"
                     : ""
-                }`}
-                passHref>
+                }`}>
                 Contact Us
               </Link>
 
@@ -112,66 +99,90 @@ const Navbar = () => {
                     ? "text-orange-600 underline underline-offset-8"
                     : ""
                 }`}
-                passHref>
+                >
                 Assured fix
-              </Link> */}
+              </Link>
 
-              {/* <Link
+              <Link
                 href="/pre-delivery-inspection"
                 className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102] ${
                   router.pathname == "/pre-delivery-inspection"
                     ? "text-orange-600 underline underline-offset-8"
                     : ""
                 }`}
-                passHref>
+                >
                 Pre Inspection
               </Link> */}
               <div
                 className="relative py-2"
                 onMouseEnter={() => setIsOpen(true)}
                 onMouseLeave={() => setIsOpen(false)}>
-                {/* <button
+                <button
                   onClick={toggleDropdown}
                   className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102] ${
                     isOpen ? "text-orange-600 underline underline-offset-8" : ""
                   }`}>
-                  More Services
-                </button> */}
+                  More
+                </button>
                 {isOpen && (
                   <ul
                     className="absolute left-0 mt-2 bg-white shadow-lg rounded-lg"
                     style={{ width: "max-content" }}>
                     <li
                       className={`hover:bg-gray-100 ${
-                        router.pathname == "/scrap-cars" ? "bg-gray-200" : ""
+                        router.pathname == "/about" ? "bg-gray-200" : ""
+                      }`}>
+                      <Link href="/about" className="block px-4 py-2">
+                        About Us
+                      </Link>
+                    </li>
+
+                    <li
+                      className={`hover:bg-gray-100 ${
+                        router.pathname == "/assured-cars" ? "bg-gray-200" : ""
+                      }`}>
+                      <Link href="/assured-cars" className="block px-4 py-2">
+                        Assured fix
+                      </Link>
+                    </li>
+
+                    <li
+                      className={`hover:bg-gray-100 ${
+                        router.pathname == "/pre-delivery-inspection"
+                          ? "bg-gray-200"
+                          : ""
                       }`}>
                       <Link
-                        href="/scrap-cars"
-                        passHref
+                        href="/pre-delivery-inspection"
                         className="block px-4 py-2">
+                        Pre Inspection
+                      </Link>
+                    </li>
+
+                    <li
+                      className={`hover:bg-gray-100 ${
+                        router.pathname == "/scrap-cars" ? "bg-gray-200" : ""
+                      }`}>
+                      <Link href="/scrap-cars" className="block px-4 py-2">
                         Scrap Car
                       </Link>
                     </li>
+
                     <li
                       className={`hover:bg-gray-100 ${
                         router.pathname == "/challan-check" ? "bg-gray-200" : ""
                       }`}>
-                      <Link
-                        href="/challan-check"
-                        passHref
-                        className="block px-4 py-2">
+                      <Link href="/challan-check" className="block px-4 py-2">
                         Challan Check
                       </Link>
                     </li>
                   </ul>
                 )}
               </div>
-              {/* <Link href='#' className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102] ${router.pathname=="/sell-used-cars"?"text-orange-600 underline underline-offset-8":""}`} passHref>More Services</Link> */}
-              {/* <Link href='#' className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102] ${router.pathname=="/sell-used-cars"?"text-orange-600 underline underline-offset-8":""}`} passHref>About Us</Link> */}
               {/* <Link
                 href="/login"
                 className={`hover:text-[#f38102] active:text-orange-600 `}
-                passHref>
+                >
                 <div
                   className="border-orange-500 border-2 cursor-pointer flex rounded-xl font-bold text-orange-500  px-4 whitespace-nowrap p-1"
                   style={{ width: "max-content" }}>
@@ -183,8 +194,7 @@ const Navbar = () => {
                 href="/dealer-onboarding"
                 className={`hover:text-[#f38102] active:text-orange-600 ${
                   router.pathname == "/sell-used-cars" ? "text-orange-600 " : ""
-                }`}
-                passHref>
+                }`}>
                 <div
                   className="bg-orange-500 cursor-pointer flex rounded-xl font-bold text-white p-1 px-4 whitespace-nowrap border-2 border-orange-500"
                   style={{ width: "max-content" }}>
@@ -211,7 +221,12 @@ const Navbar = () => {
                     onClick={() => {
                       setSlider(false);
                     }}>
-                    <img src="../whitelogo.png" className="w-36" />{" "}
+                    <Image
+                      width={120}
+                      height={120}
+                      src="/whitelogo.png"
+                      className="w-36"
+                    />
                   </Link>
                 </li>
                 <li className="px-4 border-white/20 py-2 border-b-[1px] border-t-[1px] ">
@@ -350,13 +365,5 @@ const Navbar = () => {
     </div>
   );
 };
-
-// export async function getServerSideProps(context) {
-//     return {
-//       props: {
-//         pathname: context.resolvedUrl
-//       }
-//     }
-//   }
 
 export default Navbar;

@@ -637,7 +637,7 @@ const pdi = ({ isOpen, onClose }) => {
           <Link
             href="#"
             className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102]`}
-            passHref>
+            >
             <div
               className="bg-blue-500 cursor-pointer flex rounded-md font-bold text-white px-4 py-2 whitespace-nowrap text-base"
               style={{ width: "max-content" }}>
@@ -661,8 +661,7 @@ const pdi = ({ isOpen, onClose }) => {
             style={{ textAlign: "-webkit-center" }}>
             <Link
               href="#"
-              className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102]`}
-              passHref>
+              className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102]`}>
               <div
                 className="bg-blue-500 cursor-pointer flex rounded-md font-bold text-white px-4 py-2 whitespace-nowrap text-base mt-6"
                 style={{ width: "max-content" }}>

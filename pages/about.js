@@ -24,15 +24,13 @@ const about = () => {
       </Head>
       <div className="pb-4">
         <div className="relative">
-          <div className="my-12">
-            <Image
-              src="/aboutus.png"
-              alt="about us"
-              width={1000}
-              height={500}
-              className="w-full object-cover"
-            />
-          </div>
+          <Image
+            src="/aboutus.png"
+            alt="about us"
+            width={1000}
+            height={800}
+            className="w-full object-cover pt-12"
+          />
           {/* <div className='absolute left-[45%] top-1/3 '>
                         <h2 className='text-white text-xl lg:text-5xl text-center'>Buy, Sell, and Drive On!</h2>
                         <p className='text-white text-2xl my-4 hidden lg:block'>Let the UNIFI WHEELS PRIVATE LIMITED be a part of your journey.</p>
@@ -54,12 +52,12 @@ const about = () => {
         />
         <div className="w-full">
           <div className="mb-12">
-            <h2 className="text-4xl font-bold text-black font-inter">
+            <h2 className="text-4xl font-bold text-black font-sans">
               UNIFI WHEELS
               <br />
               PRIVATE LIMITED
             </h2>
-            <p className="text-md text-black-600 my-4 font-inter">
+            <p className="text-md text-black-600 my-4 font-sans">
               Welcome to our platform for buying and selling used cars! We
               strive to provide a seamless and convenient experience for
               individuals looking to purchase or sell pre-owned cars.
@@ -68,7 +66,7 @@ const about = () => {
 
           <div>
             <ul className="my-4 flex flex-col gap-6 ">
-              <li className="flex font-sm border-b-2 pb-4 text-lg font-inter">
+              <li className="flex font-sm border-b-2 pb-4 text-lg font-sans">
                 <div className="flex-none pt-1 mr-4">
                   <FaCar className="bg-[#ffffff] text-4xl " />
                 </div>
@@ -76,7 +74,7 @@ const about = () => {
                 the destination.
               </li>
 
-              <li className="flex font-sm border-b-2 pb-4 text-lg font-inter">
+              <li className="flex font-sm border-b-2 pb-4 text-lg font-sans">
                 <div className="flex-none pt-1 mr-4">
                   <IoDocumentTextSharp className="bg-[#ffffff] text-4xl " />
                 </div>
@@ -85,7 +83,7 @@ const about = () => {
                 free.
               </li>
 
-              <li className="flex text-lg font-inter">
+              <li className="flex text-lg font-sans">
                 <div className="flex-none pt-1 mr-4 ">
                   <BsFillBuildingsFill className="bg-[#ffffff] text-4xl " />
                 </div>
@@ -99,7 +97,7 @@ const about = () => {
       </div>
 
       <div className="my-16 max-w-[1000px] mx-auto">
-        <h2 className="text-4xl font-bold text-black font-inter text-center mb-8">
+        <h2 className="text-4xl font-bold text-black font-sans text-center mb-8">
           Our Team
         </h2>
         <div className="flex flex-wrap justify-evenly items-center gap-4 lg:gap-8">

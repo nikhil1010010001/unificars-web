@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+// Import necessary modules using dynamic import for lazy loading
+import React, { useState } from "react";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 
+// Lazy loading components
 const FilterCars = dynamic(() =>
   import("@/components/cars-listing/FilterCars")
 );
@@ -11,24 +13,9 @@ const BuyCarSearchFilter = dynamic(() =>
 );
 
 const BuyUsedCars = ({ initialCars, initialTotalItems, featuredCars }) => {
-  // console.log("this is featured", featuredCars);
   const [carListing, setCarListing] = useState(initialCars || []);
-  // const featuredlist = useState(featuredCars() || []);
   const [loading, setLoading] = useState(false);
   const [gridView, setGridView] = useState(true);
-  const [fields, setFields] = useState({
-    min_price: 100000,
-    max_price: 2400000,
-    owner: "",
-    year: "",
-    km: "",
-    type: "",
-    model: [],
-  });
-
-  // const onPageChange = (page) => {
-  //   setCurrentPage(page);
-  // };
 
   return (
     <>
@@ -46,11 +33,9 @@ const BuyUsedCars = ({ initialCars, initialTotalItems, featuredCars }) => {
         />
         <link rel="canonical" href="https://unificars.com/buy-used-cars" />
       </Head>
-      <div
-        className="lg:grid grid-cols-11 pt-4 bg-gray-100/10"
-        style={{ paddingTop: "90px" }}>
+      <div className="lg:grid grid-cols-11 bg-gray-100/10 pt-32">
         <div
-          className="overflow-y-scroll h-[100vh] sticky top-0 hidden lg:block col-span-2"
+          className="overflow-y-scroll max-h-screen h-[78vh] sticky top-32 hidden lg:block col-span-2"
           id="filter">
           <BuyCarSearchFilter
             setCarListing={setCarListing}
@@ -86,12 +71,14 @@ const BuyUsedCars = ({ initialCars, initialTotalItems, featuredCars }) => {
   );
 };
 
+// Server-side function to fetch initial data
 export async function getStaticProps() {
   let initialCars = [];
   let initialTotalItems = 0;
   let featuredCars = [];
 
   try {
+    // Fetch initial cars data
     const res = await fetch(
       `https://crm.unificars.com/api/filterswebpricesidebar?page=1&limit=10`,
       {
@@ -108,7 +95,6 @@ export async function getStaticProps() {
         headers: { "Content-type": "application/json" },
       }
     );
-
     const jsonData = await res.json();
 
     if (jsonData.code === 200) {
@@ -119,11 +105,10 @@ export async function getStaticProps() {
     }
 
     // Fetch featured cars
-
     const featuredRes = await fetch(
       "https://crm.unificars.com/api/featuredcars",
       {
-        method: "POST", // Ensure the method is POST
+        method: "POST",
         headers: { "Content-type": "application/json" },
       }
     );

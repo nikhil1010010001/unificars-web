@@ -14,7 +14,6 @@ module.exports = {
       },
       fontFamily: {
         robo: ["Roboto"],
-        futura: ["Futura"],
       },
 
       keyframes: {

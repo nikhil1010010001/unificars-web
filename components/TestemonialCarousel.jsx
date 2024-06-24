@@ -95,7 +95,7 @@ function TestimonialCarousel() {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="flex flex-col items-center bg-white shadow border-2 rounded-3xl p-6 mx-2  max-w-[500px]">
+              className="flex flex-col items-center bg-white shadow border-2 rounded-3xl p-6 mx-2 h-full max-w-[500px]">
               <div>
                 <div className="flex justify-between items-center w-full flex-wrap gap-2">
                   <h2 className="font-bold text-lg">{testimonial.name}</h2>

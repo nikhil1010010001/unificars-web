@@ -63,17 +63,12 @@ const HomeQuestions = () => {
 
   return (
     <div className="my-6 md:flex">
-      {/* <div className='text-center items-center flex flex-col mb-8'>
-                <h2 className='text-4xl text-[#f38102] my-2'>Frequently Asked Questions</h2>
-                <img src='/home/title_line.png' />
-            </div> */}
       <div className="w-full md:w-5/12 mx-auto">
         <div className="text-center items-center flex flex-col">
           <h2 className="text-4xl text-[#000] my-2 text-left font-black sellheadfont">
             Common <br />
             Questions
           </h2>
-          {/* <img src='/home/title_line.png' /> */}
         </div>
       </div>
       <div className="w-full md:w-7/12 mx-auto">
@@ -91,13 +86,13 @@ const HomeQuestions = () => {
               <Typography
                 className={`${
                   expanded[panel.panel] ? "text-orange-500" : "text-black"
-                } font-bold text-xl font-inter`}>
-                {panel.title}
+                } font-bold text-xl font-sans`}>
+                <span className="font-sans">{panel.title}</span>
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography className="text-sm changehomwq font-inter">
-                {panel.details}
+              <Typography className="text-sm changehomwq font-sans">
+                <span className="font-sans">{panel.details}</span>
               </Typography>
             </AccordionDetails>
           </Accordion>

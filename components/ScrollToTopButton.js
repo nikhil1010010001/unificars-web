@@ -1,4 +1,5 @@
 // components/ScrollToTopButton.js
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { FaAngleDoubleUp } from "react-icons/fa";
 
@@ -30,12 +31,12 @@ const ScrollToTopButton = () => {
         onClick={scrollToTop}>
         <FaAngleDoubleUp className="text-white text-xl" />
       </div>
-      <div className="w-full flex justify-between items-center pb-4 gap-4">
+      <div className="w-full flex flex-wrap justify-between items-center p-2 pb-4 gap-4">
         <p>© 2023 All Rights Reserved Unificars wheel PVT LTD</p>
         <div className="flex gap-4">
-          <p>Privacy Policy </p>
+          <Link href="/privacy-policy">Privacy Policy </Link>
           <p>|</p>
-          <p>Terms & Conditions</p>
+          <Link href="/term-conditions">Terms & Conditions</Link>
         </div>
       </div>
     </div>

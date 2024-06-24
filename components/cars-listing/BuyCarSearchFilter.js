@@ -127,7 +127,7 @@ const BuyCarSearchFilter = (props) => {
               Save
             </button> */}
           </div>
-          <h3 className="text-xl text-[#000] font-black my-2 font-inter">
+          <h3 className="text-xl text-[#000] font-black my-2 font-sans">
             Make & Model
           </h3>
 
@@ -220,15 +220,15 @@ const BuyCarSearchFilter = (props) => {
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
               id="panel1a-header">
-              <h6 className="text-sm font-semibold font-inter">₹ Budget</h6>
+              <h6 className="text-sm font-semibold font-sans">₹ Budget</h6>
             </AccordionSummary>
             <AccordionDetails>
               <div>
                 <div className="justify-between flex">
-                  <h2 className="text-xs bg-sky-500 text-white/100 p-1 rounded-md font-inter">
+                  <h2 className="text-xs bg-sky-500 text-white/100 p-1 rounded-md font-sans">
                     ₹ {value[0]}
                   </h2>
-                  <h2 className="text-xs bg-green-500	text-white/100 p-1 rounded-md font-inter">
+                  <h2 className="text-xs bg-green-500	text-white/100 p-1 rounded-md font-sans">
                     ₹ {value[1]}
                   </h2>
                 </div>
@@ -546,7 +546,7 @@ const BuyCarSearchFilter = (props) => {
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel2a-content"
               id="panel2a-header">
-              <h6 className="text-sm font-semibold font-inter">Fuel Type</h6>
+              <h6 className="text-sm font-semibold font-sans">Fuel Type</h6>
             </AccordionSummary>
             <AccordionDetails>
               <RadioGroup
