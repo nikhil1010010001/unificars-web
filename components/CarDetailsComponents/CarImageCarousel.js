@@ -4,6 +4,7 @@ import { Carousel } from "react-responsive-carousel";
 import Head from "next/head";
 import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
 import InnerImageZoom from "react-inner-image-zoom";
+import Image from "next/image";
 
 const CarImageCarousel = (props) => {
   const { images, car } = props;
@@ -48,7 +49,9 @@ const CarImageCarousel = (props) => {
           thumbWidth={150}
           showIndicators={false}
           renderThumbs={() =>
-            images.map((image, index) => <img src={image.image} key={index} />)
+            images.map((image, index) => (
+              <Image width={150} height={150} src={image.image} key={index} />
+            ))
           }>
           {images ? (
             images.map((image, index) => {

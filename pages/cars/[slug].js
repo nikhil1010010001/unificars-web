@@ -1,9 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import BarLoader from "react-spinners/BarLoader";
-import { GrGallery } from "react-icons/gr";
-import { TiTick } from "react-icons/ti";
-import Link from "next/link";
 import dynamic from "next/dynamic";
 
 const CarPageRelatedCars = dynamic(
@@ -18,11 +15,6 @@ const CarDetailsBox = dynamic(
   () => import("@/components/CarDetailsComponents/CarDetailsBox"),
   { ssr: true }
 );
-// const CarFeature = dynamic(() => import ('@/components/CarDetailsComponents/CarFeature') , { ssr: true });
-const HowItWork = dynamic(
-  () => import("@/components/CarDetailsComponents/HowItWork"),
-  { ssr: true }
-);
 const CarOverView = dynamic(
   () => import("@/components/CarDetailsComponents/CarOverView"),
   { ssr: true }
@@ -31,10 +23,7 @@ const OtpModal = dynamic(
   () => import("@/components/CarDetailsComponents/OtpModal"),
   { ssr: true }
 );
-const Questions = dynamic(
-  () => import("@/components/HomeComponents/Questions"),
-  { ssr: true }
-);
+
 const EnquiryModal = dynamic(
   () => import("@/components/CarDetailsComponents/EnquiryModal"),
   { ssr: true }
@@ -43,23 +32,15 @@ const MoblieCarDetailsHeader = dynamic(
   () => import("@/components/CarDetailsComponents/MoblieCarDetailsHeader"),
   { ssr: true }
 );
-const CheckPoint = dynamic(
-  () => import("@/components/CarDetailsComponents/CheckPoint"),
-  { ssr: true }
-);
-// const CarSpecification = dynamic(() => import ('@/components/CarDetailsComponents/CarSpecification') , { ssr: true });
-const CarReport = dynamic(
-  () => import("@/components/CarDetailsComponents/CarReport"),
-  { ssr: true }
-);
 
 import Image from "next/image";
 import Head from "next/head";
 
 import { useDispatch, useSelector } from "react-redux";
-import { IoLogoModelS, IoIosCloseCircle } from "react-icons/io";
+import { IoIosCloseCircle } from "react-icons/io";
 import { ImageDisplayHide } from "../../ReduxStore/actions/ModalImage";
 import Car210PointsModal from "@/components/CarDetailsComponents/Car210PointsModal";
+import HomeQuestions from "@/components/Home/HomeQuestions";
 
 const carPage = () => {
   const router = useRouter();
@@ -133,12 +114,17 @@ const carPage = () => {
           {car && car.lead[0] ? car.lead[0].Brand : ""} - Unifi Cars
         </title>
       </Head>
-      <div className="bg-gray-100/10" style={{ paddingTop: "90px" }}>
+      <div className="bg-gray-100/10" style={{ paddingTop: "130px" }}>
         {ShowSpinner ? (
           // showing spinner when car data is fecthing
           <div className="flex col-span-4 justify-center h-96 items-center w-11/12 my-8 m-auto rounded-xl">
             <div className="">
-              <img src="../logo.png" className="h-20 animate-bounce  mx-auto" />
+              <Image
+                width={100}
+                height={100}
+                src="/logo.png"
+                className="w-full h-20 animate-bounce  mx-auto"
+              />
               <BarLoader color="#f38120" width={100} className="mx-auto" />
             </div>
           </div>
@@ -163,40 +149,14 @@ const carPage = () => {
                       car={car}
                     />
                   </div>
-                  {/* <div className="flex justify-end mx-6">
-                    <Link
-                      href={{
-                        pathname: `/car-images/${car.lead[0].Brand.replace(
-                          / /g,
-                          "_"
-                        ).toLowerCase()}-${car.lead[0].varient
-                          .replace(/ /g, "_")
-                          .toLowerCase()}-${car.lead[0].Model.replace(
-                          / /g,
-                          "_"
-                        ).toLowerCase()}-${car.lead[0]["Registration In"]
-                          .replace(/ /g, "_")
-                          .slice(0, 2)
-                          .toLowerCase()}`,
-                        query: { id: id, assured: assured },
-                      }}
-                      className="mb-6 hover:text-blue-600 flex gap-2 shadow p-2 rounded-xl">
-                      <GrGallery className="my-1" />
-                      View All Images
-                    </Link>{" "}
-                  </div> */}
+
                   <div className="space-y-4">
                     <CarOverView CarDetails={car.lead} />
-                    {/* <CheckPoint/> */}
-                    {/* {car.detaiapi && car.detaiapi.  length > 0 ? <CarReport carDetails={car.detaiapi} /> : <></>} */}
-
-                    {/* <CarFeature CarFeature={car.features} />
-                                    <CarSpecification CarSpecific={car.specifications}/> */}
                   </div>
                 </div>
               </div>
               <div className="md:p-0 md:pb-4 w-full">
-                <div className="sticky top-24">
+                <div className="sticky top-36">
                   <CarDetailsBox
                     car={car}
                     id={id}
@@ -277,9 +237,8 @@ const carPage = () => {
               <></>
             )}
             <div>
-              <Questions />
+              <HomeQuestions />
             </div>
-            <div>{/* <HowItWork /> */}</div>
             <OtpModal
               showModal={showModal}
               setShowModal={setShowModal}

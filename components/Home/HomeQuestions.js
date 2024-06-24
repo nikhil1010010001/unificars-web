@@ -62,7 +62,7 @@ const HomeQuestions = () => {
   ];
 
   return (
-    <div className="my-6 md:flex">
+    <div className="my-16 md:flex">
       <div className="w-full md:w-5/12 mx-auto">
         <div className="text-center items-center flex flex-col">
           <h2 className="text-4xl text-[#000] my-2 text-left font-black sellheadfont">

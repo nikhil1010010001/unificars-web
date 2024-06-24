@@ -16,7 +16,6 @@ import Link from "next/link";
 
 const CarDetailsBox = (props) => {
   const { car, showModal, setShowModal, setShowEnquiryModal, id } = props;
-  console.log(car);
 
   return (
     <div className="p-4 mx-4 bg-white rounded-xl lg:mx-0 font-light carousel-item">

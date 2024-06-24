@@ -12,7 +12,6 @@
 // import ClipLoader from "react-spinners/ClipLoader";
 // import CarPageRelatedCars from '@/components/CarDetailsComponents/CarPageRelatedCars';
 
-
 // const car = () => {
 //   const router = useRouter()
 //   const { slug } = router.query
@@ -44,7 +43,6 @@
 //   useEffect(() => {
 //     fetchCarList()
 //   }, [slug]);
-
 
 //   const HandleSendOtp = async () => {
 //     if (UserNumber.current.value != "" && (UserNumber.current.value).match(/^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9}$/)) {
@@ -131,7 +129,6 @@
 
 //             <div className=" w-full px-4 col-span-2">
 
-
 //               <div>
 //                 <Carousel
 //                   showStatus={false}
@@ -190,15 +187,10 @@
 //                     <div className='flex gap-2'><IoMdCheckboxOutline className='my-1 text-orange-500 flex-none' />Free RC Transfer</div>
 //                   </div>
 
-
-
-
 //                 </div>
 //               </div>
 
-
 //             </div>
-
 
 //             <div className=' '>
 //               <div className="w-full border-2 border-gray-200 bg-gray-100 shadow rounded-xl p-5 lg:py-6 mt-6 lg:mt-0 sticky top-5">
@@ -223,7 +215,6 @@
 //                     {(Car.lead[0])["Colour"]}
 //                   </div>
 
-
 //                 </div>
 
 //                 <div className='flex flex-col gap-4 text-blue-500 font-semibold text-sm border-b-2 p-2 border-gray-300'>
@@ -233,7 +224,6 @@
 //                   <div className='cursor-pointer'><a className='flex' href="https://wa.me/+919911771977?text=Hey Unificars  I want to buy Maruti Wagon-R VXI 1.2 containing  UNC-13666" target="_blank"><BsWhatsapp className='my-1 mr-2' />Connect on Whatsapp <AiOutlineArrowRight className="my-1 mx-1" /></a></div>
 //                 </div>
 
-
 //                 <div className='grid grid-cols-2 text-center my-2'>
 
 //                   <div className="flex justify-end my-2 gap-4 col-span-2">
@@ -242,7 +232,6 @@
 //                     <button className="flex text-white bg-orange-500 py-2 px-6 focus:outline-none shadow border-b-2 border-orange-00 border-r-2 transition-all duration-300  rounded-xl">Book a Test Drive Now <AiOutlineArrowRight className="my-1 mx-1" /></button>
 
 //                   </div>
-
 
 //                 </div>
 //               </div>
@@ -314,16 +303,10 @@
 //         </div>
 //         {/* modal ends here */}
 
-
-
 //         <div className='w-11/12 m-auto mb-4 '>
 //           <h2 className='text-4xl font-bold border-b-2 p-2 text-blue-900 capitalize'>You may also Like</h2>
 //           <CarPageRelatedCars />
 //         </div>
-
-
-
-
 
 //       </section> : <div className="flex col-span-4 justify-center h-96 items-center w-11/12 my-8 bg-gray-100 m-auto rounded-xl">
 //         <div className="">
@@ -336,65 +319,73 @@
 
 // export default car
 
-
-
-import CarImageCarousel from '@/components/CarDetailsComponents/CarImageCarousel'
-import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
+import CarImageCarousel from "@/components/CarDetailsComponents/CarImageCarousel";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 import BarLoader from "react-spinners/BarLoader";
 
-
 const carImages = () => {
-  const router = useRouter()
-  const { slug, id, assured } = router.query
+  const router = useRouter();
+  const { slug, id, assured } = router.query;
   const [car, setCar] = useState("");
-  const [Loading, setLoading] = useState(true)
+  const [Loading, setLoading] = useState(true);
 
   const fetchCarDetails = async () => {
     try {
-      const params = { "lead_id": id, assured: assured }
-      setLoading(true)
-      const fecthCars = await fetch("https://crm.unificars.com/api/webcardetail", {
-        method: 'POST',
-        body: JSON.stringify(params),
-        headers: {
-          'Content-type': 'application/json',
-        },
-      })
-      const jsonData = await fecthCars.json()
+      const params = { lead_id: id, assured: assured };
+      setLoading(true);
+      const fecthCars = await fetch(
+        "https://crm.unificars.com/api/webcardetail",
+        {
+          method: "POST",
+          body: JSON.stringify(params),
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
+      const jsonData = await fecthCars.json();
       // setShowSpinner(false)
       if (jsonData.code == 200) {
-        console.log(jsonData, "from car images")
-        setCar(jsonData.data)
-        setLoading(false)
+        console.log(jsonData, "from car images");
+        setCar(jsonData.data);
+        setLoading(false);
       }
-    } catch (error) {
-
-    }
-
+    } catch (error) {}
   };
 
   useEffect(() => {
     if (!router.isReady) return;
-    fetchCarDetails()
+    fetchCarDetails();
   }, [router.isReady]);
-
 
   return (
     <>
-      {Loading ? <div className="flex col-span-4 justify-center h-96 items-center w-11/12 my-8 m-auto rounded-xl">
-        <div className="">
-          <img src='../logo.png' className='h-20 animate-bounce  mx-auto' />
-          <BarLoader color="#f38120" width={100} className="mx-auto" />
+      {Loading ? (
+        <div className="flex col-span-4 justify-center h-96 items-center w-11/12 my-8 m-auto rounded-xl">
+          <div className="">
+            <img src="../logo.png" className="h-20 animate-bounce  mx-auto" />
+            <BarLoader color="#f38120" width={100} className="mx-auto" />
+          </div>
         </div>
-      </div> : <>
-        {car && car != "" ? <div className='container w-10/12 mx-auto my-4'>
-          <CarImageCarousel images={car.assuredimages.length > 0 ? car.assuredimages : car.images} car={car} />
-        </div> : <></>}
-      </>}
+      ) : (
+        <>
+          {car && car != "" ? (
+            <div className="container w-10/12 mx-auto my-4">
+              <CarImageCarousel
+                images={
+                  car.assuredimages.length > 0 ? car.assuredimages : car.images
+                }
+                car={car}
+              />
+            </div>
+          ) : (
+            <></>
+          )}
+        </>
+      )}
     </>
+  );
+};
 
-  )
-}
-
-export default carImages
+export default carImages;
