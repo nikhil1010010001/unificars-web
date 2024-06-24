@@ -32,7 +32,7 @@ const ScrollToTopButton = () => {
         <FaAngleDoubleUp className="text-white text-xl" />
       </div>
       <div className="w-full flex flex-wrap justify-between items-center p-2 pb-4 gap-4">
-        <p>© 2023 All Rights Reserved Unificars wheel PVT LTD</p>
+        <p>© 2024 All Rights Reserved Unificars wheel PVT LTD</p>
         <div className="flex gap-4">
           <Link href="/privacy-policy">Privacy Policy </Link>
           <p>|</p>

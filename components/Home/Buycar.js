@@ -101,7 +101,7 @@ const Buycar = () => {
                   Free accessories worth 10k
                 </h4>
                 <p className="text-lg">
-                  On your purchase from our side we provides free accessories
+                  On your purchase from Unificars we provide free accessories
                   worth upto 10K.
                 </p>
               </div>
@@ -121,7 +121,7 @@ const Buycar = () => {
                   First Service free
                 </h4>
                 <p className="text-lg">
-                  We provide first free car service for our users ie car
+                  We provide first free car service for our Buyers i.e. car
                   servicing, washing etc. 
                 </p>
               </div>

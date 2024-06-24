@@ -34,8 +34,8 @@ const Footer = () => {
               />
             </Link>
             <p className="text-left  text-sm max-w-[300px]">
-              Your all-in-one platform for discovering and streaming your
-              favorite shows on the go.
+              Unificars: Complete Car Solutions - Buy, Sell, Scrap, Inspect and
+              more
             </p>
 
             {/* <div className="cursor-pointer flex rounded font-bold  p-2 my-4 text-xl">

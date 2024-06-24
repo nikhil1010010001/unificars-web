@@ -11,7 +11,7 @@ function TopBar() {
       </p>
       <p className="flex items-center gap-2">
         <MdOutlineMailOutline className="text-xl" />{" "}
-        <span>info@unificar.com</span>
+        <span>info@unificars.com</span>
       </p>
     </div>
   );

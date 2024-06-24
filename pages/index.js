@@ -236,10 +236,10 @@ function index() {
                   className="w-16 h-16 object-contain"
                 />
               </div>
-              <h4 className="text-2xl font-bold buyh4">Car Inspection</h4>
+              <h4 className="text-2xl font-bold buyh4">Car Health Report</h4>
               <p className="text-lg">
-                Our car experts checked your car from interior to exterior and
-                ensures your safety as our priority.
+                Car Health result ensures safety with 210 checkpoints, covering
+                all issues by certified professionals.
               </p>
             </div>
           </Link>

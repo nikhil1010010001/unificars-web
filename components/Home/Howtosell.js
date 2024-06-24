@@ -13,7 +13,7 @@ const HowToSell = () => {
         </h1>
       </div>
       <p className="text-center mb-8 hiwpara">
-        keys to cash unlock the value of your car
+        Sell your Used Car in Three Simple Steps
       </p>
 
       <div className="flex gap-6 md:flex-row flex-col w-full">
