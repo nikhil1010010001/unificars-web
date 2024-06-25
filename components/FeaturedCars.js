@@ -18,7 +18,7 @@ function FeaturedCars({ featuredlist, desktopItemNum }) {
   }, [featuredlist]);
 
   return (
-    <div className="transition-all duration-800 z-10">
+    <div className="transition-all duration-800 z-10 md:w-[90%] mx-auto">
       <Carousel
         responsive={{
           desktop: {
@@ -52,7 +52,9 @@ function FeaturedCars({ featuredlist, desktopItemNum }) {
         {featureddata && featureddata.length > 0 ? (
           featureddata.map((car, index) => {
             return (
-              <div key={index} className="carousel-item m-2 featuremain h-full">
+              <div
+                key={index}
+                className="carousel-item  m-2  featuremain h-full">
                 <div>
                   <Carousel
                     responsive={{

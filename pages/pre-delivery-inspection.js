@@ -253,7 +253,7 @@ const pdi = ({ isOpen, onClose }) => {
       </Head>
       {/* top banner*/}
       <div className="relative">
-        <div className="w-full h-full relative" style={{ paddingTop: "80px" }}>
+        <div className="w-full h-full relative">
           <div className="absolute w-full h-full -z-10">
             <img src="/pdi-new.png" className="w-full h-full object-cover" />
           </div>
@@ -653,7 +653,7 @@ const pdi = ({ isOpen, onClose }) => {
       <div className="mx-auto bg-blue-100 mt-16 ">
         <div className="font-bold text-center py-14 ">
           <h2 className="text-4xl text-black">
-            Start with unificars Pre delivery <br />
+            Start with Unifi Cars Pre delivery <br />
             Inspection service
           </h2>
           <div
@@ -696,7 +696,7 @@ const pdi = ({ isOpen, onClose }) => {
               Peace of Mind
             </h4>
             <p className="mb-4 text-center">
-              With Unificars PDI, you can be assured that your car is safe,
+              With Unifi Cars PDI, you can be assured that your car is safe,
               reliable, and ready for the road. Our inspection identifies any
               potential issues, allowing you to address them before they become
               major problems.
@@ -709,8 +709,8 @@ const pdi = ({ isOpen, onClose }) => {
             <p className="mb-4 text-center">
               Our team of experienced technicians uses the latest tools and
               technology to provide accurate and reliable inspection reports.
-              Trust the experts at Unificars to give you a clear picture of your
-              car's condition.
+              Trust the experts at Unifi Cars to give you a clear picture of
+              your car's condition.
             </p>
           </div>
           <div className="bg-white text-black p-6 rounded-lg carousel-item">

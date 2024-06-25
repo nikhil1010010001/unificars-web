@@ -1,4 +1,5 @@
 import VehicleInfo from "@/components/NewComponents/VehicleInfo";
+import Image from "next/image";
 
 const Sellcar = () => {
   return (
@@ -10,7 +11,7 @@ const Sellcar = () => {
               <span className="text-orange-500 sellheadfont">Sell</span>
               <span className="sellheadfont"> Car </span>
             </h1>
-            <p className="text-lg my-2">Select your car brand to get started</p>
+            <p className="text-lg my-2">Select your car brand</p>
             <h6 className="text-lg text-black my-2 font-semibold">
               ● Instant online quote.
             </h6>
@@ -21,7 +22,13 @@ const Sellcar = () => {
               ● Same day payment.
             </h6>
           </div>
-          <img src={"/selcarimage.png"} alt="" className="rounded-xl" />
+          <Image
+            height={400}
+            width={400}
+            src={"/selcarimage.png"}
+            alt="Sell Car"
+            className="w-full"
+          />
         </div>
         <div className="text-4xl font-bold w-[100] px-6 order-first lg:order-last">
           <VehicleInfo />

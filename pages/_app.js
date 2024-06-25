@@ -82,7 +82,7 @@ export default function App({ Component, pageProps }) {
         />
 
         <Navbar />
-        <div>
+        <div className="pt-[110px]">
           <Component {...pageProps} />
 
           <WhatsappSupport />

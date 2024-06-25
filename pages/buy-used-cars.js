@@ -33,7 +33,8 @@ const BuyUsedCars = ({ initialCars, initialTotalItems, featuredCars }) => {
         />
         <link rel="canonical" href="https://unificars.com/buy-used-cars" />
       </Head>
-      <div className="lg:grid grid-cols-11 bg-gray-100/10 pt-32">
+
+      <div className="lg:grid grid-cols-11 bg-gray-100/10">
         <div
           className="overflow-y-scroll max-h-screen h-[78vh] sticky top-32 hidden lg:block col-span-2"
           id="filter">
@@ -44,17 +45,15 @@ const BuyUsedCars = ({ initialCars, initialTotalItems, featuredCars }) => {
           />
         </div>
         <div className="col-span-9">
-          <div className="min-h-screen">
-            <div className="">
-              <FilterCars
-                model={""}
-                gridView={gridView}
-                setGridView={setGridView}
-                setCarListing={setCarListing}
-                setLoading={setLoading}
-                filterUrl={`https://crm.unificars.com/api/filterswebpricesidebar`}
-              />
-            </div>
+          <div className="min-h-screen mb-4">
+            <FilterCars
+              model={""}
+              gridView={gridView}
+              setGridView={setGridView}
+              setCarListing={setCarListing}
+              setLoading={setLoading}
+              filterUrl={`https://crm.unificars.com/api/filterswebpricesidebar`}
+            />
             <AllCars
               carListing={carListing}
               featuredlist={featuredCars}

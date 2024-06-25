@@ -526,7 +526,7 @@ const VehicleInfo = () => {
                   <span className="mx-5 text-black text-base font-sans"> OR </span>
                   <div className="w-full border-t border-gray-500"></div>
               </div>
-              <h1 className='text-xl text-black mt-4 leading-3'>Choose your model</h1> */}
+              <h1 className='text-xl text-black mt-4'>Choose your model</h1> */}
 
             {/* <Divider className="w-3/4" />
               <p className="text-md text-[#465166]">or</p>

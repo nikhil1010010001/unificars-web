@@ -48,14 +48,12 @@ const FeaturedCars = ({
               autoPlay={false}
               customTransition="transform 500ms ease-in-out"
               removeArrowOnDeviceType={["tablet", "mobile"]}
-              infinite={true}
-            >
+              infinite={true}>
               {carListing.map((car, index) => (
                 <div
                   key={index}
                   id="carList"
-                  className="p-3 bg-white group/link ease-in-out duration-400 transition-all font-robo border-gray-400/10 rounded-xl"
-                >
+                  className="p-3 bg-white ease-in-out duration-400 transition-all border-gray-400/10 rounded-xl">
                   <div>
                     <Link
                       href={{
@@ -71,8 +69,7 @@ const FeaturedCars = ({
                           .replace(/ /g, "_")
                           .slice(0, 2)}`.toLowerCase(),
                         query: { id: car.lead.id, assured: assured },
-                      }}
-                    >
+                      }}>
                       <div>
                         {car.lead.images && car.lead.images.length > 0 && (
                           <Image
@@ -118,8 +115,7 @@ const FeaturedCars = ({
                           .toLowerCase()}`,
                         query: { id: car.lead.id, assured: assured },
                       }}
-                      className=""
-                    >
+                      className="">
                       <div className="justify-start items-center">
                         <p className="text-[12px] md:text-sm text-white/100">
                           Unifi Rating
@@ -171,8 +167,7 @@ const FeaturedCars = ({
                           <div className="">
                             <a
                               onClick={() => setIsOpen(true)}
-                              style={{ cursor: "pointer" }}
-                            >
+                              style={{ cursor: "pointer" }}>
                               <img
                                 width="122"
                                 src="/assured.png"
@@ -202,12 +197,10 @@ const FeaturedCars = ({
                           .toLowerCase()}`,
                         query: { id: car.lead.id, assured: assured },
                       }}
-                      className="md:px-2"
-                    >
+                      className="md:px-2">
                       <div
                         className="flex gap-4 justify-between text-white/100 text-[10px] md:text-sm"
-                        style={{ marginTop: "-15px" }}
-                      >
+                        style={{ marginTop: "-15px" }}>
                         <p>
                           <span style={{ display: "flex" }}>
                             <img

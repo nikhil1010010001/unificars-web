@@ -460,7 +460,7 @@ const VehicleInfo = () => {
         {screen === 1 && (
           <div
             className={`p-4 flex flex-col justify-center items-start gap-4 w-full`}>
-            <div className="inline-flex items-center space-x-4 w-full max-w-full overflow-hidden">
+            <div className="flex flex-wrap-reverse gap-4 items-center  w-full max-w-full overflow-hidden">
               <span className="text-2xl font-semibold">
                 Enter your car registration number
               </span>
@@ -468,12 +468,12 @@ const VehicleInfo = () => {
                 src="/4xfaster.png"
                 alt="4x Faster"
                 width={70}
-                height={100}
-                className="ml-2 flex-shrink-0"
+                height={20}
+                className="flex-shrink-0"
               />
             </div>
-            <div className="flex gap-4 w-full">
-              <div className="flex flex-col gap-2 w-full">
+            <div className="flex flex-wrap md:flex-nowrap gap-4 w-full">
+              <div className="flex flex-wrap w-full gap-2">
                 <div className="font-bold text-[#465166] w-full text-field relative">
                   {/* <TextField
                   error={validNumber}
@@ -540,7 +540,7 @@ const VehicleInfo = () => {
               <span className="mx-5 text-black text-base font-sans"> OR </span>
               <div className="w-full border-t border-gray-500"></div>
             </div>
-            <h1 className="text-2xl font-bold text-black mt-4 leading-3">
+            <h1 className="text-2xl font-bold text-black mt-4">
               Choose your model
             </h1>
 

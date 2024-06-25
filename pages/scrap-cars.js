@@ -157,7 +157,7 @@ const about = () => {
             </div> */}
 
       <div
-        className="relative bg-cover bg-center min-h-[550px] pt-44 md:-pt-20 bg-blue-500"
+        className="relative bg-cover bg-center min-h-[550px] pt-20 bg-blue-500"
         // style={{ backgroundImage: "url(/scrap-car.png)", paddingTop: "80px" }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>

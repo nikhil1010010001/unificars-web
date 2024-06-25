@@ -36,7 +36,6 @@ const SellByPopularBrands = ({ setCarInfo, carInfo, screen, setScreen }) => {
 
   return (
     <>
-      <div></div>
       {!Loading ? (
         screen == 1 ? (
           // For Screen 1

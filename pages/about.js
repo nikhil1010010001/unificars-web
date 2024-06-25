@@ -45,7 +45,7 @@ const about = () => {
       <div className="container mx-auto p-6 md:px-20 flex gap-4 md:gap-8">
         <Image
           src="/aboutus-office.png"
-          alt="Office of Unificars"
+          alt="Office of Unifi Cars"
           width={500}
           height={300}
           className="w-[50%] rounded-xl"
@@ -70,7 +70,7 @@ const about = () => {
                 <div className="flex-none pt-1 mr-4">
                   <FaCar className="bg-[#ffffff] text-4xl " />
                 </div>
-                Looking for a second hand car or want to sell one? Unificars is
+                Looking for a second hand car or want to sell one? Unifi Cars is
                 the destination.
               </li>
 
@@ -165,7 +165,7 @@ const about = () => {
           </div>
           <div className="font-bold text-black content-center max-w-[800px] mx-auto">
             <p className="font-normal text-black my-2 text-center text-xl">
-              At Unificars we are trying to rectify the pain points, still
+              At Unifi Cars we are trying to rectify the pain points, still
               holding a pre owned car seller or buyer from selling or buying it
               online. There are already multiple platforms to buy or sell a car
               but what they lack in service, is our USP. We think it's time to

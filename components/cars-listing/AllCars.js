@@ -3,7 +3,6 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Image from "next/image";
 import Link from "next/link";
-import { TiTick } from "react-icons/ti";
 import Head from "next/head";
 import Rating from "@mui/material/Rating";
 import {
@@ -46,7 +45,7 @@ const AllCars = ({
         Featured Cars
       </h3>
 
-      <div className="md:px-16 px-6">
+      <div className="md:px-16">
         <FeaturedCars featuredlist={featuredlist} desktopItemNum={3} />
       </div>
       <h3 className="md:px-20 px-6 text-2xl text-[#000] font-black my-2 buyh1fontfamily">
@@ -64,7 +63,7 @@ const AllCars = ({
             <div
               key={index}
               id="carList"
-              className={`group/link duration-400 transition-all shadow-sm font-robo border-2 border-gray-400/10 rounded-3xl ${
+              className={`group/link duration-400 transition-all shadow-sm border-2 border-gray-400/10 rounded-3xl ${
                 gridView ? "" : "grid grid-cols-2 gap-4 items-center"
               }`}>
               <div>

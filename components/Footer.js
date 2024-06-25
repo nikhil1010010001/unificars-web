@@ -34,8 +34,7 @@ const Footer = () => {
               />
             </Link>
             <p className="text-left  text-sm max-w-[300px]">
-              Unificars: Complete Car Solutions - Buy, Sell, Scrap, Inspect and
-              more
+              Complete Car Solutions - Buy, Sell, Scrap, Inspect and more
             </p>
 
             {/* <div className="cursor-pointer flex rounded font-bold  p-2 my-4 text-xl">
@@ -114,7 +113,7 @@ const Footer = () => {
                     <Link href="/privacy-policy">Privacy Policy</Link>
                   </li>
                   <li className="transition-all duration-150">
-                    <Link href="/contact">Blog / News</Link>
+                    <Link href="/blog/Car-Segments-Of-India">Blog / News</Link>
                   </li>
                   {/* <li className="transition-all duration-150">
                   <div className="bg-blue-200 cursor-pointer flex rounded hover:bg-orange-400 font-bold shadow-lg text-blue-950 p-2 whitespace-nowrap" style={{ width: 'max-content' }}>

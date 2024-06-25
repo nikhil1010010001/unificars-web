@@ -37,7 +37,7 @@ const Buycar = () => {
 
   return (
     <div className="py-6 text-center text-gray-600">
-      <div className="mx-auto space-y-6 w-[85%]">
+      <div className="mx-auto space-y-6 w-[95%]">
         <div className="text-center my-10 mb-0 font-normal text-xl">
           <h1 className="text-[#000] font-black my-2 text-center sellheadfont">
             Why Buy Car From Us
@@ -46,7 +46,7 @@ const Buycar = () => {
             Keys to cash Unlock the value of your car
           </span> */}
         </div>
-        <div className="flex gap-6 lg:flex-row flex-col">
+        <div className="flex gap-6 lg:flex-row flex-col h-full md:w-[90%] mx-auto">
           <Link href="/buy-used-cars" className="w-full">
             <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg">
               <Image
@@ -54,15 +54,15 @@ const Buycar = () => {
                 height={400}
                 src="/carousel/used-car-1.png"
                 className="img-fluid w-full h-80 object-cover rounded-lg"
-                alt="howitworks"
+                alt="200 point inspection report"
               />
               <div className="text-left space-y-4 py-4">
                 <h4 className="text-xl text-black font-black tracking-widest mt-4 flex-none buyh4">
-                  210 Point Inspection Report
+                  210 point Inspection report
                 </h4>
                 <p className="text-lg">
-                  Unificars believes in providing better deal for our users with
-                  210-point inspection report.
+                  Unifi Cars believes in providing better deal for our users
+                  with 210-point inspection report.
                 </p>
               </div>
             </div>
@@ -70,11 +70,12 @@ const Buycar = () => {
 
           <Link href="/buy-used-cars" className="w-full">
             <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg">
-              <img
-                src="carousel/used-car-2.png"
+              <Image
+                width={400}
+                height={400}
+                src="/carousel/used-car-2.png"
                 className="img-fluid w-full h-80 object-cover rounded-lg"
-                alt="howitworks"
-                width="280"
+                alt="10,000 km engine warranty"
               />
               <div className="text-left space-y-4 py-4">
                 <h4 className="text-xl text-black font-bold tracking-widest mt-4 flex-none buyh4">
@@ -90,18 +91,19 @@ const Buycar = () => {
 
           <Link href="/buy-used-cars" className="w-full">
             <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg">
-              <img
-                src="carousel/used-car-3.png"
+              <Image
+                width={400}
+                height={400}
+                src="/carousel/used-car-3.png"
                 className="img-fluid w-full h-80 object-cover rounded-lg"
-                alt="howitworks"
-                width="280"
+                alt="free accessories worth 10k"
               />
               <div className="text-left space-y-4 py-4">
                 <h4 className="text-xl text-black font-bold tracking-widest mt-4 flex-none buyh4">
-                  Free accessories worth 10k
+                  Free accessories worth ₹10k
                 </h4>
                 <p className="text-lg">
-                  On your purchase from Unificars we provide free accessories
+                  On your purchase from Unifi Cars we provide free accessories
                   worth upto 10K.
                 </p>
               </div>
@@ -110,19 +112,22 @@ const Buycar = () => {
 
           <Link href="/buy-used-cars" className="w-full">
             <div className="text-center justify-center my-4 bg-[#FBFBFB] text-black p-2 rounded-lg">
-              <img
-                src="carousel/used-car-4.png"
+              <Image
+                width={400}
+                height={400}
+                src="/carousel/used-car-4.png"
                 className="img-fluid w-full h-80 object-cover rounded-lg"
-                alt="howitworks"
-                width="280"
+                alt="first service free"
               />
               <div className="text-left space-y-4 py-4">
                 <h4 className="text-xl text-black font-bold tracking-widest mt-4 flex-none buyh4">
-                  First Service free
+                  First service free
                 </h4>
                 <p className="text-lg">
-                  We provide first free car service for our Buyers i.e. car
+                  We provide first free car service for our buyers i.e. car
                   servicing, washing etc. 
+                  <br />
+                  &nbsp;
                 </p>
               </div>
             </div>

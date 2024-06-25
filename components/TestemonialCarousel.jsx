@@ -19,7 +19,7 @@ const testimonials = [
     location: "Jaipur",
     image: "/testimonials/testi2.jpeg",
     stars: 4,
-    text: "Our dealership's inventory has improved since we started sourcing cars from Unificars. The car is in good condition.",
+    text: "Our dealership's inventory has improved since we started sourcing cars from Unifi Cars. The car is in good condition.",
     company: "AS TRADING",
   },
   {
@@ -28,7 +28,7 @@ const testimonials = [
     name: "Ankita Sharma",
     image: "/testimonials/testi3.jpeg",
     stars: 5,
-    text: "As a dealer, finding reliable sources for quality cars is very crucial, and Unificars has never disappointed us.",
+    text: "As a dealer, finding reliable sources for quality cars is very crucial, and Unifi Cars has never disappointed us.",
     company: "GIANI MOTORS",
   },
   {
@@ -37,7 +37,7 @@ const testimonials = [
     location: "Faridabad",
     image: "/testimonials/testi4.jpeg",
     stars: 5,
-    text: "The bidding system at unificars is the best system. We have won numerous cars that are well maintained.",
+    text: "The bidding system at Unifi Cars is the best system. We have won numerous cars that are well maintained.",
     company: "GM MOTORS",
   },
   {
@@ -46,7 +46,7 @@ const testimonials = [
     location: "Delhi",
     image: "/testimonials/testi5.jpeg",
     stars: 5,
-    text: "Customer service at Unificars is Best. From the moment we inquired till the settlement the process was smooth.",
+    text: "Customer service at Unifi Cars is Best. From the moment we inquired till the settlement the process was smooth.",
     company: "EXPART AUTOMOBILE",
   },
   {
@@ -95,7 +95,7 @@ function TestimonialCarousel() {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="flex flex-col items-center bg-white shadow border-2 rounded-3xl p-6 mx-2 h-full max-w-[500px]">
+              className="flex flex-col items-center bg-white shadow border-2 rounded-3xl p-4 md:p-6 mr-2 h-full max-w-[500px]">
               <div>
                 <div className="flex justify-between items-center w-full flex-wrap gap-2">
                   <h2 className="font-bold text-lg">{testimonial.name}</h2>

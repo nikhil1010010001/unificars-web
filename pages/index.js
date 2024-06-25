@@ -66,7 +66,7 @@ function index() {
         <link rel="canonical" href="https://unificars.com" />
       </Head>
 
-      <div className="relative" style={{ paddingTop: "85px" }}>
+      <div className="relative">
         {/* <BannerCarousel /> */}
         <div className="cursor-pointer relative overflow-hidden">
           {/* For larger screens */}
@@ -81,7 +81,7 @@ function index() {
                 autoPlay={true}>
                 <div>
                   <h1 className="text-5xl font-black banheadfont">
-                    Choose Reliability, Choose Your New Car.
+                    Choose Reliability, Choose Your New Car
                   </h1>
                   <p className="text-lg my-4 mb-6 text-left font-sans">
                     Trusted by over 1 Lakh customers. Choose from 5000+ Unifi
@@ -98,12 +98,12 @@ function index() {
                 </div>
 
                 <div>
-                  <h1 className="text-5xl font-black banheadfont font-futura">
-                    Fast, Fair, Done: Sell Your Car with Unifi Cars
+                  <h1 className="text-5xl font-black banheadfont">
+                    Fast, Fair, Done Sell Your Car with Unifi Cars
                   </h1>
                   <p className="text-lg my-4 mb-6 text-left font-sans">
                     Experience a transparent and hassle-free car selling
-                    journey. With Unifi Cars.
+                    journey. With Unifi Cars
                   </p>
 
                   <Link href="/sell-used-cars">
@@ -135,12 +135,13 @@ function index() {
           {/* For smaller screens */}
           <div className={`md:hidden`}>
             <div
-              className="relative flex items-center justify-center mt-10"
+              className="relative flex items-center justify-center pt-8"
               style={{ backgroundColor: "#fffde7", height: "400px" }}>
-              <img
-                src="/homecar.png"
-                className="absolute transform -translate-y-1/2 object-contain mt-12"
-                style={{ height: "250px" }}
+              <Image
+                width={300}
+                height={150}
+                src="/homecar-new.png"
+                className="absolute transform -translate-y-1/2 object-contain mt-12 h-64 w-full"
                 alt="Car Image"
               />
               <Carousel
@@ -151,7 +152,7 @@ function index() {
                 className="absolute bottom-10 text-center w-full">
                 <div className="flex flex-col mx-4 items-start justify-start">
                   <h1 className="text-2xl mb-2 font-bold text-start">
-                    Choose Reliability, Choose Your New Car.
+                    Choose Reliability, Choose Your New Car
                   </h1>
                   <p className="text-sm mb-4 text-start">
                     Trusted by over 1 Lakh customers. Choose from 5000+ Unifi
@@ -166,7 +167,7 @@ function index() {
 
                 <div className="flex flex-col mx-4 items-start justify-start">
                   <h1 className="text-2xl mb-2 font-bold text-start">
-                    Fast. Fair. Done. Sell Your Car with Unifi.
+                    Fast. Fair. Done. Sell Your Car with Unifi Cars
                   </h1>
                   <p className="text-sm mb-4 text-start">
                     Trusted by over 1 Lakh customers. Choose from 5000+ Unifi
@@ -187,26 +188,30 @@ function index() {
       <CookiesSection />
 
       <div className="relative max-w-6xl mx-auto px-4 pt-16">
-        <div className="text-4xl w-[50] mx-auto px-6 order-last lg:order-first text-center">
+        <div className="text-4xl min-w-[50] mx-auto px-2 md:px-6 order-last lg:order-first text-center">
           <h1 className="py-6 font-bold">
             <span className="text-orange-500 sellheadfont">What</span>
             <span className="sellheadfont"> We Do</span>
           </h1>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 h-full">
           <Link href="/sell-used-cars">
             <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 py-12 rounded-lg shadow-md">
               <div>
-                <img
+                <Image
+                  width={100}
+                  height={100}
                   src="/handshake-new.png"
                   className="w-16 h-16 object-contain"
+                  alt="Sell Car"
                 />
               </div>
               <h4 className="text-2xl font-bold buyh4">Sell Car</h4>
               <p className="text-lg">
                 Sell your car easily with us and get better offers with hassle
                 free process.
+                <br /> &nbsp;
                 <br /> &nbsp;
               </p>
             </div>
@@ -215,15 +220,19 @@ function index() {
           <Link href="/buy-used-cars">
             <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 py-12 rounded-lg shadow-md">
               <div>
-                <img
+                <Image
+                  width={100}
+                  height={100}
                   src="/rentalcar-new.png"
                   className="w-16 h-16 object-contain"
+                  alt="Buy Car"
                 />
               </div>
               <h4 className="text-2xl font-bold buyh4">Buy Car</h4>
               <p className="text-lg">
                 Explore top quality used cars at unbeatable price. Enjoy stress
                 free car buying experience.
+                <br /> &nbsp;
               </p>
             </div>
           </Link>
@@ -231,14 +240,17 @@ function index() {
           <Link href="/pre-delivery-inspection">
             <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 py-12 rounded-lg shadow-md">
               <div>
-                <img
+                <Image
+                  width={100}
+                  height={100}
                   src="/car-insp-new.png"
                   className="w-16 h-16 object-contain"
+                  alt="Car Health Report"
                 />
               </div>
               <h4 className="text-2xl font-bold buyh4">Car Health Report</h4>
               <p className="text-lg">
-                Car Health result ensures safety with 210 checkpoints, covering
+                Car Health Report ensures safety with 210 checkpoints, covering
                 all issues by certified professionals.
               </p>
             </div>
@@ -247,15 +259,19 @@ function index() {
           <Link href="/challan-check">
             <div className="flex flex-col gap-4 bg-[#FBFBFB] text-black p-6 py-12 rounded-lg shadow-md">
               <div>
-                <img
+                <Image
+                  width={100}
+                  height={100}
                   src="/challan-check.png"
                   className="w-16 h-16 object-contain"
+                  alt="Challan Check"
                 />
               </div>
-              <h4 className="text-2xl font-black buyh4">Challan check</h4>
+              <h4 className="text-2xl font-black buyh4">Challan Check</h4>
               <p className="text-lg">
                 Stay informed & avoid penalties with our direct and easy process
                 to fill your traffic challan online.
+                <br /> &nbsp;
               </p>
             </div>
           </Link>
@@ -268,7 +284,7 @@ function index() {
 
       <Buycar />
 
-      <div className="w-full my-16">
+      <div className="w-full mx-auto my-16">
         <ExploreActionCard />
       </div>
 
@@ -279,11 +295,13 @@ function index() {
       </div>
 
       <div className="container mx-auto my-16">
-        <div className="grid grid-cols-1 lg:grid-cols-1 container mx-auto mt-5 lg:mt-10">
-          <div className="line">
-            <img src={"/download-banner.png"} alt="" className="rounded-xl" />
-          </div>
-        </div>
+        <Image
+          width={3840 / 3}
+          height={1302 / 3}
+          src={"/download-banner.png"}
+          className="rounded-xl object-cover w-full"
+          alt="Download Banner"
+        />
       </div>
 
       <div className="my-16">

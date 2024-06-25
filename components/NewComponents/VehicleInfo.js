@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import BlogGrid from "@/components/NewComponents/BlogGrid";
 import TextField from "@mui/material/TextField";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
@@ -23,8 +22,6 @@ import Image from "next/image";
 import axios from "axios";
 import { getCarValuation } from "@/common/common";
 
-// import InputMask from 'inputmask';
-
 const VehicleInfo = () => {
   const [value, setValue] = useState("1");
   const [screen, setScreen] = useState(1);
@@ -34,7 +31,6 @@ const VehicleInfo = () => {
   const [ExpectedPrice, setExpectedPrice] = useState([0, 0]);
   const [userNumber, setUserNumber] = useState("");
   const [last_id, setlast_id] = useState(null);
-  const [verifyNum, setVerifyNum] = useState(false);
   const [BookSlot, setBookSlot] = useState(false);
   const bookingRef = useRef();
   const inputRef = useRef();
@@ -457,9 +453,6 @@ const VehicleInfo = () => {
       <div className="lg:col-span-2 gap-4 flex flex-col md:w-[100%] z-10">
         {screen === 1 && (
           <div className="md:p-2 flex flex-col justify-center items-start gap-2">
-            {/* <h1 className='text-xl text-black my-2 flex items-center'>
-                  Enter your car registration number &nbsp;<img src="4xfaster.png" style={{width:'20%'}}/>
-              </h1> */}
             <div className="w-full bg-[#dbeaff]/10 p-2 rounded-xl">
               <div className="inline-flex mb-2 items-center space-x-4 w-full max-w-full overflow-hidden">
                 <span className="text-xl">
@@ -469,31 +462,11 @@ const VehicleInfo = () => {
                   src="/4xfaster.png"
                   alt="4x Faster"
                   width={80} // Adjust the width and height as per your image's actual size or required dimensions
-                  height={110} // Adjust the width and height as per your image's actual size or required dimensions
+                  height={20} // Adjust the width and height as per your image's actual size or required dimensions
                   className="ml-2 flex-shrink-0"
                 />
               </div>
               <div className="font-bold text-[#465166] w-full mb-2 relative">
-                {/* <TextField
-                  error={validNumber}
-                  fullWidth
-                  id={
-                    validNumber
-                      ? "outlined-error-helper-text"
-                      : "outlined-basic"
-                  }
-                  placeholder="Search By Car Number"
-                  variant="outlined"
-                  label="e.g. ( DL XX AC _ _ _ _ )"
-                  type="text"
-                  value={carNumber}
-                  onChange={handleInputChange}
-                  color={validNumber ? "error" : "warning"}
-                  ref={inputRef}
-                  helperText={validNumber ? "Enter a valid number." : ""}
-                  className="shadow-sm"
-                /> */}
-
                 <input
                   type="text"
                   className="w-full p-2 rounded-2xl shadow-lg text-xl px-4 outline-none  border border-gray-200"
@@ -550,7 +523,7 @@ const VehicleInfo = () => {
                 <div className="w-full border-t border-gray-500"></div>
               </div>
             </div>
-            <h1 className="text-xl text-black my-4 leading-3">
+            <h1 className="text-xl text-black my-4">
               Select your car brand to get started
             </h1>
             {/* <Divider className="w-3/4" />
@@ -673,7 +646,7 @@ const VehicleInfo = () => {
             <div
               className="overflow-y-auto"
               style={{
-                height: "300px",
+                maxHeight: "300px",
                 borderRadius: "10px",
               }}>
               <TabPanel value="1" style={{ padding: "5px" }}>

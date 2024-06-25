@@ -52,16 +52,14 @@ const sellCars = () => {
 
   return (
     <>
-      <div className="pt-16">
+      <div className="pt-8">
         <Head>
           <title>{title}</title>
           <meta name="description" content={description} />
           <link rel="canonical" href={canonicalUrl} />
         </Head>
 
-        <div
-          className="text-center items-center flex flex-col mx-4"
-          style={{ paddingTop: "120px" }}>
+        <div className="text-center items-center flex flex-col mx-4">
           <h1 className="text-4xl text-black my-2 font-black">
             Sell Your Car At Best Price Instantly From Home
           </h1>
