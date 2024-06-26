@@ -3,8 +3,13 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Carousel from "react-multi-carousel";
 import Rating from "@mui/material/Rating";
-import { FaCar, FaUser, FaGasPump, FaRoad } from "react-icons/fa";
-import { BsInfoCircleFill } from "react-icons/bs";
+import {
+  CarFront,
+  FuelIcon,
+  InfoIcon,
+  MeterIcon,
+  UserIcon,
+} from "@/common/IconsSvg";
 
 function FeaturedCars({ featuredlist, desktopItemNum }) {
   const assured = 0;
@@ -149,12 +154,12 @@ function FeaturedCars({ featuredlist, desktopItemNum }) {
                       }}>
                       <div className="flex flex-wrap gap-2 text-xs mt-2">
                         <div className="flex items-center space-x-2 p-2 py-1 rounded-md bg-gray-100">
-                          <FaGasPump />
+                          <FuelIcon className="p-1" />
                           <span>{car.lead.engine_type}</span>
                         </div>
 
                         <div className="flex items-center space-x-2 p-2 py-1 rounded-md bg-gray-100">
-                          <FaRoad />
+                          <MeterIcon className="p-1" />
                           <span>
                             {parseInt(
                               car.lead.km_driven.split(" ")[0]
@@ -163,12 +168,12 @@ function FeaturedCars({ featuredlist, desktopItemNum }) {
                         </div>
 
                         <div className="flex items-center space-x-2 p-2 py-1 rounded-md bg-gray-100">
-                          <FaCar />
+                          <CarFront className="p-1" />
                           <span>{car.lead.registration_in}</span>
                         </div>
 
                         <div className="flex items-center space-x-2 p-2 py-1 rounded-md bg-gray-100">
-                          <FaUser />
+                          <UserIcon className="p-1" />
                           <span>{car.lead.ownership.split(" ")[0]} Owner</span>
                         </div>
                       </div>
@@ -181,7 +186,7 @@ function FeaturedCars({ featuredlist, desktopItemNum }) {
                           )}
                         </p>
 
-                        <BsInfoCircleFill className="text-blue-500 text-xl" />
+                        <InfoIcon className="fill-blue-500 text-white text-xl" />
                       </div>
                     </Link>
                   )}

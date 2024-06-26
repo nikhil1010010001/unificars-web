@@ -1,6 +1,5 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { AiOutlineArrowRight } from "react-icons/ai";
 import FeaturedCars from "../FeaturedCars";
 import Image from "next/image";
 
@@ -145,9 +144,6 @@ const Buycar = () => {
             Browse Car
           </button>
         </Link>
-        {/* <button className="bg-blue-200 p-2 px-3 hover:animate-none animate-[bounce_1s_ease-in-out_infinite] font-medium text-lg text-blue-900 rounded-full mt-5">
-                    <span className='flex'><Link href={"/buy-used-cars"}> Buy a Car</Link><AiOutlineArrowRight className='flex-none ml-2 my-1'/></span>
-                </button> */}
       </div>
     </div>
   );

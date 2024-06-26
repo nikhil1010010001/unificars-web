@@ -23,7 +23,7 @@ const SellByPopularBrands = ({ setCarInfo, carInfo, screen, setScreen }) => {
       );
       const jsonRes = await fetchBrand.json();
       if (jsonRes.code == 200) {
-        console.log(jsonRes.data, "Success");
+        // console.log(jsonRes.data, "Success");
         setBrandsLogo(jsonRes.data);
         setLoading(false);
       }

@@ -1,17 +1,32 @@
 import React, { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import Link from "next/link";
-import CookiesSection from "@/components/CookiesSection";
-import HowToSell from "@/components/Home/Howtosell";
-import ExploreActionCard from "@/components/ExploreActionCard";
-import TestimonialCarousel from "@/components/TestemonialCarousel";
-
-import HomeQuestions from "@/components/Home/HomeQuestions";
-import SellCar from "@/components/Home/SellCar";
-import Buycar from "@/components/Home/Buycar";
 import Image from "next/image";
+import Link from "next/link";
+
+const CookiesSection = dynamic(() => import("@/components/CookiesSection"), {
+  ssr: true,
+});
+const HowToSell = dynamic(() => import("@/components/Home/Howtosell"), {
+  ssr: true,
+});
+const ExploreActionCard = dynamic(
+  () => import("@/components/ExploreActionCard"),
+  { ssr: true }
+);
+const TestimonialCarousel = dynamic(
+  () => import("@/components/TestemonialCarousel"),
+  { ssr: true }
+);
+const HomeQuestions = dynamic(() => import("@/components/Home/HomeQuestions"), {
+  ssr: true,
+});
+const SellCar = dynamic(() => import("@/components/Home/SellCar"), {
+  ssr: true,
+});
+const Buycar = dynamic(() => import("@/components/Home/Buycar"), { ssr: true });
 
 function index() {
   const [isMobile, setIsMobile] = useState(false);
@@ -250,8 +265,8 @@ function index() {
               </div>
               <h4 className="text-2xl font-bold buyh4">Car Health Report</h4>
               <p className="text-lg">
-                Car Health Report ensures safety with 210 checkpoints, covering
-                all issues by certified professionals.
+                Car health report ensures the safety with 210 check points
+                covering all the issues by certified professionals
               </p>
             </div>
           </Link>

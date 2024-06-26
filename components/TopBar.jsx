@@ -1,11 +1,11 @@
+import { Mail, PhoneCall } from "@/common/IconsSvg";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
-import { FaPhoneVolume } from "react-icons/fa6";
-import { MdOutlineMailOutline } from "react-icons/md";
 
 function TopBar() {
   const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -24,14 +24,16 @@ function TopBar() {
         className="bg-orange-500">
         <div className="w-screen mx-auto text-white px-4 lg:px-28 py-2 flex justify-evenly md:justify-end items-center gap-8 md:gap-8 sticky top-0 z-20">
           <p className="flex items-center gap-2">
-            <FaPhoneVolume />{" "}
+            {/* <FaPhoneVolume />{" "} */}
+            <PhoneCall />
             <span className="md:block hidden">Toll Free : </span>
             <span className="whitespace-nowrap">+91-9911771977</span>
           </p>
           <Link
             href="mailto:info@unificars.com"
             className="flex items-center gap-2">
-            <MdOutlineMailOutline className="text-xl" />{" "}
+            {/* <MdOutlineMailOutline className="text-xl" />{" "} */}
+            <Mail />
             <span>info@unificars.com</span>
           </Link>
         </div>
@@ -41,14 +43,14 @@ function TopBar() {
     return (
       <div className="bg-orange-500 text-white px-4 lg:px-28 py-2 flex  justify-end items-center gap-4 md:gap-8 sticky top-0 z-20">
         <p className="flex items-center gap-2">
-          <FaPhoneVolume />{" "}
+          <PhoneCall />
           <span className="md:block hidden">Toll Free : </span>
           <span>+91-9911771977</span>
         </p>
         <Link
           href="mailto:info@unificars.com"
           className="flex items-center gap-2">
-          <MdOutlineMailOutline className="text-xl" />{" "}
+          <Mail />
           <span>info@unificars.com</span>
         </Link>
       </div>

@@ -2,15 +2,13 @@ import Link from "next/link";
 import React from "react";
 import ScrollToTopButton from "./ScrollToTopButton";
 
-import {
-  BsTwitter,
-  BsLinkedin,
-  BsInstagram,
-  BsFacebook,
-  BsFillTelephoneFill,
-  BsFillCarFrontFill,
-} from "react-icons/bs";
 import Image from "next/image";
+import {
+  FacebookIcon,
+  InstagramIcon,
+  LinkedInIcon,
+  TwitterIcon,
+} from "@/common/IconsSvg";
 
 const Footer = () => {
   return (
@@ -34,7 +32,10 @@ const Footer = () => {
               />
             </Link>
             <p className="text-left  text-sm max-w-[300px]">
-              Complete Car Solutions - Buy, Sell, Scrap, Inspect and more
+              Unifi Cars is the trusted partner for buy and sell preowned car.
+              You can choose over from the 1000+ inspected used car models. We
+              make your car finding journey easy and convenient. Enjoy
+              peacefulness on every purchase with us.
             </p>
 
             {/* <div className="cursor-pointer flex rounded font-bold  p-2 my-4 text-xl">
@@ -49,25 +50,25 @@ const Footer = () => {
                 target="_blank"
                 className=" cursor-pointer hover:text-blue-500 transition-all duration-150"
                 href="https://www.facebook.com/UnifiCars/">
-                <BsFacebook className="text-2xl" />
+                <FacebookIcon className="text-2xl" />
               </a>
               <a
                 target="_blank"
                 className="ml-3 cursor-pointer hover:text-red-500 transition-all duration-150"
                 href="https://www.instagram.com/unificars/">
-                <BsInstagram className="text-2xl" />
+                <InstagramIcon className="text-2xl" />
               </a>
               <a
                 target="_blank"
                 className="ml-3 cursor-pointer hover:text-blue-500 transition-all duration-150"
                 href="https://www.linkedin.com/company/unificars">
-                <BsLinkedin className="text-2xl" />
+                <LinkedInIcon className="text-2xl" />
               </a>
               <a
                 target="_blank"
                 className="ml-3 cursor-pointer hover:text-blue-500 transition-all duration-150"
                 href="https://twitter.com/UnifiCars/">
-                <BsTwitter className="text-2xl" />
+                <TwitterIcon className="text-2xl" />
               </a>
             </div>
             {/* <p className="text-sm">

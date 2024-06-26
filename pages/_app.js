@@ -7,9 +7,11 @@ import Head from "next/head";
 import { Provider } from "react-redux";
 import store from "../ReduxStore/Store";
 
-const Navbar = dynamic(() => import("@/components/Navbar"));
-const Footer = dynamic(() => import("@/components/Footer"));
-const WhatsappSupport = dynamic(() => import("@/components/WhatsappSupport"));
+const Navbar = dynamic(() => import("@/components/Navbar"), { ssr: true });
+const Footer = dynamic(() => import("@/components/Footer"), { ssr: true });
+const WhatsappSupport = dynamic(() => import("@/components/WhatsappSupport"), {
+  ssr: true,
+});
 
 export default function App({ Component, pageProps }) {
   return (

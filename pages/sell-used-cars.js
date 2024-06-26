@@ -52,7 +52,7 @@ const sellCars = () => {
 
   return (
     <>
-      <div className="pt-8">
+      <div className="pt-12">
         <Head>
           <title>{title}</title>
           <meta name="description" content={description} />
@@ -60,11 +60,11 @@ const sellCars = () => {
         </Head>
 
         <div className="text-center items-center flex flex-col mx-4">
-          <h1 className="text-4xl text-black my-2 font-black">
+          <h1 className="text-2xl md:text-4xl text-black my-2 font-black">
             Sell Your Car At Best Price Instantly From Home
           </h1>
 
-          <h3 className="text-2xl uppercase tracking-wide text-blue-950 my-6">
+          <h3 className="text-lg md:text-2xl uppercase tracking-wide text-blue-950 my-6">
             Let's select your car brand
           </h3>
         </div>

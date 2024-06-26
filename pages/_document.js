@@ -5,7 +5,11 @@ export default function Document({ title, description, canonicalUrl }) {
     <Html lang="en">
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="true"
+        />
 
         <link rel="shortcut icon" type="image/png" href={"/favicon.png"}></link>
         <link

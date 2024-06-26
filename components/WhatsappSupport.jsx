@@ -1,6 +1,6 @@
+import { WhatsAppIcon } from "@/common/IconsSvg";
 import Link from "next/link";
 import React from "react";
-import { IoLogoWhatsapp } from "react-icons/io";
 
 function WhatsappSupport() {
   return (
@@ -8,8 +8,8 @@ function WhatsappSupport() {
       <Link
         href="https://api.whatsapp.com/send?phone=919911771977&text=Hi"
         target="_blank">
-        <div className="bg-white rounded-full">
-          <IoLogoWhatsapp className="text-6xl text-green-500" />
+        <div className="bg-white rounded-full w-12 h-12 flex items-center justify-center">
+          <WhatsAppIcon className="text-6xl text-green-500 -m-0.5" />
         </div>
       </Link>
     </div>

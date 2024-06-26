@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { AiOutlineClose } from "react-icons/ai";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import TopBar from "./TopBar";
 import Image from "next/image";
+import { CloseIcon, Hamburger } from "@/common/IconsSvg";
 
 const Navbar = () => {
-  const [dropdownVisible, setDropdownVisible] = useState(false);
   const [slider, setSlider] = useState(false);
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
@@ -48,7 +46,7 @@ const Navbar = () => {
           </div>
           <div>
             <div className="" onClick={() => setSlider(!slider)}>
-              <RxHamburgerMenu className="block text-xl font-semibold xl:hidden me-2" />
+              <Hamburger className="block text-xl font-semibold xl:hidden me-2" />
             </div>
             <ul
               className={`font-medium hidden text-base items-start xl:flex space-x-6`}
@@ -92,27 +90,6 @@ const Navbar = () => {
                 Contact Us
               </Link>
 
-              {/* <Link
-                href="/assured-cars"
-                className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102] ${
-                  router.pathname == "/assured-cars"
-                    ? "text-orange-600 underline underline-offset-8"
-                    : ""
-                }`}
-                >
-                Assured fix
-              </Link>
-
-              <Link
-                href="/pre-delivery-inspection"
-                className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102] ${
-                  router.pathname == "/pre-delivery-inspection"
-                    ? "text-orange-600 underline underline-offset-8"
-                    : ""
-                }`}
-                >
-                Pre Inspection
-              </Link> */}
               <div
                 className="relative py-2"
                 onMouseEnter={() => setIsOpen(true)}
@@ -126,7 +103,7 @@ const Navbar = () => {
                 </button>
                 {isOpen && (
                   <ul
-                    className="absolute left-0 mt-2 bg-white shadow-lg rounded-lg"
+                    className="absolute -left-1/2 mt-2 bg-white shadow-lg rounded-lg"
                     style={{ width: "max-content" }}>
                     <li
                       className={`hover:bg-gray-100 ${
@@ -142,7 +119,7 @@ const Navbar = () => {
                         router.pathname == "/assured-cars" ? "bg-gray-200" : ""
                       }`}>
                       <Link href="/assured-cars" className="block px-4 py-2">
-                        Assured fix
+                        Assured Fix
                       </Link>
                     </li>
 
@@ -212,8 +189,7 @@ const Navbar = () => {
                 <div
                   className="absolute right-2 text-2xl top-4 p-4"
                   onClick={() => setSlider(!slider)}>
-                  {" "}
-                  <AiOutlineClose />
+                  <CloseIcon />
                 </div>
                 <li className="px-4">
                   <Link
@@ -272,7 +248,7 @@ const Navbar = () => {
                   </Link>
                 </li>
 
-                {/* <li className="px-4 border-white/20 py-2 border-b-[1px]">
+                <li className="px-4 border-white/20 py-2 border-b-[1px]">
                   {" "}
                   <Link
                     href="/assured-cars"
@@ -286,7 +262,7 @@ const Navbar = () => {
                     }`}>
                     Assured Fix
                   </Link>
-                </li> */}
+                </li>
 
                 <li className="px-4 border-white/20 py-2 border-b-[1px]">
                   {" "}

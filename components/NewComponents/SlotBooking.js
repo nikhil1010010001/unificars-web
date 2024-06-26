@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Divider from "@mui/material/Divider";
 
 const SlotBooking = ({ last_id, setBookedStatus, BookedStatus }) => {
   const SelectDate = [];

@@ -37,10 +37,10 @@ import Image from "next/image";
 import Head from "next/head";
 
 import { useDispatch, useSelector } from "react-redux";
-import { IoIosCloseCircle } from "react-icons/io";
 import { ImageDisplayHide } from "../../ReduxStore/actions/ModalImage";
 import Car210PointsModal from "@/components/CarDetailsComponents/Car210PointsModal";
 import HomeQuestions from "@/components/Home/HomeQuestions";
+import { CloseIcon } from "@/common/IconsSvg";
 
 const carPage = () => {
   const router = useRouter();
@@ -114,7 +114,7 @@ const carPage = () => {
           {car && car.lead[0] ? car.lead[0].Brand : ""} - Unifi Cars
         </title>
       </Head>
-      <div className="bg-gray-100/10" style={{ paddingTop: "130px" }}>
+      <div className="bg-gray-100/10" style={{ paddingTop: "18px" }}>
         {ShowSpinner ? (
           // showing spinner when car data is fecthing
           <div className="flex col-span-4 justify-center h-96 items-center w-11/12 my-8 m-auto rounded-xl">
@@ -214,7 +214,7 @@ const carPage = () => {
                     dispatch(ImageDisplayHide());
                   }}>
                   {" "}
-                  <IoIosCloseCircle className="text-2xl text-black" />{" "}
+                  <CloseIcon className="text-2xl text-black" />{" "}
                 </div>
                 <div className="relative">
                   <img src={CurrentImage.url} className="w-96 h-96" />

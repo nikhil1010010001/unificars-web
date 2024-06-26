@@ -1,22 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 import Rating from "@mui/material/Rating";
-import {
-  FaCar,
-  FaMapMarkerAlt,
-  FaCalendarAlt,
-  FaUser,
-  FaGasPump,
-  FaClipboardCheck,
-  FaCogs,
-  FaRoad,
-} from "react-icons/fa";
+import { CarFront, MeterIcon, UserIcon, FuelIcon } from "@/common/IconsSvg";
 import FeaturedCars from "../FeaturedCars";
-import { BsInfoCircleFill } from "react-icons/bs";
+import { InfoIcon } from "@/common/IconsSvg";
 
 const AllCars = ({
   carListing,
@@ -45,181 +36,183 @@ const AllCars = ({
         Featured Cars
       </h3>
 
-      <div className="md:px-16">
+      <div className="md:px-4">
         <FeaturedCars featuredlist={featuredlist} desktopItemNum={3} />
       </div>
-      <h3 className="md:px-20 px-6 text-2xl text-[#000] font-black my-2 buyh1fontfamily">
-        All Cars
-      </h3>
 
-      <div
-        className={`grid md:px-20 transition-all duration-800 ${
-          gridView
-            ? "sm:grid-cols-2 md:gap-4 md:rounded-xl md:justify-center  md:grid-cols-3 lg:grid-cols-3 lg:rounded-xl lg:justify-center lg:gap-8"
-            : "grid-cols-1 gap-2 md:grid-cols-2"
-        } z-10 gap-2 p-2 pt-0`}>
-        {carListing && carListing.length > 0 ? (
-          carListing.map((car, index) => (
-            <div
-              key={index}
-              id="carList"
-              className={`group/link duration-400 transition-all shadow-sm border-2 border-gray-400/10 rounded-3xl ${
-                gridView ? "" : "grid grid-cols-2 gap-4 items-center"
-              }`}>
-              <div>
-                <Carousel
-                  responsive={{
-                    desktop: {
-                      breakpoint: { max: 4000, min: 0 },
-                      items: 1,
-                    },
-                  }}
-                  className="z-10">
-                  {car.lead.images ? (
-                    car.lead.images.map((img, idx) => (
-                      <Link
-                        href={{
-                          pathname: `/cars/${car.lead.brand.replace(
-                            / /g,
-                            "_"
-                          )}-${car.lead.varient.replace(
-                            / /g,
-                            "_"
-                          )}-${car.lead.model
-                            .split(" ")
-                            .join("")}-${car.lead.registration_in
-                            .replace(/ /g, "_")
-                            .slice(0, 2)}`.toLowerCase(),
-                          query: { id: car.lead.id, assured: assured },
-                        }}
-                        key={idx}>
-                        <Image
-                          className="rounded-12"
-                          src={img.image}
-                          style={{
-                            borderRadius: "0.1rem",
-                            height: "170px",
-                            objectFit: "cover",
+      <div className="my-16">
+        <h3 className="md:px-20 px-6 text-2xl text-[#000] font-black my-2 buyh1fontfamily">
+          All Cars
+        </h3>
+
+        <div
+          className={`grid md:px-20 transition-all duration-800 ${
+            gridView
+              ? "sm:grid-cols-2 md:gap-4 md:rounded-xl md:justify-center  md:grid-cols-3 lg:grid-cols-3 lg:rounded-xl lg:justify-center lg:gap-8"
+              : "grid-cols-1 gap-2 md:grid-cols-2"
+          } z-10 gap-2 p-2 pt-0`}>
+          {carListing && carListing.length > 0 ? (
+            carListing.map((car, index) => (
+              <div
+                key={index}
+                id="carList"
+                className={`group/link duration-400 transition-all shadow-sm border-2 border-gray-400/10 rounded-3xl ${
+                  gridView ? "" : "grid grid-cols-2 gap-4 items-center"
+                }`}>
+                <div>
+                  <Carousel
+                    responsive={{
+                      desktop: {
+                        breakpoint: { max: 4000, min: 0 },
+                        items: 1,
+                      },
+                    }}
+                    className="z-10">
+                    {car.lead.images ? (
+                      car.lead.images.map((img, idx) => (
+                        <Link
+                          href={{
+                            pathname: `/cars/${car.lead.brand.replace(
+                              / /g,
+                              "_"
+                            )}-${car.lead.varient.replace(
+                              / /g,
+                              "_"
+                            )}-${car.lead.model
+                              .split(" ")
+                              .join("")}-${car.lead.registration_in
+                              .replace(/ /g, "_")
+                              .slice(0, 2)}`.toLowerCase(),
+                            query: { id: car.lead.id, assured: assured },
                           }}
-                          width={800}
-                          height={800}
-                          priority={1}
-                          alt={`${car.lead.brand.replace(
-                            / /g,
-                            "_"
-                          )}-${car.lead.varient.replace(
-                            / /g,
-                            "_"
-                          )}-${car.lead.model
-                            .split(" ")
-                            .join("")}-${car.lead.registration_in
-                            .replace(/ /g, "_")
-                            .slice(0, 2)}`}
-                        />
-                      </Link>
-                    ))
-                  ) : (
-                    <img />
-                  )}
-                </Carousel>
-              </div>
-              <div className="changeallcartext">
-                <Link
-                  href={{
-                    pathname: `/cars/${car.lead.brand
-                      .replace(/ /g, "_")
-                      .toLowerCase()}-${car.lead.varient
-                      .replace(/ /g, "_")
-                      .toLowerCase()}-${car.lead.model
-                      .split(" ")
-                      .join("")
-                      .toLowerCase()}-${car.lead.registration_in
-                      .replace(/ /g, "_")
-                      .slice(0, 2)
-                      .toLowerCase()}`,
-                    query: { id: car.lead.id, assured: assured },
-                  }}
-                  className="">
-                  <div className="justify-start items-center">
-                    <p className="text-[12px] md:text-sm text-black/100 font-medium font-sans">
-                      Unifi Rating
-                    </p>
-                    <Rating
-                      name="read-only"
-                      value={parseInt(car.lead.engine_rating)}
-                      size="small"
-                      readOnly
-                    />
-                  </div>
-
-                  <div className="relative">
-                    <h4 className="text-md font-black my-2 font-sans text-start">
-                      {car.lead.brand}
-                    </h4>
-                    <p className="mb-4 md:text-sm text-start space-x-2">
-                      {/* {car.lead.varient} */}
-                      <span>{car.lead.model}</span>
-                      <span>•</span>
-                      <span>{car.lead.transmission}</span>
-                    </p>
-                  </div>
-                </Link>
-
-                <Link
-                  href={{
-                    pathname: `/cars/${car.lead.brand
-                      .replace(/ /g, "_")
-                      .toLowerCase()}-${car.lead.varient
-                      .replace(/ /g, "_")
-                      .toLowerCase()}-${car.lead.model
-                      .split(" ")
-                      .join("")
-                      .toLowerCase()}-${car.lead.registration_in
-                      .replace(/ /g, "_")
-                      .slice(0, 2)
-                      .toLowerCase()}`,
-                    query: { id: car.lead.id, assured: assured },
-                  }}>
-                  <div className="flex flex-wrap gap-2 text-xs mt-2">
-                    <div className="flex items-center space-x-2 p-2 py-1 rounded-md bg-gray-100">
-                      <FaGasPump />
-                      <span>{car.lead.engine_type}</span>
+                          key={idx}>
+                          <Image
+                            className="rounded-12"
+                            src={img.image}
+                            style={{
+                              borderRadius: "0.1rem",
+                              height: "170px",
+                              objectFit: "cover",
+                            }}
+                            width={800}
+                            height={800}
+                            priority={1}
+                            alt={`${car.lead.brand.replace(
+                              / /g,
+                              "_"
+                            )}-${car.lead.varient.replace(
+                              / /g,
+                              "_"
+                            )}-${car.lead.model
+                              .split(" ")
+                              .join("")}-${car.lead.registration_in
+                              .replace(/ /g, "_")
+                              .slice(0, 2)}`}
+                          />
+                        </Link>
+                      ))
+                    ) : (
+                      <img />
+                    )}
+                  </Carousel>
+                </div>
+                <div className="changeallcartext">
+                  <Link
+                    href={{
+                      pathname: `/cars/${car.lead.brand
+                        .replace(/ /g, "_")
+                        .toLowerCase()}-${car.lead.varient
+                        .replace(/ /g, "_")
+                        .toLowerCase()}-${car.lead.model
+                        .split(" ")
+                        .join("")
+                        .toLowerCase()}-${car.lead.registration_in
+                        .replace(/ /g, "_")
+                        .slice(0, 2)
+                        .toLowerCase()}`,
+                      query: { id: car.lead.id, assured: assured },
+                    }}
+                    className="">
+                    <div className="justify-start items-center">
+                      <p className="text-[12px] md:text-sm text-black/100 font-medium font-sans">
+                        Unifi Rating
+                      </p>
+                      <Rating
+                        name="read-only"
+                        value={parseInt(car.lead.engine_rating)}
+                        size="small"
+                        readOnly
+                      />
                     </div>
 
-                    <div className="flex items-center space-x-2 p-2 py-1 rounded-md bg-gray-100">
-                      <FaRoad />
-                      <span>
-                        {parseInt(
-                          car.lead.km_driven.split(" ")[0]
-                        ).toLocaleString("en-IN")}
-                      </span>
+                    <div className="relative">
+                      <h4 className="text-md font-black my-2 font-sans text-start">
+                        {car.lead.brand}
+                      </h4>
+                      <p className="mb-4 md:text-sm text-start space-x-2">
+                        {/* {car.lead.varient} */}
+                        <span>{car.lead.model}</span>
+                        <span>•</span>
+                        <span>{car.lead.transmission}</span>
+                      </p>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href={{
+                      pathname: `/cars/${car.lead.brand
+                        .replace(/ /g, "_")
+                        .toLowerCase()}-${car.lead.varient
+                        .replace(/ /g, "_")
+                        .toLowerCase()}-${car.lead.model
+                        .split(" ")
+                        .join("")
+                        .toLowerCase()}-${car.lead.registration_in
+                        .replace(/ /g, "_")
+                        .slice(0, 2)
+                        .toLowerCase()}`,
+                      query: { id: car.lead.id, assured: assured },
+                    }}>
+                    <div className="flex flex-wrap gap-2 text-xs mt-2">
+                      <div className="flex items-center space-x-2 p-2 py-1 rounded-md bg-gray-100">
+                        <FuelIcon className="p-1" />
+                        <span>{car.lead.engine_type}</span>
+                      </div>
+
+                      <div className="flex items-center space-x-2 p-2 py-1 rounded-md bg-gray-100">
+                        <MeterIcon className="p-1" />
+                        <span>
+                          {parseInt(
+                            car.lead.km_driven.split(" ")[0]
+                          ).toLocaleString("en-IN")}
+                        </span>
+                      </div>
+
+                      <div className="flex items-center space-x-2 p-2 py-1 rounded-md bg-gray-100">
+                        <CarFront className="p-1" />
+                        <span>{car.lead.registration_in}</span>
+                      </div>
+
+                      <div className="flex items-center space-x-2 p-2 py-1 rounded-md bg-gray-100">
+                        <UserIcon className="p-1" />
+                        <span>{car.lead.ownership.split(" ")[0]} Owner</span>
+                      </div>
                     </div>
 
-                    <div className="flex items-center space-x-2 p-2 py-1 rounded-md bg-gray-100">
-                      <FaCar />
-                      <span>{car.lead.registration_in}</span>
+                    <div className="pt-4 flex flex-wrap-reverse gap-1 lg:items-center flex-row lg:flex-row my-2">
+                      <p className="font-bold font-sans px-2">
+                        ₹{" "}
+                        {parseInt(car.lead.selling_amount).toLocaleString(
+                          "en-IN"
+                        )}
+                      </p>
+
+                      <InfoIcon className="fill-blue-500 text-white text-xl" />
                     </div>
+                  </Link>
+                </div>
 
-                    <div className="flex items-center space-x-2 p-2 py-1 rounded-md bg-gray-100">
-                      <FaUser />
-                      <span>{car.lead.ownership.split(" ")[0]} Owner</span>
-                    </div>
-                  </div>
-
-                  <div className="pt-4 flex flex-wrap-reverse gap-1 lg:items-center flex-row lg:flex-row my-2">
-                    <p className="font-bold font-sans px-2">
-                      ₹{" "}
-                      {parseInt(car.lead.selling_amount).toLocaleString(
-                        "en-IN"
-                      )}
-                    </p>
-
-                    <BsInfoCircleFill className="text-blue-500 text-xl" />
-                  </div>
-                </Link>
-              </div>
-
-              {/* {[5, 12, 15, 23, 34, 41, 48, 55, 62, 69, 76].includes(index) && (
+                {/* {[5, 12, 15, 23, 34, 41, 48, 55, 62, 69, 76].includes(index) && (
                                 <>
                                     {folder == "listing" ? (
                                         <Link href='/sell-used-cars' className='h-full'>
@@ -236,11 +229,12 @@ const AllCars = ({
                                     )}
                                 </>
                             )} */}
-            </div>
-          ))
-        ) : (
-          <>Loading...</>
-        )}
+              </div>
+            ))
+          ) : (
+            <>Loading...</>
+          )}
+        </div>
       </div>
       {isOpen && (
         <div className="fixed inset-0 z-10 flex items-center justify-center bg-black bg-opacity-80">
