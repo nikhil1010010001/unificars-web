@@ -5,6 +5,7 @@ import "react-multi-carousel/lib/styles.css";
 import { useRouter } from "next/router";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import Image from "next/image";
+import Link from "next/link";
 
 const dealership = () => {
   const router = useRouter();
@@ -218,58 +219,58 @@ const dealership = () => {
           </form>
         </div>
       </div>
-      <div className="mt-0 md:mt-[-45px]">
-        <div>
-          <div className="container mx-auto items-center">
-            <div className="p-4">
-              <div className="">
-                <div className="text-center items-center flex flex-col mb-6">
-                  <h2 className="text-4xl font-black">Why Partners with Us</h2>
-                  <p className=" text-lg my-4">
-                    Unifi Cars ensures every deal is built on clarity, trust,
-                    and experience
-                    <br />
-                    so you can make smart and secure purchases.
-                  </p>
-                </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                  <div className="text-center flex flex-wrap justify-center align-item-center">
-                    <img
-                      src="carousel/WCU1.jpg"
-                      className="img-fluid h-64 transition object-cover duration-300 transform hover:scale-110 whychooseus relative"
-                      alt="howitworks"
-                      width="250px"
-                    />
-                    <div className="after"></div>
-                    <div className="px-4 absolute"></div>
-                  </div>
-                  <div className="text-center flex flex-wrap justify-center align-item-center">
-                    <img
-                      src="carousel/WCU2.jpg"
-                      className="img-fluid h-64 transition object-cover duration-300 transform hover:scale-110 whychooseus relative"
-                      alt="howitworks"
-                      width="250px"
-                    />
-                    <div className="px-4 absolute"></div>
-                  </div>
-                  <div className="text-center flex flex-wrap justify-center align-item-center">
-                    <img
-                      src="carousel/WCU3.png"
-                      className="img-fluid h-64 transition object-cover duration-300 transform hover:scale-110 whychooseus relative"
-                      alt="howitworks"
-                      width="250px"
-                    />
-                  </div>
-                  <div className="text-center flex flex-wrap justify-center align-item-center">
-                    <Image
-                      width={250}
-                      height={250}
-                      src="/carousel/WCU4.png"
-                      className="img-fluid h-64 transition object-cover duration-300 transform hover:scale-110 whychooseus relative"
-                      alt="howitworks"
-                    />
-                  </div>
-                </div>
+
+      <div className="container mx-auto items-center">
+        <div className="p-4">
+          <div className="">
+            <div className="text-center items-center flex flex-col mb-6">
+              <h2 className="text-4xl font-black">Why Partners with Us</h2>
+              <p className=" text-lg my-4">
+                Unifi Cars ensures every deal is built on clarity, trust, and
+                experience
+                <br />
+                so you can make smart and secure purchases.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <div className="text-center flex flex-wrap justify-center align-item-center">
+                <Image
+                  width={250}
+                  height={250}
+                  src="/carousel/WCU1.jpg"
+                  className="img-fluid h-64 transition object-cover duration-300 transform hover:scale-110 whychooseus relative"
+                  alt="howitworks"
+                />
+                <div className="after"></div>
+                <div className="px-4 absolute"></div>
+              </div>
+              <div className="text-center flex flex-wrap justify-center align-item-center">
+                <Image
+                  width={250}
+                  height={250}
+                  src="/carousel/WCU2.jpg"
+                  className="img-fluid h-64 transition object-cover duration-300 transform hover:scale-110 whychooseus relative"
+                  alt="howitworks"
+                />
+                <div className="px-4 absolute"></div>
+              </div>
+              <div className="text-center flex flex-wrap justify-center align-item-center">
+                <Image
+                  width={250}
+                  height={250}
+                  src="/carousel/WCU3.png"
+                  className="img-fluid h-64 transition object-cover duration-300 transform hover:scale-110 whychooseus relative"
+                  alt="howitworks"
+                />
+              </div>
+              <div className="text-center flex flex-wrap justify-center align-item-center">
+                <Image
+                  width={250}
+                  height={250}
+                  src="/carousel/WCU4.png"
+                  className="img-fluid h-64 transition object-cover duration-300 transform hover:scale-110 whychooseus relative"
+                  alt="howitworks"
+                />
               </div>
             </div>
           </div>
@@ -289,11 +290,12 @@ const dealership = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
               <div className="text-center flex flex-wrap justify-center cardhow">
-                <img
-                  src="icons/biding.png"
+                <Image
+                  width={200}
+                  height={200}
+                  src="/icons/biding.png"
                   className="img-fluid transition duration-300 transform hover:scale-110"
                   alt="howitworks"
-                  width="200px"
                 />
                 <div className="px-4 pb-3">
                   <h4 className="text-2xl font-black text-black uppercase mt-4 flex-none">
@@ -306,11 +308,12 @@ const dealership = () => {
                 </div>
               </div>
               <div className="text-center flex flex-wrap justify-center cardhow">
-                <img
-                  src="icons/dealclose.png"
+                <Image
+                  width={200}
+                  height={200}
+                  src="/icons/dealclose.png"
                   className="img-fluid transition duration-300 transform hover:scale-110"
                   alt="howitworks"
-                  width="200px"
                 />
                 <div className="px-4 pb-3">
                   <h4 className="text-2xl font-black text-black uppercase mt-4 flex-none">
@@ -323,11 +326,12 @@ const dealership = () => {
               </div>
 
               <div className="text-center flex flex-wrap justify-center cardhow">
-                <img
+                <Image
+                  width={200}
+                  height={200}
                   src="https://api.unificars.com/front/img/icon/hiw1copy.png"
                   className="img-fluid transition duration-300 transform hover:scale-110"
                   alt="howitworks"
-                  width="200px"
                 />
                 <div className="px-4 pb-3">
                   <h4 className="text-2xl font-black text-black uppercase mt-4 flex-none">
@@ -382,14 +386,30 @@ const dealership = () => {
           </ul>
         </div>
 
-        <div className="line">
-          <img
+        <Link
+          href="https://api.unificars.com/front/img/icon/hiw1copy.png"
+          className="line">
+          <Image
+            width={600}
+            height={300}
             src={"/howtojoin.png"}
-            alt=""
+            alt="How to join us"
             className="rounded-xl"
             style={{ width: "60%", margin: "auto" }}
           />
-        </div>
+        </Link>
+      </div>
+
+      <div className="container mx-auto mt-16">
+        <Link href="https://api.unificars.com/front/img/icon/hiw1copy.png">
+          <Image
+            width={3840 / 3}
+            height={1302 / 3}
+            src={"/download-banner.png"}
+            className="rounded-xl object-cover w-full"
+            alt="Download Banner"
+          />
+        </Link>
       </div>
 
       <TestimonialCarousel />

@@ -376,7 +376,7 @@ const about = () => {
         <h1 className="py-2 text-center text-3xl font-bold text-black">
           When Is It Time to Scrap Your Car?
         </h1>
-        <div className="flex w-[80%] mx-auto gap-6 justify-items-center">
+        <div className="flex flex-wrap md:flex-nowrap px-4 md:w-[80%] mx-auto gap-6 justify-items-center">
           {[
             { type: "Private Vehicle", petrol: "15 Years", diesel: "10 Years" },
             {
@@ -387,7 +387,7 @@ const about = () => {
           ].map((vehicle, index) => (
             <div
               key={index}
-              className="bg-gray-100 p-6 rounded-md shadow-md flex flex-col items-center w-[60%] mt-6">
+              className="bg-gray-100 p-6 rounded-md shadow-md flex flex-col items-center w-full md:w-[60%] mt-6">
               <div className="flex items-center mb-4">
                 <svg
                   className="h-8 w-8 text-blue-500 mr-3"
