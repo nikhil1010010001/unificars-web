@@ -4,15 +4,15 @@ import Stack from "@mui/material/Stack";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import { AddAPhoto } from "@mui/icons-material";
+// import { AddAPhoto } from "@mui/icons-material";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
-import Checkbox from "@mui/material/Checkbox";
+// import Checkbox from "@mui/material/Checkbox";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import FormGroup from "@mui/material/FormGroup";
-import { AiOutlineClose } from "react-icons/ai";
+// import FormGroup from "@mui/material/FormGroup";
 import BrandFilter from "./BrandFilter";
+import { CloseIcon } from "@/common/IconsSvg";
 
 const BuyCarSearchFilter = (props) => {
   const [searchQuerry, setSearchQuerry] = useState("");
@@ -155,7 +155,7 @@ const BuyCarSearchFilter = (props) => {
                       max_price: 2400000,
                     });
                   }}>
-                  <AiOutlineClose />
+                  <CloseIcon />
                 </div>
               </div>
             ) : (
@@ -167,7 +167,7 @@ const BuyCarSearchFilter = (props) => {
                 <div
                   className="cursor-pointer"
                   onClick={() => setFields({ ...fields, owner: "" })}>
-                  <AiOutlineClose />
+                  <CloseIcon />
                 </div>
               </div>
             ) : (
@@ -179,7 +179,7 @@ const BuyCarSearchFilter = (props) => {
                 <div
                   className="cursor-pointer"
                   onClick={() => setFields({ ...fields, km: "" })}>
-                  <AiOutlineClose />
+                  <CloseIcon />
                 </div>
               </div>
             ) : (
@@ -191,7 +191,7 @@ const BuyCarSearchFilter = (props) => {
                 <div
                   className="cursor-pointer"
                   onClick={() => setFields({ ...fields, year: "" })}>
-                  <AiOutlineClose />
+                  <CloseIcon />
                 </div>
               </div>
             ) : (
@@ -203,7 +203,7 @@ const BuyCarSearchFilter = (props) => {
                 <div
                   className="cursor-pointer"
                   onClick={() => setFields({ ...fields, type: "" })}>
-                  <AiOutlineClose />
+                  <CloseIcon />
                 </div>
               </div>
             ) : (

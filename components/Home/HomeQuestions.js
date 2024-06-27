@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -19,36 +19,36 @@ const HomeQuestions = () => {
   const panels = [
     {
       panel: "panel1",
-      title: "Does Unifi Cars offer home inspection?",
+      title: "Does Unifi Cars offer home inspections?",
       details:
-        "Yes, Unifi Cars offers a free home inspection for your convenience. Our car expert visits your location and assess your car. Our car expert will inspect your car and our company gives you a fair price. This service ensures an excellent sales experience without having to travel. Contact Unifi Cars today to schedule a home inspection of your vehicle.",
+        "Yes, Unifi Cars offers a free home inspection for your convenience. Our car expert visits your location and examines your car. Our car expert will inspect your car, and our company will give you a fair price. This service ensures an excellent sales experience without having to travel.",
     },
     {
       panel: "panel2",
       title: "How can I register my car for the car inspection?",
       details:
-        "For the inspection of your car, you have to reserve a time slot according to your preferences. Our time slot starts at 9 am and ends in the evening. To fix the inspection, you have to visit our website and make a call, and our team will book the slot for the car inspection. Our car experts examine the vehicle, and our company offers you the best market price for your car in just few minutes.",
+        "You can easily register your car for inspection just by visiting our website and entering your car number. After that, your request will be registered, and our team will contact you to schedule your appointment.",
     },
     {
       panel: "panel3",
-      title: "Why is Unifi cars the best place to sell my car online?",
+      title: "Why is Unifi Cars the best place to sell my car online?",
       details:
-        "Unifi Cars is the best place to sell your car with so many reasons. Firstly, they offer the competitive prices and ensures the hassle-free selling experience and next they provide the free home inspection process for the convenient of the sellers. Unifi cars has the reputation of professionalism and reliability making them trusted choice for selling your car.",
+        "Unifi Cars is the best place to sell your car for many reasons. Firstly, we offer competitive prices and ensure a hassle-free selling experience. Secondly, we offer a free home inspection process for the convenience of sellers.",
     },
     {
       panel: "panel4",
-      title: "Does Unifi cars buy commercial cars?",
-      details: "No, Unifi cars does not deal in commercial cars.",
+      title: "Does Unifi Cars buy commercial cars?",
+      details: "No, Unifi Cars does not deal in commercial vehicles.",
     },
     {
       panel: "panel5",
-      title: "Is it compulsory to book the appointment in advance?",
+      title: "Is it mandatory to book an appointment in advance?",
       details:
-        "Yes, by booking an appointment in advance, we will book that time slot for you that is suitable for you.",
+        "Yes, by booking an appointment in advance, we will reserve the time slot according to your preferences.",
     },
     {
       panel: "panel6",
-      title: "Is there any charge of the car’s Inspection?",
+      title: "Is there any charge for the car’s inspection?",
       details:
         "No, we don’t charge any fee for the inspection. This service is absolutely free.",
     },
@@ -56,9 +56,35 @@ const HomeQuestions = () => {
       panel: "panel7",
       title: "How long will it take for my car's inspection?",
       details:
-        "Car inspection at least takes 45 minutes in which our car experts examine your car from every angle. We have 210 check points by completing all the examine points you will get the estimate value of your car in few minutes.",
+        "A car inspection takes at least 45 minutes, during which our car experts examine your car from interior to exterior.",
     },
   ];
+
+  // JSON-LD structured data for FAQ
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: panels.map((panel, index) => ({
+      "@type": "Question",
+      name: panel.title,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: panel.details,
+      },
+    })),
+  };
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.innerHTML = JSON.stringify(schemaData);
+
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, [schemaData]);
 
   return (
     <div className="my-16 md:flex">

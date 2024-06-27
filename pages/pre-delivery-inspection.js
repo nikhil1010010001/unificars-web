@@ -8,7 +8,7 @@ import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import HomeQuestions from "@/components/Home/HomeQuestions";
 import WhatDoYouGet from "@/components/WhatDoYouGet";
-import TestemonialCarousel from "@/components/TestemonialCarousel";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
 import { fromLatLng, setDefaults } from "react-geocode";
 import {
   FetchCarBrands,
@@ -865,7 +865,7 @@ const pdi = ({ isOpen, onClose }) => {
         </div>
       </div> */}
 
-      <TestemonialCarousel />
+      <TestimonialCarousel />
 
       <HomeQuestions />
 

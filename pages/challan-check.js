@@ -12,7 +12,7 @@ import { RiStarSFill, RiStarSLine } from "react-icons/ri";
 import { FaRupeeSign } from "react-icons/fa";
 
 import dynamic from "next/dynamic";
-import TestemonialCarousel from "@/components/TestemonialCarousel";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
 
 const HomeQuestions = dynamic(() => import("@/components/Home/HomeQuestions"), {
   ssr: false,
@@ -602,7 +602,7 @@ const Challan = () => {
           </div>
         </div> */}
 
-        <TestemonialCarousel />
+        <TestimonialCarousel />
 
         <HomeQuestions />
       </div>

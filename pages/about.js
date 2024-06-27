@@ -6,8 +6,8 @@ import { BsFillBuildingsFill } from "react-icons/bs";
 
 import Head from "next/head";
 import "react-multi-carousel/lib/styles.css";
-import TestemonialCarousel from "@/components/TestemonialCarousel";
 import Image from "next/image";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
 
 const about = () => {
   const title = "About Us | Experience Delightful Car Ownership | Unificars";
@@ -178,7 +178,7 @@ const about = () => {
 
       {/* <Reviews/> */}
 
-      <TestemonialCarousel />
+      <TestimonialCarousel />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { TiTick } from "react-icons/ti";
 
 import "react-multi-carousel/lib/styles.css";
 import { useRouter } from "next/router";
-import TestemonialCarousel from "@/components/TestemonialCarousel";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
 import Image from "next/image";
 
 const dealership = () => {
@@ -64,20 +64,19 @@ const dealership = () => {
   };
 
   return (
-    <div className="pt-10">
-      <div className="relative" style={{ paddingTop: "85px" }}>
+    <div className="relative">
+      <div className="relative">
         <Image
           width={1000}
           height={500}
           src="/Banner-Image.png"
-          className="hidden md:block  min-h-[40rem] w-full bannerimage"
+          className="hidden md:block h-full top-0 -m-12 mx-auto min-h-[40rem] w-full object-cover absolute -z-10"
         />
 
         <div
-          className="setmaindiv3 absolute top-5 right-[5%] bg-white p-7 rounded mt-[120px] md:mt-[90px]"
+          className="setmaindiv3 bg-white p-7 rounded m-12"
           style={{
             boxShadow: "0px 0px 16px 0px rgba(0, 0, 0, 0.25)",
-            justifySelf: "center!important",
             marginLeft: "auto",
           }}>
           <h3 className="font-bold text-2xl my-2 capitalize text-center">
@@ -393,7 +392,7 @@ const dealership = () => {
         </div>
       </div>
 
-      <TestemonialCarousel />
+      <TestimonialCarousel />
 
       <style jsx>{`
         * {

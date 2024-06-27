@@ -9,12 +9,12 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import dynamic from "next/dynamic";
-import TestemonialCarousel from "@/components/TestemonialCarousel";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
 import Image from "next/image";
 
 const VehicleInfo = dynamic(
   () => import("@/components/NewComponents/VehicleInfo3"),
-  { ssr: false }
+  { ssr: true }
 );
 
 const about = () => {
@@ -142,6 +142,7 @@ const about = () => {
   const description =
     "Unificars is your top destination for buy and sell used cars, offering competitive pricing and valuable car-related information.";
   const canonicalUrl = "https://unificars.com/about";
+
   return (
     <div className="">
       <Head>
@@ -157,7 +158,7 @@ const about = () => {
             </div> */}
 
       <div
-        className="relative bg-cover bg-center min-h-[550px] pt-20 bg-blue-500"
+        className="relative bg-cover bg-center min-h-[400px] pt-20 bg-blue-500"
         // style={{ backgroundImage: "url(/scrap-car.png)", paddingTop: "80px" }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -410,7 +411,7 @@ const about = () => {
         </div>
       </div>
 
-      <TestemonialCarousel />
+      <TestimonialCarousel />
 
       <Modal
         open={open}

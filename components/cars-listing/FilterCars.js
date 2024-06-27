@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import { RiListRadio } from "react-icons/ri";
-import { BsChevronCompactDown } from "react-icons/bs";
-import { AiOutlineBars, AiTwotoneAppstore } from "react-icons/ai";
-import { AiOutlineClose } from "react-icons/ai";
 import BuyCarSearchFilter from "./BuyCarSearchFilter";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { CloseIcon, ListIcon } from "@/common/IconsSvg";
 
 const FilterCars = (props) => {
   const { setCarListing, setLoading, gridView, setGridView, filterUrl } = props;
@@ -28,7 +25,7 @@ const FilterCars = (props) => {
             onClick={() => {
               setFilterSection(!filterSection);
             }}>
-            <RiListRadio className="text-[#f38102] group-hover/filter:text-white active:text-white" />
+            <ListIcon className="p-1 text-[#f38102] group-hover/filter:text-white active:text-white" />
             <p>Filters</p>
           </div>
           {/* <div className='flex items-center cursor-pointer group/sort hover:bg-[#f38102] hover:text-white hover:border-white transition-all duration-200 active:bg-orange-600 active:text-white gap-1 text-sm border-[1px] p-1 rounded border-[#f38102]/20 text-gray-600' onClick={() => { setSortSectiion(!sortSectiion) }} >
@@ -60,7 +57,7 @@ const FilterCars = (props) => {
             <div
               className="absolute right-2 text-2xl top-6 p-4"
               onClick={() => setFilterSection(false)}>
-              <AiOutlineClose />
+              <CloseIcon />
             </div>
           </div>
           <BuyCarSearchFilter

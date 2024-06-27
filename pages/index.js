@@ -17,7 +17,7 @@ const ExploreActionCard = dynamic(
   { ssr: true }
 );
 const TestimonialCarousel = dynamic(
-  () => import("@/components/TestemonialCarousel"),
+  () => import("@/components/TestimonialCarousel"),
   { ssr: true }
 );
 const HomeQuestions = dynamic(() => import("@/components/Home/HomeQuestions"), {
@@ -73,10 +73,14 @@ function index() {
   return (
     <>
       <Head>
-        <title>Buy and Sell Used Cars with Best Price | Unificars</title>
+        <title>Buy and Sell Used Cars with Best Price- Unificars</title>
         <meta
           name="description"
-          content="Buy and sell used cars at Unificars in just 29 minutes. We provide free home inspection to sell your car, offers 100% verified used cars with easy RC transfer."
+          content="Buy and Sell used cars at Unifi Cars in just 29 minutes. We provide free home inspection, offers 100% verified used cars with easy RC transfer."
+        />
+        <meta
+          name="robots"
+          content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
         />
         <link rel="canonical" href="https://unificars.com" />
       </Head>
@@ -303,10 +307,8 @@ function index() {
         <ExploreActionCard />
       </div>
 
-      <div>
-        <div className="md:px-4 px-2 mx-auto my-16">
-          <TestimonialCarousel />
-        </div>
+      <div className="md:px-4 px-2 mx-auto">
+        <TestimonialCarousel />
       </div>
 
       <div className="container mx-auto my-16">

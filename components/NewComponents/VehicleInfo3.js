@@ -469,6 +469,12 @@ const VehicleInfo = () => {
     }
   };
 
+  const [hideAnimation, setHideAnimation] = useState(false);
+
+  const handleHideAnimation = () => {
+    setHideAnimation(!hideAnimation);
+  };
+
   // RETURN STARTS
   return (
     <>
@@ -479,39 +485,61 @@ const VehicleInfo = () => {
             {/* <h1 className='text-xl text-black my-2 flex items-center'>
                   Enter your car registration number &nbsp;<img src="4xfaster.png" style={{width:'20%'}}/>
               </h1> */}
-            <div className="inline-flex items-center justify-center space-x-2 w-full max-w-full overflow-hidden">
-              <span className="text-xl font-semibold">
-                Enter your car number
-              </span>
-              {/* <Image
-                src="/4xfaster.png"
-                alt="4x Faster"
-                width={50} // Adjust the width and height as per your image's actual size or required dimensions
-                height={20} // Adjust the width and height as per your image's actual size or required dimensions
-                className="ml-2 flex-shrink-0"
-              /> */}
+            <div className="flex flex-wrap md:flex-nowrap gap-4 w-full">
+              <div className="flex flex-wrap w-full gap-2">
+                <div className="font-bold text-[#465166] w-full text-field relative">
+                  {/* <TextField
+                  error={validNumber}
+                  id={
+                    validNumber
+                      ? "outlined-error-helper-text"
+                      : "outlined-basic"
+                  }
+                  label="Search By Car Number"
+                  variant="outlined"
+                  placeholder="AA 11 AA 1111"
+                  type="text"
+                  value={carNumber}
+                  onChange={handleInputChange}
+                  color={validNumber ? "error" : "warning"}
+                  ref={inputRef}
+                  helperText={validNumber ? "Enter a valid number." : ""}
+                  className="w-full"
+                /> */}
+
+                  <input
+                    type="text"
+                    className="w-full p-4 rounded-2xl shadow-lg text-xl outline-none  border border-gray-200"
+                    value={carNumber}
+                    onChange={handleInputChange}
+                    placeholder={hideAnimation ? "DL XX AC XXXX" : ""}
+                    ref={inputRef}
+                    onBlur={() => {
+                      if (carNumber.length === 0) {
+                        setHideAnimation(false);
+                      }
+                    }}
+                  />
+
+                  {!hideAnimation && (
+                    <div
+                      className="absolute top-0 m-auto w-full h-full z-10 flex items-center"
+                      onClick={handleHideAnimation}>
+                      <div>
+                        <h1 className="ml-4 animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5 text-xl text-gray-500">
+                          DL XX AC XXXX
+                        </h1>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                <p className="text-sm p-2 pt-0 text-[#D04848]">
+                  {validNumber ? "Please enter a valid number." : ""}
+                </p>
+              </div>
             </div>
 
-            <div className="font-bold text-[#465166] w-full text-field mb-2">
-              <TextField
-                error={validNumber}
-                fullWidth
-                id={
-                  validNumber ? "outlined-error-helper-text" : "outlined-basic"
-                }
-                label="Enter your Car Number"
-                variant="outlined"
-                placeholder="AA 11 AA 1111"
-                type="text"
-                value={carNumber}
-                onChange={handleInputChange}
-                color={validNumber ? "error" : "warning"}
-                ref={inputRef}
-                helperText={validNumber ? "Enter a valid number." : ""}
-              />
-            </div>
-
-            {/* {validNumber && <p className="m-1 text-[#D04848] font-bold text-sm"> Please enter a valid number</p>} */}
             {loading ? (
               <div className="loader text-sm">Loading...</div>
             ) : (
@@ -555,7 +583,7 @@ const VehicleInfo = () => {
                   return selectedPill(item, index + "");
                 })}
               </div> */}
-            <div className="flex gap-1 items-center">
+            <div className="flex flex-wrap gap-1 items-center">
               <div>
                 <Avatar
                   alt="brand_logo"
@@ -565,7 +593,7 @@ const VehicleInfo = () => {
                 />
               </div>
               <div className="flex flex-col gap-1">
-                <div className="flex flex-row gap-1 items-center text-xl">
+                <div className="flex flex-wrap flex-row gap-1 items-center text-xl">
                   {carInfo.year && <p>{carInfo.year}</p>}
 
                   {carInfo.model.name && (
@@ -679,7 +707,7 @@ const VehicleInfo = () => {
                   <TextField
                     fullWidth
                     id="outlined-basic"
-                    label="Enter Mobile NUmber"
+                    // label="Enter Mobile NUmber"
                     variant="outlined"
                     type="number"
                     disabled={isDisabled}
@@ -702,14 +730,17 @@ const VehicleInfo = () => {
                       <TextField
                         fullWidth
                         id="outlined-basic"
-                        label="Enter OTP"
+                        // label="Enter OTP"
                         variant="outlined"
                         type="number"
                         color="warning"
                         onChange={(e) => setOTPNumber(e.target.value)}
                         value={OTPNumber}
                       />
-                      {/* <span className="text-red-600 mt-[2px] text-sm"> {validationerror}</span> */}
+                      <span className="text-red-600 mt-[2px] text-sm">
+                        {" "}
+                        {validationerror}
+                      </span>
 
                       <div className="flex justify-between gap-2 my-2">
                         <button

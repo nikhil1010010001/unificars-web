@@ -7,8 +7,8 @@ import VehicleInfo from "@/components/NewComponents/VehicleInfo2";
 
 import { useRouter } from "next/router";
 import Head from "next/head";
-import TestemonialCarousel from "@/components/TestemonialCarousel";
 import HomeQuestions from "@/components/Home/HomeQuestions";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
 
 const sellCars = () => {
   const [OpenModal, setOpenModal] = useState(false);
@@ -76,7 +76,7 @@ const sellCars = () => {
         <Howtosell />
 
         <div className="w-full h-fit">
-          <TestemonialCarousel />
+          <TestimonialCarousel />
         </div>
 
         <HomeQuestions />

@@ -4,12 +4,16 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 
 // Lazy loading components
-const FilterCars = dynamic(() =>
-  import("@/components/cars-listing/FilterCars")
+const FilterCars = dynamic(
+  () => import("@/components/cars-listing/FilterCars"),
+  { ssr: true }
 );
-const AllCars = dynamic(() => import("@/components/cars-listing/AllCars"));
-const BuyCarSearchFilter = dynamic(() =>
-  import("@/components/cars-listing/BuyCarSearchFilter")
+const AllCars = dynamic(() => import("@/components/cars-listing/AllCars"), {
+  ssr: true,
+});
+const BuyCarSearchFilter = dynamic(
+  () => import("@/components/cars-listing/BuyCarSearchFilter"),
+  { ssr: true }
 );
 
 const BuyUsedCars = ({ initialCars, initialTotalItems, featuredCars }) => {
