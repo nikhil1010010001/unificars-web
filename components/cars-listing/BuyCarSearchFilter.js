@@ -170,6 +170,7 @@ const BuyCarSearchFilter = (props) => {
             ) : (
               <></>
             )}
+
             {fields.owner != "" ? (
               <div className="text-xs bg-gray-200 rounded p-2 flex items-center gap-1">
                 Ownership: {fields.owner}
@@ -233,11 +234,11 @@ const BuyCarSearchFilter = (props) => {
             </AccordionSummary>
             <AccordionDetails>
               <div>
-                <div className="justify-between flex">
-                  <h2 className="text-xs bg-sky-500 text-white/100 p-1 rounded-md font-sans">
+                <div className="justify-between flex items-center">
+                  <h2 className="text-xs bg-black/50 text-white/100 p-1 rounded-md font-sans">
                     ₹ {value[0].toLocaleString("en-IN")}
                   </h2>
-                  <h2 className="text-xs bg-green-500	text-white/100 p-1 rounded-md font-sans">
+                  <h2 className="text-xs bg-black/50	text-white/100 p-1 rounded-md font-sans">
                     ₹ {value[1].toLocaleString("en-IN")}
                   </h2>
                 </div>
