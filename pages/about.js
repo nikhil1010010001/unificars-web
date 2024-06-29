@@ -42,15 +42,15 @@ const about = () => {
         </div>
       </div>
 
-      <div className="container mx-auto p-16 px-4 md:px-20 flex flex-wrap gap-4 md:gap-8">
+      <div className="container mx-auto md:p-16 p-4 md:px-20 flex flex-wrap gap-4 md:gap-8">
         <Image
           src="/aboutus-office.png"
           alt="Office of Unifi Cars"
           width={500}
           height={300}
-          className="md:w-[50%] rounded-xl"
+          className="min-w-[40%] rounded-xl object-cover mx-auto"
         />
-        <div className="w-full">
+        <div className="w-full md:w-1/2">
           <div className="mb-12">
             <h2 className="text-4xl font-bold text-black font-sans">
               UNIFI WHEELS

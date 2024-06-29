@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import Image from "next/image";
 import Link from "next/link";
+import { dealerTestimonialData } from "@/common/testimonialData";
 
 const dealership = () => {
   const router = useRouter();
@@ -412,7 +413,7 @@ const dealership = () => {
         </Link>
       </div>
 
-      <TestimonialCarousel />
+      <TestimonialCarousel testimonialData={dealerTestimonialData} />
 
       <style jsx>{`
         * {

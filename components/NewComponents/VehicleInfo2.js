@@ -66,6 +66,7 @@ const VehicleInfo = () => {
     fuelType: "",
     kmDriven: "",
     location: "",
+    planningToSell: "",
   });
 
   const tabs = [
@@ -200,6 +201,7 @@ const VehicleInfo = () => {
         brand: carInfo.brand.name,
         model: carInfo.model.name,
         varient: carInfo.variant.name,
+        planningToSell: carInfo.planningToSell,
       };
       const res = await sendOtp(data);
       if (res.code == 200) {
@@ -452,6 +454,18 @@ const VehicleInfo = () => {
     setHideAnimation(!hideAnimation);
   };
 
+  const planningToSellData = [
+    "Within This Week",
+    "By Next Week",
+    "After 2 Month",
+    "Just checking price",
+  ];
+
+  const handlePlaningToSell = (item) => {
+    setCarInfo({ ...carInfo, planningToSell: item });
+    setScreen(4);
+  };
+
   // RETURN STARTS
   return (
     <>
@@ -562,79 +576,83 @@ const VehicleInfo = () => {
         {/* className={`${screen === 1 ? 'hidden' : ''}`} */}
 
         {/* Pills */}
-        {(screen === 2 || screen === 3) && carInfo.brand.name && (
-          <div className="flex flex-row my-2 mx-4 text-[#465166] gap-2 items-center justify-between">
-            {/* <div className="grid grid-cols-3 gap-2">
+        {(screen === 2 || screen === 3 || screen === 4) &&
+          carInfo.brand.name && (
+            <div className="flex flex-row my-2 mx-4 text-[#465166] gap-2 items-center justify-between">
+              {/* <div className="grid grid-cols-3 gap-2">
               {selectedPillArray.map((item, index) => {
                 return selectedPill(item, index + "");
               })}
             </div> */}
-            <div className="flex gap-1 items-center">
-              <div>
-                <Avatar
-                  alt="brand_logo"
-                  src={carInfo?.brand?.image}
-                  className="bg-[#E1F0DA]"
-                  sx={{ width: 100, height: 100 }}
-                />
-              </div>
-              <div className="flex flex-col gap-1">
-                <div className="flex flex-row gap-1 items-center text-xl">
-                  {carInfo.year && <p>{carInfo.year}</p>}
-
-                  {carInfo.model.name && (
-                    <p className=" font-bold">{carInfo.model.name}</p>
-                  )}
-
-                  {carInfo.fuelType && <p>{"[ " + carInfo.fuelType + " ]"}</p>}
-                </div>
-
+              <div className="flex gap-1 items-center">
                 <div>
-                  {carInfo.variant.name && (
-                    <p className="text-xs">{carInfo.variant.name}</p>
-                  )}
+                  <Avatar
+                    alt="brand_logo"
+                    src={carInfo?.brand?.image}
+                    className="bg-[#E1F0DA]"
+                    sx={{ width: 100, height: 100 }}
+                  />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <div className="flex flex-row gap-1 items-center text-xl">
+                    {carInfo.year && <p>{carInfo.year}</p>}
+
+                    {carInfo.model.name && (
+                      <p className=" font-bold">{carInfo.model.name}</p>
+                    )}
+
+                    {carInfo.fuelType && (
+                      <p>{"[ " + carInfo.fuelType + " ]"}</p>
+                    )}
+                  </div>
+
+                  <div>
+                    {carInfo.variant.name && (
+                      <p className="text-xs">{carInfo.variant.name}</p>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="flex justify-end">
-              <button
-                className=" border border-orange-500 text-orange-500 px-4 py-2 rounded-lg hover:bg-orange-500 hover:text-white transition-all duration-200 ease-in-out"
-                onClick={() => {
-                  setValue("1");
-                  // setScreen(2);
-                  setCarInfo({
-                    brand: {
-                      id: "",
-                      name: "",
-                      image: "",
-                    },
-                    model: {
-                      id: "",
-                      name: "",
-                    },
-                    variant: {
-                      id: "",
-                      name: "",
-                    },
-                    year: "",
-                    ownerShip: "",
-                    fuelType: "",
-                    kmDriven: "",
-                    location: "",
-                  });
-                  setScreen(1);
-                  setOTPVerify(false);
-                  setOTPNumber(false);
-                  setOtpSend(false);
-                  setBookedStatus(true);
-                  setIsDisabled(false);
-                }}>
-                Edit
-              </button>
+              <div className="flex justify-end">
+                <button
+                  className=" border border-orange-500 text-orange-500 px-4 py-2 rounded-lg hover:bg-orange-500 hover:text-white transition-all duration-200 ease-in-out"
+                  onClick={() => {
+                    setValue("1");
+                    // setScreen(2);
+                    setCarInfo({
+                      brand: {
+                        id: "",
+                        name: "",
+                        image: "",
+                      },
+                      model: {
+                        id: "",
+                        name: "",
+                      },
+                      variant: {
+                        id: "",
+                        name: "",
+                      },
+                      year: "",
+                      ownerShip: "",
+                      fuelType: "",
+                      kmDriven: "",
+                      location: "",
+                      planningToSell: "",
+                    });
+                    setScreen(1);
+                    setOTPVerify(false);
+                    setOTPNumber(false);
+                    setOtpSend(false);
+                    setBookedStatus(true);
+                    setIsDisabled(false);
+                  }}>
+                  Edit
+                </button>
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
         {/* Tabs Div */}
         {screen === 2 && (
@@ -738,14 +756,25 @@ const VehicleInfo = () => {
           </TabContext>
         )}
 
-        {/* {screen === 3 && (
-          <div className="flex flex-col text-[#465166] w-[60%] mx-auto">
-            when are you planing to sell your car?
+        {screen === 3 && (
+          <div className="flex flex-col text-[#465166] w-[60%] mx-auto gap-6 border justify-center items-center p-4 rounded-2xl">
+            <h1 className="text-2xl">When are you planing to sell your car?</h1>
+
+            <div className="flex flex-col gap-4 justify-center items-center md:w-1/2">
+              {planningToSellData.map((item, index) => (
+                <div
+                  onClick={() => handlePlaningToSell(item)}
+                  className="px-4 p-2 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-200 hover:bg-[#f38102] hover:text-white rounded-lg border-2 w-full text-center"
+                  key={index}>
+                  <div className="text-lg font-semibold">{item}</div>
+                </div>
+              ))}
+            </div>
           </div>
-        )} */}
+        )}
 
         {/* Code For OTP and Car valuation screen */}
-        {screen === 3 && (
+        {screen === 4 && (
           <div className="flex flex-col text-[#465166] w-[60%] mx-auto">
             {!OTPVerify ? (
               <>

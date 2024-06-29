@@ -5,9 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 import Rating from "@mui/material/Rating";
-import { CarFront, MeterIcon, UserIcon, FuelIcon } from "@/common/IconsSvg";
+import {
+  CarFront,
+  MeterIcon,
+  UserIcon,
+  FuelIcon,
+  InfoIcon,
+} from "@/common/IconsSvg";
 import FeaturedCars from "../FeaturedCars";
-import { InfoIcon } from "@/common/IconsSvg";
 
 const AllCars = ({
   carListing,
@@ -17,10 +22,8 @@ const AllCars = ({
   folder,
   featuredlist,
 }) => {
-  // console.log(carListing);
   const [isOpen, setIsOpen] = useState(false);
-  // const [featureddata, setTest] = useState(featuredlist?.auction);
-  // const [featuredlist, featuredlist] = useState(featuredlist);
+  const [hoveredItem, setHoveredItem] = useState(null);
 
   return (
     <>
@@ -199,7 +202,7 @@ const AllCars = ({
                       </div>
                     </div>
 
-                    <div className="pt-4 flex flex-wrap-reverse gap-1 lg:items-center flex-row lg:flex-row my-2">
+                    <div className="relative pt-4 flex flex-wrap-reverse gap-1 lg:items-center flex-row lg:flex-row my-2">
                       <p className="font-bold font-sans px-2">
                         ₹{" "}
                         {parseInt(car.lead.selling_amount).toLocaleString(
@@ -207,28 +210,29 @@ const AllCars = ({
                         )}
                       </p>
 
-                      <InfoIcon className="fill-blue-500 text-white text-xl" />
+                      <div
+                        onMouseEnter={() => setHoveredItem(index)}
+                        onMouseLeave={() => setHoveredItem(null)}>
+                        <InfoIcon className="fill-blue-500 text-white text-xl relative" />
+
+                        {hoveredItem === index && (
+                          <div className="bg-white p-4 shadow-lg rounded-2xl absolute bottom-10 z-10 w-full left-0">
+                            <ul className="list-disc ps-6">
+                              <li>Free ownership transfer</li>
+                              <li>Free accessories</li>
+                              <li>Comprehensive insurance</li>
+                              <li>Certificate pollution certificate</li>
+                              <li>
+                                Complete warranty upto 2,000 km on upto 30 days
+                                whenever comes first.
+                              </li>
+                            </ul>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </Link>
                 </div>
-
-                {/* {[5, 12, 15, 23, 34, 41, 48, 55, 62, 69, 76].includes(index) && (
-                                <>
-                                    {folder == "listing" ? (
-                                        <Link href='/sell-used-cars' className='h-full'>
-                                            <img
-                                                src={`${gridView ? (index % 2 === 0 ? `/allbuttons/${folder}/carButton2.png` : `/allbuttons/${folder}/sell.png`) : (index % 2 === 0 ? `/allbuttons/${folder}/LaidCarButton2.png` : `/allbuttons/${folder}/sellLaid.png`)}`}
-                                                className='w-full h-full shadow hover:scale-105 transition-all duration-200 ease-in-out'
-                                            />
-                                        </Link>
-                                    ) : (
-                                        <img
-                                            src={`${gridView ? `/allbuttons/${folder}/carButton2.png` : `/allbuttons/${folder}/LaidCarButton2.png`}`}
-                                            className='w-full h-full shadow hover:scale-105 transition-all duration-200 ease-in-out'
-                                        />
-                                    )}
-                                </>
-                            )} */}
               </div>
             ))
           ) : (

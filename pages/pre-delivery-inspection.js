@@ -19,6 +19,7 @@ import {
   verifyOtpForPdiCarHealthEnquiry,
 } from "@/common/common";
 import Image from "next/image";
+import { inspectionTestimonialData } from "@/common/testimonialData";
 
 const pdi = ({ isOpen, onClose }) => {
   // const [isModalOpen, setIsModalOpen] = useState(false);
@@ -755,7 +756,7 @@ const pdi = ({ isOpen, onClose }) => {
         </div>
       </div>
 
-      <TestimonialCarousel />
+      <TestimonialCarousel testimonialData={inspectionTestimonialData} />
 
       <HomeQuestions />
     </div>

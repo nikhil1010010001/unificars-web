@@ -2,51 +2,51 @@ import { StarIcon } from "@/common/IconsSvg";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-const FillData = [
+const fillData = [
   {
     id: 1,
     name: "Raghav Sharma",
     location: "New Delhi",
-    stars: 5,
     carName: "Honda City",
-    text: "I have recently purchased a used Honda City from Unifi Cars. Their customer service and delivery process were just amazing.",
+    stars: 5,
+    text: "I have recently purchased a used car from Unifi Cars. Their customer service and delivery process were just amazing.",
   },
   {
     id: 2,
     name: "Tarun Mittal",
     location: "Gurugram",
-    stars: 4,
     carName: "Maruti Suzuki Swift",
-    text: "The buying and selling of used Maruti Suzuki Swift cars is very smooth with a simplified documentation process. I heard about Unifi Cars from one of my friends. I personally visited Unifi Cars to buy a car, and now I am fully satisfied with my car-buying process. They provide a hassle-free process. I am happy with their service.",
+    stars: 5,
+    text: "I visited Unifi Cars to buy a car, and now I am fully satisfied with my car-buying process. The process is hassle-free. I am happy with their service.",
   },
   {
     id: 3,
     name: "Ashok Kapoor",
     location: "Delhi NCR",
-    stars: 5,
     carName: "Hyundai i10",
-    text: "I always recommend Unifi Cars. I bought my first Hyundai i10 from them. The deal was fairly priced and their all used car is in excellent condition, and their team was very supportive throughout the entire process. Unifi Cars was very helpful for providing me with the best condition used car in Delhi. Their delivery and service were great also their process was also very simple.",
+    stars: 5,
+    text: "I bought my first car from them. The deal was fairly priced, and their all-used car is in good condition, and their team was very supportive too.",
   },
   {
     id: 4,
     name: "Bhumika",
     location: "Delhi NCR",
-    stars: 4,
     carName: "Hyundai i10",
-    text: "I want to sell my Hyundai i10 and searching for buyers since a long time then found Unifi Cars. They offered the best price for my car and I also enjoyed their flawless process.",
+    stars: 5,
+    text: "I'm happy with the car I bought. It's in excellent condition and very comfortable. I found their car buying process smooth.",
   },
   {
     id: 5,
     name: "Rohan Rajput",
     location: "Ghaziabad",
-    stars: 5,
     carName: "Hyundai i10",
-    text: "Unifi Cars' selling used Hyundai i10 process is very comfortable. Their loyalty towards their customers is what I liked most about Unifi Cars company.",
+    stars: 5,
+    text: "The car I bought is in very good condition and comfortable, too. I really like their customer service. Moreover, I found fair pricing here.",
   },
 ];
 
 function TestimonialCarousel({ testimonialData }) {
-  const testimonials = FillData;
+  const testimonials = testimonialData || fillData;
 
   const responsive = {
     superLargeDesktop: {
