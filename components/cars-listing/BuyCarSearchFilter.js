@@ -69,8 +69,16 @@ const BuyCarSearchFilter = (props) => {
     }
   };
 
-  const HandleSiderValueChanged = async () => {
-    setFields({ ...fields, min_price: value[0], max_price: value[1] });
+  let timeoutId = null;
+
+  const HandleSiderValueChanged = () => {
+    if (timeoutId) {
+      clearTimeout(timeoutId); // Clear any existing timeout
+    }
+    // Set a new timeout for 2 seconds to fetch filter results
+    timeoutId = setTimeout(() => {
+      setFields({ ...fields, min_price: value[0], max_price: value[1] });
+    }, 2000);
   };
 
   useEffect(() => {
@@ -144,7 +152,8 @@ const BuyCarSearchFilter = (props) => {
           <div className="flex gap-2 flex-wrap">
             {value[0] != 100000 || value[1] != 2400000 ? (
               <div className="text-xs bg-gray-200 rounded p-2 flex items-center gap-1">
-                {value[0]}-{value[1]}
+                {value[0].toLocaleString("en-IN")} -{" "}
+                {value[1].toLocaleString("en-IN")}
                 <div
                   className="cursor-pointer"
                   onClick={() => {
@@ -226,14 +235,14 @@ const BuyCarSearchFilter = (props) => {
               <div>
                 <div className="justify-between flex">
                   <h2 className="text-xs bg-sky-500 text-white/100 p-1 rounded-md font-sans">
-                    ₹ {value[0]}
+                    ₹ {value[0].toLocaleString("en-IN")}
                   </h2>
                   <h2 className="text-xs bg-green-500	text-white/100 p-1 rounded-md font-sans">
-                    ₹ {value[1]}
+                    ₹ {value[1].toLocaleString("en-IN")}
                   </h2>
                 </div>
                 <Stack spacing={2} direction="row" sx={{ mb: 1 }}>
-                  <Slider
+                  {/* <Slider
                     value={value}
                     step={25000}
                     valueLabelDisplay="auto"
@@ -248,6 +257,21 @@ const BuyCarSearchFilter = (props) => {
                     min={100000}
                     onChangeCommitted={HandleSiderValueChanged}
                     max={2500000}
+                    size="medium"
+                  /> */}
+
+                  <Slider
+                    value={value}
+                    step={100000} // Increase step size for faster sliding
+                    valueLabelDisplay="auto"
+                    marks={marks}
+                    onChange={(e, newValue) => {
+                      setValue(newValue); // Update state immediately on change
+                    }}
+                    color="warning"
+                    min={100000}
+                    max={2500000}
+                    onChangeCommitted={HandleSiderValueChanged} // When slider interaction ends
                     size="medium"
                   />
                 </Stack>
@@ -276,7 +300,10 @@ const BuyCarSearchFilter = (props) => {
                 }}
                 className="text-xs"
                 sx={{
-                  ".MuiFormControlLabel-label": { fontSize: "14px !important" },
+                  ".MuiFormControlLabel-label": {
+                    fontSize: "14px !important",
+                    fontFamily: "sans-serif",
+                  },
                 }}>
                 <FormControlLabel
                   value="1"
@@ -340,12 +367,14 @@ const BuyCarSearchFilter = (props) => {
               <RadioGroup
                 aria-labelledby="demo-row-radio-buttons-group-label"
                 name="year"
-                className=""
                 onChange={(e) => {
                   HandleFilters(e);
                 }}
                 sx={{
-                  ".MuiFormControlLabel-label": { fontSize: "14px !important" },
+                  ".MuiFormControlLabel-label": {
+                    fontSize: "14px !important",
+                    fontFamily: "sans-serif",
+                  },
                 }}>
                 <FormControlLabel
                   value="2022"
@@ -478,7 +507,10 @@ const BuyCarSearchFilter = (props) => {
                   HandleFilters(e);
                 }}
                 sx={{
-                  ".MuiFormControlLabel-label": { fontSize: "14px !important" },
+                  ".MuiFormControlLabel-label": {
+                    fontSize: "14px !important",
+                    fontFamily: "sans-serif",
+                  },
                 }}>
                 <FormControlLabel
                   value="4000"
@@ -556,7 +588,10 @@ const BuyCarSearchFilter = (props) => {
                   HandleFilters(e);
                 }}
                 sx={{
-                  ".MuiFormControlLabel-label": { fontSize: "14px !important" },
+                  ".MuiFormControlLabel-label": {
+                    fontSize: "14px !important",
+                    fontFamily: "sans-serif",
+                  },
                 }}>
                 <FormControlLabel
                   value="petrol"

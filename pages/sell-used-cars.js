@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import HomeQuestions from "@/components/Home/HomeQuestions";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
+import { sellTestimonialData } from "@/common/testimonialData";
 
 const sellCars = () => {
   const [OpenModal, setOpenModal] = useState(false);
@@ -76,7 +77,7 @@ const sellCars = () => {
         <Howtosell />
 
         <div className="w-full h-fit">
-          <TestimonialCarousel />
+          <TestimonialCarousel testimonialData={sellTestimonialData} />
         </div>
 
         <HomeQuestions />

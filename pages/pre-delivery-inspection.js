@@ -12,32 +12,17 @@ import TestimonialCarousel from "@/components/TestimonialCarousel";
 import { fromLatLng, setDefaults } from "react-geocode";
 import {
   FetchCarBrands,
+  FetchCarBrandsModels,
+  FetchCarVarient,
+  confirmAddress,
   pdiCarHealthenquiry,
   verifyOtpForPdiCarHealthEnquiry,
 } from "@/common/common";
+import Image from "next/image";
 
 const pdi = ({ isOpen, onClose }) => {
-  const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 4000, min: 1280 },
-      items: 3,
-    },
-    desktop: {
-      breakpoint: { max: 1280, min: 720 },
-      items: 3,
-    },
-    tablet: {
-      breakpoint: { max: 720, min: 464 },
-      items: 2,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1.25,
-    },
-  };
-
   // const [isModalOpen, setIsModalOpen] = useState(false);
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     name: "",
     address: "",
@@ -128,6 +113,19 @@ const pdi = ({ isOpen, onClose }) => {
       } catch (error) {
         setMsg("Invalid OTP");
       }
+    } else if (step === 2) {
+      const confirmAddressRes = await confirmAddress(
+        formData.carDetails.brand,
+        formData.carDetails.model,
+        formData.carDetails.variant,
+        formData.carDetails.transmission,
+        formData.carDetails.fuelType,
+        otpResId
+      );
+
+      if (confirmAddressRes?.code === 200) {
+        setStep((prev) => prev + 1);
+      }
     } else {
       setStep((prev) => prev + 1);
     }
@@ -139,13 +137,35 @@ const pdi = ({ isOpen, onClose }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    // Update step 1 fields directly
     if (step === 1) {
       setFormData({ ...formData, [name]: value });
     } else if (step === 2 || step === 3) {
+      // Update nested fields for carDetails
       setFormData({
         ...formData,
         carDetails: { ...formData.carDetails, [name]: value },
       });
+    }
+
+    // Additional logic based on field names
+    if (name === "brand") {
+      const selectedCar = fetchCarBrandsDetails.find(
+        (car) => car.brand_name === value
+      );
+      if (selectedCar) {
+        getModelsDetails(selectedCar);
+      }
+    }
+
+    if (name === "model") {
+      const selectedModel = fetchCarModels.find(
+        (model) => model.model === value
+      );
+      if (selectedModel) {
+        getVariantDetails(selectedModel);
+      }
     }
   };
 
@@ -159,6 +179,7 @@ const pdi = ({ isOpen, onClose }) => {
     closeModal();
   };
 
+  // handle razorpay payment
   const handlePayment = () => {
     const options = {
       key: "rzp_test_tX7OYv8wO9psps",
@@ -166,7 +187,7 @@ const pdi = ({ isOpen, onClose }) => {
       currency: "INR",
       name: "Unificars",
       description: "Car Inspection Payment",
-      image: "/your_logo.png",
+      image: "/logo.png",
       handler: function (response) {
         console.log(response);
         alert("Payment Successful!");
@@ -202,9 +223,8 @@ const pdi = ({ isOpen, onClose }) => {
   });
 
   // set current location
-
   setDefaults({
-    key: "AIzaSyDVCW7NP6pt8-JMxxOQe7GNa6nG1SksGVk", // Your API key here.
+    key: "AIzaSyDVCW7NP6pt8-JMxxOQe7GNa6nG1SksGVk", // google API key.
     language: "en", // Default language for responses.
     region: "in", // Default region for responses.
   });
@@ -232,6 +252,8 @@ const pdi = ({ isOpen, onClose }) => {
   };
 
   const [fetchCarBrandsDetails, setFetchCarBrandsDetails] = useState([]);
+  const [fetchCarModels, setFetchCarModels] = useState([]);
+  const [fetchCarVariant, setFetchCarVariant] = useState([]);
 
   useEffect(() => {
     const fetchCarFunc = async () => {
@@ -241,7 +263,17 @@ const pdi = ({ isOpen, onClose }) => {
     fetchCarFunc();
   }, []);
 
-  console.log("fetchCarBrandsDetails", fetchCarBrandsDetails);
+  const getModelsDetails = async (item) => {
+    const FetchCarBrandsModelsRes = await FetchCarBrandsModels(item?.id);
+
+    setFetchCarModels(FetchCarBrandsModelsRes.data);
+  };
+
+  const getVariantDetails = async (item) => {
+    const FetchCarBrandsVariantsRes = await FetchCarVarient(item?.id);
+
+    setFetchCarVariant(FetchCarBrandsVariantsRes.data);
+  };
 
   return (
     <div className="">
@@ -324,6 +356,7 @@ const pdi = ({ isOpen, onClose }) => {
                   </button>
                 </div>
               )}
+
               {step === 2 && (
                 <div>
                   <h2 className="text-xl font-bold mb-4">Enter Car Details</h2>
@@ -334,12 +367,13 @@ const pdi = ({ isOpen, onClose }) => {
                     defaultValue="Select Car Brand"
                     onChange={handleChange}>
                     <option value="Select Car Brand">Select Car Brand</option>
+
+                    {/* Add more options */}
                     {fetchCarBrandsDetails.map((car) => (
                       <option key={car.id} value={car.brand_name}>
                         {car.brand_name}
                       </option>
                     ))}
-                    {/* Add more options */}
                   </select>
 
                   <select
@@ -348,7 +382,13 @@ const pdi = ({ isOpen, onClose }) => {
                     value={formData.carDetails.model}
                     onChange={handleChange}>
                     <option>Model</option>
+
                     {/* Add more options */}
+                    {fetchCarModels.map((car) => (
+                      <option key={car.id} value={car.model}>
+                        {car.model}
+                      </option>
+                    ))}
                   </select>
 
                   <select
@@ -357,7 +397,13 @@ const pdi = ({ isOpen, onClose }) => {
                     value={formData.carDetails.variant}
                     onChange={handleChange}>
                     <option>Variant</option>
+
                     {/* Add more options */}
+                    {fetchCarVariant.map((car) => (
+                      <option key={car.id} value={car.varient}>
+                        {car.varient}
+                      </option>
+                    ))}
                   </select>
                   <select
                     className="w-full mb-2 p-2 border border-gray-300 rounded"
@@ -365,6 +411,8 @@ const pdi = ({ isOpen, onClose }) => {
                     value={formData.carDetails.transmission}
                     onChange={handleChange}>
                     <option>Transmission</option>
+                    <option value="Automatic">Automatic</option>
+                    <option value="Manual">Manual</option>
                     {/* Add more options */}
                   </select>
                   <select
@@ -374,6 +422,9 @@ const pdi = ({ isOpen, onClose }) => {
                     onChange={handleChange}>
                     <option>Fuel Type</option>
                     {/* Add more options */}
+                    <option value="Petrol">Petrol</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="CNG">CNG</option>
                   </select>
                   <input
                     className="w-full mb-2 p-2 border border-gray-300 rounded"
@@ -587,7 +638,7 @@ const pdi = ({ isOpen, onClose }) => {
             Inspection Cover
           </h2>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 container mx-auto gap-4 md:px-10 px-2">
+        <div className="flex flex-wrap-reverse md:flex-nowrap container mx-auto gap-4 md:px-20 px-4">
           <div className="text-xl  text-black">
             <h2 className="py-2 font-bold">Engine and Transmission:</h2>
             <p className="text-lg text-gray-700 my-2">
@@ -617,38 +668,16 @@ const pdi = ({ isOpen, onClose }) => {
           </div>
 
           <div className="line">
-            <img src={"/pdi2.png"} alt="" className="w-[100%] mx-auto" />
+            <Image
+              width={1200}
+              height={1200}
+              src={"/pdi2.png"}
+              alt=""
+              className="w-[100%] mx-auto"
+            />
           </div>
         </div>
       </div>
-
-      {/* <div className="grid grid-cols-1 lg:grid-cols-2 container mx-auto gap-4 mt-16 md:px-20 px-10">
-        <div className="text-3xl text-black">
-          <h2 className="py-2 font-bold ">
-            Ensure Your Car is Road-Ready with Unificars PDI
-          </h2>
-          <p className="text-lg text-black my-2">
-            When you purchase a car from family, friends, or any other source,
-            ensuring its safety and reliability is crucial. That's where
-            Unificars' Pre-Delivery Inspection (PDI) service comes in. Our
-            comprehensive PDI includes a meticulous 210-point check, giving you
-            complete confidence in your vehicle's condition.
-          </p>
-          <Link
-            href="#"
-            className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102]`}
-            >
-            <div
-              className="bg-blue-500 cursor-pointer flex rounded-md font-bold text-white px-4 py-2 whitespace-nowrap text-base"
-              style={{ width: "max-content" }}>
-              Book Inspection
-            </div>
-          </Link>
-        </div>
-        <div className="line">
-          <img src={"/assured1.png"} alt="" className="w-[80%] mx-auto" />
-        </div>
-      </div> */}
 
       <div className="mx-auto bg-blue-100 mt-16 ">
         <div className="font-bold text-center py-14 ">
@@ -726,150 +755,9 @@ const pdi = ({ isOpen, onClose }) => {
         </div>
       </div>
 
-      {/* <Reviews/> */}
-      {/* <div className="bg-gray-50 py-16">
-        <div className="text-center items-center flex flex-col mb-6">
-          <h2 className="text-4xl text-[#000] my-2">Testimonials</h2>
-          <p className="customgryfnt text-lg font-normal">
-            Their good reviews motivate us to do more
-          </p>
-        </div>
-        <div className=" w-11/12 mx-auto">
-          <Carousel responsive={responsive}>
-            <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-4 h-[342px]">
-              <div>
-                <img
-                  src="/testimonials/testi1.jpeg"
-                  className="w-24 rounded-full object-cover h-[94px]"
-                />
-              </div>
-              <div className="flex text-orange-500 mt-3">
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-              </div>
-              <p className="font-medium my-2 text-center ">
-                I recently purchased a car from Quick Buy. The vehicle is in
-                excellent condition and truly value for money.
-              </p>
-              <h5 className="my-4 text-lg text-blue-950">SI MOTORS</h5>
-            </div>
-
-            <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-4 h-[342px]">
-              <div>
-                <img
-                  src="/testimonials/testi2.jpeg"
-                  className="w-24 rounded-full object-cover h-[94px]"
-                />
-              </div>
-              <div className="flex text-orange-500 mt-3">
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSLine />
-              </div>
-              <p className="font-medium my-2 text-center ">
-                Our dealership's inventory has improved since we started
-                sourcing cars from Unificars.
-              </p>
-              <h5 className="my-4 text-lg text-blue-950">AS TRADING</h5>
-            </div>
-
-            <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-4 h-[342px]">
-              <div>
-                <img
-                  src="/testimonials/testi3.jpeg"
-                  className="w-24 rounded-full object-cover h-[94px]"
-                />
-              </div>
-              <div className="flex text-orange-500 mt-3">
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-              </div>
-              <p className="font-medium my-2 text-center ">
-                As a dealer, finding reliable sources for quality cars is very
-                crucial, and Unificars has never disappointed us.
-              </p>
-              <h5 className="my-4  text-lg text-blue-950">GIANI MOTORS</h5>
-            </div>
-
-            <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-4 h-[342px]">
-              <div>
-                <img
-                  src="/testimonials/testi4.jpeg"
-                  className="w-24 rounded-full object-cover h-[94px]"
-                />
-              </div>
-              <div className="flex text-orange-500 mt-3">
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-              </div>
-              <p className="font-medium my-2 text-center ">
-                The bidding system at unificars is the best system. We have won
-                numerous cars that are well maintained.
-              </p>
-              <h5 className="my-4 text-lg text-blue-950">GM MOTORS</h5>
-            </div>
-
-            <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-4 h-[342px]">
-              <div>
-                <img
-                  src="/testimonials/testi5.jpeg"
-                  className="w-24 rounded-full object-cover h-[94px]"
-                />
-              </div>
-              <div className="flex text-orange-500 mt-3">
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-              </div>
-              <p className="font-medium my-2 text-center ">
-                Customer service at Unificars is Best. From the moment we
-                inquired till the settlement the process was smooth.
-              </p>
-              <h5 className="my-4 text-lg text-blue-950">EXPART AUTOMOBILE</h5>
-            </div>
-
-            <div className="flex flex-col items-center bg-white shadow rounded p-6 mx-4 h-[342px]">
-              <div>
-                <img
-                  src="/testimonials/testi6.jpeg"
-                  className="w-24 rounded-full object-cover h-[94px]"
-                />
-              </div>
-              <div className="flex text-orange-500 mt-3">
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-                <RiStarSFill />
-              </div>
-              <p className="font-medium my-2 text-center ">
-                Finding a well-maintained car at a great price was easy with
-                Quick Buy, and the staff were incredibly helpful as well.
-              </p>
-              <h5 className="my-4  text-lg text-blue-950">NAWAJISH MOTORS</h5>
-            </div>
-          </Carousel>
-        </div>
-      </div> */}
-
       <TestimonialCarousel />
 
       <HomeQuestions />
-
-      {/* ... other parts of your component ... */}
     </div>
   );
 };

@@ -74,7 +74,9 @@ export const getCarValuation = async (carInfo, setExpectedPrice) => {
 
       let expectedprice = Math.round(calculation * remainingyears);
       let expectedprice1 = Math.round(calculation * remainingyears) + 100240;
+
       console.log([expectedprice, expectedprice1]);
+
       setExpectedPrice([Math.abs(expectedprice), Math.abs(expectedprice1)]);
     }
   } catch (error) {
@@ -89,5 +91,72 @@ export const FetchCarBrands = async () => {
     return data;
   } catch (error) {
     console.log("error", error);
+  }
+};
+
+export const FetchCarBrandsModels = async (id) => {
+  try {
+    const res = await axios.post(
+      `https://api.unificars.com/api/getbrandsmodel`,
+      {
+        brand_id: id,
+      }
+    );
+    const data = await res.data;
+    return data;
+  } catch (error) {
+    console.log("error", error);
+  }
+};
+
+export const FetchCarLocation = async () => {
+  try {
+    const res = await axios.post(`https://api.unificars.com/api/states`);
+    const data = await res.data;
+    return data;
+  } catch (error) {
+    console.log("error", error);
+  }
+};
+
+export const FetchCarVarient = async (id) => {
+  try {
+    const res = await axios.post(
+      `https://api.unificars.com/api/getvarientofmodel`,
+      { modal_id: id }
+    );
+    const data = await res.data;
+
+    return data;
+  } catch (error) {
+    console.log("error", error);
+  }
+};
+
+export const confirmAddress = async (
+  brand,
+  model,
+  variant,
+  transmission,
+  engine_type,
+  last_id
+) => {
+  try {
+    const res = await axios.post(
+      "https://crm.unificars.com/api/storedBrandData",
+      {
+        brand,
+        model,
+        variant,
+        transmission,
+        engine_type,
+        last_id,
+      }
+    );
+    const data = await res.data;
+    return data;
+  } catch (error) {
+    console.log("error", error);
+    alert("Something went wrong please try again!");
   }
 };

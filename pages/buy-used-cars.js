@@ -40,7 +40,7 @@ const BuyUsedCars = ({ initialCars, initialTotalItems, featuredCars }) => {
 
       <div className="lg:grid grid-cols-11 bg-gray-100/10">
         <div
-          className="overflow-y-scroll max-h-screen h-[78vh] sticky top-32 hidden lg:block col-span-2"
+          className="overflow-y-scroll h-[85vh] sticky top-32 hidden lg:block col-span-2"
           id="filter">
           <BuyCarSearchFilter
             setCarListing={setCarListing}

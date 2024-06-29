@@ -29,7 +29,7 @@ const about = () => {
             alt="about us"
             width={1000}
             height={800}
-            className="w-full object-cover pt-12"
+            className="w-full object-cover"
           />
           {/* <div className='absolute left-[45%] top-1/3 '>
                         <h2 className='text-white text-xl lg:text-5xl text-center'>Buy, Sell, and Drive On!</h2>
@@ -42,13 +42,13 @@ const about = () => {
         </div>
       </div>
 
-      <div className="container mx-auto p-6 md:px-20 flex gap-4 md:gap-8">
+      <div className="container mx-auto p-16 px-4 md:px-20 flex flex-wrap gap-4 md:gap-8">
         <Image
           src="/aboutus-office.png"
           alt="Office of Unifi Cars"
           width={500}
           height={300}
-          className="w-[50%] rounded-xl"
+          className="md:w-[50%] rounded-xl"
         />
         <div className="w-full">
           <div className="mb-12">
@@ -151,7 +151,7 @@ const about = () => {
         </div>
       </div>
 
-      <div className="bg-[#fbfbfb] py-10 px-2 lg:px-20">
+      <div className="bg-[#fbfbfb] py-10 px-4 lg:px-20">
         <div className="container mx-auto gap-4 ">
           <h2 className="py-2 text-4xl text-center font-bold">Our Mission</h2>
           <div className="line">

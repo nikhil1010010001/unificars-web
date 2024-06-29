@@ -4,7 +4,7 @@ import React from "react";
 
 function ExploreActionCard() {
   return (
-    <div className="flex flex-wrap w-full items-center justify-center gap-6 px-4">
+    <div className="flex flex-wrap w-full items-center justify-center gap-6 px-4 py-6">
       <div className=" h-full">
         <Link href="/scrap-cars">
           <Image

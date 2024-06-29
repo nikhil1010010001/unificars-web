@@ -41,6 +41,8 @@ import { ImageDisplayHide } from "../../ReduxStore/actions/ModalImage";
 import Car210PointsModal from "@/components/CarDetailsComponents/Car210PointsModal";
 import HomeQuestions from "@/components/Home/HomeQuestions";
 import { CloseIcon } from "@/common/IconsSvg";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
+import { buyTestimonialData } from "@/common/testimonialData";
 
 const carPage = () => {
   const router = useRouter();
@@ -236,6 +238,9 @@ const carPage = () => {
             ) : (
               <></>
             )}
+
+            <TestimonialCarousel testimonialData={buyTestimonialData} />
+
             <div>
               <HomeQuestions />
             </div>

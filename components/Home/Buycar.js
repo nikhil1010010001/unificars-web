@@ -35,12 +35,12 @@ const Buycar = () => {
   }, []);
 
   return (
-    <div className="py-6 text-center text-gray-600">
+    <div className="my-6 text-center text-gray-600">
       <div className="mx-auto space-y-6 w-[95%]">
-        <div className="text-center my-10 mb-0 font-normal text-xl">
-          <h1 className="text-[#000] font-black my-2 text-center sellheadfont">
+        <div className="text-center font-normal text-xl">
+          <h3 className="text-[#000] font-black text-center sellheadfont">
             Why Buy Car From Us
-          </h1>
+          </h3>
           {/* <span className="uppercase tracking-widest">
             Keys to cash Unlock the value of your car
           </span> */}
@@ -120,7 +120,7 @@ const Buycar = () => {
               />
               <div className="text-left space-y-4 py-4">
                 <h4 className="text-xl text-black font-bold tracking-widest mt-4 flex-none buyh4">
-                  First service free
+                  First service free with Unifi Cars
                 </h4>
                 <p className="text-lg">
                   We provide first free car service for our buyers i.e. car
@@ -133,14 +133,16 @@ const Buycar = () => {
           </Link>
         </div>
 
-        <h2 className="text-[#000] font-black my-2 text-center sellheadfont pt-8">
-          Featured Cars
-        </h2>
+        <div className="py-8 space-y-6">
+          <h2 className="text-[#000] font-black text-center sellheadfont">
+            Featured Cars
+          </h2>
 
-        <FeaturedCars featuredlist={featuredCars} desktopItemNum={4} />
+          <FeaturedCars featuredlist={featuredCars} desktopItemNum={4} />
+        </div>
 
         <Link href="/buy-used-cars" className="w-full">
-          <button className="bg-orange-500 text-white mt-10 px-4 py-1 text-2xl rounded-lg hover:bg-orange-600 browsbtn">
+          <button className="bg-orange-500 text-white mt-6 px-4 py-1 text-2xl rounded-lg hover:bg-orange-600 browsbtn border">
             Browse Car
           </button>
         </Link>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import TopBar from "./TopBar";
 import Image from "next/image";
-import { CloseIcon, Hamburger } from "@/common/IconsSvg";
+import { ArrowDown, CloseIcon, Hamburger } from "@/common/IconsSvg";
 
 const Navbar = () => {
   const [slider, setSlider] = useState(false);
@@ -96,63 +96,69 @@ const Navbar = () => {
                 onMouseLeave={() => setIsOpen(false)}>
                 <button
                   onClick={toggleDropdown}
-                  className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102] ${
+                  className={`hover:text-[#f38102] active:text-orange-600 decoration-2 decoration-[#f38102]  flex items-center ${
                     isOpen ? "text-orange-600 underline underline-offset-8" : ""
                   }`}>
-                  More
+                  More <ArrowDown className="p-1 ml-2" />
                 </button>
                 {isOpen && (
                   <ul
-                    className="absolute -left-1/2 mt-2 bg-white shadow-lg rounded-lg"
+                    className="absolute -left-[25%] pt-8 text-sm"
                     style={{ width: "max-content" }}>
-                    <li
-                      className={`hover:bg-gray-100 ${
-                        router.pathname == "/about" ? "bg-gray-200" : ""
-                      }`}>
-                      <Link href="/about" className="block px-4 py-2">
-                        About Us
-                      </Link>
-                    </li>
+                    <div className="bg-white shadow-lg rounded-lg">
+                      <li
+                        className={`hover:bg-gray-100 ${
+                          router.pathname == "/about" ? "bg-gray-200" : ""
+                        }`}>
+                        <Link href="/about" className="block px-4 py-2">
+                          About Us
+                        </Link>
+                      </li>
 
-                    <li
-                      className={`hover:bg-gray-100 ${
-                        router.pathname == "/assured-cars" ? "bg-gray-200" : ""
-                      }`}>
-                      <Link href="/assured-cars" className="block px-4 py-2">
-                        Assured Fix
-                      </Link>
-                    </li>
+                      <li
+                        className={`hover:bg-gray-100 ${
+                          router.pathname == "/assured-cars"
+                            ? "bg-gray-200"
+                            : ""
+                        }`}>
+                        <Link href="/assured-cars" className="block px-4 py-2">
+                          Assured Fix
+                        </Link>
+                      </li>
 
-                    <li
-                      className={`hover:bg-gray-100 ${
-                        router.pathname == "/pre-delivery-inspection"
-                          ? "bg-gray-200"
-                          : ""
-                      }`}>
-                      <Link
-                        href="/pre-delivery-inspection"
-                        className="block px-4 py-2">
-                        Pre Inspection
-                      </Link>
-                    </li>
+                      <li
+                        className={`hover:bg-gray-100 ${
+                          router.pathname == "/pre-delivery-inspection"
+                            ? "bg-gray-200"
+                            : ""
+                        }`}>
+                        <Link
+                          href="/pre-delivery-inspection"
+                          className="block px-4 py-2">
+                          Pre Inspection
+                        </Link>
+                      </li>
 
-                    <li
-                      className={`hover:bg-gray-100 ${
-                        router.pathname == "/scrap-cars" ? "bg-gray-200" : ""
-                      }`}>
-                      <Link href="/scrap-cars" className="block px-4 py-2">
-                        Scrap Car
-                      </Link>
-                    </li>
+                      <li
+                        className={`hover:bg-gray-100 ${
+                          router.pathname == "/scrap-cars" ? "bg-gray-200" : ""
+                        }`}>
+                        <Link href="/scrap-cars" className="block px-4 py-2">
+                          Scrap Car
+                        </Link>
+                      </li>
 
-                    <li
-                      className={`hover:bg-gray-100 ${
-                        router.pathname == "/challan-check" ? "bg-gray-200" : ""
-                      }`}>
-                      <Link href="/challan-check" className="block px-4 py-2">
-                        Challan Check
-                      </Link>
-                    </li>
+                      <li
+                        className={`hover:bg-gray-100 ${
+                          router.pathname == "/challan-check"
+                            ? "bg-gray-200"
+                            : ""
+                        }`}>
+                        <Link href="/challan-check" className="block px-4 py-2">
+                          Challan Check
+                        </Link>
+                      </li>
+                    </div>
                   </ul>
                 )}
               </div>
@@ -169,7 +175,7 @@ const Navbar = () => {
 
               <Link
                 href="/dealer-onboarding"
-                className={`hover:text-[#f38102] active:text-orange-600 ${
+                className={`md:pl-12 hover:text-[#f38102] active:text-orange-600 ${
                   router.pathname == "/sell-used-cars" ? "text-orange-600 " : ""
                 }`}>
                 <div

@@ -3,16 +3,16 @@ import React from "react";
 
 const HowToSell = () => {
   return (
-    <div className="relative max-w-6xl mx-auto px-4 pt-16">
+    <div className="relative max-w-6xl mx-auto px-4 my-12">
       {/* <div className="absolute w-full h-60 -z-10 rounded-lg top-4"></div> */}
       {/* <h1 className='py-2 font-bold text-center text-3xl font-bold text-black'>What We Do</h1> */}
       <div className="text-4xl min-w-[50] mx-auto md:px-6 px-2 order-last lg:order-first text-center mb-4">
-        <h1 className="py-2 font-black">
+        <h3 className="font-black">
           <span className="text-orange-500 sellheadfont">How</span>
           <span className="sellheadfont"> to Sell!</span>
-        </h1>
+        </h3>
       </div>
-      <p className="text-center mb-8 hiwpara">
+      <p className="text-center mb-4 hiwpara">
         Sell your Used Car in Three Simple Steps
       </p>
 
@@ -92,7 +92,7 @@ const HowToSell = () => {
             </h4>
             <p className="text-lg">
               We Provide you online payment options according to your
-              suitability.
+              suitability after deal finalized
             </p>
           </div>
         </div>

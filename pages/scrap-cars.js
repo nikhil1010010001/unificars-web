@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import Link from "next/link";
 import Head from "next/head";
-import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { RiStarSFill, RiStarSLine } from "react-icons/ri";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";

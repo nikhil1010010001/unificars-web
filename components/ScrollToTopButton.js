@@ -12,7 +12,7 @@ const ScrollToTopButton = () => {
   return (
     <div className="container mx-auto px-2 md:w-[85%]">
       <div
-        className="p-4 bg-orange-500 rounded-full m-2 w-fit mb-0 -mt-6 mx-auto"
+        className="p-4 bg-orange-500 rounded-full m-2 w-fit mb-0 -mt-6 mx-auto cursor-pointer"
         onClick={scrollToTop}>
         <ArrowUp className="text-white text-xl" />
       </div>

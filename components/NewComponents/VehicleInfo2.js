@@ -737,6 +737,13 @@ const VehicleInfo = () => {
             </div>
           </TabContext>
         )}
+
+        {/* {screen === 3 && (
+          <div className="flex flex-col text-[#465166] w-[60%] mx-auto">
+            when are you planing to sell your car?
+          </div>
+        )} */}
+
         {/* Code For OTP and Car valuation screen */}
         {screen === 3 && (
           <div className="flex flex-col text-[#465166] w-[60%] mx-auto">

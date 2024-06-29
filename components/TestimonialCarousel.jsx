@@ -1,66 +1,53 @@
 import { StarIcon } from "@/common/IconsSvg";
-import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-const testimonials = [
+const FillData = [
   {
     id: 1,
-    name: "Rahul Sharma",
-    location: "Noida",
-    image: "/testimonials/testi1.jpeg",
+    name: "Raghav Sharma",
+    location: "New Delhi",
     stars: 5,
-    text: "I recently purchased a car from Quick Buy. The vehicle is in excellent condition and truly value for money.",
-    company: "SI MOTORS",
+    carName: "Honda City",
+    text: "I have recently purchased a used Honda City from Unifi Cars. Their customer service and delivery process were just amazing.",
   },
   {
     id: 2,
-    name: "Priya Patel",
-    location: "Jaipur",
-    image: "/testimonials/testi2.jpeg",
+    name: "Tarun Mittal",
+    location: "Gurugram",
     stars: 4,
-    text: "Our dealership's inventory has improved since we started sourcing cars from Unifi Cars. The car is in good condition.",
-    company: "AS TRADING",
+    carName: "Maruti Suzuki Swift",
+    text: "The buying and selling of used Maruti Suzuki Swift cars is very smooth with a simplified documentation process. I heard about Unifi Cars from one of my friends. I personally visited Unifi Cars to buy a car, and now I am fully satisfied with my car-buying process. They provide a hassle-free process. I am happy with their service.",
   },
   {
     id: 3,
-    location: "Gujarat",
-    name: "Ankita Sharma",
-    image: "/testimonials/testi3.jpeg",
+    name: "Ashok Kapoor",
+    location: "Delhi NCR",
     stars: 5,
-    text: "As a dealer, finding reliable sources for quality cars is very crucial, and Unifi Cars has never disappointed us.",
-    company: "GIANI MOTORS",
+    carName: "Hyundai i10",
+    text: "I always recommend Unifi Cars. I bought my first Hyundai i10 from them. The deal was fairly priced and their all used car is in excellent condition, and their team was very supportive throughout the entire process. Unifi Cars was very helpful for providing me with the best condition used car in Delhi. Their delivery and service were great also their process was also very simple.",
   },
   {
     id: 4,
-    name: "Amit Kumar",
-    location: "Faridabad",
-    image: "/testimonials/testi4.jpeg",
-    stars: 5,
-    text: "The bidding system at Unifi Cars is the best system. We have won numerous cars that are well maintained.",
-    company: "GM MOTORS",
+    name: "Bhumika",
+    location: "Delhi NCR",
+    stars: 4,
+    carName: "Hyundai i10",
+    text: "I want to sell my Hyundai i10 and searching for buyers since a long time then found Unifi Cars. They offered the best price for my car and I also enjoyed their flawless process.",
   },
   {
     id: 5,
-    name: "Shubham Kumar",
-    location: "Delhi",
-    image: "/testimonials/testi5.jpeg",
+    name: "Rohan Rajput",
+    location: "Ghaziabad",
     stars: 5,
-    text: "Customer service at Unifi Cars is Best. From the moment we inquired till the settlement the process was smooth.",
-    company: "EXPART AUTOMOBILE",
-  },
-  {
-    id: 6,
-    name: "Anil Verma",
-    location: "Mumbai",
-    image: "/testimonials/testi6.jpeg",
-    stars: 5,
-    text: "Finding a well-maintained car at a great price was easy with Quick Buy, and the staff were incredibly helpful as well.",
-    company: "NAWAJISH MOTORS",
+    carName: "Hyundai i10",
+    text: "Unifi Cars' selling used Hyundai i10 process is very comfortable. Their loyalty towards their customers is what I liked most about Unifi Cars company.",
   },
 ];
 
-function TestimonialCarousel() {
+function TestimonialCarousel({ testimonialData }) {
+  const testimonials = FillData;
+
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 1280 },
@@ -81,28 +68,28 @@ function TestimonialCarousel() {
   };
 
   return (
-    <div className="bg-white py-16 w-full">
-      <div className="text-center items-center flex flex-col mb-6 px-4">
-        <h2 className="text-2xl md:text-4xl font-bold text-[#000] my-2">
+    <div className="bg-white w-full my-16">
+      <div className="text-center items-center flex flex-col mb-8 px-4">
+        <h3 className="text-2xl md:text-4xl font-bold text-[#000] my-2">
           What Our Clients Are Saying
-        </h2>
+        </h3>
         <p className="customgryfnt text-lg font-normal">
           Their good reviews motivate us to do more
         </p>
       </div>
       <div className=" w-11/12 mx-auto">
-        <Carousel responsive={responsive} arrows={false}>
+        <Carousel responsive={responsive} arrows={false} autoPlay={true}>
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
               className="flex flex-col items-center bg-white shadow border-2 rounded-3xl p-4 md:p-6 mr-2 h-full max-w-[500px]">
               <div>
                 <div className="flex justify-between items-center w-full flex-wrap gap-2">
-                  <h2 className="font-bold text-lg">{testimonial.name}</h2>
+                  <h4 className="font-bold text-lg">{testimonial.name}</h4>
                   <p className="text-sm">{testimonial.location}</p>
                 </div>
                 <h5 className="my-2 text-sm text-blue-950">
-                  {testimonial.company}
+                  {testimonial.carName}
                 </h5>
                 <div className="flex text-orange-500 my-3">
                   {Array.from({ length: 5 }, (_, index) => (

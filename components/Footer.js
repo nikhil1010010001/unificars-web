@@ -7,6 +7,9 @@ import {
   FacebookIcon,
   InstagramIcon,
   LinkedInIcon,
+  LocationIcon,
+  Mail,
+  PhoneCall,
   TwitterIcon,
 } from "@/common/IconsSvg";
 
@@ -23,7 +26,8 @@ const Footer = () => {
           <div className="px-5 flex flex-col">
             <Link
               href={"/"}
-              className="flex title-font font-medium items-center">
+              className="flex title-font font-medium items-center"
+              target="_blank">
               <Image
                 src={"/whitelogo.png"}
                 width={200}
@@ -80,41 +84,87 @@ const Footer = () => {
             <div className="px-2 grid grid-cols-2 gap-3">
               <div>
                 <h4 className="text-xl mb-4 font-bold">
-                  <b>Company</b>
+                  <b>Services</b>
                 </h4>
                 <ul className="flex gap-2 flex-col">
                   <li className="transition-all duration-150">
-                    <Link href="/about">About</Link>
+                    <Link href="/buy-used-cars" target="_blank">
+                      Buy Car
+                    </Link>
                   </li>
-                  <li className="transition-all duration-150 ">
-                    <Link href={"#"}>Services</Link>
+                  <li className="transition-all duration-150">
+                    <Link href="/sell-used-cars" target="_blank">
+                      Sell Car
+                    </Link>
                   </li>
-                  <li className="transition-all duration-150 ">
-                    <Link href={"/pre-delivery-inspection"}>PDI</Link>
+                  <li className="transition-all duration-150">
+                    <Link href={"/pre-delivery-inspection"} target="_blank">
+                      Pre Delivery Inspection
+                    </Link>
                   </li>
 
                   <li className="transition-all duration-150">
-                    <Link href={"/scrap-cars"}>Scrap Car</Link>
+                    <Link href={"/scrap-cars"} target="_blank">
+                      Scrap Car
+                    </Link>
                   </li>
 
                   <li className="transition-all duration-150">
-                    <Link href={"/contact"}>Contact us</Link>
+                    <Link href="/challan-check" target="_blank">
+                      Challan Check
+                    </Link>
+                  </li>
+                  <li className="transition-all duration-150">
+                    <Link href="/assured-cars" target="_blank">
+                      Assured Fix
+                    </Link>
+                  </li>
+                  <li className="transition-all duration-150">
+                    <Link href="/dealer-onboarding" target="_blank">
+                      Become our Partner
+                    </Link>
                   </li>
                 </ul>
               </div>
               <div>
-                <h4 className="text-xl mb-4  font-bold">
-                  <b>What we do</b>
+                <h4 className="text-xl mb-4 font-bold">
+                  <b>Company</b>
                 </h4>
                 <ul className="flex gap-2 flex-col ">
                   <li className="transition-all duration-150 ">
-                    <Link href="/term-conditions">Terms & Conditions</Link>
+                    <Link href="/" target="_blank">
+                      Home
+                    </Link>
+                  </li>
+                  <li className="transition-all duration-150 ">
+                    <Link href="/about" target="_blank">
+                      About Us
+                    </Link>
+                  </li>
+                  <li className="transition-all duration-150 ">
+                    <Link href="/contact" target="_blank">
+                      Contact Us
+                    </Link>
                   </li>
                   <li className="transition-all duration-150">
-                    <Link href="/privacy-policy">Privacy Policy</Link>
+                    <Link href="/blog/Car-Segments-Of-India" target="_blank">
+                      Blogs
+                    </Link>
+                  </li>
+                  <li className="transition-all duration-150 ">
+                    <Link href="/term-conditions" target="_blank">
+                      Terms & Conditions
+                    </Link>
                   </li>
                   <li className="transition-all duration-150">
-                    <Link href="/blog/Car-Segments-Of-India">Blog / News</Link>
+                    <Link href="/privacy-policy" target="_blank">
+                      Privacy Policy
+                    </Link>
+                  </li>
+                  <li className="transition-all duration-150">
+                    <Link href="/sitemap.xml" target="_blank">
+                      Sitemap
+                    </Link>
                   </li>
                   {/* <li className="transition-all duration-150">
                   <div className="bg-blue-200 cursor-pointer flex rounded hover:bg-orange-400 font-bold shadow-lg text-blue-950 p-2 whitespace-nowrap" style={{ width: 'max-content' }}>
@@ -129,14 +179,35 @@ const Footer = () => {
 
             <div className="flex gap-10"></div>
           </div>
-          <div className="flex flex-col mr-4 pl-3 mt-6">
-            <h4 className=" font-bold mb-4 text-xl">Sell your used car in</h4>
-            <p className="text-left  text-sm">
+          <div className="flex flex-col mr-4 pl-3 mt-6 gap-2">
+            <h4 className=" font-bold text-xl  mb-2">Contact us at</h4>
+
+            <Link
+              href="mailto:info@unificars.com"
+              className="flex items-center gap-2"
+              target="_blank">
+              <Mail className="p-1" />
+              <p className="text-left  text-sm">info@unificars.com</p>
+            </Link>
+
+            <p className="text-left  text-sm flex items-center gap-2">
+              <PhoneCall className="p-1" />
+              +91-9911771977
+            </p>
+
+            <p className="text-left text-sm flex items-center gap-2">
+              <LocationIcon className="p-1" />
               Building No. 1A, Top Floor, DLF, Moti Nagar, New Delhi-110015.
             </p>
-            <br />
-            <p className="text-left  text-sm">info@unificars.com</p>
-            <br />
+
+            <div className="w-full">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d520.4317849897567!2d77.14558207733664!3d28.658707230234807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03dcf6e36613%3A0x771518fcd5684a90!2sUnifi%20Cars!5e0!3m2!1sen!2sin!4v1719559987027!5m2!1sen!2sin"
+                className="w-full rounded-xl"
+                allowfullscreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"></iframe>
+            </div>
           </div>
         </div>
       </footer>
