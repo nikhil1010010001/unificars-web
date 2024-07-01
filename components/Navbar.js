@@ -130,7 +130,7 @@ const Navbar = () => {
                         <Link
                           href="/pre-delivery-inspection"
                           className="block px-4 py-2">
-                          Pre Inspection
+                          Car Health Report
                         </Link>
                       </li>
 
@@ -277,7 +277,7 @@ const Navbar = () => {
                         ? "text-[#f38102] "
                         : ""
                     }`}>
-                    Pre Inspection
+                    Car Health Report
                   </Link>
                 </li>
                 <li className="px-4 border-white/20 py-2 border-b-[1px]">

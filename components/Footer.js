@@ -99,7 +99,7 @@ const Footer = () => {
                   </li>
                   <li className="transition-all duration-150">
                     <Link href={"/pre-delivery-inspection"} target="_blank">
-                      Pre Delivery Inspection
+                      Car Health Report
                     </Link>
                   </li>
 
