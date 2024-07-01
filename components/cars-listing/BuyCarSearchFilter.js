@@ -4,19 +4,14 @@ import Stack from "@mui/material/Stack";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-// import { AddAPhoto } from "@mui/icons-material";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
-// import Checkbox from "@mui/material/Checkbox";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-// import FormGroup from "@mui/material/FormGroup";
 import BrandFilter from "./BrandFilter";
 import { CloseIcon } from "@/common/IconsSvg";
 
 const BuyCarSearchFilter = (props) => {
-  const [searchQuerry, setSearchQuerry] = useState("");
-  const [expandAll, setExpandAll] = useState(false);
   const { setCarListing, setLoading, filterUrl } = props;
   const [value, setValue] = useState([100000, 2400000]);
   // use for filters
@@ -81,10 +76,6 @@ const BuyCarSearchFilter = (props) => {
     }, 2000);
   };
 
-  useEffect(() => {
-    fetchFilter();
-  }, [fields]);
-
   const HandleFilters = async (e) => {
     const { name } = e.target;
     const filterValue = e.target.value;
@@ -92,40 +83,37 @@ const BuyCarSearchFilter = (props) => {
     setFields(filterData);
   };
 
-  const HandleSearch = (e) => {
-    setSearchQuerry(e.target.value);
-    if ((e.target.value = "")) {
-      setExpandAll(false);
-    } else {
-      setExpandAll(true);
-    }
+  const handleClearAll = () => {
+    setValue([100000, 2400000]);
+
+    setFields({
+      min_price: 100000,
+      max_price: 2400000,
+      owner: "",
+      year: "",
+      km: "",
+      type: "",
+      model: [],
+    });
   };
+
+  useEffect(() => {
+    fetchFilter();
+  }, []);
 
   return (
     <>
-      <div className="p-4">
-        <div className="mb-2">
-          <div className="flex justify-between">
-            {/* <h6>Filters</h6> */}
-            <button
-              className="text-sm cursor-pointer border-orange-500 border text-orange-500 hover:text-white hover:bg-orange-500 py-1 px-2 rounded-lg"
-              onClick={() => {
-                setValue([100000, 2400000]);
-                setFields({
-                  min_price: 100000,
-                  max_price: 2400000,
-                  owner: "",
-                  year: "",
-                  km: "",
-                  type: "",
-                  brand: "",
-                });
-              }}>
-              Clear All
-            </button>
+      <div className="p-2">
+        <div className="flex justify-between">
+          {/* <h6>Filters</h6> */}
+          <button
+            className="text-sm cursor-pointer border-orange-500 border text-orange-500 hover:text-white hover:bg-orange-500 py-1 px-2 rounded-lg"
+            onClick={() => handleClearAll()}>
+            Clear All
+          </button>
 
-            {/* save  button */}
-            {/* <button
+          {/* save  button */}
+          {/* <button
               className="text-sm cursor-pointer border-orange-500 border bg-orange-500 text-white hover:text-orange-500 hover:bg-white py-1 px-2 rounded-lg"
               onClick={() => {
                 setValue([100000, 2400000]);
@@ -134,12 +122,12 @@ const BuyCarSearchFilter = (props) => {
             >
               Save
             </button> */}
-          </div>
-          <h3 className="text-xl text-[#000] font-black my-2 font-sans">
+        </div>
+        {/* <h3 className="text-xl text-[#000] font-black my-2 font-sans">
             Make & Model
-          </h3>
+          </h3> */}
 
-          <div className="mx-auto w-12/12 mt-4">
+        {/* <div className="mx-auto w-12/12 mt-4">
             <input
               placeholder="Search Cars..."
               onChange={(e) => {
@@ -148,9 +136,11 @@ const BuyCarSearchFilter = (props) => {
               value={searchQuerry}
               className="outline-[#999999] border w-full px-2 text-black/70 border-[#999999] p-1 rounded"
             />
-          </div>
-          <div className="flex gap-2 flex-wrap">
-            {value[0] != 100000 || value[1] != 2400000 ? (
+          </div> */}
+
+        <div className="flex gap-2 flex-wrap mt-2">
+          {value[0] !== 100000 ||
+            (value[1] !== 2400000 ? (
               <div className="text-xs bg-gray-200 rounded p-2 flex items-center gap-1">
                 {value[0].toLocaleString("en-IN")} -{" "}
                 {value[1].toLocaleString("en-IN")}
@@ -167,63 +157,58 @@ const BuyCarSearchFilter = (props) => {
                   <CloseIcon />
                 </div>
               </div>
-            ) : (
-              <></>
-            )}
+            ) : null)}
 
-            {fields.owner != "" ? (
-              <div className="text-xs bg-gray-200 rounded p-2 flex items-center gap-1">
-                Ownership: {fields.owner}
-                <div
-                  className="cursor-pointer"
-                  onClick={() => setFields({ ...fields, owner: "" })}>
-                  <CloseIcon />
-                </div>
+          {fields.owner && (
+            <div className="text-xs bg-gray-200 rounded p-2 flex items-center gap-1">
+              Ownership: {fields.owner}
+              <div
+                className="cursor-pointer"
+                onClick={() => setFields({ ...fields, owner: "" })}>
+                <CloseIcon />
               </div>
-            ) : (
-              <></>
-            )}
-            {fields.km != "" ? (
-              <div className="text-xs bg-gray-200 rounded p-2 flex items-center gap-1">
-                {fields.km}
-                <div
-                  className="cursor-pointer"
-                  onClick={() => setFields({ ...fields, km: "" })}>
-                  <CloseIcon />
-                </div>
+            </div>
+          )}
+
+          {fields.km && (
+            <div className="text-xs bg-gray-200 rounded p-2 flex items-center gap-1">
+              {fields.km}
+              <div
+                className="cursor-pointer"
+                onClick={() => setFields({ ...fields, km: "" })}>
+                <CloseIcon />
               </div>
-            ) : (
-              <></>
-            )}
-            {fields.year != "" ? (
-              <div className="text-xs bg-gray-200 rounded p-2 flex items-center gap-1">
-                {fields.year}
-                <div
-                  className="cursor-pointer"
-                  onClick={() => setFields({ ...fields, year: "" })}>
-                  <CloseIcon />
-                </div>
+            </div>
+          )}
+
+          {fields.year && (
+            <div className="text-xs bg-gray-200 rounded p-2 flex items-center gap-1">
+              {fields.year}
+              <div
+                className="cursor-pointer"
+                onClick={() => setFields({ ...fields, year: "" })}>
+                <CloseIcon />
               </div>
-            ) : (
-              <></>
-            )}
-            {fields.type != "" ? (
-              <div className="text-xs bg-gray-200 rounded p-2 flex items-center gap-1">
-                {fields.type}
-                <div
-                  className="cursor-pointer"
-                  onClick={() => setFields({ ...fields, type: "" })}>
-                  <CloseIcon />
-                </div>
+            </div>
+          )}
+
+          {fields.type && (
+            <div className="text-xs bg-gray-200 rounded p-2 flex items-center gap-1">
+              {fields.type}
+              <div
+                className="cursor-pointer"
+                onClick={() => setFields({ ...fields, type: "" })}>
+                <CloseIcon />
               </div>
-            ) : (
-              <></>
-            )}
-          </div>
+            </div>
+          )}
         </div>
+
+        <BrandFilter setFields={setFields} fields={fields} />
+
         <div className="text-sm">
           <Accordion
-            className="my-2"
+            className=""
             defaultExpanded={true}
             style={{ boxShadow: "0px 0px 1px rgb(0 0 0 / 4%)" }}>
             <AccordionSummary
@@ -243,24 +228,6 @@ const BuyCarSearchFilter = (props) => {
                   </h2>
                 </div>
                 <Stack spacing={2} direction="row" sx={{ mb: 1 }}>
-                  {/* <Slider
-                    value={value}
-                    step={25000}
-                    valueLabelDisplay="auto"
-                    onClick={(e) => {
-                      console.log(e);
-                    }}
-                    marks={marks}
-                    onChange={(e) => {
-                      HandleSlider(e);
-                    }}
-                    color="warning"
-                    min={100000}
-                    onChangeCommitted={HandleSiderValueChanged}
-                    max={2500000}
-                    size="medium"
-                  /> */}
-
                   <Slider
                     value={value}
                     step={100000} // Increase step size for faster sliding
@@ -280,10 +247,8 @@ const BuyCarSearchFilter = (props) => {
             </AccordionDetails>
           </Accordion>
 
-          <BrandFilter setFields={setFields} fields={fields} />
-
           <Accordion
-            className="my-2 shadow"
+            className=" shadow"
             defaultExpanded={false}
             style={{ boxShadow: "0px 0px 1px rgb(0 0 0 / 4%)" }}>
             <AccordionSummary
@@ -355,7 +320,7 @@ const BuyCarSearchFilter = (props) => {
           </Accordion>
 
           <Accordion
-            className="my-2 shadow"
+            className=" shadow"
             defaultExpanded={false}
             style={{ boxShadow: "0px 0px 1px rgb(0 0 0 / 4%)" }}>
             <AccordionSummary
@@ -491,7 +456,7 @@ const BuyCarSearchFilter = (props) => {
             </AccordionDetails>
           </Accordion>
           <Accordion
-            className="my-2 shadow"
+            className=" shadow"
             defaultExpanded={false}
             style={{ boxShadow: "0px 0px 1px rgb(0 0 0 / 4%)" }}>
             <AccordionSummary
@@ -572,7 +537,7 @@ const BuyCarSearchFilter = (props) => {
             </AccordionDetails>
           </Accordion>
           <Accordion
-            className="my-2 shadow"
+            className=" shadow"
             defaultExpanded={false}
             style={{ boxShadow: "0px 0px 1px rgb(0 0 0 / 4%)" }}>
             <AccordionSummary

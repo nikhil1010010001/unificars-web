@@ -116,7 +116,8 @@ const contact = () => {
               <div>
                 <p className="font-bold">Location</p>
                 <p>
-                  Building No. 1A, Top Floor, DLF, Moti Nagar, New Delhi-110015.
+                  Building No. 1A, 2nd, 3rd, 4th Floor, DLF, Moti Nagar, New
+                  Delhi-110015.
                 </p>
               </div>
             </div>

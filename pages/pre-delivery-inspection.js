@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Head from "next/head";
-import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { RiStarSFill, RiStarSLine } from "react-icons/ri";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import HomeQuestions from "@/components/Home/HomeQuestions";

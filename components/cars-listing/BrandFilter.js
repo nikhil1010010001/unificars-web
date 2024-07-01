@@ -1,19 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Slider from "@mui/material/Slider";
-import Stack from "@mui/material/Stack";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import { AddAPhoto, Route } from "@mui/icons-material";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Checkbox from "@mui/material/Checkbox";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import FormGroup from "@mui/material/FormGroup";
-import { BiSearchAlt } from "react-icons/bi";
 import Box from "@mui/material/Box";
 import { useRouter } from "next/router";
+import { CloseIcon } from "@/common/IconsSvg";
 
 const BrandFilter = ({ fields, setFields }) => {
   const [BrandAndVarient, setBrandAndVarient] = useState([]);
@@ -52,6 +46,7 @@ const BrandFilter = ({ fields, setFields }) => {
     // console.log(BrandAndVarient)
     setBrandAndVarient([...BrandAndVarient]);
   };
+
   const HandleModel = (brandIndex, ModelIndex) => {
     BrandAndVarient[brandIndex].model[ModelIndex] = [
       BrandAndVarient[brandIndex].model[ModelIndex][0],
@@ -85,40 +80,50 @@ const BrandFilter = ({ fields, setFields }) => {
   const HandleSearch = (e) => {
     // console.log(e.target.value)
     setSearchQuerry(e.target.value);
-    if ((e.target.value = "")) {
+    if (e.target.value === "") {
       setExpandAll(false);
     } else {
       setExpandAll(true);
     }
   };
 
+  const handleRemoveSelected = () => {
+    setSearchQuerry("");
+    setExpandAll(false);
+  };
+
   return (
     <>
       <Accordion
-        className="my-2 shadow overflow-hidden"
-        defaultExpanded={false}
+        className="mt-2 shadow overflow-hidden"
+        defaultExpanded={true}
         style={{ boxShadow: "0px 0px 1px rgb(0 0 0 / 4%)" }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
           id="panel2a-header">
-          <h6 className="font-semibold font-sans">Popular Brands</h6>
+          <h6 className="font-semibold font-sans">Make & Model</h6>
         </AccordionSummary>
+
         {/* <form className='flex gap-1' onSubmit={(e) => HandleSearch(e)}> */}
-        <div className=" mx-auto w-10/12">
+        <div className="flex items-center outline-[#f38102] border w-full px-2 text-black/70 border-[#e38102] p-1 rounded">
           <input
             placeholder="Search Cars..."
             onChange={(e) => {
               HandleSearch(e);
             }}
             value={searchQuerry}
-            className="outline-[#f38102] border w-full px-2 text-black/70 border-[#e38102] p-1 rounded"
+            className="outline-none"
           />
+
+          <div onClick={handleRemoveSelected} className="cursor-pointer">
+            <CloseIcon />
+          </div>
         </div>
-        {/* <button type='submit' className='text-lg bg-[#f28102]  p-2 rounded-full shadow text-white'><BiSearchAlt /></button> */}
+
         {/* </form> */}
         <AccordionDetails>
-          <div>
+          <div className="max-h-52 overflow-auto">
             {BrandAndVarient && BrandAndVarient.length > 0 ? (
               BrandAndVarient.map((brand, index) => {
                 // console.log(brand.model.some(row=>{return row[0].includes("ave")}))
@@ -136,7 +141,9 @@ const BrandFilter = ({ fields, setFields }) => {
                     <Accordion
                       className="shadow"
                       key={index}
-                      expanded={expandAll ? true : brandExpanded == index}>
+                      expanded={
+                        expandAll ? true : brandExpanded == index || index == 0
+                      }>
                       <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
                         aria-controls="panel2a-content"

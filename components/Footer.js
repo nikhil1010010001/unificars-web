@@ -197,7 +197,8 @@ const Footer = () => {
 
             <p className="text-left text-sm flex items-center gap-2">
               <LocationIcon className="p-1" />
-              Building No. 1A, Top Floor, DLF, Moti Nagar, New Delhi-110015.
+              Building No. 1A, 2nd, 3rd, 4th Floor, DLF, Moti Nagar, New
+              Delhi-110015.
             </p>
 
             <div className="w-full">
