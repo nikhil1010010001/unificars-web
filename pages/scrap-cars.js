@@ -155,12 +155,12 @@ const about = () => {
             </div> */}
 
       <div
-        className="relative bg-cover bg-center min-h-[400px] pt-20 bg-blue-500"
+        className="relative bg-cover bg-center min-h-[400px] pt-28 bg-blue-500"
         // style={{ backgroundImage: "url(/scrap-car.png)", paddingTop: "80px" }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div className="relative container mx-auto flex items-center justify-between h-full px-6">
-          <div className="flex flex-wrap md:flex-nowrap gap-4 justify-between w-full">
+        <div className="relative container mx-auto flex items-center justify-between h-full px-6 md:px-14">
+          <div className="flex flex-wrap md:flex-nowrap gap-8 justify-between w-full">
             <div className="text-white">
               <h1 className="md:text-6xl text-2xl font-black">
                 Get the Best Price for
@@ -173,7 +173,7 @@ const about = () => {
               </p>
             </div>
             {/* <div className="bg-white p-6 rounded-lg shadow-lg"> */}
-            <div className="h-full  bg-orange-500 p-4 self-baseline challan-headbg w-full md:w-[500px] m-auto mb-28">
+            <div className="h-full bg-orange-500 p-4 self-baseline challan-headbg w-full md:w-[500px] ms-auto mb-28">
               <VehicleInfo />
               {/* <div className='bg-white p-6 rounded-2xl shadow'>
                                 <div className='p-3 rounded-md'>

@@ -36,12 +36,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center navmargin">
           <div>
             <Link href="/">
-              <Image
-                width={120}
-                height={120}
-                src="/logo.png"
-                className="w-36"
-              />
+              <Image width={120} height={20} src="/logo.png" className="w-36" />
             </Link>
           </div>
           <div>
@@ -205,7 +200,7 @@ const Navbar = () => {
                     }}>
                     <Image
                       width={120}
-                      height={120}
+                      height={20}
                       src="/whitelogo.png"
                       className="w-36"
                     />

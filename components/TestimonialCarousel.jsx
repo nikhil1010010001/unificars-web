@@ -78,7 +78,11 @@ function TestimonialCarousel({ testimonialData }) {
         </p>
       </div>
       <div className=" w-11/12 mx-auto">
-        <Carousel responsive={responsive} arrows={false} autoPlay={true}>
+        <Carousel
+          responsive={responsive}
+          arrows={false}
+          autoPlay={true}
+          infinite={true}>
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
