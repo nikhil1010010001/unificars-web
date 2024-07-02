@@ -64,6 +64,10 @@ const BuyCarSearchFilter = (props) => {
     }
   };
 
+  useEffect(() => {
+    fetchFilter();
+  }, [fields]);
+
   let timeoutId = null;
 
   const HandleSiderValueChanged = () => {
@@ -83,6 +87,8 @@ const BuyCarSearchFilter = (props) => {
     setFields(filterData);
   };
 
+  const [callClearAll, setCallClearAll] = useState(false);
+
   const handleClearAll = () => {
     setValue([100000, 2400000]);
 
@@ -95,11 +101,8 @@ const BuyCarSearchFilter = (props) => {
       type: "",
       model: [],
     });
+    setCallClearAll(true);
   };
-
-  useEffect(() => {
-    fetchFilter();
-  }, []);
 
   return (
     <>
@@ -108,7 +111,7 @@ const BuyCarSearchFilter = (props) => {
           {/* <h6>Filters</h6> */}
           <button
             className="text-sm cursor-pointer border-orange-500 border text-orange-500 hover:text-white hover:bg-orange-500 py-1 px-2 rounded-lg"
-            onClick={() => handleClearAll()}>
+            onClick={handleClearAll}>
             Clear All
           </button>
 
@@ -204,7 +207,12 @@ const BuyCarSearchFilter = (props) => {
           )}
         </div>
 
-        <BrandFilter setFields={setFields} fields={fields} />
+        <BrandFilter
+          setFields={setFields}
+          fields={fields}
+          setCallClearAll={setCallClearAll}
+          callClearAll={callClearAll}
+        />
 
         <div className="text-sm">
           <Accordion

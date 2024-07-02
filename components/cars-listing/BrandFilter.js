@@ -9,7 +9,7 @@ import Box from "@mui/material/Box";
 import { useRouter } from "next/router";
 import { CloseIcon } from "@/common/IconsSvg";
 
-const BrandFilter = ({ fields, setFields }) => {
+const BrandFilter = ({ fields, setFields, setCallClearAll, callClearAll }) => {
   const [BrandAndVarient, setBrandAndVarient] = useState([]);
   const [searchQuerry, setSearchQuerry] = useState("");
   const [brandExpanded, setBrandExpanded] = useState(-1);
@@ -89,8 +89,23 @@ const BrandFilter = ({ fields, setFields }) => {
 
   const handleRemoveSelected = () => {
     setSearchQuerry("");
-    setExpandAll(false);
+
+    setBrandAndVarient((prev) =>
+      prev.map((brand) => ({
+        ...brand,
+        checked: false,
+        model: brand.model.map((model) => [model[0], false]),
+      }))
+    );
+    setFields({ ...fields, model: [] });
+    setCallClearAll(false);
   };
+
+  useEffect(() => {
+    if (callClearAll) {
+      handleRemoveSelected();
+    }
+  }, [callClearAll]);
 
   return (
     <>
@@ -106,7 +121,7 @@ const BrandFilter = ({ fields, setFields }) => {
         </AccordionSummary>
 
         {/* <form className='flex gap-1' onSubmit={(e) => HandleSearch(e)}> */}
-        <div className="flex items-center outline-[#f38102] border w-full px-2 text-black/70 border-[#e38102] p-1 rounded">
+        <div className="flex items-center outline-[#f38102] border w-full px-2 text-black/70 border-[#e38102] p-1 rounded justify-between">
           <input
             placeholder="Search Cars..."
             onChange={(e) => {
@@ -116,7 +131,9 @@ const BrandFilter = ({ fields, setFields }) => {
             className="outline-none"
           />
 
-          <div onClick={handleRemoveSelected} className="cursor-pointer">
+          <div
+            onClick={handleRemoveSelected}
+            className="cursor-pointer border rounded-md">
             <CloseIcon />
           </div>
         </div>
