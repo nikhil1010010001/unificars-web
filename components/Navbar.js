@@ -174,7 +174,9 @@ const Navbar = () => {
               <Link
                 href="/dealer-onboarding"
                 className={`md:pl-12 hover:text-[#f38102] active:text-orange-600 ${
-                  router.pathname == "/sell-used-cars" ? "text-orange-600 " : ""
+                  router.pathname == "/dealer-onboarding"
+                    ? "text-orange-600 "
+                    : ""
                 }`}>
                 <div
                   className="bg-orange-500 cursor-pointer flex rounded-xl font-bold text-white p-1 px-4 whitespace-nowrap border-2 border-orange-500"
@@ -346,7 +348,9 @@ const Navbar = () => {
                       setSlider(false);
                     }}
                     className={`${
-                      router.pathname == "/contact" ? "text-[#f38102] " : ""
+                      router.pathname == "/dealer-onboarding"
+                        ? "text-[#f38102] "
+                        : ""
                     }`}>
                     Become our partner
                   </Link>

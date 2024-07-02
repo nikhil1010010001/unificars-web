@@ -76,7 +76,7 @@ const dealership = () => {
         />
 
         <div
-          className="setmaindiv3 bg-white p-4 md:p-7 rounded m-12 mx-auto md:mr-12"
+          className="setmaindiv3 bg-white p-4 md:p-7 rounded m-12 mb-0 mx-auto md:mr-12"
           style={{
             boxShadow: "0px 0px 16px 0px rgba(0, 0, 0, 0.25)",
             marginLeft: "auto",
@@ -225,12 +225,10 @@ const dealership = () => {
         <div className="p-4">
           <div className="">
             <div className="text-center items-center flex flex-col mb-6">
-              <h2 className="text-4xl font-black">Why Partners with Us</h2>
-              <p className=" text-lg my-4">
+              <h2 className="text-3xl font-black">Why Partners with Us</h2>
+              <p className="my-4 mx-4">
                 Unifi Cars ensures every deal is built on clarity, trust, and
-                experience
-                <br />
-                so you can make smart and secure purchases.
+                experience so you can make smart and secure purchases.
               </p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -282,7 +280,7 @@ const dealership = () => {
         <div className="py-10 text-center bg-gradient-radial from-white text-gray-600">
           <div className="w-11/12 mx-auto">
             <div className="text-center items-center flex flex-col mb-6">
-              <h2 className="text-4xl text-[#000] font-black">
+              <h2 className="text-3xl text-[#000] font-black">
                 How It Works !
               </h2>
               <p className="text-lg my-4 md:max-w-xl">
@@ -350,8 +348,10 @@ const dealership = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 container mx-auto gap-4 mt-10 mb-16 lg:mt-10 border-2 rounded-xl">
         <div className=" mx-4 mt-2 font-bold place-self-center">
-          <h2 className="py-2 text-4xl text-black ">How to join us</h2>
-          <p className="font-normal text-black my-2 ">
+          <h2 className="py-2 text-3xl text-black text-center md:text-start">
+            How to join us
+          </h2>
+          <p className="font-normal text-black my-2 text-center md:text-start">
             Join our family in 4 simple steps.
           </p>
           <ul className="my-12 flex flex-col gap-6 ">

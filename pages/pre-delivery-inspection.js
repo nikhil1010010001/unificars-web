@@ -294,20 +294,20 @@ const pdi = ({ isOpen, onClose }) => {
               {step === 1 && (
                 <div>
                   <div className="flex gap-4 justify-center items-center">
-                    <h2 className="text-2xl font-black mb-4">
+                    <h2 className="text-2xl font-black mb-4 text-center">
                       Buy Confidently with
                       <span className="text-orange-500"> Unificars</span>
                     </h2>
                   </div>
                   <input
-                    className="w-full mb-2 p-2 border border-gray-300 rounded text-center"
+                    className="w-full mb-2 p-2 border border-gray-300 rounded"
                     placeholder="Enter your Name"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
                   />
                   <input
-                    className="w-full mb-2 p-2 border border-gray-300 rounded text-center"
+                    className="w-full mb-2 p-2 border border-gray-300 rounded"
                     placeholder="Enter your email"
                     name="email"
                     type="email"
@@ -315,7 +315,7 @@ const pdi = ({ isOpen, onClose }) => {
                     onChange={handleChange}
                   />
                   <input
-                    className="w-full mb-2 p-2 border border-gray-300 rounded text-center"
+                    className="w-full mb-2 p-2 border border-gray-300 rounded"
                     placeholder="Enter your address"
                     name="address"
                     value={formData.address}
@@ -327,7 +327,7 @@ const pdi = ({ isOpen, onClose }) => {
                     Select your location
                   </button>
                   <input
-                    className="w-full mb-2 p-2 border border-gray-300 rounded text-center"
+                    className="w-full mb-2 p-2 border border-gray-300 rounded"
                     placeholder="Enter Phone Number"
                     name="phoneNumber"
                     type="number"
@@ -337,7 +337,7 @@ const pdi = ({ isOpen, onClose }) => {
                   />
                   {otpSent && (
                     <input
-                      className="w-full mb-2 p-2 border border-gray-300 rounded text-center"
+                      className="w-full mb-2 p-2 border border-gray-300 rounded"
                       placeholder="Enter OTP"
                       name="otp"
                       type="number"
@@ -499,7 +499,7 @@ const pdi = ({ isOpen, onClose }) => {
             )}
             <span> CR+</span>
           </div>
-          <p className="md:text-lg text-sm">
+          <p className="md:text-lg text-sm text-center md:text-left">
             Inspections
             <br />
             Done
@@ -517,7 +517,7 @@ const pdi = ({ isOpen, onClose }) => {
             )}
             <span>L</span>
           </div>
-          <p className="md:text-lg text-sm">
+          <p className="md:text-lg text-sm text-center md:text-left">
             Happy
             <br />
             Customers
@@ -535,7 +535,7 @@ const pdi = ({ isOpen, onClose }) => {
             )}
             <span>+</span>
           </div>
-          <p className="md:text-lg text-sm">
+          <p className="md:text-lg text-sm text-center md:text-left">
             Locations
             <br />
             Available
@@ -553,7 +553,7 @@ const pdi = ({ isOpen, onClose }) => {
             width="280"
           />
           <div className="text-left space-y-4 py-4">
-            <h4 className="text-xl text-black font-bold tracking-widest mt-4 flex-none buyh4">
+            <h4 className="text-xl text-black font-bold tracking-widest mt-4 flex-none buyh4 text-center">
               Hidden Accident History
             </h4>
             <p className="text-lg">

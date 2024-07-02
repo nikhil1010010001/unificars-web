@@ -473,7 +473,7 @@ const VehicleInfo = () => {
         {screen === 1 && (
           <div
             className={`p-4 flex flex-col justify-center items-start gap-4 w-full`}>
-            <div className="flex flex-wrap-reverse gap-4 items-center  w-full max-w-full overflow-hidden">
+            <div className="flex flex-wrap gap-4 items-center  w-full max-w-full overflow-hidden">
               <span className="text-2xl font-semibold">
                 Enter your car registration number
               </span>
