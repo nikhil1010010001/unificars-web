@@ -40,12 +40,12 @@ const BuyCarSearchFilter = (props) => {
     },
   ]);
 
-  const HandleSlider = async (e) => {
-    const range = e.target.value;
-    if (range[0] < range[1] - 100000 && range[1] > range[0] + 100000) {
-      setValue(range);
-    }
-  };
+  // const HandleSlider = async (e) => {
+  //   const range = e.target.value;
+  //   if (range[0] < range[1] - 100000 && range[1] > range[0] + 100000) {
+  //     setValue(range);
+  //   }
+  // };
 
   const fetchFilter = async () => {
     setLoading(true);
@@ -56,8 +56,8 @@ const BuyCarSearchFilter = (props) => {
         "Content-type": "application/json",
       },
     });
+
     const jsonData = await resdata.json();
-    // console.log(jsonData, "filter result")
     if (jsonData.code == 200) {
       setLoading(false);
       setCarListing(jsonData.data.auction);
@@ -108,39 +108,15 @@ const BuyCarSearchFilter = (props) => {
     <>
       <div className="p-2">
         <div className="flex justify-between">
-          {/* <h6>Filters</h6> */}
+          <h6>Filters</h6>
           <button
             className="text-sm cursor-pointer border-orange-500 border text-orange-500 hover:text-white hover:bg-orange-500 py-1 px-2 rounded-lg"
             onClick={handleClearAll}>
             Clear All
           </button>
-
-          {/* save  button */}
-          {/* <button
-              className="text-sm cursor-pointer border-orange-500 border bg-orange-500 text-white hover:text-orange-500 hover:bg-white py-1 px-2 rounded-lg"
-              onClick={() => {
-                setValue([100000, 2400000]);
-                setFields({ ...fields, min_price: 100000, max_price: 2400000 });
-              }}
-            >
-              Save
-            </button> */}
         </div>
-        {/* <h3 className="text-xl text-[#000] font-black my-2 font-sans">
-            Make & Model
-          </h3> */}
 
-        {/* <div className="mx-auto w-12/12 mt-4">
-            <input
-              placeholder="Search Cars..."
-              onChange={(e) => {
-                HandleSearch(e);
-              }}
-              value={searchQuerry}
-              className="outline-[#999999] border w-full px-2 text-black/70 border-[#999999] p-1 rounded"
-            />
-          </div> */}
-
+        {/* applied filter  */}
         <div className="flex gap-2 flex-wrap mt-2">
           {value[0] !== 100000 ||
             (value[1] !== 2400000 ? (
@@ -207,6 +183,7 @@ const BuyCarSearchFilter = (props) => {
           )}
         </div>
 
+        {/* brand filter, make and model */}
         <BrandFilter
           setFields={setFields}
           fields={fields}
@@ -215,6 +192,7 @@ const BuyCarSearchFilter = (props) => {
         />
 
         <div className="text-sm">
+          {/* budget */}
           <Accordion
             className=""
             defaultExpanded={true}
@@ -255,6 +233,7 @@ const BuyCarSearchFilter = (props) => {
             </AccordionDetails>
           </Accordion>
 
+          {/* ownership */}
           <Accordion
             className=" shadow"
             defaultExpanded={false}
@@ -327,6 +306,7 @@ const BuyCarSearchFilter = (props) => {
             </AccordionDetails>
           </Accordion>
 
+          {/* year */}
           <Accordion
             className=" shadow"
             defaultExpanded={false}
@@ -337,7 +317,7 @@ const BuyCarSearchFilter = (props) => {
               id="panel2a-header">
               <h6 className="text-sm font-semibold">Year</h6>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails className="overflow-y-scroll max-h-52">
               <RadioGroup
                 aria-labelledby="demo-row-radio-buttons-group-label"
                 name="year"
@@ -463,6 +443,8 @@ const BuyCarSearchFilter = (props) => {
               </RadioGroup>
             </AccordionDetails>
           </Accordion>
+
+          {/* km driven */}
           <Accordion
             className=" shadow"
             defaultExpanded={false}
@@ -486,24 +468,32 @@ const BuyCarSearchFilter = (props) => {
                     fontFamily: "sans-serif",
                   },
                 }}>
+                {/* below 10,000km
+10,000 - 20,000km
+20,000 - 40,000km
+40,000 - 70,000km
+70,000 - 1,20,000km
+1,20,000 - 1,40,000km
+above 1,40,000km */}
+
                 <FormControlLabel
-                  value="4000"
+                  value="10000"
                   control={
                     <Radio
                       size="small"
                       color="warning"
-                      checked={fields.km == "4000"}
+                      checked={fields.km == "10000"}
                     />
                   }
-                  label="4000 and less"
+                  label="below 10,000 km"
                 />
                 <FormControlLabel
-                  value="5000"
+                  value="20000"
                   control={
                     <Radio
                       size="small"
                       color="warning"
-                      checked={fields.km == "5000"}
+                      checked={fields.km == "20000"}
                     />
                   }
                   label="5000 and less"
@@ -544,6 +534,8 @@ const BuyCarSearchFilter = (props) => {
               </RadioGroup>
             </AccordionDetails>
           </Accordion>
+
+          {/* fule type */}
           <Accordion
             className=" shadow"
             defaultExpanded={false}
@@ -600,7 +592,7 @@ const BuyCarSearchFilter = (props) => {
                   }
                   label="CNG"
                 />
-                <FormControlLabel
+                {/* <FormControlLabel
                   value="petrol_cng"
                   control={
                     <Radio
@@ -610,7 +602,7 @@ const BuyCarSearchFilter = (props) => {
                     />
                   }
                   label="Petrol + CNG"
-                />
+                /> */}
               </RadioGroup>
             </AccordionDetails>
           </Accordion>

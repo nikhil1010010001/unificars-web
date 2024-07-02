@@ -113,7 +113,7 @@ const Navbar = () => {
                         </Link>
                       </li>
 
-                      <li
+                      {/* <li
                         className={`hover:bg-gray-100 ${
                           router.pathname == "/assured-cars"
                             ? "bg-gray-200"
@@ -122,7 +122,7 @@ const Navbar = () => {
                         <Link href="/assured-cars" className="block px-4 py-2">
                           Assured Fix
                         </Link>
-                      </li>
+                      </li> */}
 
                       <li
                         className={`hover:bg-gray-100 ${
@@ -252,7 +252,7 @@ const Navbar = () => {
                   </Link>
                 </li>
 
-                <li className="px-4 border-white/20 py-2 border-b-[1px]">
+                {/* <li className="px-4 border-white/20 py-2 border-b-[1px]">
                   {" "}
                   <Link
                     href="/assured-cars"
@@ -266,7 +266,7 @@ const Navbar = () => {
                     }`}>
                     Assured Fix
                   </Link>
-                </li>
+                </li> */}
 
                 <li className="px-4 border-white/20 py-2 border-b-[1px]">
                   {" "}

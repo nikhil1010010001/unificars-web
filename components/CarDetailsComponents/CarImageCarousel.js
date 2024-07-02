@@ -19,10 +19,7 @@ const CarImageCarousel = (props) => {
               align-items: center;
               justify-content: center;
             }
-            .carousel {
-              flex: 1;
-              margin-right: 20px;
-            }
+           
             .thumbnail-container {
               display: flex;
               flex-direction: column;
@@ -34,7 +31,7 @@ const CarImageCarousel = (props) => {
             `}
         </style>
       </Head>
-      <div className="carousel">
+      <div className="carousel flex-1 md:ml-5">
         <Carousel
           showStatus={false}
           showArrows={true}

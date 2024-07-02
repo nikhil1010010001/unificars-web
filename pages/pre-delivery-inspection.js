@@ -300,14 +300,14 @@ const pdi = ({ isOpen, onClose }) => {
                     </h2>
                   </div>
                   <input
-                    className="w-full mb-2 p-2 border border-gray-300 rounded"
+                    className="w-full mb-2 p-2 border border-gray-300 rounded text-center"
                     placeholder="Enter your Name"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
                   />
                   <input
-                    className="w-full mb-2 p-2 border border-gray-300 rounded"
+                    className="w-full mb-2 p-2 border border-gray-300 rounded text-center"
                     placeholder="Enter your email"
                     name="email"
                     type="email"
@@ -315,7 +315,7 @@ const pdi = ({ isOpen, onClose }) => {
                     onChange={handleChange}
                   />
                   <input
-                    className="w-full mb-2 p-2 border border-gray-300 rounded"
+                    className="w-full mb-2 p-2 border border-gray-300 rounded text-center"
                     placeholder="Enter your address"
                     name="address"
                     value={formData.address}
@@ -327,7 +327,7 @@ const pdi = ({ isOpen, onClose }) => {
                     Select your location
                   </button>
                   <input
-                    className="w-full mb-2 p-2 border border-gray-300 rounded"
+                    className="w-full mb-2 p-2 border border-gray-300 rounded text-center"
                     placeholder="Enter Phone Number"
                     name="phoneNumber"
                     type="number"
@@ -337,7 +337,7 @@ const pdi = ({ isOpen, onClose }) => {
                   />
                   {otpSent && (
                     <input
-                      className="w-full mb-2 p-2 border border-gray-300 rounded"
+                      className="w-full mb-2 p-2 border border-gray-300 rounded text-center"
                       placeholder="Enter OTP"
                       name="otp"
                       type="number"
@@ -487,11 +487,11 @@ const pdi = ({ isOpen, onClose }) => {
       </div>
 
       {/* car numbers */}
-      <div className="flex flex-wrap gap-2 justify-around mt-16 lg:mt-36 md:mx-20 p-4 md:p-10 border bg-gradient-to-r from-white rounded-2xl to-blue-50/50">
+      <div className="flex flex-wrap gap-2 justify-around mt-16 md:mx-20 p-4 md:p-10 border bg-gradient-to-r from-white rounded-2xl to-blue-50/50">
         <div className="lg:flex items-center gap-4 font-black">
           <div
             ref={ref}
-            className="flex justify-center items-center md:text-3xl gap-1 text-orange-500">
+            className="flex justify-center items-center md:text-4xl gap-1 text-orange-500">
             {inView && (
               <CountUp start={1} end={10} duration={2} decimals={0}>
                 {({ countUpRef }) => <div ref={countUpRef} />}
@@ -499,7 +499,7 @@ const pdi = ({ isOpen, onClose }) => {
             )}
             <span> CR+</span>
           </div>
-          <p className="md:text-xl text-sm md:text-center">
+          <p className="md:text-lg text-sm">
             Inspections
             <br />
             Done
@@ -509,7 +509,7 @@ const pdi = ({ isOpen, onClose }) => {
         <div className="lg:flex items-center gap-4 font-black">
           <div
             ref={ref}
-            className="flex justify-center items-center md:text-3xl gap-1 text-orange-500">
+            className="flex justify-center items-center md:text-4xl gap-1 text-orange-500">
             {inView && (
               <CountUp start={10} end={50} duration={2} decimals={0}>
                 {({ countUpRef }) => <div ref={countUpRef} />}
@@ -517,7 +517,7 @@ const pdi = ({ isOpen, onClose }) => {
             )}
             <span>L</span>
           </div>
-          <p className="md:text-xl text-sm md:text-center">
+          <p className="md:text-lg text-sm">
             Happy
             <br />
             Customers
@@ -527,7 +527,7 @@ const pdi = ({ isOpen, onClose }) => {
         <div className="lg:flex items-center gap-4 font-black">
           <div
             ref={ref}
-            className="flex justify-center items-center md:text-3xl gap-1 text-orange-500">
+            className="flex justify-center items-center md:text-4xl gap-1 text-orange-500">
             {inView && (
               <CountUp start={100} end={200} duration={2} decimals={0}>
                 {({ countUpRef }) => <div ref={countUpRef} />}
@@ -535,7 +535,7 @@ const pdi = ({ isOpen, onClose }) => {
             )}
             <span>+</span>
           </div>
-          <p className="md:text-xl text-sm md:text-center">
+          <p className="md:text-lg text-sm">
             Locations
             <br />
             Available
@@ -547,19 +547,18 @@ const pdi = ({ isOpen, onClose }) => {
       <div className="flex md:gap-6 gap-2 lg:flex-row flex-col mt-16 md:px-20 px-4">
         <div className="text-center justify-center md:my-4 bg-[#FBFBFB] text-black p-2 rounded-lg w-full">
           <img
-            src="/water-damage.png"
+            src="/hiden-accidental-history.png"
             className="img-fluid w-full h-60 object-cover rounded-lg"
             alt="howitworks"
             width="280"
           />
           <div className="text-left space-y-4 py-4">
-            <h4 className="text-xl text-black font-black tracking-widest mt-4 flex-none buyh4">
-              Water Damage
+            <h4 className="text-xl text-black font-bold tracking-widest mt-4 flex-none buyh4">
+              Hidden Accident History
             </h4>
             <p className="text-lg">
-              <span className="text-orange-500 font-semibold">1 Lakh+</span> by
-              floods annually, resulting in water damage, rust, and electrical
-              issues
+              <span className="text-orange-500 font-semibold">40%</span> of used
+              cars have some accidental history
             </p>
           </div>
         </div>
@@ -602,18 +601,19 @@ const pdi = ({ isOpen, onClose }) => {
 
         <div className="text-center justify-center md:my-4 bg-[#FBFBFB] text-black p-2 rounded-lg w-full">
           <img
-            src="/hiden-accidental-history.png"
+            src="/water-damage.png"
             className="img-fluid w-full h-60 object-cover rounded-lg"
             alt="howitworks"
             width="280"
           />
           <div className="text-left space-y-4 py-4">
-            <h4 className="text-xl text-black font-bold tracking-widest mt-4 flex-none buyh4">
-              Hidden Accident History
+            <h4 className="text-xl text-black font-black tracking-widest mt-4 flex-none buyh4">
+              Water Damage
             </h4>
             <p className="text-lg">
-              <span className="text-orange-500 font-semibold">40%</span> of used
-              cars have some accidental history
+              <span className="text-orange-500 font-semibold">1 Lakh+</span> by
+              floods annually, resulting in water damage, rust, and electrical
+              issues
             </p>
           </div>
         </div>
@@ -700,7 +700,7 @@ const pdi = ({ isOpen, onClose }) => {
         </div>
       </div>
 
-      <div className="relative mx-auto px-4 pt-16 md:px-20">
+      {/* <div className="relative mx-auto px-4 pt-16 md:px-20">
         <h1 className="py-2 text-center text-3xl font-bold text-black">
           Why Choose Pre Delivery Inspection{" "}
         </h1>
@@ -752,7 +752,7 @@ const pdi = ({ isOpen, onClose }) => {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <TestimonialCarousel testimonialData={inspectionTestimonialData} />
 

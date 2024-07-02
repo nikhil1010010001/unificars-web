@@ -6,7 +6,7 @@ export const CloseIcon = ({ className }) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    stroke-width="2"
+    strokeWidth="2"
     stroke-linecap="round"
     stroke-linejoin="round"
     className={`lucide lucide-x ${className}`}>
@@ -23,7 +23,7 @@ export const Hamburger = ({ className }) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    stroke-width="2"
+    strokeWidth="2"
     stroke-linecap="round"
     stroke-linejoin="round"
     className={`lucide lucide-menu ${className}`}>
@@ -42,7 +42,7 @@ export const PhoneCall = ({ className }) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    stroke-width="2"
+    strokeWidth="2"
     stroke-linecap="round"
     stroke-linejoin="round"
     className={`lucide lucide-phone-call ${className}`}>
@@ -60,7 +60,7 @@ export const Mail = ({ className }) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    stroke-width="2"
+    strokeWidth="2"
     stroke-linecap="round"
     stroke-linejoin="round"
     className={`lucide lucide-mail ${className}`}>
@@ -90,7 +90,7 @@ export const FacebookIcon = ({ className }) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    stroke-width="2"
+    strokeWidth="2"
     stroke-linecap="round"
     stroke-linejoin="round"
     className={`lucide lucide-facebook ${className}`}>
@@ -106,7 +106,7 @@ export const InstagramIcon = ({ className }) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    stroke-width="2"
+    strokeWidth="2"
     stroke-linecap="round"
     stroke-linejoin="round"
     className={`lucide lucide-instagram ${className}`}>
@@ -124,7 +124,7 @@ export const LinkedInIcon = ({ className }) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    stroke-width="2"
+    strokeWidth="2"
     stroke-linecap="round"
     stroke-linejoin="round"
     className={`lucide lucide-linkedin ${className}`}>
@@ -142,7 +142,7 @@ export const TwitterIcon = ({ className }) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    stroke-width="2"
+    strokeWidth="2"
     stroke-linecap="round"
     stroke-linejoin="round"
     className={`lucide lucide-twitter ${className}`}>
@@ -158,7 +158,7 @@ export const ArrowUp = ({ className }) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    stroke-width="2"
+    strokeWidth="2"
     stroke-linecap="round"
     stroke-linejoin="round"
     className={`lucide lucide-chevrons-up ${className}`}>
@@ -175,7 +175,7 @@ export const StarIcon = ({ className }) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    stroke-width="2"
+    strokeWidth="2"
     stroke-linecap="round"
     stroke-linejoin="round"
     className={`lucide lucide-star ${className}`}>
@@ -191,7 +191,7 @@ export const InfoIcon = (props) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    stroke-width="2"
+    strokeWidth="2"
     stroke-linecap="round"
     stroke-linejoin="round"
     {...props}>
@@ -209,7 +209,7 @@ export const CarFront = ({ className }) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    stroke-width="2"
+    strokeWidth="2"
     stroke-linecap="round"
     stroke-linejoin="round"
     className={`lucide lucide-car-front ${className}`}>
@@ -230,7 +230,7 @@ export const UserIcon = ({ className }) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    stroke-width="2"
+    strokeWidth="2"
     stroke-linecap="round"
     stroke-linejoin="round"
     className={`lucide lucide-user-round ${className}`}>
@@ -247,7 +247,7 @@ export const FuelIcon = ({ className }) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    stroke-width="2"
+    strokeWidth="2"
     stroke-linecap="round"
     stroke-linejoin="round"
     className={`lucide lucide-fule ${className}`}>
@@ -266,7 +266,7 @@ export const MeterIcon = ({ className }) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    stroke-width="2"
+    strokeWidth="2"
     stroke-linecap="round"
     stroke-linejoin="round"
     className={`lucide lucide-gauge ${className}`}>
@@ -283,7 +283,7 @@ export const ArrowDown = ({ className }) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    stroke-width="2"
+    strokeWidth="2"
     stroke-linecap="round"
     stroke-linejoin="round"
     className={`lucide lucide-chevrons-down ${className}`}>
@@ -299,7 +299,7 @@ export const ListIcon = ({ className }) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    stroke-width="2"
+    strokeWidth="2"
     stroke-linecap="round"
     stroke-linejoin="round"
     className={`lucide lucide-list-todo ${className}`}>
@@ -320,7 +320,7 @@ export const LocationIcon = ({ className }) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    stroke-width="2"
+    strokeWidth="2"
     stroke-linecap="round"
     stroke-linejoin="round"
     className={`lucide lucide-location ${className}`}>

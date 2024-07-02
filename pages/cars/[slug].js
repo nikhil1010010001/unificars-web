@@ -77,7 +77,7 @@ const carPage = () => {
     if (jsonData.code == 200) {
       setCar(jsonData.data);
 
-      console.log("car report details ", jsonData.data);
+      // console.log("car report details ", jsonData.data);
       if (jsonData.data.lead[0].Brand) {
         const brandName = jsonData.data.lead[0].Brand.split(" ")[0];
         fetchRelatedCars(brandName);
@@ -138,13 +138,13 @@ const carPage = () => {
                 setShowEnquiryModal={setShowEnquiryModal}
               />
             </div>
-            <div className="flex lg:gap-2 py-4 mx-auto lg:w-11/12 ">
+            <div className="flex flex-wrap md:flex-nowrap lg:gap-2 py-4 mx-auto lg:w-11/12 ">
               <div className="px-4 mb-4 w-full">
                 <div>
                   <div className="relative">
                     <CarImageCarousel
                       images={
-                        car.assuredimages.length > 0
+                        car?.assuredimages?.length > 0
                           ? car.assuredimages
                           : car.images
                       }
@@ -168,35 +168,6 @@ const carPage = () => {
                   />
 
                   <img src="/carDetailsInfoImg.png" className="w-full mt-4" />
-                  {/* <div className="mt-2 mx-4 lg:mx-0 flex flex-wrap gap-1 text-sm">
-                    <p className="flex-none items-center flex border-2 border-[#e38102] py-1 px-2 rounded-full gap-1">
-                      <TiTick className="bg-[#e38102] rounded-full text-white" />
-                      Instant Loan Approval
-                    </p>
-                    <p className="flex-none items-center flex border-2 border-[#e38102] py-1 px-2 rounded-full gap-1">
-                      <TiTick className="bg-[#e38102] rounded-full text-white" />
-                      Lowest Rate Of Interest
-                    </p>
-                    <p className="flex-none items-center flex border-2 border-[#e38102] py-1 px-2 rounded-full gap-1">
-                      <TiTick className="bg-[#e38102] rounded-full text-white" />
-                      Priority Closer
-                    </p>
-                    <p className="flex-none items-center flex border-2 border-[#e38102] py-1 px-2 rounded-full gap-1">
-                      <TiTick className="bg-[#e38102] rounded-full text-white" />
-                      Best Deal
-                    </p>
-                    <p className="flex-none items-center flex border-2 border-[#e38102] py-1 px-2 rounded-full gap-1">
-                      <TiTick className="bg-[#e38102] rounded-full text-white" />
-                      Free Rc Transfer
-                    </p>
-                    <p className="flex-none items-center flex border-2 border-[#e38102] py-1 px-2 rounded-full gap-1">
-                      <TiTick className="bg-[#e38102] rounded-full text-white" />
-                      Sell From Your Home
-                    </p>
-                  </div> */}
-                  {/* <div className='my-2'>
-                                <img src="/productBannner.png" className='shadow' />
-                            </div> */}
                 </div>
               </div>
             </div>

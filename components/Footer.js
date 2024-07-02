@@ -147,7 +147,7 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li className="transition-all duration-150">
-                    <Link href="/blog/Car-Segments-Of-India" target="_blank">
+                    <Link href="/blogs" target="_blank">
                       Blogs
                     </Link>
                   </li>

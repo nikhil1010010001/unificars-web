@@ -67,16 +67,16 @@ const dealership = () => {
 
   return (
     <div className="relative">
-      <div className="relative">
+      <div className="relative pb-12">
         <Image
-          width={1000}
+          width={1500}
           height={500}
           src="/Banner-Image.png"
-          className="hidden md:block h-full top-0 -m-12 mx-auto min-h-[40rem] w-full object-cover absolute -z-10"
+          className="md:block hidden top-0 mx-auto -mt-14 h-full w-screen object-cover absolute -z-10"
         />
 
         <div
-          className="setmaindiv3 bg-white p-7 rounded m-12"
+          className="setmaindiv3 bg-white p-4 md:p-7 rounded m-12 mx-auto md:mr-12"
           style={{
             boxShadow: "0px 0px 16px 0px rgba(0, 0, 0, 0.25)",
             marginLeft: "auto",
@@ -285,14 +285,15 @@ const dealership = () => {
               <h2 className="text-4xl text-[#000] font-black">
                 How It Works !
               </h2>
-              <p className="text-lg my-4">
-                Make your car buying journey easy and convenient with us.
+              <p className="text-lg my-4 md:max-w-xl">
+                Partner with us to increase your profits effortlessly by
+                reaching a wider audience and selling more cars.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-              <div className="text-center flex flex-wrap justify-center cardhow">
+              <div className="text-center flex items-end flex-wrap justify-center">
                 <Image
-                  width={200}
+                  width={150}
                   height={200}
                   src="/icons/biding.png"
                   className="img-fluid transition duration-300 transform hover:scale-110"
@@ -303,14 +304,13 @@ const dealership = () => {
                     Bid placing
                   </h4>
                   <p className="mx-5 font-normal my-4 text-lg">
-                    You can easily start the bidding from our wide range of
-                    cars.{" "}
+                    You can easily start bidding from our wide range of cars.
                   </p>
                 </div>
               </div>
-              <div className="text-center flex flex-wrap justify-center cardhow">
+              <div className="text-center flex items-end flex-wrap justify-center cardhow py-6">
                 <Image
-                  width={200}
+                  width={150}
                   height={200}
                   src="/icons/dealclose.png"
                   className="img-fluid transition duration-300 transform hover:scale-110"
@@ -321,16 +321,16 @@ const dealership = () => {
                     Deal closing
                   </h4>
                   <p className="mx-5 font-normal my-4 text-lg">
-                    Close the deal after winning the bid.
+                    Close the great car deal after successfully winning the bid.
                   </p>
                 </div>
               </div>
 
-              <div className="text-center flex flex-wrap justify-center cardhow">
+              <div className="text-center flex items-end flex-wrap justify-center">
                 <Image
-                  width={200}
+                  width={150}
                   height={200}
-                  src="https://api.unificars.com/front/img/icon/hiw1copy.png"
+                  src="/icons/deliverytime.png"
                   className="img-fluid transition duration-300 transform hover:scale-110"
                   alt="howitworks"
                 />
@@ -339,8 +339,7 @@ const dealership = () => {
                     Delivery time
                   </h4>
                   <p className="mx-5 font-normal my-4 text-lg">
-                    After completion of payment, we provide you the doorstep
-                    delivery with all completed documents.
+                    After payment, we provide doorstep delivery with documents.
                   </p>
                 </div>
               </div>
@@ -406,7 +405,7 @@ const dealership = () => {
           <Image
             width={3840 / 3}
             height={1302 / 3}
-            src={"/download-banner.png"}
+            src={"/dealer-download.jpg"}
             className="rounded-xl object-cover w-full"
             alt="Download Banner"
           />
@@ -457,7 +456,6 @@ const dealership = () => {
         }
 
         input {
-          font-family: "Roboto";
           font-size: 20px;
           font-weight: 500;
           padding-left: 10px;
@@ -472,7 +470,6 @@ const dealership = () => {
           display: inline-flex;
           flex-direction: column;
           position: relative;
-          font-family: "Roboto";
           box-shadow: 0 0 3px #ddd;
           overflow: hidden;
           border-radius: 15px;
@@ -492,7 +489,6 @@ const dealership = () => {
           font-weight: 200;
         }
         form .box input {
-          font-family: "Roboto";
           padding: 10px 10px 10px 10px;
           border: 1px solid #5b5b5b;
           outline: none;

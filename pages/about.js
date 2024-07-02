@@ -27,18 +27,10 @@ const about = () => {
           <Image
             src="/aboutus.png"
             alt="about us"
-            width={1000}
-            height={800}
+            width={3840 / 2}
+            height={1404 / 2}
             className="w-full object-cover"
           />
-          {/* <div className='absolute left-[45%] top-1/3 '>
-                        <h2 className='text-white text-xl lg:text-5xl text-center'>Buy, Sell, and Drive On!</h2>
-                        <p className='text-white text-2xl my-4 hidden lg:block'>Let the UNIFI WHEELS PRIVATE LIMITED be a part of your journey.</p>
-                        <div className='flex gap-4 justify-center mt-3'>
-                            <Link href={"/assured-cars"} className='bg-[#f38102] p-1 lg:p-2 text-white cursor-pointer hover:scale-105 lg:px-6 hover:text-[#f38102] hover:bg-white border-[#f38102] border text-center transition-all duration-300 ease-in-out rounded shadow'>Buy Car</Link>
-                            <Link href={"/sell-used-cars"} className='bg-[#f38102] p-1 lg:p-2 text-white cursor-pointer hover:scale-105 lg:px-6 hover:text-[#f38102] hover:bg-white border-[#f38102] border text-center transition-all duration-300 ease-in-out rounded shadow'>Sell Car</Link>
-                        </div>
-                    </div> */}
         </div>
       </div>
 
@@ -46,9 +38,9 @@ const about = () => {
         <Image
           src="/aboutus-office.png"
           alt="Office of Unifi Cars"
-          width={500}
-          height={300}
-          className="min-w-[40%] rounded-xl object-cover mx-auto"
+          width={1500 / 2}
+          height={1450 / 2}
+          className="md:w-[45%] rounded-xl object-cover mx-auto"
         />
         <div className="w-full md:w-1/2">
           <div className="mb-12">

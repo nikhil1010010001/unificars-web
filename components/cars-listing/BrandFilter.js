@@ -110,7 +110,7 @@ const BrandFilter = ({ fields, setFields, setCallClearAll, callClearAll }) => {
   return (
     <>
       <Accordion
-        className="mt-2 shadow overflow-hidden"
+        className="shadow overflow-hidden"
         defaultExpanded={true}
         style={{ boxShadow: "0px 0px 1px rgb(0 0 0 / 4%)" }}>
         <AccordionSummary
@@ -158,9 +158,7 @@ const BrandFilter = ({ fields, setFields, setCallClearAll, callClearAll }) => {
                     <Accordion
                       className="shadow"
                       key={index}
-                      expanded={
-                        expandAll ? true : brandExpanded == index || index == 0
-                      }>
+                      expanded={expandAll ? true : brandExpanded == index}>
                       <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
                         aria-controls="panel2a-content"
