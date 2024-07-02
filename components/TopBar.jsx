@@ -24,7 +24,6 @@ function TopBar() {
         className="bg-orange-500">
         <div className="w-screen mx-auto text-white px-4 lg:px-28 py-2 flex justify-evenly md:justify-end items-center gap-8 md:gap-8 sticky top-0 z-20">
           <p className="flex items-center gap-2">
-            {/* <FaPhoneVolume />{" "} */}
             <PhoneCall />
             <span className="md:block hidden">Toll Free : </span>
             <span className="whitespace-nowrap">+91-9911771977</span>
@@ -32,7 +31,6 @@ function TopBar() {
           <Link
             href="mailto:info@unificars.com"
             className="flex items-center gap-2">
-            {/* <MdOutlineMailOutline className="text-xl" />{" "} */}
             <Mail />
             <span>info@unificars.com</span>
           </Link>

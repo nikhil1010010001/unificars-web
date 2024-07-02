@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import TopBar from "./TopBar";
+
 import Image from "next/image";
 import { ArrowDown, CloseIcon, Hamburger } from "@/common/IconsSvg";
+import dynamic from "next/dynamic";
+
+const TopBar = dynamic(() => import("./TopBar"), { ssr: false });
 
 const Navbar = () => {
   const [slider, setSlider] = useState(false);
@@ -332,6 +335,20 @@ const Navbar = () => {
                       router.pathname == "/contact" ? "text-[#f38102] " : ""
                     }`}>
                     Contact
+                  </Link>
+                </li>
+
+                <li className="px-4 border-white/20 py-2 border-b-[1px]">
+                  {" "}
+                  <Link
+                    href="/dealer-onboarding"
+                    onClick={() => {
+                      setSlider(false);
+                    }}
+                    className={`${
+                      router.pathname == "/contact" ? "text-[#f38102] " : ""
+                    }`}>
+                    Become our partner
                   </Link>
                 </li>
               </div>
