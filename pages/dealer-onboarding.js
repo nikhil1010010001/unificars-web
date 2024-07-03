@@ -348,58 +348,59 @@ const dealership = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 container mx-auto gap-4 mt-10 mb-16 lg:mt-10 border-2 rounded-xl">
+      <div className="flex justify-evenly md:flex-wrap flex-nowrap container mx-auto gap-4 mt-10 mb-16 lg:mt-10 border-2 rounded-xl">
         <div className=" mx-4 mt-2 font-bold place-self-center">
-          <h2 className="py-2 text-3xl text-black text-center md:text-start">
+          <h2 className="py-2 text-4xl font-black text-black text-center md:text-start">
             How to join us
           </h2>
-          <p className="font-normal text-black my-2 text-center md:text-start">
+          <p className="font-semibold text-black my-2 text-center md:text-start">
             Join our family in 4 simple steps.
           </p>
           <ul className="my-12 flex flex-col gap-6 ">
-            <li className="flex font-bold">
+            <li className="flex font-bold text-lg">
               <div className="flex-none pt-1 mr-2">
                 <TiTick className="bg-[#FFB648] text-xl rounded-full text-[#ffffff]" />
               </div>
-              Register yourself and our Executive will contact you within 24
-              Hours.
+              <span>
+                Register yourself and our Executive will contact you within 24
+                Hours.
+              </span>
             </li>
 
-            <li className="flex font-bold">
+            <li className="flex font-bold text-lg">
               <div className="flex-none pt-1 mr-2">
                 <TiTick className="bg-[#FFB648] text-xl rounded-full text-[#ffffff]" />
               </div>
-              Download the app via playstore or app store
+              <span>Download the app via playstore or app store</span>
             </li>
 
-            <li className="flex font-bold">
+            <li className="flex font-bold text-lg">
               <div className="flex-none pt-1 mr-2">
                 <TiTick className="bg-[#FFB648] text-xl rounded-full text-[#ffffff]" />
               </div>
-              Verifying your profile
+              <span>Verifying your profile</span>
             </li>
 
-            <li className="flex font-bold">
+            <li className="flex font-bold text-lg">
               <div className="flex-none pt-1 mr-2">
                 <TiTick className="bg-[#FFB648] text-xl rounded-full text-[#ffffff]" />
               </div>
-              Start bidding on the cars
+              <span>Start bidding on the cars</span>
             </li>
           </ul>
         </div>
 
-        <Link
-          href="https://api.unificars.com/front/img/icon/hiw1copy.png"
-          className="line">
-          <Image
-            width={600}
-            height={300}
-            src={"/howtojoin.png"}
-            alt="How to join us"
-            className="rounded-xl"
-            style={{ width: "60%", margin: "auto" }}
-          />
-        </Link>
+        <div className="w-fit">
+          <Link href="https://api.unificars.com/front/img/icon/hiw1copy.png">
+            <Image
+              width={400}
+              height={300}
+              src={"/howtojoin.png"}
+              alt="How to join us"
+              className="rounded-xl max-w-full"
+            />
+          </Link>
+        </div>
       </div>
 
       <div className="container mx-auto mt-16">
