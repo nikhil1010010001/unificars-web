@@ -187,19 +187,21 @@ const Footer = () => {
               className="flex items-center gap-2"
               target="_blank">
               <Mail className="p-1" />
-              <p className="text-left  text-sm">info@unificars.com</p>
+              <span className="text-left  text-sm">info@unificars.com</span>
             </Link>
 
-            <p className="text-left  text-sm flex items-center gap-2">
+            <div className="text-left  text-sm flex items-center gap-2">
               <PhoneCall className="p-1" />
-              +91-9911771977
-            </p>
+              <span>+91-9911771977</span>
+            </div>
 
-            <p className="text-left text-sm flex items-center gap-2">
+            <div className="text-left text-sm flex items-center gap-2">
               <LocationIcon className="p-1" />
-              Building No. 1A, 2nd, 3rd, 4th Floor, DLF, Moti Nagar, New
-              Delhi-110015.
-            </p>
+              <span>
+                Building No. 1A, 2nd, 3rd, 4th Floor, DLF, Moti Nagar, New
+                Delhi-110015.
+              </span>
+            </div>
 
             <div className="w-full">
               <iframe

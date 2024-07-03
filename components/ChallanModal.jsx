@@ -34,7 +34,7 @@ const ChallanModal = ({ challanData, open, handleClose }) => {
           height: "100%",
         }}>
         <div style={{ flex: "1", overflowY: "auto", padding: "8px" }}>
-          <Box sx={style}>
+          <Box sx={style} className="bg-white">
             <div
               style={{
                 flex: "none",
