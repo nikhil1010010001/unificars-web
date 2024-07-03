@@ -43,6 +43,7 @@ import HomeQuestions from "@/components/Home/HomeQuestions";
 import { CloseIcon } from "@/common/IconsSvg";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import { buyTestimonialData } from "@/common/testimonialData";
+import { BuyFaqData } from "@/common/faqData";
 
 const carPage = () => {
   const router = useRouter();
@@ -213,7 +214,7 @@ const carPage = () => {
             <TestimonialCarousel testimonialData={buyTestimonialData} />
 
             <div>
-              <HomeQuestions />
+              <HomeQuestions faqData={BuyFaqData} />
             </div>
             <OtpModal
               showModal={showModal}

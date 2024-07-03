@@ -5,6 +5,7 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Image from "next/image";
 import Link from "next/link";
+import { HomeFaqData } from "@/common/faqData";
 
 const CookiesSection = dynamic(() => import("@/components/CookiesSection"), {
   ssr: true,
@@ -320,7 +321,7 @@ function index() {
         </div>
 
         <div className="pb-6">
-          <HomeQuestions />
+          <HomeQuestions faqData={HomeFaqData} />
         </div>
       </div>
     </>

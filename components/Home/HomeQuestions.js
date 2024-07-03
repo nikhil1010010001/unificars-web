@@ -5,9 +5,9 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import { HomefaqData } from "@/common/faqData";
+import { HomeFaqData } from "@/common/faqData";
 
-const HomeQuestions = () => {
+const HomeQuestions = ({ faqData }) => {
   const [expanded, setExpanded] = useState({});
 
   const handleAccordionChange = (panel) => (event, isExpanded) => {
@@ -17,7 +17,9 @@ const HomeQuestions = () => {
     }));
   };
 
-  const panels = HomefaqData;
+  const panels = faqData || HomeFaqData;
+
+  console.log(panels);
 
   // JSON-LD structured data for FAQ
   const schemaData = {

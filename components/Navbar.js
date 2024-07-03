@@ -33,8 +33,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="container">
-      <nav className="w-full z-20 bg-white shadow-sm position-fixed">
+    <div className="container flex flex-col justify-center items-center mx-auto">
+      <nav className=" max-w-[1920px] mx-auto w-full z-20 bg-white shadow-sm fixed top-0">
         <TopBar />
         <div className="flex justify-between items-center navmargin">
           <div>

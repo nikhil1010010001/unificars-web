@@ -257,9 +257,7 @@
   box-shadow: 0 4px 12px #ebf4f9;
 }
 
-.position-fixed {
-  position: fixed;
-}
+
 
 @media only screen and (min-width: 320px) and (max-width: 425px) {
   .navmargin {

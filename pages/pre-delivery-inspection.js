@@ -18,6 +18,7 @@ import {
 } from "@/common/common";
 import Image from "next/image";
 import { inspectionTestimonialData } from "@/common/testimonialData";
+import { PdiFaqData } from "@/common/faqData";
 
 const pdi = ({ isOpen, onClose }) => {
   // const [isModalOpen, setIsModalOpen] = useState(false);
@@ -756,7 +757,7 @@ const pdi = ({ isOpen, onClose }) => {
 
       <TestimonialCarousel testimonialData={inspectionTestimonialData} />
 
-      <HomeQuestions />
+      <HomeQuestions faqData={PdiFaqData} />
     </div>
   );
 };
