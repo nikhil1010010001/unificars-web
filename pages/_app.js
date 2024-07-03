@@ -75,14 +75,14 @@ export default function App({ Component, pageProps }) {
           className="max-w-[1920px] mx-auto"
           suppressHydrationWarning={true}>
           <NextTopLoader
-            color="#ffffff"
+            color="#3b82f6"
             initialPosition={0.2}
             crawlSpeed={200}
             crawl={true}
             showSpinner={false}
             easing="ease"
             speed={200}
-            shadow="0 0 10px #ffffff,0 0 5px #ffffff"
+            shadow="0 0 10px #3b82f6,0 0 5px #3b82f6"
             zIndex={1600}
           />
 
