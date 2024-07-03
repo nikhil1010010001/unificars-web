@@ -1,43 +1,21 @@
 import React, { useState } from "react";
 import Head from "next/head";
-import Modal from "@mui/material/Modal";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import "react-multi-carousel/lib/styles.css";
+
 import { FaRegHand, FaBuildingColumns } from "react-icons/fa6";
 import { FaRupeeSign } from "react-icons/fa";
 
 import dynamic from "next/dynamic";
-import TestimonialCarousel from "@/components/TestimonialCarousel";
+import ChallanModal from "@/components/ChallanModal";
 
 const HomeQuestions = dynamic(() => import("@/components/Home/HomeQuestions"), {
   ssr: false,
 });
 
 const Challan = () => {
-  const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 4000, min: 1280 },
-      items: 3,
-    },
-    desktop: {
-      breakpoint: { max: 1280, min: 720 },
-      items: 3,
-    },
-    tablet: {
-      breakpoint: { max: 720, min: 464 },
-      items: 2,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1.25,
-    },
-  };
   const [carNumber, setCarNumber] = useState("");
   const [validNumber, setValidNumber] = useState(false);
   const [challanData, setChallanData] = useState([]);
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(!false);
   const [loading, setLoading] = useState(false);
 
   const handleOpen = () => setOpen(true);
@@ -119,20 +97,6 @@ const Challan = () => {
     } finally {
       setLoading(false);
     }
-  };
-
-  const style = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: "80%",
-    maxHeight: "80vh",
-    overflowY: "auto",
-    bgcolor: "background.paper",
-    border: "2px solid #000",
-    boxShadow: 24,
-    p: 4,
   };
 
   return (
@@ -389,69 +353,11 @@ const Challan = () => {
                 </div>
               </div>
 
-              <Modal
+              <ChallanModal
+                challanData={challanData}
                 open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description">
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    height: "100%",
-                  }}>
-                  <div style={{ flex: "1", overflowY: "auto", padding: "8px" }}>
-                    <Box sx={style}>
-                      <div
-                        style={{
-                          flex: "none",
-                          textAlign: "right",
-                          paddingRight: "8px",
-                          paddingTop: "8px",
-                        }}>
-                        <Button onClick={handleClose}>Close</Button>
-                      </div>
-                      <Typography
-                        id="modal-modal-title"
-                        variant="h6"
-                        component="h2">
-                        Challan Details
-                      </Typography>
-                      <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        {challanData.map((challan) => (
-                          <div key={challan.challanNumber} className="mb-4">
-                            <p>
-                              <strong>Challan Number:</strong>{" "}
-                              {challan.challanNumber}
-                            </p>
-                            <p>
-                              <strong>Offense Details:</strong>{" "}
-                              {challan.offenseDetails}
-                            </p>
-                            <p>
-                              <strong>Challan Date:</strong>{" "}
-                              {challan.challanDate}
-                            </p>
-                            <p>
-                              <strong>Amount:</strong> {challan.amount}
-                            </p>
-                            <p>
-                              <strong>Status:</strong> {challan.challanStatus}
-                            </p>
-                            <a
-                              href={challan.payment_url}
-                              className="text-blue-500"
-                              target="_blank"
-                              rel="noopener noreferrer">
-                              Pay Now
-                            </a>
-                          </div>
-                        ))}
-                      </Typography>
-                    </Box>
-                  </div>
-                </div>
-              </Modal>
+                handleClose={handleClose}
+              />
             </div>
           </div>
         </div>

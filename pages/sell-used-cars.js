@@ -10,6 +10,7 @@ import Head from "next/head";
 import HomeQuestions from "@/components/Home/HomeQuestions";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import { sellTestimonialData } from "@/common/testimonialData";
+import { sellFaqData } from "@/common/faqData";
 
 const sellCars = () => {
   const [OpenModal, setOpenModal] = useState(false);
@@ -80,7 +81,7 @@ const sellCars = () => {
           <TestimonialCarousel testimonialData={sellTestimonialData} />
         </div>
 
-        <HomeQuestions />
+        <HomeQuestions faqData={sellFaqData} />
 
         {/* modal starts here  */}
         <div>
