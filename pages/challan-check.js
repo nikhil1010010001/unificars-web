@@ -15,7 +15,7 @@ const Challan = () => {
   const [carNumber, setCarNumber] = useState("");
   const [validNumber, setValidNumber] = useState(false);
   const [challanData, setChallanData] = useState([]);
-  const [open, setOpen] = useState(!false);
+  const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleOpen = () => setOpen(true);

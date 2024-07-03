@@ -285,8 +285,8 @@ const dealership = () => {
                 How It Works !
               </h2>
               <p className="text-lg my-4 md:max-w-xl">
-                Partner with us to increase your profits effortlessly by
-                reaching a wider audience and selling more cars.
+                Follow these steps to become our partner and start benefiting
+                from our wide range of cars.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">

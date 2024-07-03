@@ -6,7 +6,7 @@ import Image from "next/image";
 import { ArrowDown, CloseIcon, Hamburger } from "@/common/IconsSvg";
 import dynamic from "next/dynamic";
 
-// const TopBar = dynamic(() => import("./TopBar"));
+const TopBar = dynamic(() => import("./TopBar"));
 
 const Navbar = () => {
   const [slider, setSlider] = useState(false);
@@ -35,7 +35,7 @@ const Navbar = () => {
   return (
     <div className="container flex flex-col justify-center items-center mx-auto">
       <nav className=" max-w-[1920px] mx-auto w-full z-20 bg-white shadow-sm fixed top-0">
-        {/* <TopBar /> */}
+        <TopBar />
         <div className="flex justify-between items-center navmargin">
           <div>
             <Link href="/">
