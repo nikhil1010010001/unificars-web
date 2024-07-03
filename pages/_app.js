@@ -71,7 +71,9 @@ export default function App({ Component, pageProps }) {
           />
         </Head>
 
-        <main>
+        <main
+          className="max-w-[1920px] mx-auto"
+          suppressHydrationWarning={true}>
           <NextTopLoader
             color="#ffffff"
             initialPosition={0.2}
@@ -85,7 +87,7 @@ export default function App({ Component, pageProps }) {
           />
 
           <Navbar />
-          <div className="pt-[110px]" suppressHydrationWarning={true}>
+          <div className="pt-[110px] max-w-[1920px] mx-auto">
             <Component {...pageProps} />
 
             <WhatsappSupport />

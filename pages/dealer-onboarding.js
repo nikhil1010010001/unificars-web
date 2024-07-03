@@ -68,12 +68,13 @@ const dealership = () => {
   return (
     <div className="relative">
       <div className="relative pb-12">
-        <Image
-          width={1500}
-          height={500}
-          src="/Banner-Image.png"
-          className="md:block hidden top-0 mx-auto -mt-9 h-full w-screen object-cover absolute -z-10"
-        />
+        <div className="md:block hidden top-0 mx-auto -mt-8 h-full w-screen object-contain absolute -z-10 bg-[#0d223b]">
+          <Image
+            fill
+            src="/Banner-Image.png"
+            className="object-contain mix-blend-normal"
+          />
+        </div>
 
         <div
           className="setmaindiv3 bg-white p-4 md:p-7 rounded m-12 mb-0 mx-auto md:mr-12"
@@ -86,7 +87,7 @@ const dealership = () => {
           </h3>
 
           <form onSubmit={HandleFormSubmit} id="enquiry">
-            <div className="box form-grp w-full mt-5">
+            <div className="box form-grp w-full mt-2">
               <input
                 type="text"
                 placeholder="Full Name"
@@ -97,7 +98,7 @@ const dealership = () => {
                 required
               />
             </div>
-            <div className="box form-grp w-full mt-5">
+            <div className="box form-grp w-full mt-2">
               <input
                 type="email"
                 placeholder="Your Email"
@@ -109,14 +110,14 @@ const dealership = () => {
               />
             </div>
 
-            <div className="box form-grp w-full mt-5">
+            <div className="box form-grp w-full mt-2">
               <select
                 className="form-select"
                 name="state"
                 onChange={(e) => UserInputChange(e)}
                 id="state"
                 style={{
-                  padding: "14px 10px",
+                  padding: "8px",
                   border: "1px solid black",
                   borderRadius: "15px",
                   color: "rgb(34 34 34/79%)",
@@ -169,7 +170,7 @@ const dealership = () => {
               </select>
             </div>
 
-            <div className="box form-grp w-full mt-5">
+            <div className="box form-grp w-full mt-2">
               <input
                 type="number"
                 placeholder="Your Mobile"
@@ -490,7 +491,7 @@ const dealership = () => {
           font-weight: 200;
         }
         form .box input {
-          padding: 10px 10px 10px 10px;
+          padding: 8px;
           border: 1px solid #5b5b5b;
           outline: none;
           border-radius: 15px;
@@ -505,6 +506,7 @@ const dealership = () => {
         // form .box input:not(:placeholder-shown) {
         //     border-bottom: 3px solid #f38120;
         // }
+
         form button {
           width: 100%;
           align-self: flex-end;
