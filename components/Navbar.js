@@ -6,7 +6,7 @@ import Image from "next/image";
 import { ArrowDown, CloseIcon, Hamburger } from "@/common/IconsSvg";
 import dynamic from "next/dynamic";
 
-const TopBar = dynamic(() => import("./TopBar"), { ssr: false });
+const TopBar = dynamic(() => import("./TopBar"));
 
 const Navbar = () => {
   const [slider, setSlider] = useState(false);
