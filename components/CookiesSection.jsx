@@ -18,7 +18,7 @@ function CookiesSection() {
   }
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8 md:px-6 p-4 mb-4 bg-gray-100/50 500 rounded-xl backdrop-blur-lg border-2 z-[100] w-[95%] max-w-fit m-auto">
+    <div className="fixed bottom-2 left-0 right-0 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8 md:px-6 p-4 bg-gray-100/50 500 rounded-xl backdrop-blur-lg border-2 z-[100] w-[95%] max-w-fit m-auto">
       <span className="md:text-base w-fit text-sm">
         This website uses cookies to improve user experience. By using our
         website you consent to all cookies in accordance with our Cookie Policy.

@@ -58,6 +58,7 @@ const BuyCarSearchFilter = (props) => {
     });
 
     const jsonData = await resdata.json();
+
     if (jsonData.code == 200) {
       setLoading(false);
       setCarListing(jsonData.data.auction);
@@ -107,7 +108,7 @@ const BuyCarSearchFilter = (props) => {
   return (
     <>
       <div className="p-2">
-        <div className="flex justify-between">
+        <div className="flex justify-between gap-2">
           <h6>Filters</h6>
           <button
             className="text-sm cursor-pointer border-orange-500 border text-orange-500 hover:text-white hover:bg-orange-500 py-1 px-2 rounded-lg"
@@ -455,7 +456,7 @@ const BuyCarSearchFilter = (props) => {
               id="panel2a-header">
               <h6 className="text-sm font-semibold">KM Driven</h6>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails className="overflow-y-scroll max-h-52">
               <RadioGroup
                 aria-labelledby="demo-row-radio-buttons-group-label"
                 name="km"
@@ -468,68 +469,82 @@ const BuyCarSearchFilter = (props) => {
                     fontFamily: "sans-serif",
                   },
                 }}>
-                {/* below 10,000km
-10,000 - 20,000km
-20,000 - 40,000km
-40,000 - 70,000km
-70,000 - 1,20,000km
-1,20,000 - 1,40,000km
-above 1,40,000km */}
-
                 <FormControlLabel
-                  value="10000"
+                  value="below 10000"
                   control={
                     <Radio
                       size="small"
                       color="warning"
-                      checked={fields.km == "10000"}
+                      checked={fields.km == "below 10000"}
                     />
                   }
-                  label="below 10,000 km"
+                  label="below 10,000km"
                 />
                 <FormControlLabel
-                  value="20000"
+                  value="10000 - 20000"
                   control={
                     <Radio
                       size="small"
                       color="warning"
-                      checked={fields.km == "20000"}
+                      checked={fields.km == "10000 - 20000"}
                     />
                   }
-                  label="5000 and less"
+                  label="10,000 - 20,000km"
                 />
                 <FormControlLabel
-                  value="6000"
+                  value="20000 - 40000"
                   control={
                     <Radio
                       size="small"
                       color="warning"
-                      checked={fields.km == "6000"}
+                      checked={fields.km == "20000 - 40000"}
                     />
                   }
-                  label="6000 and less"
+                  label="20,000 - 40,000km"
                 />
                 <FormControlLabel
-                  value="7000"
+                  value="40000 - 70000"
                   control={
                     <Radio
                       size="small"
                       color="warning"
-                      checked={fields.km == "7000"}
+                      checked={fields.km == "40000 - 70000"}
                     />
                   }
-                  label="7000 and less"
+                  label="40,000 - 70,000km"
                 />
                 <FormControlLabel
-                  value="8000"
+                  value="70000 - 120000"
                   control={
                     <Radio
                       size="small"
                       color="warning"
-                      checked={fields.km == "8000"}
+                      checked={fields.km == "70000 - 120000"}
                     />
                   }
-                  label="8000 and less"
+                  label="70,000 - 1,20,000km"
+                />
+                <FormControlLabel
+                  value="120000 - 140000"
+                  control={
+                    <Radio
+                      size="small"
+                      color="warning"
+                      checked={fields.km == "120000 - 140000"}
+                    />
+                  }
+                  label="1,20,000 - 1,40,000km"
+                />
+                <FormControlLabel
+                  value="above 140000"
+                  control={
+                    <Radio
+                      size="small"
+                      color="warning"
+                      checked={fields.km == "above 140000"}
+                    />
+                  }
+                  label="above 1,40,000km"
                 />
               </RadioGroup>
             </AccordionDetails>

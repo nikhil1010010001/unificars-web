@@ -71,26 +71,28 @@ export default function App({ Component, pageProps }) {
           />
         </Head>
 
-        <NextTopLoader
-          color="#ffffff"
-          initialPosition={0.2}
-          crawlSpeed={200}
-          crawl={true}
-          showSpinner={false}
-          easing="ease"
-          speed={200}
-          shadow="0 0 10px #ffffff,0 0 5px #ffffff"
-          zIndex={1600}
-        />
+        <main>
+          <NextTopLoader
+            color="#ffffff"
+            initialPosition={0.2}
+            crawlSpeed={200}
+            crawl={true}
+            showSpinner={false}
+            easing="ease"
+            speed={200}
+            shadow="0 0 10px #ffffff,0 0 5px #ffffff"
+            zIndex={1600}
+          />
 
-        <Navbar />
-        <div className="pt-[110px]">
-          <Component {...pageProps} />
+          <Navbar />
+          <div className="pt-[110px]" suppressHydrationWarning={true}>
+            <Component {...pageProps} />
 
-          <WhatsappSupport />
-        </div>
+            <WhatsappSupport />
+          </div>
+          <Footer />
+        </main>
 
-        <Footer />
         {/* <AllCarParts /> */}
       </Provider>
     </>

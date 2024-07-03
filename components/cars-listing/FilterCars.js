@@ -21,7 +21,7 @@ const FilterCars = (props) => {
         {/* filter and sort by section */}
         <div className="flex gap-2">
           <div
-            className="lg:hidden flex cursor-pointer items-center group/filter hover:bg-[#f38102] hover:text-white hover:border-white transition-all duration-200 active:bg-orange-600 active:text-white gap-1 text-sm border-[1px] p-1 rounded border-[#f38102]/20 text-gray-600"
+            className="lg:hidden flex cursor-pointer items-center group/filter hover:bg-[#f38102] hover:text-white hover:border-white transition-all duration-200 active:bg-orange-600 active:text-white gap-1 text-sm border-[1px] p-1 rounded border-[#f38102]/20 text-gray-600 mt-4"
             onClick={() => {
               setFilterSection(!filterSection);
             }}>
@@ -55,8 +55,9 @@ const FilterCars = (props) => {
           <div className="pt-10 p-8 pb-4 border-b-2 text-xl relative">
             <h6>Filters</h6>
             <div
-              className="absolute right-2 text-2xl top-6 p-4"
+              className="absolute right-2 text-2xl top-6 p-4 flex items-center gap-2 cursor-pointer"
               onClick={() => setFilterSection(false)}>
+              <span className="border text-base px-2 rounded-md">Save</span>
               <CloseIcon />
             </div>
           </div>

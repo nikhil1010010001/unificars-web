@@ -114,11 +114,11 @@ const Footer = () => {
                       Challan Check
                     </Link>
                   </li>
-                  <li className="transition-all duration-150">
+                  {/* <li className="transition-all duration-150">
                     <Link href="/assured-cars" target="_blank">
                       Assured Fix
                     </Link>
-                  </li>
+                  </li> */}
                   <li className="transition-all duration-150">
                     <Link href="/dealer-onboarding" target="_blank">
                       Become our Partner

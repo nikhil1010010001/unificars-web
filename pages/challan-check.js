@@ -456,8 +456,6 @@ const Challan = () => {
           </div>
         </div>
 
-        <TestimonialCarousel />
-
         <HomeQuestions />
       </div>
     </div>

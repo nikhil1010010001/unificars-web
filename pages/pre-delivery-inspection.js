@@ -500,9 +500,9 @@ const pdi = ({ isOpen, onClose }) => {
             <span> CR+</span>
           </div>
           <p className="md:text-lg text-sm text-center md:text-left">
-            Inspections
+            Report
             <br />
-            Done
+            Generated
           </p>
         </div>
 

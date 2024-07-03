@@ -72,7 +72,7 @@ const dealership = () => {
           width={1500}
           height={500}
           src="/Banner-Image.png"
-          className="md:block hidden top-0 mx-auto -mt-14 h-full w-screen object-cover absolute -z-10"
+          className="md:block hidden top-0 mx-auto -mt-9 h-full w-screen object-cover absolute -z-10"
         />
 
         <div
@@ -289,7 +289,7 @@ const dealership = () => {
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-              <div className="text-center flex items-end flex-wrap justify-center">
+              <div className="text-center flex items-end flex-wrap justify-center py-6 gap-4">
                 <Image
                   width={150}
                   height={200}
@@ -306,7 +306,8 @@ const dealership = () => {
                   </p>
                 </div>
               </div>
-              <div className="text-center flex items-end flex-wrap justify-center cardhow py-6">
+
+              <div className="text-center flex items-end flex-wrap justify-center cardhow py-6 gap-4">
                 <Image
                   width={150}
                   height={200}
@@ -324,7 +325,7 @@ const dealership = () => {
                 </div>
               </div>
 
-              <div className="text-center flex items-end flex-wrap justify-center">
+              <div className="text-center flex items-end flex-wrap justify-center py-6 gap-4">
                 <Image
                   width={150}
                   height={200}
