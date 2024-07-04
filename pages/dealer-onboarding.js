@@ -67,158 +67,165 @@ const dealership = () => {
 
   return (
     <div className="relative">
-      <div className="relative pb-12">
-        <div className="md:block hidden top-0 mx-auto -mt-8 h-full w-screen object-contain absolute -z-10 bg-[#0d223b]">
-          <Image
-            fill
-            src="/Banner-Image.png"
-            className="object-contain mix-blend-normal"
-          />
+      <div className="relative pb-12 min-h-[600px]">
+        <div className="-mt-8">
+          <div className="bg-[#0E223B] w-full h-[70%] absolute -z-20" />
+          <div className="xl:container mx-auto md:block hidden -top-12">
+            <Image
+              width={1479 / 2}
+              height={1450 / 2}
+              src="/Banner-Image.png"
+              className="h-full w-fit absolute -z-10"
+            />
+          </div>
         </div>
 
-        <div
-          className="setmaindiv3 bg-white p-4 md:p-7 rounded m-12 mb-0 mx-auto md:mr-12"
-          style={{
-            boxShadow: "0px 0px 16px 0px rgba(0, 0, 0, 0.25)",
-            marginLeft: "auto",
-          }}>
-          <h3 className="font-bold text-2xl my-2 capitalize text-center">
-            BECOME OUR CHANNEL PARTNER
-          </h3>
+        <div className="py-8 container mx-auto">
+          <div
+            className="w-[90%] bg-white p-4 md:p-7 rounded-xl m-12 mb-0 mx-auto md:mr-12 max-w-xl"
+            style={{
+              boxShadow: "0px 0px 16px 0px rgba(0, 0, 0, 0.25)",
+              marginLeft: "auto",
+            }}>
+            <h3 className="font-bold text-2xl my-2 capitalize text-center">
+              BECOME OUR CHANNEL PARTNER
+            </h3>
 
-          <form onSubmit={HandleFormSubmit} id="enquiry">
-            <div className="box form-grp w-full mt-2">
-              <input
-                type="text"
-                placeholder="Full Name"
-                name="fname"
-                id="fname"
-                onChange={(e) => UserInputChange(e)}
-                value={UserDetails.fname}
-                required
-              />
-            </div>
-            <div className="box form-grp w-full mt-2">
-              <input
-                type="email"
-                placeholder="Your Email"
-                name="email"
-                id="email"
-                onChange={(e) => UserInputChange(e)}
-                value={UserDetails.email}
-                required
-              />
-            </div>
+            <form onSubmit={HandleFormSubmit} id="enquiry">
+              <div className="box form-grp w-full mt-2">
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                  name="fname"
+                  id="fname"
+                  onChange={(e) => UserInputChange(e)}
+                  value={UserDetails.fname}
+                  required
+                />
+              </div>
+              <div className="box form-grp w-full mt-2">
+                <input
+                  type="email"
+                  placeholder="Your Email"
+                  name="email"
+                  id="email"
+                  onChange={(e) => UserInputChange(e)}
+                  value={UserDetails.email}
+                  required
+                />
+              </div>
 
-            <div className="box form-grp w-full mt-2">
-              <select
-                className="form-select"
-                name="state"
-                onChange={(e) => UserInputChange(e)}
-                id="state"
-                style={{
-                  padding: "8px",
-                  border: "1px solid black",
-                  borderRadius: "15px",
-                  color: "rgb(34 34 34/79%)",
-                  fontWeight: "200",
-                  background: "white",
-                }}
-                required>
-                <option selected>Select Your State</option>
-                <option value="Andaman and Nicobar Islands">
-                  Andaman and Nicobar Islands
-                </option>
-                <option value="Andhra Pradesh">Andhra Pradesh</option>
-                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                <option value="Assam">Assam</option>
-                <option value="Bihar">Bihar</option>
-                <option value="Chandigarh">Chandigarh</option>
-                <option value="Chhattisgarh">Chhattisgarh</option>
-                <option value="Dadra and Nagar Haveli">
-                  Dadra and Nagar Haveli
-                </option>
-                <option value="Daman and Diu">Daman and Diu</option>
-                <option value="Delhi">Delhi</option>
-                <option value="Goa">Goa</option>
-                <option value="Gujarat">Gujarat</option>
-                <option value="Haryana">Haryana</option>
-                <option value="Himachal Pradesh">Himachal Pradesh</option>
-                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                <option value="Jharkhand">Jharkhand</option>
-                <option value="Karnataka">Karnataka</option>
-                <option value="Kerala">Kerala</option>
-                <option value="Ladakh">Ladakh</option>
-                <option value="Lakshadweep">Lakshadweep</option>
-                <option value="Madhya Pradesh">Madhya Pradesh</option>
-                <option value="Maharashtra">Maharashtra</option>
-                <option value="Manipur">Manipur</option>
-                <option value="Meghalaya">Meghalaya</option>
-                <option value="Mizoram">Mizoram</option>
-                <option value="Nagaland">Nagaland</option>
-                <option value="Odisha">Odisha</option>
-                <option value="Puducherry">Puducherry</option>
-                <option value="Punjab">Punjab</option>
-                <option value="Rajasthan">Rajasthan</option>
-                <option value="Sikkim">Sikkim</option>
-                <option value="Tamil Nadu">Tamil Nadu</option>
-                <option value="Telangana">Telangana</option>
-                <option value="Tripura">Tripura</option>
-                <option value="Uttar Pradesh">Uttar Pradesh</option>
-                <option value="Uttarakhand">Uttarakhand</option>
-                <option value="West Bengal">West Bengal</option>
-              </select>
-            </div>
+              <div className="box form-grp w-full mt-2">
+                <select
+                  className="form-select"
+                  name="state"
+                  onChange={(e) => UserInputChange(e)}
+                  id="state"
+                  style={{
+                    padding: "8px",
+                    border: "1px solid black",
+                    borderRadius: "15px",
+                    color: "rgb(34 34 34/79%)",
+                    fontWeight: "200",
+                    background: "white",
+                  }}
+                  required>
+                  <option selected>Select Your State</option>
+                  <option value="Andaman and Nicobar Islands">
+                    Andaman and Nicobar Islands
+                  </option>
+                  <option value="Andhra Pradesh">Andhra Pradesh</option>
+                  <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                  <option value="Assam">Assam</option>
+                  <option value="Bihar">Bihar</option>
+                  <option value="Chandigarh">Chandigarh</option>
+                  <option value="Chhattisgarh">Chhattisgarh</option>
+                  <option value="Dadra and Nagar Haveli">
+                    Dadra and Nagar Haveli
+                  </option>
+                  <option value="Daman and Diu">Daman and Diu</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Goa">Goa</option>
+                  <option value="Gujarat">Gujarat</option>
+                  <option value="Haryana">Haryana</option>
+                  <option value="Himachal Pradesh">Himachal Pradesh</option>
+                  <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                  <option value="Jharkhand">Jharkhand</option>
+                  <option value="Karnataka">Karnataka</option>
+                  <option value="Kerala">Kerala</option>
+                  <option value="Ladakh">Ladakh</option>
+                  <option value="Lakshadweep">Lakshadweep</option>
+                  <option value="Madhya Pradesh">Madhya Pradesh</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Manipur">Manipur</option>
+                  <option value="Meghalaya">Meghalaya</option>
+                  <option value="Mizoram">Mizoram</option>
+                  <option value="Nagaland">Nagaland</option>
+                  <option value="Odisha">Odisha</option>
+                  <option value="Puducherry">Puducherry</option>
+                  <option value="Punjab">Punjab</option>
+                  <option value="Rajasthan">Rajasthan</option>
+                  <option value="Sikkim">Sikkim</option>
+                  <option value="Tamil Nadu">Tamil Nadu</option>
+                  <option value="Telangana">Telangana</option>
+                  <option value="Tripura">Tripura</option>
+                  <option value="Uttar Pradesh">Uttar Pradesh</option>
+                  <option value="Uttarakhand">Uttarakhand</option>
+                  <option value="West Bengal">West Bengal</option>
+                </select>
+              </div>
 
-            <div className="box form-grp w-full mt-2">
-              <input
-                type="number"
-                placeholder="Your Mobile"
-                name="mobile"
-                id="mobile"
-                onChange={(e) => UserInputChange(e)}
-                value={UserDetails.mobile}
-                required
-              />
-            </div>
+              <div className="box form-grp w-full mt-2">
+                <input
+                  type="number"
+                  placeholder="Your Mobile"
+                  name="mobile"
+                  id="mobile"
+                  onChange={(e) => UserInputChange(e)}
+                  value={UserDetails.mobile}
+                  required
+                />
+              </div>
 
-            <div
-              className="box w-full form-grp mt-5"
-              style={{ display: isFormSubmitted ? "flex" : "none" }}>
-              <input
-                type="number"
-                placeholder="OTP"
-                name="otp"
-                id="otp"
-                onChange={(e) => UserInputChange(e)}
-                value={UserDetails.otp}
-                requiredb={isFormSubmitted}
-              />
+              <div
+                className="box w-full form-grp mt-5"
+                style={{ display: isFormSubmitted ? "flex" : "none" }}>
+                <input
+                  type="number"
+                  placeholder="OTP"
+                  name="otp"
+                  id="otp"
+                  onChange={(e) => UserInputChange(e)}
+                  value={UserDetails.otp}
+                  requiredb={isFormSubmitted}
+                />
 
-              <span id="otp_error" className=""></span>
-            </div>
-            <div className="form-grp">
-              {!isFormSubmitted && ( // Show the 'Send OTP' button if form is not submitted
-                <button
-                  type="submit"
-                  className="bg-sky-700 rounded-xl shadow2 p-2 border disabled:border-0 border-orange-500 text-white disabled:bg-sky-700 mt-4">
-                  Register Now
-                </button>
-              )}
-              {isFormSubmitted && ( // Show the 'Verify OTP' button if form is submitted
-                <button
-                  type="submit"
-                  className="bg-sky-700 rounded-xl shadow2 p-2 border disabled:border-0 border-orange-500 text-white disabled:bg-sky-700 mt-4"
-                  style={{ width: "100%" }}>
-                  Verify OTP
-                </button>
-              )}
-            </div>
-            <span className="prvtag">
-              We respect your privacy. Your information is confidential with us.
-            </span>
-            <div className="text-green-500">{msg}</div>
-          </form>
+                <span id="otp_error" className=""></span>
+              </div>
+              <div className="form-grp">
+                {!isFormSubmitted && ( // Show the 'Send OTP' button if form is not submitted
+                  <button
+                    type="submit"
+                    className="bg-orange-500 rounded-xl shadow2 p-2 border disabled:border-0 border-orange-500 text-white disabled:bg-orange-700 mt-4">
+                    Register Now
+                  </button>
+                )}
+                {isFormSubmitted && ( // Show the 'Verify OTP' button if form is submitted
+                  <button
+                    type="submit"
+                    className="bg-orange-700 rounded-xl shadow2 p-2 border disabled:border-0 border-orange-500 text-white disabled:bg-orange-700 mt-4"
+                    style={{ width: "100%" }}>
+                    Verify OTP
+                  </button>
+                )}
+              </div>
+              <span className="prvtag">
+                We respect your privacy. Your information is confidential with
+                us.
+              </span>
+              <div className="text-green-500">{msg}</div>
+            </form>
+          </div>
         </div>
       </div>
 

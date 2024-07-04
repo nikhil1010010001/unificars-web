@@ -19,8 +19,6 @@ const HomeQuestions = ({ faqData }) => {
 
   const panels = faqData || HomeFaqData;
 
-  console.log(panels);
-
   // JSON-LD structured data for FAQ
   const schemaData = {
     "@context": "https://schema.org",

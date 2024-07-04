@@ -287,11 +287,16 @@ const pdi = ({ isOpen, onClose }) => {
       <div className="relative">
         <div className="w-full h-full relative">
           <div className="absolute w-full h-full -z-10">
-            <img src="/pdi-new.png" className="w-full h-full object-cover" />
+            <Image
+              width={3840 / 3}
+              height={1488 / 3}
+              src="/pdi-new.png"
+              className="w-full h-full object-cover"
+            />
           </div>
 
-          <div className="flex items-center justify-end md:p-12 py-8 px-2 pb-0">
-            <div className="relative bg-white rounded-lg shadow-lg w-[500px] p-6 border">
+          <div className="flex items-center justify-end md:p-12 py-8 px-2 pb-0 container mx-auto">
+            <div className="relative bg-white rounded-lg shadow-lg w-[550px] p-6 border">
               {step === 1 && (
                 <div>
                   <div className="flex gap-4 justify-center items-center">
@@ -494,7 +499,7 @@ const pdi = ({ isOpen, onClose }) => {
             ref={ref}
             className="flex justify-center items-center md:text-4xl gap-1 text-orange-500">
             {inView && (
-              <CountUp start={1} end={10} duration={2} decimals={0}>
+              <CountUp start={0} end={1} duration={2} decimals={0}>
                 {({ countUpRef }) => <div ref={countUpRef} />}
               </CountUp>
             )}

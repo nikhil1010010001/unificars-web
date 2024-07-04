@@ -146,10 +146,10 @@ function index() {
                 <div className="w-full h-full bg-[#f7f6f6]/30" />
                 <div className="w-full h-full bg-[#fffde7]">
                   <Image
-                    width={700}
+                    width={1200}
                     height={350}
                     src="/homecar-new.png"
-                    className="object-contain w-[70%] absolute right-24"
+                    className="object-contain w-full scale-110 h-full absolute left-0 right-0"
                     alt="Car Image"
                   />
                 </div>
@@ -211,7 +211,7 @@ function index() {
 
         <CookiesSection />
 
-        <div className="relative max-w-6xl mx-auto px-4 my-6">
+        <div className="relative container mx-auto px-4 my-6">
           <div className="text-4xl min-w-[50] mx-auto mb-6 px-2 md:px-6 order-last lg:order-first text-center">
             <h3 className="font-bold">
               <span className="text-orange-500 sellheadfont">What</span>

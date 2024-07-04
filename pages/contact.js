@@ -78,7 +78,7 @@ const contact = () => {
         />
       </div>
 
-      <div className="max-w-[1000px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 p-4 my-12">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 p-4 my-12">
         <div className="p-8 md:pl-16 justify-self-center">
           {/* <Head>
                         <title>{title}</title>
