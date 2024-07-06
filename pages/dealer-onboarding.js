@@ -86,7 +86,8 @@ const dealership = () => {
             style={{
               boxShadow: "0px 0px 16px 0px rgba(0, 0, 0, 0.25)",
               marginLeft: "auto",
-            }}>
+            }}
+          >
             <h3 className="font-bold text-2xl my-2 capitalize text-center">
               BECOME OUR CHANNEL PARTNER
             </h3>
@@ -129,7 +130,8 @@ const dealership = () => {
                     fontWeight: "200",
                     background: "white",
                   }}
-                  required>
+                  required
+                >
                   <option selected>Select Your State</option>
                   <option value="Andaman and Nicobar Islands">
                     Andaman and Nicobar Islands
@@ -189,7 +191,8 @@ const dealership = () => {
 
               <div
                 className="box w-full form-grp mt-5"
-                style={{ display: isFormSubmitted ? "flex" : "none" }}>
+                style={{ display: isFormSubmitted ? "flex" : "none" }}
+              >
                 <input
                   type="number"
                   placeholder="OTP"
@@ -206,7 +209,8 @@ const dealership = () => {
                 {!isFormSubmitted && ( // Show the 'Send OTP' button if form is not submitted
                   <button
                     type="submit"
-                    className="bg-orange-500 rounded-xl shadow2 p-2 border disabled:border-0 border-orange-500 text-white disabled:bg-orange-700 mt-4">
+                    className="bg-orange-500 rounded-xl shadow2 p-2 border disabled:border-0 border-orange-500 text-white disabled:bg-orange-700 mt-4"
+                  >
                     Register Now
                   </button>
                 )}
@@ -214,7 +218,8 @@ const dealership = () => {
                   <button
                     type="submit"
                     className="bg-orange-700 rounded-xl shadow2 p-2 border disabled:border-0 border-orange-500 text-white disabled:bg-orange-700 mt-4"
-                    style={{ width: "100%" }}>
+                    style={{ width: "100%" }}
+                  >
                     Verify OTP
                   </button>
                 )}
@@ -355,7 +360,7 @@ const dealership = () => {
         </div>
       </div>
 
-      <div className="flex justify-evenly md:flex-wrap flex-nowrap container mx-auto gap-4 mt-10 mb-16 lg:mt-10 border-2 rounded-xl">
+      <div className="flex justify-evenly flex-wrap-reverse md:flex-nowrap container mx-auto gap-4 mt-10 mb-16 lg:mt-10 border-2 rounded-xl">
         <div className=" mx-4 mt-2 font-bold place-self-center">
           <h2 className="py-2 text-4xl font-black text-black text-center md:text-start">
             How to join us
