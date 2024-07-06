@@ -1,7 +1,6 @@
+import { CheckIcon, CloseIcon } from "@/common/IconsSvg";
 import Image from "next/image";
 import React, { useState } from "react";
-import { AiOutlineClose } from "react-icons/ai";
-import { FaCheck } from "react-icons/fa";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 
@@ -23,7 +22,7 @@ function Car210PointsModal({ showModal, setShowModal, carDetails }) {
         <div
           className="absolute cursor-pointer top-4 right-4"
           onClick={() => HandleCloseModal()}>
-          <AiOutlineClose className="text-xl" />
+          <CloseIcon className="text-xl" />
         </div>
 
         <p className="text-xl font-bold">Car Details</p>
@@ -82,7 +81,7 @@ function Car210PointsModal({ showModal, setShowModal, carDetails }) {
             : carDetails[selectedCarIndex].car_details.map((detail, index) => (
                 <div className="w-full p-4 py-2 space-y-4" key={index}>
                   <div className="flex items-center justify-start gap-4">
-                    <FaCheck className="text-green-500 w-10" />
+                    <CheckIcon className="text-green-500 w-10" />
                     <p className="font-bold w-full">{detail.name}</p>
 
                     <p className="p-2 bg-gray-200 rounded-lg w-full">

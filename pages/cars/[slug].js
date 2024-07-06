@@ -127,6 +127,7 @@ const carPage = () => {
                 height={100}
                 src="/logo.png"
                 className="w-full h-20 animate-bounce  mx-auto"
+                alt="logo"
               />
               <BarLoader color="#f38120" width={100} className="mx-auto" />
             </div>

@@ -364,7 +364,11 @@ const carImages = () => {
       {Loading ? (
         <div className="flex col-span-4 justify-center h-96 items-center w-11/12 my-8 m-auto rounded-xl">
           <div className="">
-            <img src="../logo.png" className="h-20 animate-bounce  mx-auto" />
+            <img
+              src="../logo.png"
+              className="h-20 animate-bounce  mx-auto"
+              alt="logo"
+            />
             <BarLoader color="#f38120" width={100} className="mx-auto" />
           </div>
         </div>

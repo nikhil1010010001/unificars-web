@@ -27,19 +27,22 @@ const Footer = () => {
             <Link
               href={"/"}
               className="flex title-font font-medium items-center"
-              target="_blank">
+              target="_blank"
+              rel="noreferrer">
               <Image
                 src={"/whitelogo.png"}
+                alt="logo"
                 width={200}
                 height={100}
                 // className="border"
               />
             </Link>
             <p className="text-left  text-sm max-w-[300px]">
-              Unifi Cars is the trusted partner for buy and sell preowned car.
-              You can choose over from the 1000+ inspected used car models. We
-              make your car finding journey easy and convenient. Enjoy
-              peacefulness on every purchase with us.
+              Unifi Cars is a trusted partner for buying or selling pre-owned
+              cars. You can choose from 1000+ inspected used car models. We make
+              your car-finding journey easy and convenient. Enjoy peace of mind
+              on every purchase with us. As a complementary offer, you will get
+              the first car service free and an engine warranty for 2000 km.
             </p>
 
             {/* <div className="cursor-pointer flex rounded font-bold  p-2 my-4 text-xl">
@@ -52,24 +55,28 @@ const Footer = () => {
             <div className="flex gap-2 my-6">
               <a
                 target="_blank"
+                rel="noreferrer"
                 className=" cursor-pointer hover:text-blue-500 transition-all duration-150"
                 href="https://www.facebook.com/UnifiCars/">
                 <FacebookIcon className="text-2xl" />
               </a>
               <a
                 target="_blank"
+                rel="noreferrer"
                 className="ml-3 cursor-pointer hover:text-red-500 transition-all duration-150"
                 href="https://www.instagram.com/unificars/">
                 <InstagramIcon className="text-2xl" />
               </a>
               <a
                 target="_blank"
+                rel="noreferrer"
                 className="ml-3 cursor-pointer hover:text-blue-500 transition-all duration-150"
                 href="https://www.linkedin.com/company/unificars">
                 <LinkedInIcon className="text-2xl" />
               </a>
               <a
                 target="_blank"
+                rel="noreferrer"
                 className="ml-3 cursor-pointer hover:text-blue-500 transition-all duration-150"
                 href="https://twitter.com/UnifiCars/">
                 <TwitterIcon className="text-2xl" />
@@ -88,29 +95,41 @@ const Footer = () => {
                 </h4>
                 <ul className="flex gap-2 flex-col">
                   <li className="transition-all duration-150">
-                    <Link href="/buy-used-cars" target="_blank">
+                    <Link
+                      href="/buy-used-cars"
+                      target="_blank"
+                      rel="noreferrer">
                       Buy Car
                     </Link>
                   </li>
                   <li className="transition-all duration-150">
-                    <Link href="/sell-used-cars" target="_blank">
+                    <Link
+                      href="/sell-used-cars"
+                      target="_blank"
+                      rel="noreferrer">
                       Sell Car
                     </Link>
                   </li>
                   <li className="transition-all duration-150">
-                    <Link href={"/pre-delivery-inspection"} target="_blank">
+                    <Link
+                      href={"/pre-delivery-inspection"}
+                      target="_blank"
+                      rel="noreferrer">
                       Car Health Report
                     </Link>
                   </li>
 
                   <li className="transition-all duration-150">
-                    <Link href={"/scrap-cars"} target="_blank">
+                    <Link href={"/scrap-cars"} target="_blank" rel="noreferrer">
                       Scrap Car
                     </Link>
                   </li>
 
                   <li className="transition-all duration-150">
-                    <Link href="/challan-check" target="_blank">
+                    <Link
+                      href="/challan-check"
+                      target="_blank"
+                      rel="noreferrer">
                       Challan Check
                     </Link>
                   </li>
@@ -120,7 +139,10 @@ const Footer = () => {
                     </Link>
                   </li> */}
                   <li className="transition-all duration-150">
-                    <Link href="/dealer-onboarding" target="_blank">
+                    <Link
+                      href="/dealer-onboarding"
+                      target="_blank"
+                      rel="noreferrer">
                       Become our Partner
                     </Link>
                   </li>
@@ -132,37 +154,43 @@ const Footer = () => {
                 </h4>
                 <ul className="flex gap-2 flex-col ">
                   <li className="transition-all duration-150 ">
-                    <Link href="/" target="_blank">
+                    <Link href="/" target="_blank" rel="noreferrer">
                       Home
                     </Link>
                   </li>
                   <li className="transition-all duration-150 ">
-                    <Link href="/about" target="_blank">
+                    <Link href="/about" target="_blank" rel="noreferrer">
                       About Us
                     </Link>
                   </li>
                   <li className="transition-all duration-150 ">
-                    <Link href="/contact" target="_blank">
+                    <Link href="/contact" target="_blank" rel="noreferrer">
                       Contact Us
                     </Link>
                   </li>
                   <li className="transition-all duration-150">
-                    <Link href="/blogs" target="_blank">
+                    <Link href="/blogs" target="_blank" rel="noreferrer">
                       Blogs
                     </Link>
                   </li>
                   <li className="transition-all duration-150 ">
-                    <Link href="/term-conditions" target="_blank">
+                    <Link
+                      href="/term-conditions"
+                      target="_blank"
+                      rel="noreferrer">
                       Terms & Conditions
                     </Link>
                   </li>
                   <li className="transition-all duration-150">
-                    <Link href="/privacy-policy" target="_blank">
+                    <Link
+                      href="/privacy-policy"
+                      target="_blank"
+                      rel="noreferrer">
                       Privacy Policy
                     </Link>
                   </li>
                   <li className="transition-all duration-150">
-                    <Link href="/sitemap.xml" target="_blank">
+                    <Link href="/sitemap.xml" target="_blank" rel="noreferrer">
                       Sitemap
                     </Link>
                   </li>

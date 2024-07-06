@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { TiTick } from "react-icons/ti";
 
 import "react-multi-carousel/lib/styles.css";
 import { useRouter } from "next/router";
@@ -7,6 +6,7 @@ import TestimonialCarousel from "@/components/TestimonialCarousel";
 import Image from "next/image";
 import Link from "next/link";
 import { dealerTestimonialData } from "@/common/testimonialData";
+import { CheckIcon } from "@/common/IconsSvg";
 
 const dealership = () => {
   const router = useRouter();
@@ -366,7 +366,7 @@ const dealership = () => {
           <ul className="my-12 flex flex-col gap-6 ">
             <li className="flex font-bold text-lg">
               <div className="flex-none pt-1 mr-2">
-                <TiTick className="bg-[#FFB648] text-xl rounded-full text-[#ffffff]" />
+                <CheckIcon className="bg-[#FFB648] text-xl rounded-full text-[#ffffff]" />
               </div>
               <span>
                 Register yourself and our Executive will contact you within 24
@@ -376,21 +376,21 @@ const dealership = () => {
 
             <li className="flex font-bold text-lg">
               <div className="flex-none pt-1 mr-2">
-                <TiTick className="bg-[#FFB648] text-xl rounded-full text-[#ffffff]" />
+                <CheckIcon className="bg-[#FFB648] text-xl rounded-full text-[#ffffff]" />
               </div>
               <span>Download the app via playstore or app store</span>
             </li>
 
             <li className="flex font-bold text-lg">
               <div className="flex-none pt-1 mr-2">
-                <TiTick className="bg-[#FFB648] text-xl rounded-full text-[#ffffff]" />
+                <CheckIcon className="bg-[#FFB648] text-xl rounded-full text-[#ffffff]" />
               </div>
               <span>Verifying your profile</span>
             </li>
 
             <li className="flex font-bold text-lg">
               <div className="flex-none pt-1 mr-2">
-                <TiTick className="bg-[#FFB648] text-xl rounded-full text-[#ffffff]" />
+                <CheckIcon className="bg-[#FFB648] text-xl rounded-full text-[#ffffff]" />
               </div>
               <span>Start bidding on the cars</span>
             </li>

@@ -3,13 +3,25 @@ import { BiCalendar, BiUser, BiSolidColorFill } from "react-icons/bi";
 import { BsFillFuelPumpFill, BsCarFront, BsKey } from "react-icons/bs";
 import { IoMdSpeedometer } from "react-icons/io";
 import { GrDocumentVerified } from "react-icons/gr";
-import { FaHashtag, FaCogs } from "react-icons/fa";
+import { FaCogs } from "react-icons/fa";
 import { PiStarThin } from "react-icons/pi";
 import { IoLogoModelS } from "react-icons/io";
+import {
+  CalenderIcon,
+  CarFront,
+  FileCheck,
+  FuelIcon,
+  GearIcon,
+  KeyIcon,
+  MeterIcon,
+  PaintIcon,
+  StarIcon,
+  UserIcon,
+} from "@/common/IconsSvg";
 
 const CarDetailTable = (props) => {
   const { CarDetails } = props;
-  console.log("form Car details Table", CarDetails);
+  // console.log("form Car details Table", CarDetails);
 
   return (
     <div>
@@ -24,7 +36,7 @@ const CarDetailTable = (props) => {
                 </div> */}
         <div className="flex">
           <div>
-            <BiCalendar className="flex-none mr-2 my-1" />
+            <CalenderIcon className="flex-none mr-2 my-1 p-1" />
           </div>
           <div className="flex flex-col gap-1">
             <div className="text-sm font-black text-gray-600">
@@ -38,7 +50,7 @@ const CarDetailTable = (props) => {
         </div>
         <div className="flex">
           <div>
-            <BiUser className="flex-none mr-2 my-1" />
+            <UserIcon className="flex-none mr-2 my-1 p-1" />
           </div>
           <div className="flex flex-col gap-1">
             <div className="text-sm font-black text-gray-600">Ownership</div>
@@ -49,7 +61,7 @@ const CarDetailTable = (props) => {
         </div>
         <div className="flex">
           <div>
-            <IoMdSpeedometer className="flex-none mr-2 my-1" />
+            <MeterIcon className="flex-none mr-2 my-1 p-1" />
           </div>
           <div className="flex flex-col gap-1">
             <div className="text-sm font-black text-gray-600">Km Driven</div>
@@ -60,7 +72,7 @@ const CarDetailTable = (props) => {
         </div>
         <div className="flex">
           <div>
-            <BsFillFuelPumpFill className="flex-none mr-2 my-1" />
+            <FuelIcon className="flex-none mr-2 my-1 p-1" />
           </div>
           <div className="flex flex-col gap-1">
             <div className="text-sm font-black text-gray-600">Fuel Type</div>
@@ -71,7 +83,7 @@ const CarDetailTable = (props) => {
         </div>
         <div className="flex">
           <div>
-            <BsCarFront className="flex-none mr-2 my-1" />
+            <CarFront className="flex-none mr-2 my-1 p-1" />
           </div>
           <div className="flex flex-col gap-1">
             <div className="text-sm font-black text-gray-600">
@@ -85,7 +97,7 @@ const CarDetailTable = (props) => {
         </div>
         <div className="flex">
           <div>
-            <BiSolidColorFill className="flex-none mr-2 my-1" />
+            <PaintIcon className="flex-none mr-2 my-1 p-1" />
           </div>
           <div className="flex flex-col gap-1">
             <div className="text-sm font-black text-gray-600">Colour</div>
@@ -95,7 +107,7 @@ const CarDetailTable = (props) => {
 
         <div className="flex">
           <div>
-            <GrDocumentVerified className="flex-none mr-2 my-1" />
+            <FileCheck className="flex-none mr-2 my-1 p-1" />
           </div>
           <div className="flex flex-col gap-1">
             <div className="text-sm font-black text-gray-600">Insurance</div>
@@ -105,7 +117,7 @@ const CarDetailTable = (props) => {
 
         <div className="flex">
           <div>
-            <FaCogs className="flex-none mr-2 my-1" />
+            <GearIcon className="flex-none mr-2 my-1 p-1" />
           </div>
           <div className="flex flex-col gap-1">
             <div className="text-sm font-black text-gray-600">Transmission</div>
@@ -117,7 +129,7 @@ const CarDetailTable = (props) => {
 
         <div className="flex">
           <div>
-            <BsKey className="flex-none mr-2 my-1" />
+            <KeyIcon className="flex-none mr-2 my-1 p-1" />
           </div>
           <div className="flex flex-col gap-1">
             <div className="text-sm font-black text-gray-600">Spare Key</div>
@@ -127,7 +139,7 @@ const CarDetailTable = (props) => {
 
         <div className="flex">
           <div>
-            <IoLogoModelS className="flex-none mr-2 my-1" />
+            <CarFront className="flex-none mr-2 my-1 p-1" />
           </div>
           <div className="flex flex-col gap-1">
             <div className="text-sm font-black text-gray-600">Car Model</div>
@@ -137,7 +149,7 @@ const CarDetailTable = (props) => {
 
         <div className="flex">
           <div>
-            <PiStarThin className="flex-none mr-2 my-1" />
+            <StarIcon className="flex-none mr-2 my-1 p-1" />
           </div>
           <div className="flex flex-col gap-1">
             <div className="text-sm font-black text-gray-600">

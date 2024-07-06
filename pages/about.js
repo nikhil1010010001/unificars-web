@@ -1,6 +1,4 @@
 import React from "react";
-import { TiTick } from "react-icons/ti";
-import { FaCar } from "react-icons/fa";
 import { IoDocumentTextSharp } from "react-icons/io5";
 import { BsFillBuildingsFill } from "react-icons/bs";
 
@@ -8,6 +6,7 @@ import Head from "next/head";
 import "react-multi-carousel/lib/styles.css";
 import Image from "next/image";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
+import { CarFront } from "@/common/IconsSvg";
 
 const about = () => {
   const title = "About Us | Experience Delightful Car Ownership | Unificars";
@@ -29,7 +28,7 @@ const about = () => {
             alt="about us"
             width={3840 / 2}
             height={1404 / 2}
-            className="w-full object-cover"
+            className="w-full h-[26rem] object-cover"
           />
         </div>
       </div>
@@ -60,7 +59,7 @@ const about = () => {
             <ul className="my-4 flex flex-col gap-6 ">
               <li className="flex font-sm border-b-2 pb-4 text-lg font-sans">
                 <div className="flex-none pt-1 mr-4">
-                  <FaCar className="bg-[#ffffff] text-4xl " />
+                  <CarFront className="bg-[#ffffff] text-4xl " />
                 </div>
                 Looking for a second hand car or want to sell one? Unifi Cars is
                 the destination.

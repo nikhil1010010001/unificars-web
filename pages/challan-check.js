@@ -6,12 +6,16 @@ import { FaRupeeSign } from "react-icons/fa";
 
 import dynamic from "next/dynamic";
 import ChallanModal from "@/components/ChallanComponent/ChallanModal";
+import { useRouter } from "next/router";
+import axios from "axios";
 
 const HomeQuestions = dynamic(() => import("@/components/Home/HomeQuestions"), {
   ssr: false,
 });
 
 const Challan = () => {
+  const router = useRouter();
+
   const [carNumber, setCarNumber] = useState("");
   const [validNumber, setValidNumber] = useState(false);
   const [challanData, setChallanData] = useState([]);
@@ -32,33 +36,31 @@ const Challan = () => {
     }
   };
 
+  const getCarDetails = async (carNum) => {
+    try {
+      const res = await axios.post(
+        `https://crm.unificars.com/api/checkvehiclnumber`,
+        { vehicle_number: carNum }
+      );
+      // console.log("res", res.data);
+      return res.data.data;
+    } catch (error) {
+      console.log("error", error);
+      return null;
+    }
+  };
+
   const submitCarNumber = async () => {
     try {
       setLoading(true);
       if (carNumber.length === 13 || carNumber.length === 12) {
         let number = carNumber.split(" ").join("");
-        const response = await fetch(
-          "https://api.emptra.com/vehicleRegistrations",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              secretKey:
-                "rt50rd1OViWQyA6pv40WbWJJmHCwIvGUBEAM6OLmaqTyhE61RiJ8whOOQDHdslXVT",
-              clientId:
-                "932bee8472f77a75f9a328430973d1ab:87937c1398e424117fe02fcf3f070290",
-            },
-            body: JSON.stringify({
-              vehicleNumber: number,
-              blacklistCheck: true,
-            }),
-          }
-        );
 
-        const data = await response.json();
-        if (data.code === 100) {
-          let challanInfo = await fetch(
-            "https://api.invincibleocean.com/invincible/vehicleChallanData",
+        let data = await getCarDetails(number);
+
+        if (data === null) {
+          const response = await fetch(
+            "https://api.emptra.com/vehicleRegistrations",
             {
               method: "POST",
               headers: {
@@ -70,21 +72,25 @@ const Challan = () => {
               },
               body: JSON.stringify({
                 vehicleNumber: number,
-                chassisNumber: data.result.chassis.slice(-5),
-                advanceSearch: true,
+                blacklistCheck: true,
               }),
             }
           );
 
-          challanInfo = await challanInfo.json();
-          if (challanInfo.code === 200) {
-            setChallanData(challanInfo.result);
-            setValidNumber(false);
-            handleOpen();
-          } else {
-            setValidNumber(true);
-            console.error("Response from Vehicle Challan API is not valid");
-          }
+          data = await response.json();
+        }
+
+        console.log("car number", number);
+        console.log("chassis number", data.result.chassis.slice(-5));
+
+        if (data.code === 100) {
+          router.push({
+            pathname: "/challan-detail",
+            query: {
+              carNumber: number,
+              chassisNumber: data.result.chassis.slice(-5),
+            },
+          });
         } else {
           setValidNumber(true);
           console.error("Response from Vehicle Info API is not valid");

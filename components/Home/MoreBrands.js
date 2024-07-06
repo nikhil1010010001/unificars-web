@@ -84,7 +84,11 @@ const MoreBrands = ({
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center w-full h-full">
-          <img src="../logo.png" className="h-20 animate-bounce mx-auto" />
+          <img
+            src="../logo.png"
+            className="h-20 animate-bounce mx-auto"
+            alt="logo"
+          />
           <BarLoader color="#f38120" width={100} className="mx-auto" />
         </div>
       )}

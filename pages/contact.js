@@ -1,11 +1,14 @@
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import { LuPhoneCall } from "react-icons/lu";
-import { MdOutlineMailOutline } from "react-icons/md";
-import { HiOutlineLocationMarker } from "react-icons/hi";
-import { FaWhatsapp, FaFacebook } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa6";
+import React, { useState } from "react";
 import Link from "next/link";
+import {
+  FacebookIcon,
+  InstagramIcon,
+  LocationIcon,
+  Mail,
+  PhoneCall,
+  WhatsAppIcon,
+} from "@/common/IconsSvg";
 
 const contact = () => {
   const [UserDetails, setUserDetails] = useState({
@@ -73,8 +76,8 @@ const contact = () => {
           src="/contact-bg.png"
           alt="about us"
           width={1000}
-          height={800}
-          className="w-full object-cover"
+          height={600}
+          className="w-full object-cover h-full"
         />
       </div>
 
@@ -96,7 +99,7 @@ const contact = () => {
 
           <div className="flex flex-col gap-8 mt-12">
             <div className="flex items-center gap-4">
-              <LuPhoneCall className="text-2xl" />
+              <PhoneCall className="text-2xl" />
               <div>
                 <p className="font-bold">Phone Call</p>
                 <p>+91 9911771977</p>
@@ -104,7 +107,7 @@ const contact = () => {
             </div>
 
             <div className="flex items-center gap-4">
-              <MdOutlineMailOutline className="text-2xl" />
+              <Mail className="text-2xl" />
               <div>
                 <p className="font-bold">Email drop Us</p>
                 <Link href="mailto:info@unificars.com">info@unificars.com</Link>
@@ -112,7 +115,7 @@ const contact = () => {
             </div>
 
             <div className="flex items-center gap-4">
-              <HiOutlineLocationMarker className="text-2xl" />
+              <LocationIcon className="text-2xl" />
               <div>
                 <p className="font-bold">Location</p>
                 <p>
@@ -127,20 +130,23 @@ const contact = () => {
               <div className="flex items-center gap-4 ml-4">
                 <Link
                   href="https://api.whatsapp.com/send?phone=919911771977&text=Hi"
-                  target="_blank">
-                  <FaWhatsapp className="text-green-500 text-3xl" />
+                  target="_blank"
+                  rel="noreferrer">
+                  <WhatsAppIcon className="text-green-500 text-3xl" />
                 </Link>
 
                 <Link
                   href="https://www.instagram.com/unificars/"
-                  target="_blank">
-                  <FaInstagram className="text-red-500 text-3xl" />
+                  target="_blank"
+                  rel="noreferrer">
+                  <InstagramIcon className="text-red-500 text-3xl" />
                 </Link>
 
                 <Link
                   href="https://www.facebook.com/UnifiCars/"
-                  target="_blank">
-                  <FaFacebook className="text-blue-500 text-3xl" />
+                  target="_blank"
+                  rel="noreferrer">
+                  <FacebookIcon className="text-blue-500 text-3xl" />
                 </Link>
               </div>
             </div>

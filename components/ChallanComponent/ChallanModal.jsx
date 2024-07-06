@@ -71,7 +71,7 @@ const ChallanModal = ({ challanData, open, handleClose }) => {
                     href={challan.payment_url}
                     className="text-blue-500"
                     target="_blank"
-                    rel="noopener noreferrer">
+                    rel="noreferrer">
                     Pay Now
                   </a>
                 </div>

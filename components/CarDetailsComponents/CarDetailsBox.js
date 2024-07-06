@@ -1,18 +1,15 @@
 import React from "react";
-import { AiOutlineArrowRight } from "react-icons/ai";
-import { BsCardChecklist, BsCashCoin, BsWhatsapp } from "react-icons/bs";
-import { TiTick } from "react-icons/ti";
-import {
-  FaWhatsapp,
-  FaFacebook,
-  FaCar,
-  FaUser,
-  FaGasPump,
-  FaRoad,
-  FaCogs,
-} from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa6";
 import Link from "next/link";
+import {
+  CarFront,
+  FacebookIcon,
+  FuelIcon,
+  GearIcon,
+  InstagramIcon,
+  MeterIcon,
+  UserIcon,
+  WhatsAppIcon,
+} from "@/common/IconsSvg";
 
 const CarDetailsBox = (props) => {
   const { car, showModal, setShowModal, setShowEnquiryModal, id } = props;
@@ -38,27 +35,27 @@ const CarDetailsBox = (props) => {
       {/* <hr className="mt-2" /> */}
       <div className="flex flex-wrap justify-start gap-2 my-4 text-black/80 text-sm">
         <div className="rounded-xl p-2 bg-gray-200/60 flex items-center gap-2 py-1">
-          <FaRoad />
+          <MeterIcon className="p-1" />
           {parseInt(car.lead[0]["Km Driven"]).toLocaleString("en-IN")} KM
         </div>
 
         <div className="rounded-xl p-2 bg-gray-200/60 flex items-center gap-2 py-1">
-          <FaUser />
+          <UserIcon className="p-1" />
           {car.lead[0]["Ownership"].split(" ")[0]} Owner
         </div>
 
         <div className="rounded-xl p-2 bg-gray-200/60 flex items-center gap-2 py-1">
-          <FaCogs />
+          <GearIcon className="p-1" />
           {car.lead[0]["transmission"]}
         </div>
 
         <div className="rounded-xl p-2 bg-gray-200/60 flex items-center gap-2 py-1">
-          <FaGasPump />
+          <FuelIcon className="p-1" />
           {car.lead[0]["Fuel Type"]}
         </div>
 
         <div className="rounded-xl p-2 bg-gray-200/60 flex items-center gap-2 py-1">
-          <FaCar />
+          <CarFront className="p-1" />
           {car.lead[0]["Registration In"]}
         </div>
       </div>
@@ -136,16 +133,23 @@ const CarDetailsBox = (props) => {
         <div className="flex items-center gap-4">
           <Link
             href="https://api.whatsapp.com/send?phone=919911771977&text=Hi"
-            target="_blank">
-            <FaWhatsapp className="text-green-500 text-2xl" />
+            target="_blank"
+            rel="noreferrer">
+            <WhatsAppIcon className="text-green-500 text-2xl" />
           </Link>
 
-          <Link href="https://www.instagram.com/unificars/" target="_blank">
-            <FaInstagram className="text-red-500 text-2xl" />
+          <Link
+            href="https://www.instagram.com/unificars/"
+            target="_blank"
+            rel="noreferrer">
+            <InstagramIcon className="text-red-500 text-2xl" />
           </Link>
 
-          <Link href="https://www.facebook.com/UnifiCars/" target="_blank">
-            <FaFacebook className="text-blue-500 text-2xl" />
+          <Link
+            href="https://www.facebook.com/UnifiCars/"
+            target="_blank"
+            rel="noreferrer">
+            <FacebookIcon className="text-blue-500 text-2xl" />
           </Link>
         </div>
       </div>

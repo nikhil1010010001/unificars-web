@@ -4,8 +4,6 @@ import "react-multi-carousel/lib/styles.css";
 import Image from "next/image";
 import Link from "next/link";
 import BarLoader from "react-spinners/BarLoader";
-import { TiTick } from "react-icons/ti";
-import Head from "next/head";
 import Rating from "@mui/material/Rating";
 
 const FeaturedCars = ({
@@ -258,7 +256,11 @@ const FeaturedCars = ({
           )
         ) : (
           <div className="flex-col col-span-8 h-72 py-40 justify-center items-center">
-            <img src="../logo.png" className="h-20 animate-bounce mx-auto" />
+            <img
+              src="../logo.png"
+              className="h-20 animate-bounce mx-auto"
+              alt="logo"
+            />
             <BarLoader color="#f38120" width={100} className="mx-auto" />
           </div>
         )}

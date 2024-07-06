@@ -19,6 +19,7 @@ import {
 import Image from "next/image";
 import { inspectionTestimonialData } from "@/common/testimonialData";
 import { PdiFaqData } from "@/common/faqData";
+import { Loader } from "@/common/IconsSvg";
 
 const pdi = ({ isOpen, onClose }) => {
   // const [isModalOpen, setIsModalOpen] = useState(false);
@@ -229,14 +230,40 @@ const pdi = ({ isOpen, onClose }) => {
     region: "in", // Default region for responses.
   });
 
+  const [isLocation, setIsLocation] = useState(false);
+  const [locationError, setLocationError] = useState(null);
+
   const setLocation = async () => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      fromLatLng(position.coords.latitude, position.coords.longitude)
-        .then(({ results }) => {
-          setFormData({ ...formData, address: results[0].formatted_address });
-        })
-        .catch((error) => console.error(error));
-    });
+    try {
+      setIsLocation(true);
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          fromLatLng(position.coords.latitude, position.coords.longitude)
+            .then(({ results }) => {
+              setFormData({
+                ...formData,
+                address: results[0].formatted_address,
+              });
+              setLocationError(null);
+              setIsLocation(false);
+            })
+            .catch((error) => {
+              console.error(error);
+              setLocationError("Failed to retrieve address from location");
+              setIsLocation(false);
+            });
+        },
+        (error) => {
+          console.error(error);
+          setLocationError("Please allow location access");
+          setIsLocation(false);
+        }
+      );
+    } catch (error) {
+      console.error(error);
+      setLocationError("Failed to retrieve location");
+      setIsLocation(false);
+    }
   };
 
   // Simulated OTP API calls for demonstration purposes
@@ -328,10 +355,17 @@ const pdi = ({ isOpen, onClose }) => {
                     onChange={handleChange}
                   />
                   <button
-                    className="w-full mb-2 p-2 border border-gray-300 rounded bg-yellow-300"
+                    className="w-full mb-2 p-2 border border-gray-300 rounded bg-yellow-300 flex items-center justify-center gap-4"
                     onClick={setLocation}>
-                    Select your location
+                    {isLocation && <Loader className="animate-spin" />}
+                    <span>Select your location</span>
                   </button>
+                  {locationError && (
+                    <div className="text-red-500 text-sm text-center">
+                      {locationError}
+                    </div>
+                  )}
+
                   <input
                     className="w-full mb-2 p-2 border border-gray-300 rounded"
                     placeholder="Enter Phone Number"

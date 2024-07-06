@@ -1,20 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Link from "next/link";
 import Image from "next/image";
 import Rating from "@mui/material/Rating";
 import {
-  FaCar,
-  FaMapMarkerAlt,
-  FaCalendarAlt,
-  FaUser,
-  FaGasPump,
-  FaClipboardCheck,
-  FaCogs,
-  FaRoad,
-} from "react-icons/fa";
-import { BsInfoCircleFill } from "react-icons/bs";
+  CarFront,
+  FuelIcon,
+  InfoIcon,
+  MeterIcon,
+  UserIcon,
+} from "@/common/IconsSvg";
 
 const CarPageRelatedCars = (props) => {
   const { relatedCars, assured } = props;
@@ -38,6 +34,8 @@ const CarPageRelatedCars = (props) => {
     },
   };
 
+  const [hoveredItem, setHoveredItem] = useState(null);
+
   return (
     <div className="border bg-white rounded-xl shadow p-4 mb-6">
       <h3 className="text-base md:text-2xl text-black/80 uppercase mb-4">
@@ -51,6 +49,7 @@ const CarPageRelatedCars = (props) => {
               key={index}>
               <Link
                 target="_blank"
+                rel="noreferrer"
                 href={{
                   pathname: `/cars/${car.lead.brand
                     .replace(/ /g, "_")
@@ -87,6 +86,7 @@ const CarPageRelatedCars = (props) => {
 
                 <Link
                   target="_blank"
+                  rel="noreferrer"
                   href={{
                     pathname: `/cars/${car.lead.brand
                       .replace(/ /g, "_")
@@ -115,12 +115,12 @@ const CarPageRelatedCars = (props) => {
 
                 <div className="flex flex-wrap gap-2 text-xs mt-2">
                   <div className="flex items-center space-x-2 p-2 py-1 rounded-md bg-gray-100">
-                    <FaGasPump />
+                    <FuelIcon className="p-1" />
                     <span>{car.lead.engine_type}</span>
                   </div>
 
                   <div className="flex items-center space-x-2 p-2 py-1 rounded-md bg-gray-100">
-                    <FaRoad />
+                    <MeterIcon className="p-1" />
                     <span>
                       {parseInt(
                         car.lead.km_driven.split(" ")[0]
@@ -129,12 +129,12 @@ const CarPageRelatedCars = (props) => {
                   </div>
 
                   <div className="flex items-center space-x-2 p-2 py-1 rounded-md bg-gray-100">
-                    <FaCar />
+                    <CarFront className="p-1" />
                     <span>{car.lead.registration_in}</span>
                   </div>
 
                   <div className="flex items-center space-x-2 p-2 py-1 rounded-md bg-gray-100">
-                    <FaUser />
+                    <UserIcon className="p-1" />
                     <span>{car.lead.ownership.split(" ")[0]} Owner</span>
                   </div>
                 </div>
@@ -145,7 +145,26 @@ const CarPageRelatedCars = (props) => {
                     {parseInt(car.lead.selling_amount).toLocaleString("en-IN")}
                   </p>
 
-                  <BsInfoCircleFill className="text-blue-500 text-xl" />
+                  <div
+                    onMouseEnter={() => setHoveredItem(index)}
+                    onMouseLeave={() => setHoveredItem(null)}>
+                    <InfoIcon className="fill-blue-500 text-white text-xl relative" />
+
+                    {hoveredItem === index && (
+                      <div className="bg-white p-4 shadow-lg rounded-2xl absolute bottom-10 z-10 w-full left-0">
+                        <ul className="list-disc ps-6">
+                          <li>Free ownership transfer</li>
+                          <li>Free accessories</li>
+                          <li>Comprehensive insurance</li>
+                          <li>Certificate pollution certificate</li>
+                          <li>
+                            Complete warranty upto 2,000 km on upto 30 days
+                            whenever comes first.
+                          </li>
+                        </ul>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>

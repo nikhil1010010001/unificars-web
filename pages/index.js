@@ -146,10 +146,10 @@ function index() {
                 <div className="w-full h-full bg-[#f7f6f6]/30" />
                 <div className="w-full h-full bg-[#fffde7]">
                   <Image
-                    width={1200}
-                    height={350}
+                    width={2850 / 3}
+                    height={2094 / 3}
                     src="/homecar-new.png"
-                    className="object-contain w-full scale-110 h-full absolute left-0 right-0"
+                    className="object-contain mx-auto scale-110 w-fit h-full absolute left-0 right-0"
                     alt="Car Image"
                   />
                 </div>
@@ -162,8 +162,8 @@ function index() {
                 className="relative flex items-center justify-center pt-8"
                 style={{ backgroundColor: "#fffde7", height: "400px" }}>
                 <Image
-                  width={300}
-                  height={150}
+                  width={2850 / 4}
+                  height={2094 / 4}
                   src="/homecar-new.png"
                   className="absolute transform -translate-y-1/2 object-contain mt-12 h-64 w-full"
                   alt="Car Image"

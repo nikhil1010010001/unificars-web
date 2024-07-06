@@ -71,9 +71,7 @@ export default function App({ Component, pageProps }) {
           />
         </Head>
 
-        <main
-          className="max-w-[1920px] mx-auto"
-          suppressHydrationWarning={true}>
+        <main className="max-w-[1920px] mx-auto">
           <NextTopLoader
             color="#3b82f6"
             initialPosition={0.2}
