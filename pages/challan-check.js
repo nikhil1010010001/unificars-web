@@ -5,7 +5,6 @@ import { FaRegHand, FaBuildingColumns } from "react-icons/fa6";
 import { FaRupeeSign } from "react-icons/fa";
 
 import dynamic from "next/dynamic";
-import ChallanModal from "@/components/ChallanComponent/ChallanModal";
 import { useRouter } from "next/router";
 import axios from "axios";
 
@@ -18,12 +17,7 @@ const Challan = () => {
 
   const [carNumber, setCarNumber] = useState("");
   const [validNumber, setValidNumber] = useState(false);
-  const [challanData, setChallanData] = useState([]);
-  const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
-
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
 
   const handleInputChange = (e) => {
     let input = e.target.value.replace(/[^a-zA-Z0-9]/g, ""); // Remove non-alphanumeric characters
@@ -80,9 +74,6 @@ const Challan = () => {
           data = await response.json();
         }
 
-        console.log("car number", number);
-        console.log("chassis number", data.result.chassis.slice(-5));
-
         if (data.code === 100) {
           router.push({
             pathname: "/challan-detail",
@@ -105,7 +96,7 @@ const Challan = () => {
   };
 
   return (
-    <div className="">
+    <div>
       <Head>
         <title>
           About Us | Experience Delightful Car Ownership | Unificars
@@ -357,12 +348,6 @@ const Challan = () => {
                   )}
                 </div>
               </div>
-
-              <ChallanModal
-                challanData={challanData}
-                open={open}
-                handleClose={handleClose}
-              />
             </div>
           </div>
         </div>

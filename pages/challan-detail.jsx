@@ -1,6 +1,7 @@
 import { CheckIcon, ShieldCHeckIcon } from "@/common/IconsSvg";
 import PaidChallan from "@/components/ChallanComponent/PaidChallan";
 import PendingChallan from "@/components/ChallanComponent/PendingChallan";
+import PhoneNumberVerification from "@/components/ChallanComponent/PhoneVerification";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
@@ -9,113 +10,68 @@ const ChallanDetail = () => {
   const { carNumber, chassisNumber } = router.query;
 
   const [currentTab, setCurrentTab] = useState("pending");
-  const [challanData, setChallanData] = useState({
-    code: 200,
-    message: "Data Found Successfully.",
-    result: [
-      {
-        number: 1,
-        challanNumber: "UP84025230312172003",
-        offenseDetails:
-          "Violation of traffic rules by the driver except the offences mentioned in Section in 184 a, b, d, e, f and without any indication changing the alignment",
-        challanPlace: "",
-        payment_url: "https://echallan.parivahan.gov.in/index/accused-challan",
-        image_url: "",
-        challanDate: "2023-03-12 17:20:03",
-        state: "UP",
-        rto: "",
-        accusedName: "SARTHAK SHARAN",
-        accused_father_name: "",
-        amount: 500,
-        challanStatus: "Pending",
-        court_status: "",
-      },
-      {
-        number: 2,
-        challanNumber: "DL17626220414130500",
-        offenseDetails: "Violation of Mandatory Signs(One Way,No Right Turn)",
-        challanPlace: "",
-        payment_url: "https://echallan.parivahan.gov.in/index/accused-challan",
-        image_url: "",
-        challanDate: "2022-04-14 13:05:00",
-        state: "DL",
-        rto: "",
-        accusedName: "SARTHAK SHARAN",
-        accused_father_name: "",
-        amount: 500,
-        challanStatus: "Disposed",
-        court_status: "",
-      },
-      {
-        number: 3,
-        challanNumber: "DL31236210612171919",
-        offenseDetails: "Not using Seat-belt",
-        challanPlace: "",
-        payment_url: "https://echallan.parivahan.gov.in/index/accused-challan",
-        image_url: "",
-        challanDate: "2021-06-12 17:19:19",
-        state: "DL",
-        rto: "",
-        accusedName: "SARTHAK SHARAN",
-        accused_father_name: "",
-        amount: 500,
-        challanStatus: "Disposed",
-        court_status: "",
-      },
-      {
-        number: 4,
-        challanNumber: "UP42315211223033187",
-        offenseDetails:
-          "Violation of traffic rules by the driver except the offences mentioned in section 184 a,b,d,e,f and without any indication changing the alignment",
-        challanPlace: "",
-        payment_url: "https://echallan.parivahan.gov.in/index/accused-challan",
-        image_url: "",
-        challanDate: "2021-06-09 22:16:11",
-        state: "UP",
-        rto: "",
-        accusedName: "SARTHAK SHARAN",
-        accused_father_name: "",
-        amount: 500,
-        challanStatus: "Pending",
-        court_status: "",
-      },
-    ],
-  });
+  const [challanData, setChallanData] = useState({});
+  const [isVerified, setIsVerified] = useState(true); // Change to false initially
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [isLoading, setIsLoading] = useState(true); // Loading state
 
   const getChallanData = async (carNumber, chassisNumber) => {
-    let challanInfo = await fetch(
-      "https://api.invincibleocean.com/invincible/vehicleChallanData",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          secretKey:
-            "rt50rd1OViWQyA6pv40WbWJJmHCwIvGUBEAM6OLmaqTyhE61RiJ8whOOQDHdslXVT",
-          clientId:
-            "932bee8472f77a75f9a328430973d1ab:87937c1398e424117fe02fcf3f070290",
-        },
-        body: JSON.stringify({
-          vehicleNumber: carNumber,
-          chassisNumber: chassisNumber,
-          advanceSearch: true,
-        }),
+    setIsLoading(true);
+
+    try {
+      let res = await fetch(
+        "https://api.invincibleocean.com/invincible/vehicleChallanData",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            secretKey:
+              "rt50rd1OViWQyA6pv40WbWJJmHCwIvGUBEAM6OLmaqTyhE61RiJ8whOOQDHdslXVT",
+            clientId:
+              "932bee8472f77a75f9a328430973d1ab:87937c1398e424117fe02fcf3f070290",
+          },
+          body: JSON.stringify({
+            vehicleNumber: carNumber,
+            chassisNumber: chassisNumber,
+            advanceSearch: true,
+          }),
+        }
+      );
+
+      let challanInfo = await res.json();
+      console.log("Challan API response:", challanInfo);
+
+      if (challanInfo.code === 200) {
+        setChallanData(challanInfo);
+      } else {
+        console.error(
+          "Response from Vehicle Challan API is not valid:",
+          challanInfo.message
+        );
+        // Handle error state or show appropriate message to the user
       }
-    );
-
-    challanInfo = await challanInfo.json();
-
-    console.log("challanInfo", challanInfo);
-
-    if (challanInfo.code === 200) {
-      setChallanData(challanInfo.result);
-    } else {
-      console.error("Response from Vehicle Challan API is not valid");
+    } catch (error) {
+      console.error("Error fetching challan data:", error);
+      // Handle network or other errors
     }
+
+    setIsLoading(false);
   };
 
-  //   useEffect(() => {
-  //     getChallanData(carNumber, chassisNumber);
-  //   }, [carNumber, chassisNumber]);
+  useEffect(() => {
+    if (isVerified) {
+      getChallanData(carNumber, chassisNumber);
+    }
+  }, [carNumber, chassisNumber, isVerified]);
+
+  const handleVerification = (verifiedPhoneNumber) => {
+    setPhoneNumber(verifiedPhoneNumber);
+    setIsVerified(true);
+  };
+
+  if (!isVerified) {
+    return <PhoneNumberVerification onVerify={handleVerification} />;
+  }
 
   return (
     <div className="mt-4 max-w-6xl px-2 mx-auto min-h-screen flex gap-4">
@@ -165,19 +121,26 @@ const ChallanDetail = () => {
       </div>
 
       <div className="h-full flex-1 p-4">
-        {currentTab === "pending" && (
-          <PendingChallan
-            carNumber={carNumber}
-            chassisNumber={chassisNumber}
-            challanData={challanData}
-          />
-        )}
-        {currentTab === "paid" && (
-          <PaidChallan
-            carNumber={carNumber}
-            chassisNumber={chassisNumber}
-            challanData={challanData}
-          />
+        {isLoading ? (
+          <p className="text-center mt-8">Loading...</p>
+        ) : (
+          <>
+            {currentTab === "pending" && (
+              <PendingChallan
+                carNumber={carNumber}
+                chassisNumber={chassisNumber}
+                challanData={challanData}
+                phoneNumber={phoneNumber}
+              />
+            )}
+            {currentTab === "paid" && (
+              <PaidChallan
+                carNumber={carNumber}
+                chassisNumber={chassisNumber}
+                challanData={challanData}
+              />
+            )}
+          </>
         )}
       </div>
     </div>
