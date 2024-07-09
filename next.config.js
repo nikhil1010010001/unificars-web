@@ -12,6 +12,13 @@ const nextConfig = {
       "d3b8ag7jj1mzle.cloudfront.net",
     ],
   },
+  webpackDevMiddleware: (config) => {
+    config.watchOptions = {
+      poll: 1000,
+      aggregateTimeout: 300,
+    };
+    return config;
+  },
 };
 
 module.exports = withBundleAnalyzer(nextConfig);

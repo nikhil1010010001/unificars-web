@@ -376,10 +376,9 @@ const contact = () => {
           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14004.106011720996!2d77.1457614!3d28.6589251!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03dcf6e36613%3A0x771518fcd5684a90!2sUnifi%20Cars!5e0!3m2!1sen!2sin!4v1719059550101!5m2!1sen!2sin"
           height="450"
           style={{ border: 0 }}
-          allowfullscreen=""
           loading="lazy"
           className="w-full"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
+          referrerPolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   );

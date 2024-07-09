@@ -477,7 +477,7 @@ const VehicleInfo = () => {
                   alt="4x Faster"
                   width={80} // Adjust the width and height as per your image's actual size or required dimensions
                   height={20} // Adjust the width and height as per your image's actual size or required dimensions
-                  className="ml-2 flex-shrink-0"
+                  className="ml-2 flex-shrink-0 w-auto h-auto"
                 />
               </div>
               <div className="font-bold text-[#465166] w-full mb-2 relative">

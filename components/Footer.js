@@ -235,7 +235,6 @@ const Footer = () => {
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d520.4317849897567!2d77.14558207733664!3d28.658707230234807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03dcf6e36613%3A0x771518fcd5684a90!2sUnifi%20Cars!5e0!3m2!1sen!2sin!4v1719559987027!5m2!1sen!2sin"
                 className="w-full rounded-xl"
-                allowfullscreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"></iframe>
             </div>

@@ -480,8 +480,8 @@ const VehicleInfo = () => {
               <Image
                 src="/4xfaster.png"
                 alt="4x Faster"
-                width={70}
-                height={20}
+                width={80}
+                height={10}
                 className="flex-shrink-0"
               />
             </div>

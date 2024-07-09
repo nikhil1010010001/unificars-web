@@ -7,8 +7,8 @@ export const CloseIcon = ({ className }) => (
     fill="none"
     stroke="currentColor"
     strokeWidth="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={`lucide lucide-x ${className}`}>
     <path d="M18 6 6 18" />
     <path d="m6 6 12 12" />
@@ -24,8 +24,8 @@ export const Hamburger = ({ className }) => (
     fill="none"
     stroke="currentColor"
     strokeWidth="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={`lucide lucide-menu ${className}`}>
     <line x1="4" x2="20" y1="12" y2="12" />
 
@@ -43,8 +43,8 @@ export const PhoneCall = ({ className }) => (
     fill="none"
     stroke="currentColor"
     strokeWidth="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={`lucide lucide-phone-call ${className}`}>
     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
     <path d="M14.05 2a9 9 0 0 1 8 7.94" />
@@ -61,8 +61,8 @@ export const Mail = ({ className }) => (
     fill="none"
     stroke="currentColor"
     strokeWidth="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={`lucide lucide-mail ${className}`}>
     <rect width="20" height="16" x="2" y="4" rx="2" />
     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
@@ -91,8 +91,8 @@ export const FacebookIcon = ({ className }) => (
     fill="none"
     stroke="currentColor"
     strokeWidth="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={`lucide lucide-facebook ${className}`}>
     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
   </svg>
@@ -107,8 +107,8 @@ export const InstagramIcon = ({ className }) => (
     fill="none"
     stroke="currentColor"
     strokeWidth="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={`lucide lucide-instagram ${className}`}>
     <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
@@ -125,8 +125,8 @@ export const LinkedInIcon = ({ className }) => (
     fill="none"
     stroke="currentColor"
     strokeWidth="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={`lucide lucide-linkedin ${className}`}>
     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
     <rect width="4" height="12" x="2" y="9" />
@@ -143,8 +143,8 @@ export const TwitterIcon = ({ className }) => (
     fill="none"
     stroke="currentColor"
     strokeWidth="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={`lucide lucide-twitter ${className}`}>
     <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
   </svg>
@@ -159,8 +159,8 @@ export const ArrowUp = ({ className }) => (
     fill="none"
     stroke="currentColor"
     strokeWidth="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={`lucide lucide-chevrons-up ${className}`}>
     <path d="m17 11-5-5-5 5" />
     <path d="m17 18-5-5-5 5" />
@@ -176,8 +176,8 @@ export const StarIcon = ({ className }) => (
     fill="none"
     stroke="currentColor"
     strokeWidth="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={`lucide lucide-star ${className}`}>
     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
   </svg>
@@ -192,8 +192,8 @@ export const InfoIcon = (props) => (
     fill="none"
     stroke="currentColor"
     strokeWidth="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     {...props}>
     <circle cx="12" cy="12" r="10" />
     <path d="M12 16v-4" />
@@ -210,8 +210,8 @@ export const CarFront = ({ className }) => (
     fill="none"
     stroke="currentColor"
     strokeWidth="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={`lucide lucide-car-front ${className}`}>
     <path d="m21 8-2 2-1.5-3.7A2 2 0 0 0 15.646 5H8.4a2 2 0 0 0-1.903 1.257L5 10 3 8" />
     <path d="M7 14h.01" />
@@ -231,8 +231,8 @@ export const UserIcon = ({ className }) => (
     fill="none"
     stroke="currentColor"
     strokeWidth="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={`lucide lucide-user-round ${className}`}>
     <circle cx="12" cy="8" r="5" />
     <path d="M20 21a8 8 0 0 0-16 0" />
@@ -248,8 +248,8 @@ export const FuelIcon = ({ className }) => (
     fill="none"
     stroke="currentColor"
     strokeWidth="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={`lucide lucide-fule ${className}`}>
     <line x1="3" x2="15" y1="22" y2="22" />
     <line x1="4" x2="14" y1="9" y2="9" />
@@ -267,8 +267,8 @@ export const MeterIcon = ({ className }) => (
     fill="none"
     stroke="currentColor"
     strokeWidth="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={`lucide lucide-gauge ${className}`}>
     <path d="m12 14 4-4" />
     <path d="M3.34 19a10 10 0 1 1 17.32 0" />
@@ -284,8 +284,8 @@ export const ArrowDown = ({ className }) => (
     fill="none"
     stroke="currentColor"
     strokeWidth="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={`lucide lucide-chevrons-down ${className}`}>
     <path d="m6 9 6 6 6-6" />
   </svg>
@@ -300,8 +300,8 @@ export const ListIcon = ({ className }) => (
     fill="none"
     stroke="currentColor"
     strokeWidth="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={`lucide lucide-list-todo ${className}`}>
     <rect width="7" height="7" x="3" y="3" rx="1" />
     <rect width="7" height="7" x="3" y="14" rx="1" />
@@ -321,8 +321,8 @@ export const LocationIcon = ({ className }) => (
     fill="none"
     stroke="currentColor"
     strokeWidth="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={`lucide lucide-location ${className}`}>
     <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
     <circle cx="12" cy="10" r="3" />
@@ -338,8 +338,8 @@ export const ShieldCHeckIcon = ({ className }) => (
     fill="none"
     stroke="currentColor"
     stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={`lucide lucide-shield-check ${className}`}>
     <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
     <path d="m9 12 2 2 4-4" />
@@ -355,8 +355,8 @@ export const CheckIcon = ({ className }) => (
     fill="none"
     stroke="currentColor"
     stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={`lucide lucide-circle-check ${className}`}>
     <circle cx="12" cy="12" r="10" />
     <path d="m9 12 2 2 4-4" />
@@ -372,8 +372,8 @@ export const Loader = ({ className }) => (
     fill="none"
     stroke="currentColor"
     stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={`lucide lucide-loader-3 ${className}`}>
     <path d="M21 12a9 9 0 1 1-6.219-8.56" />
   </svg>
@@ -388,8 +388,8 @@ export const CalenderIcon = ({ className }) => (
     fill="none"
     stroke="currentColor"
     stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={`lucide lucide-calendar ${className}`}>
     <path d="M8 2v4" />
     <path d="M16 2v4" />
@@ -413,8 +413,8 @@ export const PaintIcon = ({ className }) => (
     fill="none"
     stroke="currentColor"
     stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={`lucide lucide-paint ${className}`}>
     <path d="m19 11-8-8-8.6 8.6a2 2 0 0 0 0 2.8l5.2 5.2c.8.8 2 .8 2.8 0L19 11Z" />
     <path d="m5 2 5 5" />
@@ -432,8 +432,8 @@ export const FileCheck = ({ className }) => (
     fill="none"
     stroke="currentColor"
     stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={`lucide lucide-file-check ${className}`}>
     <path d="M4 22h14a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4" />
     <path d="M14 2v4a2 2 0 0 0 2 2h4" />
@@ -450,8 +450,8 @@ export const GearIcon = ({ className }) => (
     fill="none"
     stroke="currentColor"
     stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={`lucide lucide-gear ${className}`}>
     <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z" />
     <path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
@@ -479,8 +479,8 @@ export const KeyIcon = ({ className }) => (
     fill="none"
     stroke="currentColor"
     stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={`lucide lucide-key ${className}`}>
     <path d="M2 18v3c0 .6.4 1 1 1h4v-3h3v-3h2l1.4-1.4a6.5 6.5 0 1 0-4-4Z" />
     <circle cx="16.5" cy="7.5" r=".5" fill="currentColor" />
