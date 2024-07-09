@@ -129,7 +129,7 @@ const contact = () => {
               <p className="font-bold text-xl">Follow Us</p>
               <div className="flex items-center gap-4 ml-4">
                 <Link
-                  href="https://api.whatsapp.com/send?phone=919911771977&text=Hi"
+                  href="https://api.whatsapp.com/send?phone=919911771977&text=Hi, I want to chat , so that we will know this lead is from website."
                   target="_blank"
                   rel="noreferrer">
                   <WhatsAppIcon className="text-green-500 text-3xl" />

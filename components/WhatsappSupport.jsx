@@ -6,7 +6,7 @@ function WhatsappSupport() {
   return (
     <div className="fixed bottom-0 right-0 m-12 z-50 drop-shadow-xl">
       <Link
-        href="https://api.whatsapp.com/send?phone=919911771977&text=Hi"
+        href="https://api.whatsapp.com/send?phone=919911771977&text=Hi, I want to chat , so that we will know this lead is from website."
         target="_blank"
         rel="noreferrer">
         <div className="bg-white rounded-full w-12 h-12 flex items-center justify-center">
