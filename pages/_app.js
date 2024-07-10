@@ -14,6 +14,10 @@ const WhatsappSupport = dynamic(() => import("@/components/WhatsappSupport"), {
 });
 
 export default function App({ Component, pageProps }) {
+  console.warn = () => {};
+  console.error = () => {};
+  console.clear();
+
   return (
     <>
       <Provider store={store}>
