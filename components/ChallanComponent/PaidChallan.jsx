@@ -1,7 +1,7 @@
 import React from "react";
 
 const PaidChallan = () => {
-  return <div>PaidChallan</div>;
+  return <div>Coming Soon...</div>;
 };
 
 export default PaidChallan;

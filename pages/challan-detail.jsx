@@ -11,7 +11,7 @@ const ChallanDetail = () => {
 
   const [currentTab, setCurrentTab] = useState("pending");
   const [challanData, setChallanData] = useState({});
-  const [isVerified, setIsVerified] = useState(true); // Change to false initially
+  const [isVerified, setIsVerified] = useState(false); // Change to false initially
   const [phoneNumber, setPhoneNumber] = useState("");
   const [isLoading, setIsLoading] = useState(true); // Loading state
 
@@ -74,8 +74,8 @@ const ChallanDetail = () => {
   }
 
   return (
-    <div className="mt-4 max-w-6xl px-2 mx-auto min-h-screen flex gap-4">
-      <div className="min-h-screen w-[18rem] bg-blue-50 p-4 flex flex-col gap-4 items-start">
+    <div className="mt-4 max-w-6xl px-2 mx-auto min-h-screen flex flex-wrap gap-4">
+      <div className="md:min-h-screen w-full md:w-[18rem] bg-blue-50 p-4 flex flex-col gap-4 items-start">
         <h1 className="text-2xl font-bold">My Challan</h1>
         <div className="font-semibold space-y-4">
           <button
@@ -95,7 +95,7 @@ const ChallanDetail = () => {
         </div>
 
         {/* info card */}
-        <div className="flex flex-col gap-2 bg-blue-500 p-4 rounded-lg text-white text-sm">
+        <div className="hidden md:flex flex-col gap-2 bg-blue-500 p-4 rounded-lg text-white text-sm">
           <div className="flex items-center gap-2">
             <ShieldCHeckIcon className="w-5 h-5" />
             <span className="font-semibold text-base">
